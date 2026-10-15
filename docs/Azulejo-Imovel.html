@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Azulejo — Moradia T5 Nadadouro</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+<style>
+body{margin:0;background:#F7F3EA}
+:root{--wash:#F7F3EA;--wash2:#EEE6D4;--paper:#FFFDF7;--cob:#1E3A8A;--cob2:#142A66;--cob3:#0D1C47;--terra:#B5552F;--terraInk:#9C4322;--gold:#D6B083;--ink:#18181B;--mute:#4A4A56;--line:rgba(20,42,102,.16)}
+*{box-sizing:border-box}
+.root{background:var(--wash);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip}
+.root img{display:block;max-width:100%}
+.root a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.serif{font-family:'Gloock',Georgia,serif;font-weight:400}
+.sc{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin:0}
+.smc{font-variant-caps:all-small-caps;letter-spacing:.1em;font-size:17px;color:var(--mute);margin:0}
+.folio{display:inline-flex;align-items:center;gap:12px;font:400 15px 'Gloock',serif;color:var(--terraInk)}
+.folio::before{content:"";width:32px;height:1px;background:currentColor}
+.h2{font-size:clamp(40px,5vw,72px);line-height:1;margin:12px 0 0;color:var(--cob2);letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.az{background-color:#FBFAF6;background-image:radial-gradient(circle at 50% 50%,#1E3A8A 0 2.5px,transparent 3px),radial-gradient(circle at 50% 50%,transparent 0 7px,#1E3A8A 7.5px 9px,transparent 9.5px),radial-gradient(circle at 0 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 0 100%,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 100%,#1E3A8A 0 12px,transparent 12.5px),conic-gradient(from 45deg at 50% 50%,#DCE3F3 0 25%,#FBFAF6 0 50%,#DCE3F3 0 75%,#FBFAF6 0);background-size:40px 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 26px;border:1.5px solid var(--cob);background:var(--cob);color:#F7F3EA !important;font:600 14px/1 'Work Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .3s,color .3s,transform .3s,border-color .3s}
+.btn:hover{background:var(--cob2);transform:translateY(-2px)}
+.btn svg{transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--cob) !important}
+.btn.ghost:hover{background:var(--cob);color:#F7F3EA !important}
+.btn.terra{background:var(--terraInk);border-color:var(--terraInk)}
+.btn.terra:hover{background:#7E3418;border-color:#7E3418}
+.chip{min-height:44px;padding:0 16px;border:1.5px solid var(--cob);border-radius:999px;background:transparent;color:var(--cob);font:500 15px 'Work Sans',sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.chip:hover{background:rgba(30,58,138,.09)}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--cob2)}
+.inp{min-height:52px;width:100%;padding:12px 14px;border:0;border-bottom:1.5px solid var(--cob);border-radius:0;background:rgba(255,255,255,.7);font:16px 'Work Sans',sans-serif;color:var(--ink)}
+.inp:focus{background:#fff;border-bottom-color:var(--terra)}
+input[type=range]{width:100%;height:44px;accent-color:#D6B083;cursor:pointer}
+.mast{position:relative;z-index:20;background:var(--wash)}
+.strip{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 40px;max-width:1320px;margin:0 auto;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cob2);border-bottom:1px solid var(--line)}
+.strip a{text-decoration:none;margin-left:20px}
+.strip a:hover{color:var(--terraInk)}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 40px;max-width:1320px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cob2) !important}
+.logo-tile{width:42px;height:42px;background-size:21px 21px;border:2px solid var(--cob);box-shadow:3px 3px 0 var(--gold)}
+.logo b{font:400 34px/1 'Gloock',serif;letter-spacing:-.01em}
+.links{display:flex;gap:2px}
+.links a{position:relative;padding:12px 12px;text-decoration:none;font-size:15px;font-weight:500;color:var(--ink)}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+.links a.on{color:var(--cob)}
+.tools{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1.5px solid var(--cob);border-radius:999px;overflow:hidden}
+.lang button{min-width:48px;min-height:44px;border:0;background:transparent;font:600 13px 'Work Sans',sans-serif;letter-spacing:.08em;color:var(--cob);cursor:pointer;transition:background .3s,color .3s}
+.ibtn{position:relative;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--cob);background:transparent;color:var(--cob);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.ibtn:hover{background:var(--cob);color:#F7F3EA}
+.cnt{position:absolute;top:-5px;right:-5px;min-width:22px;height:22px;border-radius:11px;background:var(--terraInk);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.burger{display:none}
+.favpop{position:absolute;right:40px;top:calc(100% - 6px);width:340px;max-width:calc(100% - 32px);background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(20,42,102,.35);padding:22px;z-index:30;animation:fadeUp .35s both;display:flex;flex-direction:column;gap:12px}
+.favrow{display:flex;gap:12px;align-items:center;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+.favrow img{width:56px;height:56px;object-fit:cover}
+.mnav{display:flex;flex-direction:column;padding:8px 24px 24px;border-top:1px solid var(--line);animation:fadeUp .35s both}
+.mnav a{padding:14px 0;font:400 28px 'Gloock',serif;text-decoration:none;color:var(--cob2);border-bottom:1px solid var(--line)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.rise{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.12s}.d2{animation-delay:.24s}.d3{animation-delay:.36s}.d4{animation-delay:.48s}
+.badge{position:absolute;display:block;border-radius:50%;z-index:6;transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 30px rgba(20,42,102,.3))}
+.badge:hover{transform:scale(1.07) rotate(-6deg)}
+.badge .ring{width:100%;height:100%;display:block;animation:spin 28s linear infinite}
+.badge:hover .ring{animation-duration:9s}
+.badge .core{position:absolute;inset:27%;border-radius:50%;background:var(--wash);display:flex;align-items:center;justify-content:center;border:2px solid var(--gold)}
+.drop::first-letter{float:left;font:400 74px/.82 'Gloock',serif;color:#F7F3EA;background:var(--cob);padding:14px 14px 10px;margin:6px 14px 0 0;box-shadow:4px 4px 0 var(--gold)}
+/* title spread */
+.crumbs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-top:26px;font-size:14px;color:var(--mute)}
+.crumbs a{text-decoration:none;color:var(--cob);min-height:44px;display:inline-flex;align-items:center}
+.crumbs a:hover{color:var(--terraInk)}
+.spread{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:56px;align-items:end;padding-top:20px;padding-bottom:36px;border-bottom:2px solid var(--cob2)}
+.t-h1{font:400 clamp(48px,6.4vw,104px)/.92 'Gloock',serif;margin:16px 0 18px;color:var(--cob2);letter-spacing:-.025em}
+.t-h1 span{color:var(--terra)}
+.t-sub{font-size:19px;color:#2B2B33;margin:0}
+.pricebox{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.price{font:400 clamp(44px,4.6vw,68px)/1 'Gloock',serif;color:var(--ink);margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.facts span{padding:10px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px}
+.facts b{font:400 20px 'Gloock',serif;color:var(--cob2);margin-right:6px}
+.favbig{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border:1.5px solid var(--terraInk);background:transparent;color:var(--terraInk);font:600 14px 'Work Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s}
+.favbig:hover{background:rgba(156,67,34,.08)}
+/* gallery */
+.gal{padding-top:40px}
+.gal-frame{position:relative;padding:22px}
+.gal-main{position:relative;height:680px;overflow:hidden;background:var(--cob2);animation:reveal 1.2s cubic-bezier(.7,0,.2,1) both}
+.gal-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s ease,transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.gal-ctrl{position:absolute;left:22px;right:22px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:0 24px 24px;pointer-events:none}
+.gal-ctrl > *{pointer-events:auto}
+.gal-cap{background:rgba(13,28,71,.86);color:#F7F3EA;padding:14px 18px;max-width:520px}
+.gal-cap .sc{color:var(--gold);margin-bottom:4px}
+.gal-cap span{font:400 22px 'Gloock',serif}
+.gal-nav{display:flex;align-items:center;gap:10px}
+.gal-count{font:400 30px 'Gloock',serif;color:#F7F3EA;background:rgba(13,28,71,.86);padding:6px 16px;min-height:56px;display:flex;align-items:center}
+.gal-btn{width:56px;height:56px;border:0;background:#F7F3EA;color:var(--cob2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.gal-btn:hover{background:var(--terraInk);color:#F7F3EA}
+.thumbs{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:12px;margin-top:16px}
+.thumb{padding:0;border:0;background:transparent;cursor:pointer;height:92px;position:relative;overflow:hidden;transition:transform .3s,opacity .3s}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb:hover{transform:translateY(-3px)}
+/* body */
+.body{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:64px;padding-top:80px;align-items:start}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--cob2);flex-wrap:wrap}
+.tabbtn{min-height:56px;padding:0 24px;border:0;background:transparent;color:var(--cob2);font:400 24px 'Gloock',serif;cursor:pointer;position:relative;transition:color .3s,background .3s}
+.tabbtn:hover{background:rgba(30,58,138,.06)}
+.panel{padding-top:34px;animation:fadeUp .6s both}
+.panel p{margin:0 0 18px;font-size:18px;color:#2B2B33}
+.pull{margin:30px 0;font:400 34px/1.18 'Gloock',serif;color:var(--cob2);border-top:2px solid var(--terra);border-bottom:2px solid var(--terra);padding:26px 0}
+.pull::before{content:"«";display:block;font-size:80px;line-height:.6;color:var(--terra);margin-bottom:6px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:0;border-top:1.5px solid var(--cob);border-left:1.5px solid var(--cob)}
+.feat div{display:flex;flex-direction:column;gap:14px;padding:22px;border-right:1.5px solid var(--cob);border-bottom:1.5px solid var(--cob);background:var(--paper);transition:background .4s,color .4s;min-height:150px}
+.feat div:hover{background:var(--cob);color:#F7F3EA}
+.feat div:hover svg{stroke:#D6B083}
+.feat svg{stroke:#1E3A8A;transition:stroke .4s}
+.feat b{font:400 22px/1.15 'Gloock',serif;font-weight:400}
+.feat small{font-size:14px;opacity:.85}
+.locmap{position:relative;height:420px;padding:14px}
+.locmap svg{width:100%;height:100%;display:block;background:#FBFAF6}
+.locnote{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:16px;margin-top:20px}
+.locnote div{border-top:2px solid var(--terra);padding-top:10px;font-size:15px}
+.locnote b{display:block;font:400 22px 'Gloock',serif;color:var(--cob2)}
+.ficha{position:sticky;top:16px;background:var(--paper);border:1.5px solid var(--cob);padding:28px}
+.ficha h2{font:400 34px 'Gloock',serif;margin:6px 0 18px;color:var(--cob2)}
+.ficha dl{margin:0}
+.ficha dl div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dotted rgba(20,42,102,.4)}
+.ficha dt{font-size:14px;color:var(--mute)}
+.ficha dd{margin:0;font-weight:600;text-align:right}
+.ficha .acts{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.ficha-badge{position:relative;height:150px;margin-top:20px}
+.ficha-badge .badge{width:150px;height:150px;left:50%;margin-left:-75px;top:0}
+/* simulator + visit */
+.sv{padding-top:110px}
+.sv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(460px,100%),1fr));gap:40px;align-items:stretch}
+.sim{background:var(--cob2);color:#F7F3EA;padding:40px;position:relative;overflow:hidden}
+.sim::before{content:"";position:absolute;inset:0;background:url(assets/az-tile-pattern.webp) center/340px;opacity:.07;pointer-events:none}
+.sim > *{position:relative}
+.sim h2{font:400 44px/1 'Gloock',serif;margin:10px 0 26px}
+.sim .sc{color:var(--gold)}
+.sl{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-bottom:1px solid rgba(247,243,234,.18)}
+.sl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sl label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#D5DBEA}
+.sl output{font:400 26px 'Gloock',serif;color:#F7F3EA}
+.res{margin-top:28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
+.monthly{font:400 clamp(52px,5.4vw,80px)/.9 'Gloock',serif;color:var(--gold);margin:6px 0 0}
+.res small{display:block;color:#D5DBEA;font-size:14px}
+.ledger{margin-top:24px}
+.bar{display:flex;height:18px;background:rgba(247,243,234,.12);overflow:hidden;transform-origin:left;animation:grow 1s both}
+.bar i{display:block;height:100%;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:#D5DBEA}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend span::before{content:"";width:12px;height:12px;background:currentColor}
+.disc{margin:22px 0 0;font-size:13px;color:#C9D1E6}
+.visit{padding:16px}
+.visit-in{background:var(--paper);padding:36px;height:100%;display:flex;flex-direction:column;gap:20px}
+.visit-in h2{font:400 44px/1 'Gloock',serif;margin:6px 0 0;color:var(--cob2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.day{min-width:76px;min-height:64px;padding:8px 10px;border:1.5px solid var(--cob);background:transparent;color:var(--cob);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font:500 13px 'Work Sans',sans-serif;line-height:1.1;transition:background .3s,color .3s}
+.day b{font:400 24px 'Gloock',serif}
+.day:hover{background:rgba(30,58,138,.08)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px}
+.err{color:#A3261B;font-size:15px;margin:0}
+.ok{display:flex;flex-direction:column;gap:12px;padding:26px;background:#E6ECF8;color:var(--cob2);animation:fadeUp .5s both}
+.ok b{font:400 30px/1.1 'Gloock',serif;font-weight:400}
+/* similar */
+.sim2{padding-top:120px;padding-bottom:120px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:34px;margin-top:34px}
+.tile{position:relative;height:460px;perspective:1600px}
+.flip-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.2,.75,.2,1)}
+.tile:hover .flip-in,.flip-in:focus-within{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column}
+.front{padding:12px;box-shadow:0 26px 50px -30px rgba(20,42,102,.55)}
+.fr-img{position:relative;flex:1;overflow:hidden;background:#DCE3F3}
+.fr-img img{width:100%;height:100%;object-fit:cover}
+.fr-cap{background:var(--paper);padding:14px 16px;display:flex;align-items:baseline;gap:12px}
+.fr-no{font:400 15px 'Gloock',serif;color:var(--terraInk)}
+.fr-loc{font:400 22px/1.1 'Gloock',serif;color:var(--cob2);flex:1}
+.fr-price{font-weight:600;font-size:15px}
+.back{transform:rotateY(180deg);background:var(--cob2);color:#F7F3EA;padding:30px;justify-content:space-between;overflow:hidden;border:12px solid #FBFAF6;outline:2px solid var(--cob);outline-offset:-14px}
+.back::before{content:"";position:absolute;inset:0;background:url(assets/az-tile-pattern.webp) center/320px;opacity:.1}
+.back > *{position:relative}
+.back h3{font:400 32px/1.05 'Gloock',serif;margin:10px 0 0}
+.back .sc{color:var(--gold)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin:0}
+.specs dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#C9D1E6}
+.specs dd{margin:2px 0 0;font:400 22px 'Gloock',serif}
+.b-price{font:400 40px/1 'Gloock',serif;color:var(--gold);margin:0}
+.b-link{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;background:#F7F3EA;color:var(--cob2) !important;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;transition:background .3s}
+.b-link:hover{background:var(--gold)}
+.fav{position:absolute;top:24px;right:24px;z-index:7;width:48px;height:48px;border-radius:50%;border:0;background:rgba(251,250,246,.95);color:var(--terraInk);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .3s,background .3s,color .3s;box-shadow:0 6px 18px rgba(13,28,71,.25)}
+.fav:hover{transform:scale(1.1)}
+.roofline{display:block;line-height:0}
+.roofline svg{display:block;width:100%;height:90px}
+.foot{background:var(--cob2);color:#F7F3EA;font-size:15px}
+.foot-az{height:28px;background-size:28px 28px}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:40px;padding-top:70px;padding-bottom:50px}
+.foot .logo{color:#F7F3EA !important}
+.foot p,.foot address{margin:0 0 10px;font-style:normal;color:#D5DBEA;line-height:1.75}
+.foot .sc{color:var(--gold);margin-bottom:16px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li a,.foot address a,.foot-links a{text-decoration:none;display:inline-block;padding:3px 0;color:#F7F3EA}
+.foot li a:hover,.foot address a:hover,.foot-links a:hover{color:var(--gold)}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:28px;border-top:1px solid rgba(247,243,234,.22);font-size:13px;color:#C9D1E6}
+@media (max-width:1100px){.body{grid-template-columns:1fr}.ficha{position:relative;top:0}}
+@media (max-width:980px){.links{display:none}.burger{display:inline-flex}.spread{grid-template-columns:1fr}.strip-mid{display:none}.thumbs{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:760px){.wrap,.navbar,.strip{padding-left:16px;padding-right:16px}.gal-frame{padding:10px}.gal-main{height:420px}.gal-ctrl{left:10px;right:10px;bottom:10px;padding:0 10px 10px;flex-direction:column;align-items:stretch}.thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}.sim,.visit-in{padding:24px}.logo b{font-size:28px}.favpop{right:16px}.res{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="root">
+
+<header class="mast">
+  <div class="strip">
+    <span>{{ t.issue }}</span>
+    <span class="strip-mid">Revista Imonovo · Nº 01 · A capa</span>
+    <span><a href="index.html">{{ t.all }}</a><a href="tel:+351919192220">+351 919 192 220</a></span>
+  </div>
+  <div class="navbar">
+    <a class="logo" href="Azulejo-Home.html" aria-label="Imonovo, início">
+      <span class="logo-tile az" aria-hidden="true"></span>
+      <b>Imonovo</b>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="Azulejo-Home.html">{{ t.n1 }}</a>
+      <a class="on" href="Azulejo-Imoveis.html">{{ t.n2 }}</a>
+      <a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.html">{{ t.n4 }}</a>
+      <a href="Azulejo-Servicos.html">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.html">{{ t.n6 }}</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" onClick="{{ setPt }}" style="{{ ptSt }}" aria-pressed="{{ isPt }}">PT</button>
+        <button type="button" onClick="{{ setFr }}" style="{{ frSt }}" aria-pressed="{{ isFr }}">FR</button>
+      </div>
+      <button type="button" class="ibtn" aria-label="Favoritos" onClick="{{ toggleFavPop }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+        <span class="cnt">{{ favCount }}</span>
+      </button>
+      <button type="button" class="ibtn burger" aria-label="Abrir menu" onClick="{{ toggleMenu }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ favOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="favpop" role="dialog" aria-label="Favoritos">
+      <p class="sc" style="color:#9C4322">{{ t.fav }} · {{ favCount }}</p>
+      <sc-if value="{{ favNone }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font-size:15px;color:#4A4A56">{{ t.favEmpty }}</p>
+      </sc-if>
+      <sc-for list="{{ favList }}" as="f" hint-placeholder-count="2">
+        <a class="favrow" href="Azulejo-Imovel.html"><img src="{{ f.img }}" alt=""><span><span class="serif" style="display:block;font-size:18px;color:#142A66">{{ f.title }} · {{ f.loc }}</span><span style="font-size:14px">{{ f.priceTxt }}</span></span></a>
+      </sc-for>
+      <a class="btn ghost" href="Azulejo-Imoveis.html">{{ t.favSee }}</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Azulejo-Home.html">{{ t.n1 }}</a>
+      <a href="Azulejo-Imoveis.html">{{ t.n2 }}</a>
+      <a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.html">{{ t.n4 }}</a>
+      <a href="Azulejo-Servicos.html">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.html">{{ t.n6 }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- TITLE SPREAD -->
+<div class="wrap">
+  <nav class="crumbs" aria-label="Caminho">
+    <a href="Azulejo-Home.html">{{ t.n1 }}</a><span aria-hidden="true">/</span>
+    <a href="Azulejo-Imoveis.html">{{ t.n2 }}</a><span aria-hidden="true">/</span>
+    <span aria-current="page">Moradia T5 · Nadadouro</span>
+  </nav>
+  <section class="spread">
+    <div>
+      <span class="folio rise">p. 16 — {{ t.cover }}</span>
+      <h1 class="t-h1 rise d1">{{ t.h1a }} <span>{{ t.h1b }}</span></h1>
+      <p class="t-sub rise d2">Nadadouro · Caldas da Rainha · Ref. [REF]</p>
+    </div>
+    <div class="pricebox rise d3">
+      <p class="sc" style="color:#9C4322">{{ t.priceL }}</p>
+      <p class="price">1.380.000 €</p>
+      <div class="facts"><span><b>T5</b>{{ t.fT }}</span><span><b>301</b>m²</span><span><b>2014</b>{{ t.fY }}</span></div>
+      <button type="button" class="favbig" aria-pressed="{{ mainFavOn }}" onClick="{{ mainFav }}" style="{{ mainFavSt }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="{{ mainHeart }}"></path></svg>
+        {{ mainFavTxt }}
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- GALLERY -->
+<section class="wrap gal" aria-label="Galeria">
+  <div class="gal-frame az">
+    <div class="gal-main">
+      <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="1">
+        <img src="{{ ph.img }}" alt="{{ ph.alt }}" style="{{ ph.st }}">
+      </sc-for>
+    </div>
+    <div class="gal-ctrl">
+      <div class="gal-cap" aria-live="polite"><p class="sc">Fig. {{ cur.n }} · Fotografia ilustrativa</p><span>{{ cur.cap }}</span></div>
+      <div class="gal-nav">
+        <button type="button" class="gal-btn" aria-label="Fotografia anterior" onClick="{{ prev }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <span class="gal-count">{{ cur.n }} / {{ total }}</span>
+        <button type="button" class="gal-btn" aria-label="Fotografia seguinte" onClick="{{ next }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="thumbs">
+    <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="9">
+      <button type="button" class="thumb" onClick="{{ ph.pick }}" aria-label="{{ ph.label }}" aria-pressed="{{ ph.on }}" style="{{ ph.thSt }}"><img src="{{ ph.img }}" alt=""></button>
+    </sc-for>
+  </div>
+</section>
+
+<!-- BODY -->
+<section class="wrap body">
+  <article>
+    <div class="tabs" role="tablist" aria-label="Detalhes do imóvel">
+      <sc-for list="{{ tabs }}" as="b" hint-placeholder-count="3">
+        <button type="button" class="tabbtn" role="tab" aria-selected="{{ b.on }}" style="{{ b.st }}" onClick="{{ b.pick }}">{{ b.label }}</button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ tabDesc }}" hint-placeholder-val="{{ true }}">
+      <div class="panel" role="tabpanel">
+        <p class="drop">Construída em 2014 no Nadadouro, à beira da Lagoa de Óbidos, esta moradia T5 de 301 m² abre-se para dois horizontes: o mar e a lagoa. Uma casa pensada para viver todo o ano, com o conforto de quem não quer pensar no inverno.</p>
+        <p>A piscina é aquecida, o piso é radiante e os painéis solares trabalham para a casa. A suite master reserva o melhor da vista. Os restantes quartos, as zonas de estar e o exterior são descritos na visita — o detalhe completo será confirmado pela agência: [ÁREA DO TERRENO], [N.º DE CASAS DE BANHO], [GARAGEM].</p>
+        <blockquote class="pull">Mar de um lado, lagoa do outro — e o Nadadouro a meio caminho entre os dois.</blockquote>
+        <p>O Nadadouro pertence ao concelho de Caldas da Rainha, na margem sul da Lagoa de Óbidos: perto da Foz do Arelho, de Óbidos e da cidade. Para quem chega de fora, a Imonovo acompanha também o NIF, o banco e os contratos da casa.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ tabCar }}" hint-placeholder-val="{{ false }}">
+      <div class="panel" role="tabpanel">
+        <div class="feat">
+          <sc-for list="{{ feats }}" as="f" hint-placeholder-count="8">
+            <div>
+              <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="36" height="36"></rect><path d="M20 6c4 5 4 9 0 14c-4-5-4-9 0-14zM34 20c-5 4-9 4-14 0c5-4 9-4 14 0zM20 34c-4-5-4-9 0-14c4 5 4 9 0 14zM6 20c5-4 9-4 14 0c-5 4-9 4-14 0z"></path></svg>
+              <b>{{ f.name }}</b>
+              <small>{{ f.note }}</small>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ tabLoc }}" hint-placeholder-val="{{ false }}">
+      <div class="panel" role="tabpanel">
+        <div class="locmap az">
+          <svg viewBox="0 0 760 400" role="img" aria-label="Mapa esquemático: Nadadouro na margem sul da Lagoa de Óbidos">
+            <path fill="#1E3A8A" d="M0 0H210C190 80 170 150 150 210C130 270 110 330 96 400H0Z"></path>
+            <path fill="none" stroke="#3E5AA8" stroke-width="1.5" stroke-dasharray="10 8" d="M30 60q20-8 40 0t40 0M20 180q20-8 40 0t40 0M24 300q20-8 40 0t40 0"></path>
+            <path fill="#4A6BC0" stroke="#1E3A8A" stroke-width="2" d="M150 200C230 150 380 150 470 190C540 222 520 280 440 296C350 312 250 296 196 266C160 246 140 222 150 200Z"></path>
+            <text x="320" y="236" text-anchor="middle" font-family="Gloock, serif" font-size="20" fill="#F7F3EA">Lagoa de Óbidos</text>
+            <text x="60" y="130" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" letter-spacing="3" fill="#F7F3EA">ATLÂNTICO</text>
+            <path fill="none" stroke="#B5552F" stroke-width="3" d="M380 316L560 120M380 316L640 330M180 190L560 120"></path>
+            <circle cx="560" cy="120" r="7" fill="#142A66"></circle>
+            <text x="575" y="114" font-family="Gloock, serif" font-size="18" fill="#142A66">Caldas da Rainha</text>
+            <circle cx="640" cy="330" r="7" fill="#142A66"></circle>
+            <text x="654" y="336" font-family="Gloock, serif" font-size="18" fill="#142A66">Óbidos</text>
+            <circle cx="180" cy="190" r="7" fill="#142A66"></circle>
+            <text x="196" y="172" font-family="Gloock, serif" font-size="18" fill="#142A66">Foz do Arelho</text>
+            <path d="M380 324s-22-20-22-37a22 22 0 0 1 44 0c0 17-22 37-22 37z" fill="#9C4322" stroke="#FBFAF6" stroke-width="3"></path>
+            <circle cx="380" cy="287" r="7" fill="#FBFAF6"></circle>
+            <text x="380" y="356" text-anchor="middle" font-family="Gloock, serif" font-size="22" fill="#9C4322">Nadadouro</text>
+          </svg>
+        </div>
+        <div class="locnote">
+          <div><b>Lagoa de Óbidos</b>{{ t.l1 }}</div>
+          <div><b>Foz do Arelho</b>[X] min</div>
+          <div><b>Caldas da Rainha</b>[X] min</div>
+          <div><b>Óbidos</b>[X] min</div>
+        </div>
+      </div>
+    </sc-if>
+  </article>
+
+  <aside class="ficha" aria-labelledby="ficha-title">
+    <p class="sc" style="color:#9C4322">Ficha técnica</p>
+    <h2 id="ficha-title">Moradia T5</h2>
+    <dl>
+      <div><dt>Referência</dt><dd>[REF]</dd></div>
+      <div><dt>Tipo</dt><dd>Moradia</dd></div>
+      <div><dt>Tipologia</dt><dd>T5</dd></div>
+      <div><dt>Área</dt><dd>301 m²</dd></div>
+      <div><dt>Ano de construção</dt><dd>2014</dd></div>
+      <div><dt>Localização</dt><dd>Nadadouro, Caldas da Rainha</dd></div>
+      <div><dt>Piscina</dt><dd>Aquecida</dd></div>
+      <div><dt>Certificado energético</dt><dd>[CE]</dd></div>
+      <div><dt>Preço</dt><dd>1.380.000 €</dd></div>
+    </dl>
+    <div class="acts">
+      <a class="btn terra" href="#visita">{{ t.book }}</a>
+      <a class="btn ghost" href="tel:+351919192220">+351 919 192 220</a>
+    </div>
+    <div class="ficha-badge">
+      <a class="badge" href="Azulejo-Vender.html" aria-label="{{ t.badgeAria }}">
+        <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="bcD" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"></path></defs>
+          <circle cx="100" cy="100" r="99" fill="{{ acc }}"></circle>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#D6B083" stroke-width="1" stroke-dasharray="2 4"></circle>
+          <text font-family="Work Sans, sans-serif" font-size="14.5" font-weight="600" letter-spacing="2" fill="#F7F3EA"><textPath href="#bcD" textLength="474" lengthAdjust="spacing">{{ t.badge }}</textPath></text>
+        </svg>
+        <span class="core" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 40 40"><g fill="none" stroke="#1E3A8A" stroke-width="1.8"><path d="M20 3c5 6 5 10 0 15c-5-5-5-9 0-15z"></path><path d="M37 20c-6 5-10 5-15 0c5-5 9-5 15 0z"></path><path d="M20 37c-5-6-5-10 0-15c5 5 5 9 0 15z"></path><path d="M3 20c6-5 10-5 15 0c-5 5-9 5-15 0z"></path></g><circle cx="20" cy="20" r="3" fill="#B5552F"></circle></svg>
+        </span>
+      </a>
+    </div>
+  </aside>
+</section>
+
+<!-- SIMULATOR + VISIT -->
+<section class="wrap sv">
+  <div class="sv-grid">
+    <div class="sim" aria-labelledby="sim-title">
+      <p class="sc">p. 20 · {{ t.simK }}</p>
+      <h2 id="sim-title">{{ t.simH }}</h2>
+      <div class="sl">
+        <div class="sl-top"><label for="r-price">{{ t.sPrice }}</label><output for="r-price">{{ priceTxt }}</output></div>
+        <input id="r-price" type="range" min="100000" max="2000000" step="5000" value="{{ price }}" onInput="{{ setPrice }}">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><label for="r-down">{{ t.sDown }}</label><output for="r-down">{{ downTxt }}</output></div>
+        <input id="r-down" type="range" min="10" max="60" step="1" value="{{ down }}" onInput="{{ setDown }}">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><label for="r-years">{{ t.sYears }}</label><output for="r-years">{{ yearsTxt }}</output></div>
+        <input id="r-years" type="range" min="5" max="40" step="1" value="{{ years }}" onInput="{{ setYears }}">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><label for="r-rate">{{ t.sRate }}</label><output for="r-rate">{{ rateTxt }}</output></div>
+        <input id="r-rate" type="range" min="1" max="6" step="0.1" value="{{ rate }}" onInput="{{ setRate }}">
+      </div>
+      <div class="res">
+        <div>
+          <p class="sc">{{ t.sMonthly }}</p>
+          <p class="monthly" aria-live="polite">{{ monthlyTxt }}</p>
+        </div>
+        <div style="text-align:right">
+          <small>{{ t.sLoan }}</small><span class="serif" style="font-size:24px">{{ loanTxt }}</span>
+          <small style="margin-top:8px">{{ t.sInt }}</small><span class="serif" style="font-size:24px">{{ intTxt }}</span>
+        </div>
+      </div>
+      <div class="ledger">
+        <div class="bar" aria-hidden="true"><i style="{{ capBar }}"></i><i style="{{ intBar }}"></i></div>
+        <div class="legend"><span style="color:#D6B083">{{ t.sCap }}</span><span style="color:#B5552F">{{ t.sIntS }}</span></div>
+      </div>
+      <p class="disc">{{ t.disc }}</p>
+    </div>
+
+    <div class="visit az" id="visita">
+      <div class="visit-in">
+        <div>
+          <p class="sc" style="color:#9C4322">p. 21 · {{ t.vK }}</p>
+          <h2>{{ t.vH }}</h2>
+        </div>
+        <sc-if value="{{ visitForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div class="field">
+              <span class="lbl" id="lbl-day">{{ t.vDay }}</span>
+              <div class="chips" role="group" aria-labelledby="lbl-day">
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
+                  <button type="button" class="day" aria-pressed="{{ d.on }}" style="{{ d.st }}" onClick="{{ d.pick }}"><span>{{ d.wd }}</span><b>{{ d.dd }}</b><span>{{ d.mo }}</span></button>
+                </sc-for>
+              </div>
+            </div>
+            <div class="field">
+              <span class="lbl" id="lbl-hour">{{ t.vHour }}</span>
+              <div class="chips" role="group" aria-labelledby="lbl-hour">
+                <sc-for list="{{ hours }}" as="h" hint-placeholder-count="5">
+                  <button type="button" class="chip" aria-pressed="{{ h.on }}" style="{{ h.st }}" onClick="{{ h.pick }}">{{ h.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div class="field"><label class="lbl" for="v-name">{{ t.vName }}</label><input id="v-name" class="inp" type="text" autocomplete="name" onInput="{{ setName }}"></div>
+            <div class="two">
+              <div class="field"><label class="lbl" for="v-tel">{{ t.vTel }}</label><input id="v-tel" class="inp" type="tel" autocomplete="tel" onInput="{{ setTel }}"></div>
+              <div class="field"><label class="lbl" for="v-mail">Email</label><input id="v-mail" class="inp" type="email" autocomplete="email" onInput="{{ setMail }}"></div>
+            </div>
+            <sc-if value="{{ visitErr }}" hint-placeholder-val="{{ false }}"><p class="err" role="alert">{{ t.vErr }}</p></sc-if>
+            <button type="button" class="btn terra" onClick="{{ book }}">{{ t.vBtn }}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ visitSent }}" hint-placeholder-val="{{ false }}">
+          <div class="ok" role="status">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>
+            <b>{{ visitMsg }}</b>
+            <span>{{ t.vProto }}</span>
+            <button type="button" class="btn ghost" onClick="{{ again }}" style="align-self:flex-start">{{ t.vAgain }}</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMILAR -->
+<section class="wrap sim2" aria-labelledby="sim2-title">
+  <span class="folio">p. 22</span>
+  <h2 class="h2 serif" id="sim2-title">{{ t.simil }}</h2>
+  <div class="tiles">
+    <sc-for list="{{ similar }}" as="p" hint-placeholder-count="3">
+      <article class="tile">
+        <button type="button" class="fav" aria-label="Guardar nos favoritos" aria-pressed="{{ p.favOn }}" onClick="{{ p.fav }}" style="{{ p.favSt }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="{{ p.heartFill }}"></path></svg>
+        </button>
+        <div class="flip-in">
+          <div class="face front az">
+            <div class="fr-img"><img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy"></div>
+            <div class="fr-cap"><span class="fr-no">{{ p.no }}</span><span class="fr-loc">{{ p.loc }}</span><span class="fr-price">{{ p.priceTxt }}</span></div>
+          </div>
+          <div class="face back">
+            <div>
+              <p class="sc">{{ p.kind }} · {{ p.no }}</p>
+              <h3>{{ p.title }}, {{ p.loc }}</h3>
+            </div>
+            <dl class="specs">
+              <div><dt>Área</dt><dd>{{ p.areaTxt }}</dd></div>
+              <div><dt>Tipologia</dt><dd>{{ p.tip }}</dd></div>
+            </dl>
+            <p class="b-price">{{ p.priceTxt }}</p>
+            <a class="b-link" href="Azulejo-Imovel.html">{{ t.read }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<div class="roofline" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <path fill="#D6B083" opacity=".6" d="M676 90V34H690V12L703 0L716 12V34H730V90Z"></path>
+    <path fill="#B5552F" d="M0 90V58L36 34L72 58V46L118 20L164 46V60L196 40L228 60V50L270 26L312 50V56L352 32L392 56V44L440 18L488 44V58L520 38L552 58V48L596 24L640 48V54L684 30L728 54V42L776 16L824 42V58L858 36L892 58V50L934 26L976 50V56L1016 34L1056 56V44L1104 20L1152 44V58L1186 38L1220 58V48L1264 24L1308 48V54L1350 30L1392 54V46L1440 28V90Z"></path>
+    <path fill="none" stroke="#963F1E" stroke-width="1.2" d="M0 68H1440M0 79H1440"></path>
+  </svg>
+</div>
+<footer class="foot">
+  <div class="foot-az az" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="logo" href="Azulejo-Home.html" aria-label="Imonovo, início"><span class="logo-tile az" aria-hidden="true"></span><b>Imonovo</b></a>
+      <p style="margin-top:18px">{{ t.footAbout }}</p>
+      <a href="https://www.instagram.com/imonovo_portugal" style="color:#D6B083;text-decoration:none">Instagram @imonovo_portugal</a>
+    </div>
+    <div>
+      <p class="sc">Índice</p>
+      <ul>
+        <li><a href="Azulejo-Imoveis.html">{{ t.n2 }}</a></li>
+        <li><a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a></li>
+        <li><a href="Azulejo-Vender.html">{{ t.n4 }}</a></li>
+        <li><a href="Azulejo-Servicos.html">{{ t.n5 }}</a></li>
+        <li><a href="Azulejo-Contactos.html">{{ t.n6 }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="sc">Escritório</p>
+      <address>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br><a href="tel:+351210958271">Tel +351 210 958 271</a><br><a href="tel:+351919192220">Tlm +351 919 192 220</a><br><a href="mailto:info@imonovo.pt">info@imonovo.pt</a></address>
+      <p>Horário: [HORÁRIO]</p>
+    </div>
+    <div>
+      <p class="sc">Colofão</p>
+      <p>Imonovo é uma marca de MAJBI Lda.<br>AMI 10355 · APEMIP 5259</p>
+      <p class="foot-links"><a href="index.html">← Todas as propostas</a></p>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <span>© 2026 Imonovo · MAJBI Lda · Fotografias ilustrativas</span>
+    <span>Proposta de redesign — conceito, não é o site oficial</span>
+  </div>
+</footer>
+
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5000},"accent":{"editor":"color","default":"#9C4322","options":["#9C4322","#1E3A8A","#8A6A3B"]}}'>
+const PH = [
+  { img: 'assets/villa-modern-pool.webp', cap: 'Fachada e piscina', alt: 'Moradia moderna branca com piscina' },
+  { img: 'assets/pool-sea.webp', cap: 'Piscina aquecida com vista mar', alt: 'Piscina com vista para o mar' },
+  { img: 'assets/terrace-sea.webp', cap: 'Terraço sobre o mar', alt: 'Terraço com vista mar' },
+  { img: 'assets/int-lounge.webp', cap: 'Sala de estar', alt: 'Sala de estar luminosa' },
+  { img: 'assets/int-kitchen.webp', cap: 'Cozinha', alt: 'Cozinha equipada' },
+  { img: 'assets/int-dining.webp', cap: 'Sala de jantar', alt: 'Sala de jantar' },
+  { img: 'assets/bedroom-arch.webp', cap: 'Suite master', alt: 'Quarto com arco' },
+  { img: 'assets/int-bath.webp', cap: 'Casa de banho', alt: 'Casa de banho' },
+  { img: 'assets/lagoa-aerial.webp', cap: 'A Lagoa de Óbidos e o mar', alt: 'Vista aérea da lagoa e do mar' },
+];
+const SIM = [
+  { id: 5, tip: 'T3', loc: 'Nadadouro', area: 183, price: 650000, img: 'assets/villa-pool.webp', alt: 'Moradia com piscina' },
+  { id: 2, tip: 'T3', loc: 'Serra do Bouro', area: 177, price: 645000, img: 'assets/villa-yellow-pool.webp', alt: 'Moradia clássica com piscina' },
+  { id: 3, tip: 'T3', loc: 'Caldas da Rainha', area: 195, price: 780000, img: 'assets/villa-white.webp', alt: 'Moradia branca contemporânea' },
+];
+const ALL = SIM.concat([{ id: 1, tip: 'T5', loc: 'Nadadouro', price: 1380000, img: 'assets/villa-modern-pool.webp' }]);
+const FEATS = [
+  ['Vista mar', 'Atlântico no horizonte'], ['Vista Lagoa de Óbidos', 'Margem sul da lagoa'], ['Piscina aquecida', 'Para usar fora do verão'], ['Painéis solares', 'Energia para a casa'],
+  ['Piso radiante', 'Calor distribuído'], ['Suite master', 'Com a melhor vista'], ['Construção 2014', 'Moradia recente'], ['301 m²', 'Área da moradia'],
+];
+const DAYS = [['Seg', '19'], ['Ter', '20'], ['Qua', '21'], ['Qui', '22'], ['Sex', '23'], ['Sáb', '24']];
+const DAYS_FR = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+const HOURS = ['10:00', '11:30', '14:30', '16:00', '17:30'];
+const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+const val = (e) => (e && e.target ? e.target.value : e);
+const T = {
+  pt: {
+    n1: 'Início', n2: 'Imóveis', n3: 'Empreendimentos', n4: 'Vender', n5: 'Serviços', n6: 'Contactos',
+    issue: 'Edição Outono 2026 · Costa de Prata', all: 'Todas as propostas', fav: 'Favoritos', favEmpty: 'Ainda não guardou nenhum imóvel.', favSee: 'Ver imóveis',
+    badge: 'AVALIAÇÃO GRATUITA · CALDAS DA RAINHA · ', badgeAria: 'Pedir avaliação gratuita do seu imóvel',
+    cover: 'A capa', h1a: 'Moradia T5 entre', h1b: 'o mar e a Lagoa.', priceL: 'Preço', fT: 'tipologia', fY: 'construção',
+    save: 'Guardar', saved: 'Guardado', kindM: 'Moradia', read: 'Ler o artigo',
+    tabs: ['Descrição', 'Características', 'Localização'], l1: 'Na margem sul, à porta', book: 'Agendar visita',
+    simK: 'Crédito habitação', simH: 'Simulador de prestação', sPrice: 'Preço do imóvel', sDown: 'Entrada', sYears: 'Prazo', sRate: 'Taxa anual indicativa',
+    sMonthly: 'Prestação mensal estimada', sLoan: 'Montante financiado', sInt: 'Juros totais', sCap: 'Capital', sIntS: 'Juros', years: 'anos', month: '/mês',
+    disc: 'Simulação indicativa, não vinculativa. Não inclui seguros, impostos (IMT, Imposto do Selo) nem comissões. A Imonovo apoia o processo de crédito junto dos bancos.',
+    vK: 'Visitas', vH: 'Agendar uma visita', vDay: 'Dia', vHour: 'Hora', vName: 'Nome', vTel: 'Telefone', vBtn: 'Pedir visita',
+    vErr: 'Escolha um dia e uma hora e indique o seu nome e um contacto.', vProto: 'Pedido registado — protótipo, nada é enviado.', vAgain: 'Alterar pedido', vAt: 'às', vFor: 'Visita pedida para',
+    simil: 'Imóveis semelhantes',
+    footAbout: 'Agência imobiliária em Caldas da Rainha. Comprar, vender e viver na Costa de Prata, em português e em francês.',
+  },
+  fr: {
+    n1: 'Accueil', n2: 'Biens', n3: 'Programmes', n4: 'Vendre', n5: 'Services', n6: 'Contact',
+    issue: 'Édition Automne 2026 · Costa de Prata', all: 'Toutes les propositions', fav: 'Favoris', favEmpty: 'Aucun bien enregistré.', favSee: 'Voir les biens',
+    badge: 'ESTIMATION GRATUITE · CALDAS DA RAINHA · ', badgeAria: 'Demander une estimation gratuite de votre bien',
+    cover: 'En couverture', h1a: 'Villa T5 entre', h1b: 'la mer et la Lagune.', priceL: 'Prix', fT: 'typologie', fY: 'construction',
+    save: 'Enregistrer', saved: 'Enregistré', kindM: 'Villa', read: 'Lire l’article',
+    tabs: ['Description', 'Caractéristiques', 'Situation'], l1: 'Sur la rive sud, à deux pas', book: 'Réserver une visite',
+    simK: 'Crédit immobilier', simH: 'Simulateur de mensualité', sPrice: 'Prix du bien', sDown: 'Apport', sYears: 'Durée', sRate: 'Taux annuel indicatif',
+    sMonthly: 'Mensualité estimée', sLoan: 'Montant financé', sInt: 'Intérêts totaux', sCap: 'Capital', sIntS: 'Intérêts', years: 'ans', month: '/mois',
+    disc: 'Simulation indicative, non contractuelle. Hors assurances, impôts (IMT, droit de timbre) et frais. Imonovo vous accompagne auprès des banques.',
+    vK: 'Visites', vH: 'Réserver une visite', vDay: 'Jour', vHour: 'Heure', vName: 'Nom', vTel: 'Téléphone', vBtn: 'Demander la visite',
+    vErr: 'Choisissez un jour, une heure, et indiquez votre nom et un contact.', vProto: 'Demande enregistrée — prototype, rien n’est envoyé.', vAgain: 'Modifier', vAt: 'à', vFor: 'Visite demandée pour',
+    simil: 'Biens similaires',
+    footAbout: 'Agence immobilière à Caldas da Rainha. Acheter, vendre et vivre sur la Costa de Prata, en portugais et en français.',
+  },
+};
+const TABS = ['desc', 'car', 'loc'];
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { lang: 'pt', menu: false, favOpen: false, favs: [], photo: 0, tab: 'desc', price: 1380000, down: 20, years: 30, rate: 3.5, day: -1, hour: -1, name: '', tel: '', mail: '', visitSent: false, visitErr: false }; }
+  toggleFav(id) { const f = this.state.favs; this.setState({ favs: f.indexOf(id) > -1 ? f.filter((x) => x !== id) : f.concat([id]) }); }
+  renderVals() {
+    const s = this.state, t = T[s.lang];
+    const ON = 'background:#1E3A8A;color:#F7F3EA;border-color:#1E3A8A';
+    const acc = typeof this.props.accent === 'string' ? this.props.accent : '#9C4322';
+    const N = PH.length;
+    const pad = (n) => (n < 10 ? '0' : '') + n;
+    const photos = PH.map((p, i) => ({ ...p, n: pad(i + 1), on: i === s.photo ? 'true' : 'false', label: 'Fotografia ' + (i + 1) + ': ' + p.cap,
+      st: i === s.photo ? 'opacity:1;transform:scale(1)' : 'opacity:0;transform:scale(1.06)',
+      thSt: i === s.photo ? 'outline:3px solid #9C4322;outline-offset:3px' : 'opacity:.72',
+      pick: () => this.setState({ photo: i }) }));
+    // mortgage: standard annuity formula
+    const loan = s.price * (1 - s.down / 100);
+    const r = s.rate / 100 / 12, n = s.years * 12;
+    const monthly = r > 0 ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
+    const interest = monthly * n - loan;
+    const capPct = loan / (loan + interest) * 100;
+    const isFav = s.favs.indexOf(1) > -1;
+    const kind = t.kindM;
+    const card = (p) => { const on = s.favs.indexOf(p.id) > -1; return { ...p, no: 'Nº 0' + p.id, kind, title: kind + ' ' + p.tip, priceTxt: fmt(p.price), areaTxt: p.area + ' m²', favOn: on ? 'true' : 'false', heartFill: on ? 'currentColor' : 'none', favSt: on ? 'background:#9C4322;color:#F7F3EA' : '', fav: () => this.toggleFav(p.id) }; };
+    const favList = ALL.filter((p) => s.favs.indexOf(p.id) > -1).map((p) => ({ ...p, title: kind + ' ' + p.tip, priceTxt: fmt(p.price) }));
+    const dayLbl = (i) => (s.lang === 'fr' ? DAYS_FR[i] : DAYS[i][0]);
+    return {
+      t, acc,
+      isPt: s.lang === 'pt' ? 'true' : 'false', isFr: s.lang === 'fr' ? 'true' : 'false',
+      ptSt: s.lang === 'pt' ? ON : '', frSt: s.lang === 'fr' ? ON : '',
+      setPt: () => this.setState({ lang: 'pt' }), setFr: () => this.setState({ lang: 'fr' }),
+      menu: s.menu, toggleMenu: () => this.setState({ menu: !this.state.menu, favOpen: false }),
+      favOpen: s.favOpen, toggleFavPop: () => this.setState({ favOpen: !this.state.favOpen, menu: false }),
+      favCount: s.favs.length, favList, favNone: s.favs.length === 0,
+      mainFav: () => this.toggleFav(1), mainFavOn: isFav ? 'true' : 'false', mainHeart: isFav ? 'currentColor' : 'none', mainFavTxt: isFav ? t.saved : t.save, mainFavSt: isFav ? 'background:#9C4322;color:#F7F3EA' : '',
+      photos, cur: photos[s.photo], total: pad(N),
+      prev: () => this.setState({ photo: (this.state.photo - 1 + N) % N }), next: () => this.setState({ photo: (this.state.photo + 1) % N }),
+      tabs: TABS.map((k, i) => ({ label: t.tabs[i], on: s.tab === k ? 'true' : 'false', st: s.tab === k ? 'background:#142A66;color:#F7F3EA' : '', pick: () => this.setState({ tab: k }) })),
+      tabDesc: s.tab === 'desc', tabCar: s.tab === 'car', tabLoc: s.tab === 'loc',
+      feats: FEATS.map((f) => ({ name: f[0], note: f[1] })),
+      price: s.price, down: s.down, years: s.years, rate: s.rate,
+      priceTxt: fmt(s.price), downTxt: s.down + '% · ' + fmt(s.price * s.down / 100), yearsTxt: s.years + ' ' + t.years, rateTxt: s.rate.toFixed(1).replace('.', ',') + '%',
+      setPrice: (e) => this.setState({ price: Number(val(e)) || 1380000 }), setDown: (e) => this.setState({ down: Number(val(e)) || 20 }),
+      setYears: (e) => this.setState({ years: Number(val(e)) || 30 }), setRate: (e) => this.setState({ rate: Number(val(e)) || 3.5 }),
+      monthlyTxt: fmt(monthly) + t.month, loanTxt: fmt(loan), intTxt: fmt(interest),
+      capBar: 'width:' + capPct.toFixed(1) + '%;background:#D6B083', intBar: 'width:' + (100 - capPct).toFixed(1) + '%;background:#B5552F',
+      days: DAYS.map((d, i) => ({ wd: dayLbl(i), dd: d[1], mo: s.lang === 'fr' ? 'Oct' : 'Out', on: s.day === i ? 'true' : 'false', st: s.day === i ? ON : '', pick: () => this.setState({ day: i, visitErr: false }) })),
+      hours: HOURS.map((h, i) => ({ label: h, on: s.hour === i ? 'true' : 'false', st: s.hour === i ? ON : '', pick: () => this.setState({ hour: i, visitErr: false }) })),
+      setName: (e) => this.setState({ name: String(val(e) || '') }), setTel: (e) => this.setState({ tel: String(val(e) || '') }), setMail: (e) => this.setState({ mail: String(val(e) || '') }),
+      book: () => { const c = this.state; if (c.day < 0 || c.hour < 0 || !c.name.trim() || !(c.tel.trim() || c.mail.trim())) this.setState({ visitErr: true }); else this.setState({ visitSent: true, visitErr: false }); },
+      again: () => this.setState({ visitSent: false, day: -1, hour: -1, name: '', tel: '', mail: '' }),
+      visitForm: !s.visitSent, visitSent: s.visitSent, visitErr: s.visitErr,
+      visitMsg: s.day > -1 && s.hour > -1 ? t.vFor + ' ' + dayLbl(s.day) + ' ' + DAYS[s.day][1] + (s.lang === 'fr' ? ' Oct ' : ' Out ') + t.vAt + ' ' + HOURS[s.hour] + '.' : '',
+      similar: SIM.map(card),
+    };
+  }
+}
+</script>
+</body>
+</html>

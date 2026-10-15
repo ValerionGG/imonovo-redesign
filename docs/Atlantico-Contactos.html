@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Atlântico — Contactos</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;background:#0A1518}
+.at{background:#0A1518;color:#E8E4DA;font-family:'Manrope',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden}
+.at *{box-sizing:border-box}
+.at a{color:inherit}
+.at img{display:block;max-width:100%}
+.serif{font-family:'Bodoni Moda',Didot,serif;font-optical-sizing:auto}
+.disp{font-family:'Bodoni Moda',Didot,serif;font-variation-settings:'opsz' 96;font-weight:400;letter-spacing:-0.025em;line-height:.94}
+.num{font-family:'Bodoni Moda',Didot,serif;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1,'lnum' 1}
+.it{font-style:italic;color:#D6B083}
+.eyebrow{font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#D6B083;margin:0}
+.muted{color:#9FB0AE}
+.wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 28px;border:1px solid #D6B083;background:#D6B083;color:#0A1518;font:600 12px/1 'Manrope',sans-serif;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .4s,color .4s,border-color .4s}
+.at a.btn{color:#0A1518}
+.btn:hover,.at a.btn:hover{background:transparent;color:#D6B083}
+.btn svg{transition:transform .5s cubic-bezier(.19,1,.22,1)}
+.btn:hover svg{transform:translateX(5px)}
+.btn-g,.at a.btn-g{background:transparent;color:#E8E4DA;border-color:rgba(232,228,218,.4)}
+.btn-g:hover,.at a.btn-g:hover{border-color:#D6B083;color:#D6B083}
+.btn-sm{min-height:44px;padding:0 18px;font-size:11px}
+.at :focus-visible{outline:1px solid #D6B083;outline-offset:4px}
+.nl{position:relative;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;padding:12px 0}
+.nl::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:#D6B083;transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.19,1,.22,1)}
+.nl:hover::after{transform:scaleX(1);transform-origin:left}
+.lg{min-width:44px;min-height:44px;background:transparent;border:0;color:#9FB0AE;font:600 11px 'Manrope';letter-spacing:.2em;cursor:pointer;transition:color .3s}
+.lg:hover{color:#E8E4DA}
+.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(232,228,218,.25);border-radius:50%;text-decoration:none;transition:border-color .3s,color .3s;background:transparent;color:#E8E4DA;cursor:pointer}
+.icon-btn:hover{border-color:#D6B083;color:#D6B083}
+.badge{position:absolute;top:-4px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#D6B083;color:#0A1518;font-size:12px;line-height:20px;text-align:center}
+.burger{display:none}
+.mnav a{display:block;padding:14px 0;border-bottom:1px solid rgba(214,176,131,.18);font-family:'Bodoni Moda',serif;font-size:30px;text-decoration:none}
+@keyframes kb{0%{transform:scale(1.04) translate3d(0,0,0)}100%{transform:scale(1.2) translate3d(-2.5%,-2%,0)}}
+.kb{animation:kb 26s ease-in-out infinite alternate;transform-origin:50% 50%;will-change:transform}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:inline-block;animation:lnUp 1.5s cubic-bezier(.19,1,.22,1) both}
+@keyframes lnUp{0%{transform:translateY(108%);clip-path:inset(0 0 100% 0)}100%{transform:translateY(0);clip-path:inset(-10% 0 -20% 0)}}
+.d1{animation-delay:.2s!important}.d2{animation-delay:.36s!important}.d3{animation-delay:.52s!important}.d4{animation-delay:.9s!important}.d5{animation-delay:1.1s!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.fu{animation:fadeUp 1.2s cubic-bezier(.19,1,.22,1) both}
+.grain{position:absolute;inset:-24px;pointer-events:none;z-index:60;opacity:.55;mix-blend-mode:overlay;background-image:repeating-radial-gradient(circle at 13% 27%,rgba(232,228,218,.07) 0,rgba(232,228,218,.07) 1px,transparent 1px,transparent 3px),repeating-radial-gradient(circle at 71% 63%,rgba(0,0,0,.25) 0,rgba(0,0,0,.25) 1px,transparent 1px,transparent 4px),repeating-linear-gradient(97deg,rgba(232,228,218,.03) 0 1px,transparent 1px 3px)}
+.grain-a{animation:grain 1.1s steps(5) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-9px,6px)}40%{transform:translate(7px,-10px)}60%{transform:translate(-5px,11px)}80%{transform:translate(10px,4px)}100%{transform:translate(0,0)}}
+.chap{display:grid;grid-template-columns:96px minmax(0,1fr);max-width:1440px;margin:0 auto;padding:0 40px}
+.rail{position:relative;border-right:1px solid rgba(214,176,131,.2)}
+.rail .rn{position:absolute;top:0;right:22px;font-size:15px;color:#D6B083}
+.rail .rv{position:absolute;top:48px;right:20px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#9FB0AE;white-space:nowrap}
+.cbody{padding-left:56px;min-width:0}
+.chip{min-height:44px;padding:0 20px;border:1px solid rgba(232,228,218,.25);border-radius:999px;background:transparent;color:#E8E4DA;font:500 14px 'Manrope';letter-spacing:.04em;cursor:pointer;transition:border-color .3s,color .3s,background .3s;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.chip:hover{border-color:#D6B083}
+.fld{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid rgba(232,228,218,.35);color:#E8E4DA;font:400 17px 'Manrope';padding:0;border-radius:0;transition:border-color .3s}
+textarea.fld{min-height:130px;padding-top:12px;resize:vertical;line-height:1.6}
+.fld::placeholder{color:#7F918F}
+.fld:focus{outline:none;border-bottom-color:#D6B083}
+.big{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;border-top:1px solid rgba(214,176,131,.3);text-decoration:none;transition:color .4s,padding-left .6s cubic-bezier(.19,1,.22,1)}
+.big:hover{color:#D6B083;padding-left:14px}
+.big svg{color:#D6B083;transition:transform .5s cubic-bezier(.19,1,.22,1)}
+.big:hover svg{transform:translate(4px,-4px)}
+.tm{position:relative;margin:0}
+.tm .tph{position:relative;overflow:hidden;aspect-ratio:1/1;background:#0F2126}
+.tm img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.85);transition:filter 1s,transform 1.6s cubic-bezier(.19,1,.22,1)}
+.tm:hover img{filter:grayscale(0) brightness(1);transform:scale(1.05)}
+.tm .tring{position:absolute;inset:18px;border:1px solid rgba(214,176,131,0);border-radius:50%;transition:border-color .6s,inset .8s cubic-bezier(.19,1,.22,1);pointer-events:none}
+.tm:hover .tring{border-color:rgba(214,176,131,.7);inset:10px}
+.filebtn{position:relative;display:flex;align-items:center;gap:16px;min-height:64px;padding:0 20px;border:1px dashed rgba(214,176,131,.5);cursor:pointer;transition:border-color .3s,background .3s}
+.filebtn:hover,.filebtn:focus-within{border-color:#D6B083;background:rgba(214,176,131,.06)}
+.filebtn:focus-within{outline:1px solid #D6B083;outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0)}
+.foot-wm{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(64px,16.5vw,250px);line-height:.85;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(214,176,131,.38);margin:72px 0 28px;letter-spacing:-.02em;white-space:nowrap;user-select:none}
+.flink{display:block;text-decoration:none;padding:6px 0;transition:color .3s}
+.flink:hover{color:#D6B083}
+@keyframes pinP{0%,100%{r:14;opacity:.7}50%{r:26;opacity:0}}
+.pinp{animation:pinP 2.4s ease-in-out infinite}
+@media (max-width:960px){
+.nav-links,.hide-m{display:none!important}
+.burger{display:inline-flex}
+.wrap{padding:0 20px}
+.chap{grid-template-columns:1fr;padding:0 20px}
+.rail{border-right:0;border-top:1px solid rgba(214,176,131,.2);height:44px}
+.rail .rn{left:0;right:auto;top:12px}
+.rail .rv{writing-mode:horizontal-tb;transform:none;top:16px;left:44px;right:auto}
+.cbody{padding-left:0}
+}
+@media (prefers-reduced-motion:reduce){.kb,.grain-a,.ln>span,.fu,.pinp{animation:none!important}}
+</style>
+</helmet>
+<div class="at">
+<div class="grain" aria-hidden="true" style="{{ grainStyle }}"></div>
+
+<header style="position:absolute;top:0;left:0;right:0;z-index:40">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:24px;height:96px">
+    <a href="Atlantico-Home.html" aria-label="Imonovo — Início" style="text-decoration:none;display:flex;align-items:center;gap:14px">
+      <span style="display:block;width:28px;height:1px;background:#D6B083"></span>
+      <span class="serif" style="font-size:21px;letter-spacing:.36em;font-weight:500">IMONOVO</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal" style="display:flex;gap:32px;align-items:center">
+      <a class="nl" href="Atlantico-Home.html">{{ t.home }}</a>
+      <a class="nl" href="Atlantico-Imoveis.html">{{ t.imoveis }}</a>
+      <a class="nl" href="Atlantico-Imoveis.html#empreendimentos">{{ t.emp }}</a>
+      <a class="nl" href="Atlantico-Vender.html">{{ t.vender }}</a>
+      <a class="nl" href="Atlantico-Servicos.html">{{ t.serv }}</a>
+      <a class="nl" href="Atlantico-Contactos.html" aria-current="page" style="color:#D6B083">{{ t.cont }}</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div role="group" aria-label="Idioma / Langue" style="display:flex;align-items:center">
+        <button type="button" class="lg" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <span aria-hidden="true" style="width:1px;height:14px;background:rgba(232,228,218,.3)"></span>
+        <button type="button" class="lg" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a href="Atlantico-Imoveis.html" class="icon-btn" aria-label="{{ favLabel }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20.5C9 18.6 3.9 15.2 2.9 11.3 2.1 8.1 4.1 5 7.2 5c2.1 0 3.7 1.3 4.8 3 1.1-1.7 2.7-3 4.8-3 3.1 0 5.1 3.1 4.3 6.3-1 3.9-6.1 7.3-9.1 9.2z"/></svg>
+        <span class="badge num">{{ favCount }}</span>
+      </a>
+      <a href="Atlantico-Vender.html" class="btn btn-sm hide-m" style="margin-left:10px">{{ t.cta }}</a>
+      <button type="button" class="icon-btn burger" aria-label="Menu" aria-expanded="{{ menuExp }}" onClick="{{ toggleMenu }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h18M3 16h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav wrap" aria-label="Menu móvel" style="background:#0F2126;padding-top:12px;padding-bottom:28px;border-top:1px solid rgba(214,176,131,.25)">
+      <a href="Atlantico-Home.html">{{ t.home }}</a>
+      <a href="Atlantico-Imoveis.html">{{ t.imoveis }}</a>
+      <a href="Atlantico-Imoveis.html#empreendimentos">{{ t.emp }}</a>
+      <a href="Atlantico-Vender.html">{{ t.vender }}</a>
+      <a href="Atlantico-Servicos.html">{{ t.serv }}</a>
+      <a href="Atlantico-Contactos.html">{{ t.cont }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- HERO -->
+<section style="position:relative;overflow:hidden;padding-bottom:40px">
+  <div style="position:absolute;inset:0;height:560px;overflow:hidden"><img class="kb" src="assets/boardwalk.webp" alt="Passadiço de madeira sobre as dunas (ilustrativa)" style="width:100%;height:100%;object-fit:cover;opacity:.6"></div>
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:560px;background:linear-gradient(180deg,rgba(10,21,24,.7) 0%,rgba(10,21,24,.2) 40%,#0A1518 100%)"></div>
+  <div class="grain grain-a" aria-hidden="true" style="z-index:2;opacity:.4;height:600px"></div>
+  <div class="wrap" style="position:relative;z-index:3;padding-top:220px">
+    <p class="eyebrow fu d1" style="display:flex;align-items:center;gap:16px"><span style="display:block;width:40px;height:1px;background:#D6B083"></span>{{ t.eyebrow }}</p>
+    <h1 class="disp" style="font-size:clamp(72px,12vw,190px);margin:24px 0 0">
+      <span class="ln"><span class="d1">{{ t.h1a }}</span></span>
+    </h1>
+    <p class="serif fu d4" style="font-size:clamp(24px,2.4vw,34px);font-style:italic;margin:14px 0 56px;color:#D6B083">{{ t.h1b }}</p>
+    <div class="fu d5" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 48px">
+      <a class="big" href="tel:+351210958271"><span><span class="eyebrow" style="color:#9FB0AE;display:block">Telefone</span><span class="num" style="font-size:32px">+351 210 958 271</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="big" href="tel:+351919192220"><span><span class="eyebrow" style="color:#9FB0AE;display:block">Telemóvel</span><span class="num" style="font-size:32px">+351 919 192 220</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="big" href="mailto:info@imonovo.pt"><span><span class="eyebrow" style="color:#9FB0AE;display:block">Email</span><span class="serif" style="font-size:32px">info@imonovo.pt</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 CONTACTO + ESCRITÓRIO -->
+<section id="ch-01" class="chap" style="padding-top:120px">
+  <div class="rail"><span class="rn num">01</span><span class="rv">{{ t.c1 }}</span></div>
+  <div class="cbody">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:64px;align-items:start">
+      <div>
+        <p class="eyebrow">{{ t.chapter }} 01</p>
+        <h2 class="disp" style="font-size:clamp(44px,5.4vw,84px);margin:18px 0 36px">{{ t.formT1 }} <span class="it">{{ t.formT2 }}</span></h2>
+        <sc-if value="{{ cForm }}" hint-placeholder-val="{{ true }}">
+          <p class="eyebrow" style="color:#9FB0AE;margin-bottom:12px">{{ t.subject }}</p>
+          <div role="group" aria-label="Assunto" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px">
+            <sc-for list="{{ subjects }}" as="o" hint-placeholder-count="6"><button type="button" class="chip" style="{{ o.style }}" aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for>
+          </div>
+          <div style="display:grid;gap:26px">
+            <label><span class="eyebrow" style="color:#9FB0AE">Nome</span><input class="fld" type="text" autocomplete="name" placeholder="O seu nome" value="{{ cName }}" onInput="{{ setCName }}"></label>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:26px">
+              <label><span class="eyebrow" style="color:#9FB0AE">Email</span><input class="fld" type="email" autocomplete="email" placeholder="nome@exemplo.pt" value="{{ cEmail }}" onInput="{{ setCEmail }}"></label>
+              <label><span class="eyebrow" style="color:#9FB0AE">Telefone</span><input class="fld" type="tel" autocomplete="tel" placeholder="+351 …" value="{{ cTel }}" onInput="{{ setCTel }}"></label>
+            </div>
+            <label><span class="eyebrow" style="color:#9FB0AE">Mensagem</span><textarea class="fld" rows="4" placeholder="Como podemos ajudar?" onInput="{{ setCMsg }}">{{ cMsg }}</textarea></label>
+          </div>
+          <sc-if value="{{ cErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="color:#E8B4A0;margin:18px 0 0;font-size:14px">Indique o seu nome, um email válido e a mensagem.</p></sc-if>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:32px">
+            <button type="button" class="btn" onClick="{{ sendC }}">{{ t.send }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+            <span class="muted" style="font-size:13px">Protótipo — nenhum dado é enviado.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ cDone }}" hint-placeholder-val="{{ false }}">
+          <div role="status" class="fu" style="border:1px solid #D6B083;padding:48px 40px">
+            <p class="eyebrow">Mensagem registada · {{ subj }}</p>
+            <p class="disp" style="font-size:60px;margin:18px 0 16px">Obrigado, <span class="it">{{ cName }}.</span></p>
+            <p class="muted" style="margin:0 0 26px">Mensagem registada — protótipo, nada é enviado.</p>
+            <button type="button" class="btn btn-g btn-sm" onClick="{{ resetC }}">Nova mensagem</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <aside aria-label="Escritório" style="background:#0F2126;border:1px solid rgba(214,176,131,.22)">
+        <div style="position:relative;height:380px;overflow:hidden;border-bottom:1px solid rgba(214,176,131,.22)">
+          <svg viewBox="0 0 560 380" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%" role="img" aria-label="Mapa estilizado do centro de Caldas da Rainha com a localização do escritório">
+            <rect width="560" height="380" fill="#0F2126"/>
+            <g stroke="rgba(159,176,174,.22)" stroke-width="1" fill="none">
+              <path d="M-10 80L580 40M-10 170L580 150M-10 270L580 300M-10 350L580 380"/>
+              <path d="M60 -10L110 400M180 -10L200 400M330 -10L300 400M450 -10L420 400M530 -10L520 400"/>
+              <path d="M-10 220C120 200 200 240 300 210S480 180 580 220"/>
+            </g>
+            <g stroke="rgba(232,228,218,.35)" stroke-width="2.5" fill="none"><path d="M-10 120C140 110 260 140 320 190S440 300 580 320"/></g>
+            <path d="M370 40C430 30 500 50 520 90 530 130 480 140 430 128 390 118 360 80 370 40Z" fill="rgba(159,176,174,.08)" stroke="rgba(159,176,174,.25)"/>
+            <circle class="pinp" cx="300" cy="200" r="14" fill="none" stroke="#D6B083"/>
+            <circle cx="300" cy="200" r="7" fill="#D6B083"/>
+            <path d="M300 200L360 150H520" stroke="#D6B083" fill="none"/>
+            <text x="366" y="140" font-family="Bodoni Moda" font-style="italic" font-size="22" fill="#E8E4DA">Imonovo</text>
+            <text x="366" y="170" font-family="Manrope" font-size="10" letter-spacing="2" fill="#9FB0AE">RUA VITORINO FROIS, 64</text>
+            <text x="24" y="360" font-family="Manrope" font-size="10" letter-spacing="2" fill="#9FB0AE">CALDAS DA RAINHA · CENTRO · SEM ESCALA</text>
+          </svg>
+        </div>
+        <div style="padding:34px">
+          <p class="eyebrow" style="margin-bottom:12px">{{ t.office }}</p>
+          <address class="serif" style="font-style:normal;font-size:28px;line-height:1.3">Rua Vitorino Frois, 64<br>2500-256 Caldas da Rainha</address>
+          <div style="margin-top:24px;border-bottom:1px solid rgba(232,228,218,.12)">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid rgba(232,228,218,.12)"><span class="muted">Horário</span><span>[HORÁRIO]</span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid rgba(232,228,218,.12)"><span class="muted">Instagram</span><a href="https://www.instagram.com/imonovo_portugal" class="nl" style="padding:0">@imonovo_portugal</a></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid rgba(232,228,218,.12)"><span class="muted">Licença</span><span class="num">AMI 10355 · APEMIP 5259</span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid rgba(232,228,218,.12)"><span class="muted">Idiomas</span><span>Português · Français</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 02 EQUIPA -->
+<section id="ch-02" class="chap" style="padding-top:170px">
+  <div class="rail"><span class="rn num">02</span><span class="rv">{{ t.c2 }}</span></div>
+  <div class="cbody">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px">
+      <div>
+        <p class="eyebrow">{{ t.chapter }} 02</p>
+        <h2 class="disp" style="font-size:clamp(44px,5.4vw,84px);margin:18px 0 0">{{ t.teamT1 }} <span class="it">{{ t.teamT2 }}</span></h2>
+      </div>
+      <p class="muted" style="max-width:360px;margin:0">Nomes e funções a confirmar pela agência.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:32px">
+      <sc-for list="{{ team }}" as="m" hint-placeholder-count="4">
+        <figure class="tm">
+          <div class="tph"><img src="{{ m.img }}" alt="Retrato de consultor (placeholder)" loading="lazy"><span class="tring" aria-hidden="true"></span></div>
+          <figcaption style="padding-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+            <span><span class="serif" style="font-size:24px;display:block">[NOME CONSULTOR]</span><span class="muted" style="font-size:14px">[FUNÇÃO] · [IDIOMAS]</span></span>
+            <span class="num" style="color:#D6B083">{{ m.n }}</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 03 RECRUTAMENTO -->
+<section id="recrutamento" class="chap" style="padding-top:170px;padding-bottom:150px">
+  <div class="rail"><span class="rn num">03</span><span class="rv">{{ t.c3 }}</span></div>
+  <div class="cbody">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:64px;align-items:start">
+      <div>
+        <p class="eyebrow">{{ t.chapter }} 03</p>
+        <h2 class="disp" style="font-size:clamp(44px,5.4vw,84px);margin:18px 0 24px">{{ t.recT1 }} <span class="it">{{ t.recT2 }}</span></h2>
+        <p style="max-width:440px;margin:0 0 34px">{{ t.recS }}</p>
+        <div style="position:relative;height:440px;overflow:hidden"><img class="kb" src="assets/obidos-walls.webp" alt="Muralhas de Óbidos e campo (ilustrativa)" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+      <div style="border:1px solid rgba(214,176,131,.22);padding:40px">
+        <sc-if value="{{ rForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;gap:26px">
+            <label><span class="eyebrow" style="color:#9FB0AE">Nome</span><input class="fld" type="text" autocomplete="name" placeholder="O seu nome" value="{{ rName }}" onInput="{{ setRName }}"></label>
+            <label><span class="eyebrow" style="color:#9FB0AE">Contacto (telefone ou email)</span><input class="fld" type="text" placeholder="+351 … ou nome@exemplo.pt" value="{{ rContact }}" onInput="{{ setRContact }}"></label>
+          </div>
+          <sc-for list="{{ yesno }}" as="q" hint-placeholder-count="3">
+            <div role="group" aria-label="{{ q.label }}" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid rgba(232,228,218,.12)">
+              <span>{{ q.label }}</span>
+              <span style="display:flex;gap:8px">
+                <button type="button" class="chip" style="{{ q.yStyle }}" aria-pressed="{{ q.yPressed }}" onClick="{{ q.yes }}">Sim</button>
+                <button type="button" class="chip" style="{{ q.nStyle }}" aria-pressed="{{ q.nPressed }}" onClick="{{ q.no }}">Não</button>
+              </span>
+            </div>
+          </sc-for>
+          <label class="filebtn" style="margin-top:28px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D6B083" stroke-width="1.3"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
+            <span><span class="eyebrow" style="display:block">CV em anexo</span><span class="muted" style="font-size:14px">{{ cvTxt }}</span></span>
+            <input class="sr" type="file" accept=".pdf,.doc,.docx" onChange="{{ setCv }}">
+          </label>
+          <sc-if value="{{ rErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="color:#E8B4A0;margin:18px 0 0;font-size:14px">Indique o nome, um contacto e responda às três perguntas.</p></sc-if>
+          <button type="button" class="btn" style="margin-top:30px;width:100%" onClick="{{ sendR }}">{{ t.apply }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <p class="muted" style="font-size:13px;margin:14px 0 0">Protótipo — nenhum dado ou ficheiro é enviado.</p>
+        </sc-if>
+        <sc-if value="{{ rDone }}" hint-placeholder-val="{{ false }}">
+          <div role="status" class="fu">
+            <p class="eyebrow">Candidatura registada</p>
+            <p class="disp" style="font-size:56px;margin:18px 0 16px">Obrigado, <span class="it">{{ rName }}.</span></p>
+            <p class="muted" style="margin:0 0 26px">Candidatura registada — protótipo, nada é enviado.</p>
+            <button type="button" class="btn btn-g btn-sm" onClick="{{ resetR }}">Nova candidatura</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="position:relative;background:#081114;border-top:1px solid rgba(214,176,131,.25)">
+  <div class="wrap" style="padding-top:90px;padding-bottom:36px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+      <div>
+        <p class="serif" style="font-size:24px;letter-spacing:.34em;margin:0">IMONOVO</p>
+        <p class="muted" style="margin:18px 0 0;max-width:280px;font-size:14px">Agência imobiliária em Caldas da Rainha — Costa de Prata, Oeste. Atendimento em português e francês.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Escritório</p>
+        <address style="font-style:normal;font-size:15px;line-height:1.8">Rua Vitorino Frois, 64<br>2500-256 Caldas da Rainha<br>Portugal</address>
+        <p class="muted" style="font-size:14px;margin:12px 0 0">Horário: [HORÁRIO]</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Contactos</p>
+        <a class="flink" href="tel:+351210958271">Tel. +351 210 958 271</a>
+        <a class="flink" href="tel:+351919192220">Tlm. +351 919 192 220</a>
+        <a class="flink" href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+        <a class="flink" href="https://www.instagram.com/imonovo_portugal" style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>@imonovo_portugal</a>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Navegação</p>
+        <a class="flink" href="Atlantico-Home.html">Início</a>
+        <a class="flink" href="Atlantico-Imoveis.html">Imóveis</a>
+        <a class="flink" href="Atlantico-Imoveis.html#empreendimentos">Empreendimentos</a>
+        <a class="flink" href="Atlantico-Vender.html">Vender</a>
+        <a class="flink" href="Atlantico-Servicos.html">Serviços</a>
+        <a class="flink" href="index.html" style="color:#D6B083">← Todas as propostas</a>
+      </div>
+    </div>
+    <p class="foot-wm" aria-hidden="true">IMONOVO</p>
+    <div class="muted" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;border-top:1px solid rgba(232,228,218,.12);padding-top:22px;font-size:12px">
+      <span>© Imonovo — marca de MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+    </div>
+  </div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4000},"grain":{"editor":"boolean","default":false}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[],
+      subj:'Comprar', cName:'', cEmail:'', cTel:'', cMsg:'', cDone:false, cErr:false,
+      rName:'', rContact:'', rExp:'', rCarta:'', rViat:'', rCv:'', rDone:false, rErr:false };
+  }
+  val(e){ return e && e.target ? e.target.value : e; }
+  pad(n){ return n > 9 ? String(n) : '0' + n; }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#D6B083;color:#0A1518;border-color:#D6B083';
+    const T = {
+      pt:{ home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', serv:'Serviços', cont:'Contactos', cta:'Avaliação gratuita', favs:'Favoritos',
+        eyebrow:'Contactos · Caldas da Rainha', h1a:'Falemos.', h1b:'Rua Vitorino Frois, 64 — ou onde estiver.',
+        chapter:'Capítulo', c1:'Contacto', c2:'Equipa', c3:'Recrutamento', formT1:'Escreva-nos', formT2:'uma linha.', subject:'Assunto', send:'Enviar mensagem', office:'O escritório',
+        teamT1:'Quem o', teamT2:'recebe.', recT1:'Junte-se', recT2:'à equipa.', recS:'Procuramos consultores imobiliários para a região Oeste. Com ou sem experiência — conte-nos de si.', apply:'Enviar candidatura' },
+      fr:{ home:'Accueil', imoveis:'Biens', emp:'Programmes', vender:'Vendre', serv:'Services', cont:'Contact', cta:'Estimation gratuite', favs:'Favoris',
+        eyebrow:'Contact · Caldas da Rainha', h1a:'Parlons-en.', h1b:'Rua Vitorino Frois, 64 — ou d’où vous êtes.',
+        chapter:'Chapitre', c1:'Contact', c2:'Équipe', c3:'Recrutement', formT1:'Écrivez-nous', formT2:'un mot.', subject:'Objet', send:'Envoyer le message', office:'L’agence',
+        teamT1:'Qui vous', teamT2:'accueille.', recT1:'Rejoignez', recT2:'l’équipe.', recS:'Nous recherchons des conseillers immobiliers pour la région Ouest. Avec ou sans expérience — parlez-nous de vous.', apply:'Envoyer la candidature' }
+    };
+    const t = fr ? T.fr : T.pt;
+
+    const subjects = [
+      { v:'Comprar', f:'Acheter' }, { v:'Vender', f:'Vendre' }, { v:'Arrendar', f:'Louer' },
+      { v:'Serviços', f:'Services' }, { v:'Recrutamento', f:'Recrutement' }, { v:'Outro', f:'Autre' }
+    ].map(d => ({ label: fr ? d.f : d.v, style: s.subj === d.v ? ON : '', pressed: s.subj === d.v ? 'true' : 'false', pick: () => this.setState({ subj: d.v }) }));
+
+    const team = ['assets/p-ines.webp','assets/p-julien.webp','assets/p-marc.webp','assets/p-sofia.webp']
+      .map((img, i) => ({ img, n: this.pad(i + 1) }));
+
+    const yn = (label, key) => ({
+      label,
+      yStyle: s[key] === 'sim' ? ON : '', nStyle: s[key] === 'nao' ? ON : '',
+      yPressed: s[key] === 'sim' ? 'true' : 'false', nPressed: s[key] === 'nao' ? 'true' : 'false',
+      yes: () => { const o = {}; o[key] = 'sim'; this.setState(o); },
+      no: () => { const o = {}; o[key] = 'nao'; this.setState(o); }
+    });
+    const yesno = [
+      yn('Experiência no imobiliário', 'rExp'),
+      yn('Carta de condução', 'rCarta'),
+      yn('Viatura própria', 'rViat')
+    ];
+    const set = k => e => { const o = {}; o[k] = this.val(e); this.setState(o); };
+
+    return {
+      t, subjects, team, yesno, subj: s.subj,
+      cName: s.cName, cEmail: s.cEmail, cTel: s.cTel, cMsg: s.cMsg,
+      setCName: set('cName'), setCEmail: set('cEmail'), setCTel: set('cTel'), setCMsg: set('cMsg'),
+      cForm: !s.cDone, cDone: s.cDone, cErr: s.cErr,
+      sendC: () => {
+        const ok = s.cName.trim() && /.+@.+\..+/.test(s.cEmail) && s.cMsg.trim();
+        this.setState(ok ? { cDone: true, cErr: false } : { cErr: true });
+      },
+      resetC: () => this.setState({ cDone:false, cMsg:'' }),
+      rName: s.rName, rContact: s.rContact,
+      setRName: set('rName'), setRContact: set('rContact'),
+      setCv: e => { const f = e && e.target && e.target.files && e.target.files[0]; this.setState({ rCv: f ? f.name : '' }); },
+      cvTxt: s.rCv ? s.rCv : 'PDF ou Word — clique para escolher',
+      rForm: !s.rDone, rDone: s.rDone, rErr: s.rErr,
+      sendR: () => {
+        const ok = s.rName.trim() && s.rContact.trim() && s.rExp && s.rCarta && s.rViat;
+        this.setState(ok ? { rDone: true, rErr: false } : { rErr: true });
+      },
+      resetR: () => this.setState({ rDone:false, rName:'', rContact:'', rExp:'', rCarta:'', rViat:'', rCv:'' }),
+      menu: s.menu, menuExp: s.menu ? 'true' : 'false',
+      toggleMenu: () => this.setState({ menu: !s.menu }),
+      ptStyle: fr ? '' : 'color:#D6B083', frStyle: fr ? 'color:#D6B083' : '',
+      ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: String(s.favs.length), favLabel: t.favs + ' (' + s.favs.length + ')',
+      grainStyle: this.props.grain === true ? '' : 'display:none'
+    };
+  }
+}
+</script>
+</body>
+</html>

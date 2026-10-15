@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noir — Moradia T5 Nadadouro</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap">
+<style>
+body{margin:0;background:#070707}
+sc-for,sc-if{display:contents}
+.nx,.nx *{box-sizing:border-box}
+.nx{font-family:'Jost',sans-serif;font-weight:300;color:#F2EDE4;background:#070707;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.nx a{color:inherit;text-decoration:none}
+.nx button,.nx input,.nx select,.nx textarea{font-family:'Jost',sans-serif}
+.nx button{cursor:pointer}
+.nx img{display:block}
+.nx-disp{font-family:'Italiana',serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
+.nx-caps{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;line-height:1.5}
+.nx-wrap{max-width:1280px;margin:0 auto;padding-left:48px;padding-right:48px}
+.nx :focus-visible{outline:1px solid #E9D6B2;outline-offset:4px}
+.nx-link{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#F2EDE4;transition:color .4s}
+.nx-link::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-link:hover,.nx-link.on{color:#E9D6B2}
+.nx-link:hover::after,.nx-link.on::after{transform:scaleX(1);transform-origin:left}
+.nx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 32px;border:1px solid var(--gold);background:transparent;color:#F2EDE4;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;position:relative;overflow:hidden;transition:color .5s;cursor:pointer}
+.nx-btn::before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--gold);transform:translateY(101%);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-btn>*{position:relative;z-index:1}
+.nx-btn:hover{color:#070707}
+.nx-btn:hover::before{transform:translateY(0)}
+.nx-btn.solid{background:var(--gold);color:#070707}
+.nx-btn.solid::before{background:#E9D6B2}
+.nx-ghost{display:inline-flex;align-items:center;gap:14px;min-height:44px;color:#E9D6B2;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;background:transparent;border:0}
+.nx-ghost svg{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.nx-ghost:hover svg{transform:translateX(8px)}
+.nx-lang{min-width:44px;min-height:44px;background:transparent;border:0;font-size:11px;letter-spacing:.24em;transition:color .3s}
+.nx-icon{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#F2EDE4;background:transparent;border:0;transition:color .3s,border-color .3s}
+.nx-icon:hover{color:#E9D6B2}
+.nx-badge{position:absolute;top:3px;right:0;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#070707;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;letter-spacing:0}
+.nx-burger{display:none}
+.nx-chip{min-height:44px;padding:0 16px;background:transparent;border:1px solid rgba(242,237,228,.18);color:#F2EDE4;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;transition:border-color .4s,color .4s,background .4s}
+.nx-chip:hover{border-color:var(--gold);color:#E9D6B2}
+.nx-label{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#A39E94;font-weight:400;margin-bottom:4px}
+.nx-in{width:100%;min-height:48px;background:transparent;border:0;border-bottom:1px solid rgba(242,237,228,.24);color:#F2EDE4;font-size:16px;font-weight:300;padding:10px 0;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .4s}
+.nx-in:focus{outline:none;border-bottom-color:var(--gold)}
+.nx-in::placeholder{color:#8A857C}
+.nx-range{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0}
+.nx-range::-webkit-slider-runnable-track{height:1px;background:rgba(214,176,131,.45)}
+.nx-range::-moz-range-track{height:1px;background:rgba(214,176,131,.45)}
+.nx-range::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;margin-top:-7px;background:#070707;border:1px solid #E9D6B2;transform:rotate(45deg)}
+.nx-range::-moz-range-thumb{width:13px;height:13px;background:#070707;border:1px solid #E9D6B2;border-radius:0}
+@keyframes nxUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes nxDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.nx-up{animation:nxUp 1.4s cubic-bezier(.2,.7,.1,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.7s}
+.nx-panel{animation:nxUp .9s cubic-bezier(.2,.7,.1,1) both}
+.nx-gimg{position:absolute;left:0;top:0;width:100%;height:680px;object-fit:cover;transition:opacity 1.2s ease,transform 7s ease}
+.nx-thumb{flex:0 0 auto;width:118px;height:84px;padding:0;border:1px solid transparent;background:#121212;overflow:hidden;transition:border-color .4s}
+.nx-thumb img{width:116px;height:82px;object-fit:cover;transition:filter .5s,transform 1s}
+.nx-thumb:hover img{filter:brightness(1) !important;transform:scale(1.06)}
+.nx-gbtn{position:absolute;top:310px;width:56px;height:56px;border-radius:28px;border:1px solid rgba(242,237,228,.4);background:rgba(7,7,7,.5);color:#F2EDE4;display:flex;align-items:center;justify-content:center;transition:border-color .4s,background .4s;z-index:3}
+.nx-gbtn:hover{border-color:var(--gold);background:rgba(7,7,7,.8)}
+.nx-tab{background:transparent;border:0;min-height:52px;padding:0;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;transition:color .4s,border-color .4s}
+.nx-feat{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(242,237,228,.08)}
+.nx-row2{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid rgba(242,237,228,.08)}
+.nx-card{position:relative;background:#121212}
+.nx-card .ph{position:relative;display:block;overflow:hidden;height:380px}
+.nx-card .ph img{width:100%;height:380px;object-fit:cover;filter:grayscale(.4) brightness(.7);transform:scale(1.02);transition:transform 1.8s cubic-bezier(.2,.7,.1,1),filter 1.2s}
+.nx-card:hover .ph img,.nx-card:focus-within .ph img{transform:scale(1.08);filter:grayscale(0) brightness(.92)}
+.nx-card .frame{position:absolute;left:14px;top:14px;right:14px;bottom:14px;border:1px solid var(--gold);opacity:0;transform:scale(1.04);transition:opacity .7s,transform .9s cubic-bezier(.2,.7,.1,1);pointer-events:none}
+.nx-card:hover .frame,.nx-card:focus-within .frame{opacity:1;transform:scale(1)}
+.nx-card .ask{transition:opacity .5s}
+.nx-card .price{opacity:0;transform:translateY(10px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-card:hover .ask,.nx-card:focus-within .ask{opacity:0}
+.nx-card:hover .price,.nx-card:focus-within .price{opacity:1;transform:none}
+@media (max-width:960px){
+.nx-nav{display:none}
+.nx-burger{display:inline-flex}
+.nx-wrap{padding-left:20px;padding-right:20px}
+.nx-topl{display:none}
+.nx-gal,.nx-gimg{height:440px !important}
+.nx-gbtn{top:192px}
+.nx-cols{grid-template-columns:1fr !important}
+.nx-aside{position:static !important}
+}
+@media (hover:none){.nx-card .price{opacity:1;transform:none}.nx-card .ask{display:none}}
+@media (prefers-reduced-motion:reduce){.nx *{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="nx" style="{{ rootStyle }}">
+
+<div style="border-bottom:1px solid rgba(242,237,228,.07)">
+<div class="nx-wrap" style="display:flex;justify-content:space-between;align-items:center;min-height:40px;gap:16px">
+<span class="nx-caps nx-topl" style="font-size:10px;color:#A39E94">{{ t.top }}</span>
+<a href="index.html" class="nx-ghost" style="font-size:10px;min-height:40px">{{ t.all }}<svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M0 4h20M17 1l3 3-3 3" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+</div>
+
+<header style="position:relative;z-index:20;background:#070707;border-bottom:1px solid rgba(214,176,131,.16)">
+<div class="nx-wrap" style="display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:24px">
+<a href="Noir-Home.html" aria-label="Imonovo — página inicial" style="display:flex;flex-direction:column;line-height:1">
+<span class="nx-disp" style="font-size:30px;letter-spacing:.2em">IMONOVO</span>
+<span class="nx-caps" style="font-size:9px;letter-spacing:.46em;color:var(--gold);margin-top:7px">Private Office</span>
+</a>
+<nav class="nx-nav" aria-label="Navegação principal" style="display:flex;gap:34px;align-items:center">
+<a class="nx-link nx-caps" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-caps on" aria-current="page" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-caps" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-caps" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-caps" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+<div style="display:flex;align-items:center;gap:4px">
+<div role="group" aria-label="Idioma" style="display:flex;align-items:center">
+<button type="button" class="nx-lang" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPt }}">PT</button>
+<span aria-hidden="true" style="width:1px;height:12px;background:rgba(242,237,228,.2)"></span>
+<button type="button" class="nx-lang" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFr }}">FR</button>
+</div>
+<a href="Noir-Imoveis.html" class="nx-icon" aria-label="{{ favAria }}">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg>
+<span class="nx-badge">{{ favCount }}</span>
+</a>
+<button type="button" class="nx-icon nx-burger" aria-label="Abrir menu" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}">
+<svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><path d="M0 1h24M6 13h18" stroke="currentColor" stroke-width="1.1" fill="none"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Navegação móvel" style="border-top:1px solid rgba(214,176,131,.16);padding:12px 20px 28px;display:flex;flex-direction:column;background:#070707">
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+</sc-if>
+</header>
+
+<main>
+<!-- title -->
+<section style="padding:56px 0 40px">
+<div class="nx-wrap">
+<nav aria-label="Caminho" class="nx-caps" style="font-size:10px;color:#A39E94;display:flex;gap:12px;flex-wrap:wrap">
+<a href="Noir-Imoveis.html" class="nx-link" style="min-height:32px">A Coleção</a><span aria-hidden="true" style="align-self:center">/</span><span style="align-self:center">Nadadouro</span><span aria-hidden="true" style="align-self:center">/</span><span style="align-self:center;color:#E9D6B2">N.º 01</span>
+</nav>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:28px">
+<div>
+<p class="nx-caps nx-up d1" style="color:var(--gold);margin:0 0 18px">N.º 01 · Nadadouro, Caldas da Rainha</p>
+<h1 class="nx-disp nx-up d2" style="margin:0;font-size:clamp(48px,6.2vw,96px);line-height:.98">{{ t.h1a }}<span style="display:block;color:#E9D6B2">{{ t.h1b }}</span></h1>
+</div>
+<div class="nx-up d3" style="text-align:right">
+<p class="nx-caps" style="color:#A39E94;margin:0 0 6px;font-size:10px">Preço</p>
+<p class="nx-disp" style="font-size:52px;margin:0;color:#E9D6B2">1.380.000 €</p>
+<div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+<button type="button" class="nx-icon" style="{{ favBtnStyle }}" aria-label="{{ favBtnLabel }}" aria-pressed="{{ favPressed }}" onClick="{{ toggleFav }}">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z" fill="{{ favFill }}" stroke="currentColor" stroke-width="1.2"></path></svg>
+</button>
+<a href="#visita" class="nx-btn solid" style="min-height:44px"><span>{{ t.visit }}</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- gallery -->
+<section aria-label="Galeria">
+<div class="nx-wrap">
+<div class="nx-gal" style="position:relative;height:680px;overflow:hidden;background:#121212">
+<sc-for list="{{ gallery }}" as="g" hint-placeholder-count="1">
+<img class="nx-gimg" src="{{ g.src }}" alt="{{ g.alt }}" style="{{ g.style }}">
+</sc-for>
+<span aria-hidden="true" style="position:absolute;left:18px;top:18px;right:18px;bottom:18px;border:1px solid rgba(214,176,131,.45);pointer-events:none;z-index:2"></span>
+<button type="button" class="nx-gbtn" style="left:40px" aria-label="Imagem anterior" onClick="{{ prevImg }}"><svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M22 4H2M5 1L2 4l3 3" stroke="currentColor" fill="none"></path></svg></button>
+<button type="button" class="nx-gbtn" style="right:40px" aria-label="Imagem seguinte" onClick="{{ nextImg }}"><svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M0 4h20M17 1l3 3-3 3" stroke="currentColor" fill="none"></path></svg></button>
+<div style="position:absolute;left:44px;bottom:40px;z-index:3;display:flex;align-items:baseline;gap:18px">
+<span class="nx-disp" style="font-size:44px;color:#F2EDE4">{{ imgNo }}</span><span class="nx-caps" style="color:#C9C3B8">{{ imgMeta }}</span>
+</div>
+<span class="nx-caps" style="position:absolute;right:44px;bottom:44px;z-index:3;font-size:9px;color:#C9C3B8">Imagens ilustrativas</span>
+</div>
+<div role="tablist" aria-label="Miniaturas" style="display:flex;gap:10px;overflow-x:auto;padding:14px 0 6px">
+<sc-for list="{{ gallery }}" as="th" hint-placeholder-count="9">
+<button type="button" role="tab" class="nx-thumb" aria-selected="{{ th.sel }}" aria-label="{{ th.label }}" onClick="{{ th.pick }}" style="{{ th.thumbStyle }}"><img src="{{ th.src }}" alt="" style="{{ th.thumbImg }}"></button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- facts strip -->
+<section style="padding:56px 0 0">
+<div class="nx-wrap">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));border-top:1px solid rgba(214,176,131,.25);border-bottom:1px solid rgba(214,176,131,.25)">
+<div style="padding:30px 24px 30px 0"><p class="nx-label">Área</p><p class="nx-disp" style="font-size:40px;margin:4px 0 0">301 m²</p></div>
+<div style="padding:30px 24px;border-left:1px solid rgba(242,237,228,.08)"><p class="nx-label">Tipologia</p><p class="nx-disp" style="font-size:40px;margin:4px 0 0">T5</p></div>
+<div style="padding:30px 24px;border-left:1px solid rgba(242,237,228,.08)"><p class="nx-label">Construção</p><p class="nx-disp" style="font-size:40px;margin:4px 0 0">2014</p></div>
+<div style="padding:30px 24px;border-left:1px solid rgba(242,237,228,.08)"><p class="nx-label">Vista</p><p class="nx-disp" style="font-size:40px;margin:4px 0 0">Mar &amp; Lagoa</p></div>
+</div>
+</div>
+</section>
+
+<!-- body -->
+<section style="padding:80px 0 120px">
+<div class="nx-wrap nx-cols" style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:72px;align-items:start">
+<div>
+<!-- tabs -->
+<div role="tablist" aria-label="Detalhes do imóvel" style="display:flex;gap:40px;border-bottom:1px solid rgba(242,237,228,.12);flex-wrap:wrap">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
+<button type="button" role="tab" class="nx-tab" aria-selected="{{ tb.sel }}" onClick="{{ tb.pick }}" style="{{ tb.style }}">{{ tb.label }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ isDesc }}" hint-placeholder-val="{{ true }}">
+<div class="nx-panel" role="tabpanel" style="padding-top:40px">
+<p class="nx-disp" style="font-size:34px;line-height:1.3;margin:0 0 28px;color:#E9D6B2">Uma casa voltada para a água: o Atlântico ao fundo, a Lagoa de Óbidos em primeiro plano.</p>
+<p style="color:#C9C3B8;font-size:17px;line-height:1.85;margin:0 0 20px">Moradia T5 construída em 2014 no Nadadouro, com 301 m² e vista sobre o mar e a Lagoa de Óbidos. A piscina aquecida prolonga a estação; os painéis solares e o piso radiante asseguram conforto discreto durante todo o ano.</p>
+<p style="color:#C9C3B8;font-size:17px;line-height:1.85;margin:0">A suite master completa uma distribuição pensada para a vida em família ou para receber. Áreas detalhadas, orientação solar e plantas disponíveis em dossier privado [DOSSIER].</p>
+</div>
+</sc-if>
+<sc-if value="{{ isFeat }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="tabpanel" style="padding-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));column-gap:40px">
+<sc-for list="{{ feats }}" as="f" hint-placeholder-count="6">
+<div class="nx-feat">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><path d="M13 2l11 11-11 11L2 13z" fill="none" stroke="#D6B083" stroke-width="1"></path><path d="M13 9l4 4-4 4-4-4z" fill="#D6B083" fill-opacity=".5"></path></svg>
+<div><p style="margin:0;font-size:17px">{{ f.name }}</p><p style="margin:4px 0 0;color:#A39E94;font-size:14px">{{ f.note }}</p></div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ isLoc }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="tabpanel" style="padding-top:40px">
+<div style="position:relative;height:360px;background:#0A0A0A;border:1px solid rgba(214,176,131,.18);overflow:hidden">
+<svg width="100%" height="360" viewBox="0 0 800 360" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;top:0">
+<path d="M250 0 C240 60 236 100 262 140 C288 176 312 182 300 214 C288 250 250 290 220 360 L800 360 L800 0 Z" fill="#121212"></path>
+<path d="M250 0 C240 60 236 100 262 140 C288 176 312 182 300 214 C288 250 250 290 220 360" fill="none" stroke="#D6B083" stroke-opacity=".7" vector-effect="non-scaling-stroke"></path>
+<path d="M298 176 C350 160 430 164 480 186 C520 204 512 236 470 244 C420 254 352 240 318 220 C296 206 290 186 298 176 Z" fill="#0A0A0A" stroke="#D6B083" stroke-opacity=".55" vector-effect="non-scaling-stroke"></path>
+<path d="M560 260 C600 220 660 180 760 150 M560 260 C580 300 600 330 640 360" fill="none" stroke="#F2EDE4" stroke-opacity=".12" stroke-dasharray="4 6" vector-effect="non-scaling-stroke"></path>
+</svg>
+<span style="position:absolute;left:51%;top:150px;width:16px;height:16px;transform:translate(-50%,-50%) rotate(45deg);background:#D6B083;box-shadow:0 0 0 8px rgba(214,176,131,.15),0 0 0 18px rgba(214,176,131,.06)"></span>
+<span class="nx-caps" style="position:absolute;left:51%;top:170px;transform:translateX(-50%);color:#E9D6B2;font-size:10px;white-space:nowrap">Nadadouro</span>
+<span class="nx-caps" style="position:absolute;left:52%;top:210px;transform:translateX(-50%);color:#7A756D;font-size:9px;white-space:nowrap">Lagoa de Óbidos</span>
+<span class="nx-caps" style="position:absolute;left:30%;top:120px;transform:translateX(-50%);color:#A39E94;font-size:9px;white-space:nowrap">Foz do Arelho</span>
+<span class="nx-caps" style="position:absolute;left:74%;top:270px;transform:translateX(-50%);color:#A39E94;font-size:9px;white-space:nowrap">Caldas da Rainha</span>
+<span style="position:absolute;left:12%;top:200px;font-family:'Italiana',serif;font-size:16px;color:#7A756D">Atlântico</span>
+<span class="nx-caps" style="position:absolute;right:16px;bottom:12px;font-size:9px;color:#7A756D">Mapa estilizado · localização aproximada</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));column-gap:40px;margin-top:20px">
+<div class="nx-row2"><span>Lagoa de Óbidos</span><span style="color:#A39E94">[X min]</span></div>
+<div class="nx-row2"><span>Foz do Arelho · praia</span><span style="color:#A39E94">[X min]</span></div>
+<div class="nx-row2"><span>Caldas da Rainha · centro</span><span style="color:#A39E94">[X min]</span></div>
+<div class="nx-row2"><span>Óbidos</span><span style="color:#A39E94">[X min]</span></div>
+<div class="nx-row2"><span>Lisboa · aeroporto</span><span style="color:#A39E94">[X min]</span></div>
+<div class="nx-row2"><span>Morada exata</span><span style="color:#A39E94">Partilhada em privado</span></div>
+</div>
+</div>
+</sc-if>
+
+<!-- ficha -->
+<div style="margin-top:80px">
+<p class="nx-caps" style="color:var(--gold);margin:0 0 10px">Ficha técnica</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));column-gap:48px">
+<div class="nx-row2"><span style="color:#A39E94">Referência</span><span>[REF]</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Tipo</span><span>Moradia</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Tipologia</span><span>T5</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Área</span><span>301 m²</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Ano de construção</span><span>2014</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Localização</span><span>Nadadouro · Caldas da Rainha</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Certificado energético</span><span>[CE]</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Preço</span><span style="color:#E9D6B2">1.380.000 €</span></div>
+</div>
+</div>
+
+<!-- simulator -->
+<div style="margin-top:80px;background:#121212;border:1px solid rgba(214,176,131,.2);padding:44px 44px 40px">
+<p class="nx-caps" style="color:var(--gold);margin:0">{{ t.sim }}</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:44px;margin-top:28px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><label class="nx-label" for="sm-p">Preço do imóvel</label><span style="color:#E9D6B2">{{ simPrice }}</span></div>
+<input id="sm-p" class="nx-range" type="range" min="100000" max="2000000" step="10000" value="{{ priceVal }}" onInput="{{ setPrice }}">
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><label class="nx-label" for="sm-d">Entrada</label><span style="color:#E9D6B2">{{ simDown }}</span></div>
+<input id="sm-d" class="nx-range" type="range" min="10" max="60" step="5" value="{{ downVal }}" onInput="{{ setDown }}">
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><label class="nx-label" for="sm-y">Prazo</label><span style="color:#E9D6B2">{{ simYears }}</span></div>
+<input id="sm-y" class="nx-range" type="range" min="5" max="40" step="1" value="{{ yearsVal }}" onInput="{{ setYears }}">
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><label class="nx-label" for="sm-r">Taxa indicativa (TAN)</label><span style="color:#E9D6B2">{{ simRate }}</span></div>
+<input id="sm-r" class="nx-range" type="range" min="1" max="6" step="0.1" value="{{ rateVal }}" onInput="{{ setRate }}">
+</div>
+</div>
+<div style="text-align:center;border:1px solid rgba(214,176,131,.3);padding:40px 24px">
+<p class="nx-label" style="margin:0">Prestação mensal estimada</p>
+<p class="nx-disp" role="status" aria-live="polite" style="font-size:64px;margin:10px 0 4px;color:#E9D6B2">{{ monthly }}</p>
+<div style="width:48px;height:1px;background:var(--gold);margin:20px auto"></div>
+<div class="nx-row2"><span style="color:#A39E94">Entrada</span><span>{{ downAmt }}</span></div>
+<div class="nx-row2"><span style="color:#A39E94">Montante financiado</span><span>{{ loanAmt }}</span></div>
+<div class="nx-row2" style="border-bottom:0"><span style="color:#A39E94">Total de juros</span><span>{{ interest }}</span></div>
+</div>
+</div>
+<p style="color:#A39E94;font-size:13px;margin:26px 0 0">Simulação indicativa e não vinculativa, sem impostos, seguros ou comissões. O apoio ao crédito bancário faz parte do nosso Acompanhamento.</p>
+</div>
+</div>
+
+<!-- aside: visit -->
+<aside id="visita" class="nx-aside" style="position:sticky;top:24px;background:#121212;border:1px solid rgba(214,176,131,.3);padding:36px 32px">
+<sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
+<p class="nx-caps" style="color:var(--gold);margin:0">Por marcação</p>
+<h2 class="nx-disp" style="font-size:40px;margin:10px 0 6px">{{ t.visit }}</h2>
+<p style="color:#A39E94;font-size:14px;margin:0 0 26px">Um consultor acompanha-o no local, em português ou francês.</p>
+<span class="nx-label" id="lb-day">Dia</span>
+<div role="group" aria-labelledby="lb-day" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0 22px">
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
+<button type="button" class="nx-chip" aria-pressed="{{ d.sel }}" onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button>
+</sc-for>
+</div>
+<span class="nx-label" id="lb-hour">Hora</span>
+<div role="group" aria-labelledby="lb-hour" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0 22px">
+<sc-for list="{{ hours }}" as="h" hint-placeholder-count="6">
+<button type="button" class="nx-chip" aria-pressed="{{ h.sel }}" onClick="{{ h.pick }}" style="{{ h.style }}">{{ h.label }}</button>
+</sc-for>
+</div>
+<span class="nx-label" id="lb-vl">Língua da visita</span>
+<div role="group" aria-labelledby="lb-vl" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 18px">
+<sc-for list="{{ vlangs }}" as="vl" hint-placeholder-count="2">
+<button type="button" class="nx-chip" aria-pressed="{{ vl.sel }}" onClick="{{ vl.pick }}" style="{{ vl.style }}">{{ vl.label }}</button>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div><label class="nx-label" for="v-n">Nome</label><input id="v-n" class="nx-in" type="text" autocomplete="name" value="{{ vName }}" onInput="{{ setName }}"></div>
+<div><label class="nx-label" for="v-e">Email</label><input id="v-e" class="nx-in" type="email" autocomplete="email" value="{{ vEmail }}" onInput="{{ setEmail }}"></div>
+<div><label class="nx-label" for="v-t">Telefone</label><input id="v-t" class="nx-in" type="tel" autocomplete="tel" value="{{ vPhone }}" onInput="{{ setPhone }}"></div>
+</div>
+<p role="alert" style="color:#E9D6B2;font-size:13px;min-height:20px;margin:14px 0 8px">{{ vErr }}</p>
+<button type="button" class="nx-btn solid" style="width:100%" onClick="{{ book }}"><span>{{ t.book }}</span></button>
+<p style="color:#A39E94;font-size:12px;margin:14px 0 0;text-align:center">Ou ligue +351 919 192 220</p>
+</sc-if>
+<sc-if value="{{ formDone }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="status" style="text-align:center;padding:30px 0">
+<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true" style="margin:0 auto"><path d="M22 2l20 20-20 20L2 22z" fill="none" stroke="#D6B083"></path><path d="M14 22l6 6 10-12" fill="none" stroke="#E9D6B2"></path></svg>
+<p class="nx-disp" style="font-size:36px;margin:22px 0 10px">Visita pedida.</p>
+<p style="color:#C9C3B8;margin:0">{{ doneLine }}</p>
+<p style="color:#A39E94;font-size:13px;margin:18px 0 26px">Protótipo — nada é enviado.</p>
+<button type="button" class="nx-ghost" onClick="{{ again }}">Alterar pedido</button>
+</div>
+</sc-if>
+</aside>
+</div>
+</section>
+
+<!-- similar -->
+<section style="padding:120px 0 140px;background:#0B0B0B;border-top:1px solid rgba(214,176,131,.14)">
+<div class="nx-wrap">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px">
+<div><p class="nx-caps" style="color:var(--gold);margin:0 0 16px">Na mesma coleção</p><h2 class="nx-disp" style="font-size:clamp(40px,4.4vw,64px);margin:0">Imóveis semelhantes</h2></div>
+<a href="Noir-Imoveis.html" class="nx-ghost">Ver toda a coleção<svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h26M22 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:28px">
+<sc-for list="{{ similar }}" as="c" hint-placeholder-count="3">
+<article class="nx-card">
+<a class="ph" href="Noir-Imovel.html" aria-label="{{ c.aria }}"><img src="{{ c.img }}" alt="{{ c.alt }}"><span class="frame"></span><span class="nx-caps" style="position:absolute;left:30px;top:32px;color:#E9D6B2">{{ c.no }}</span></a>
+<div style="padding:24px 28px 28px">
+<div class="nx-caps" style="color:#A39E94">{{ c.loc }}</div>
+<a href="Noir-Imovel.html" class="nx-disp" style="display:block;font-size:30px;margin-top:8px">{{ c.title }}</a>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(242,237,228,.1)">
+<span style="color:#A39E94;font-size:14px">{{ c.meta }}</span>
+<span style="position:relative;display:block;height:32px;min-width:160px">
+<span class="ask nx-caps" style="position:absolute;right:0;top:8px;font-size:10px;color:var(--gold)">Revelar preço</span>
+<span class="price nx-disp" style="position:absolute;right:0;top:0;font-size:26px;color:#E9D6B2;white-space:nowrap">{{ c.priceLabel }}</span>
+</span>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="border-top:1px solid rgba(214,176,131,.2);background:#070707;overflow:hidden">
+<div class="nx-wrap" style="padding-top:96px;padding-bottom:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+<div>
+<span class="nx-disp" style="font-size:28px;letter-spacing:.2em">IMONOVO</span>
+<p style="color:#A39E94;font-size:14px;margin:16px 0 0;max-width:260px">Private real-estate office na Costa de Prata. Compra, Acompanhamento, Conciergerie.</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Escritório</p>
+<p style="margin:0;font-size:15px">Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha</p>
+<p style="margin:10px 0 0;font-size:14px;color:#A39E94">Por marcação · [HORÁRIO]</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Contacto</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351210958271">+351 210 958 271</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351919192220">+351 919 192 220</a><br>
+<span style="font-size:11px;color:#A39E94">Chamada para a rede fixa / móvel nacional</span><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="mailto:info@imonovo.pt">info@imonovo.pt</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="https://www.instagram.com/imonovo_portugal">@imonovo_portugal</a>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Casa</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Imoveis.html">Imóveis</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Vender.html">Vender</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Servicos.html">Serviços</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Contactos.html">Contactos &amp; Recrutamento</a>
+</div>
+</div>
+<p class="nx-disp" aria-hidden="true" style="font-size:clamp(80px,17vw,250px);line-height:.9;margin:80px 0 0;color:#151515;text-align:center;letter-spacing:.08em">IMONOVO</p>
+<div style="height:1px;background:rgba(214,176,131,.2);margin:28px 0 22px"></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12px;color:#A39E94">
+<span>© Imonovo · MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+<span>Proposta de redesign — conceito, não é o site oficial</span>
+<a href="index.html" class="nx-link" style="min-height:24px;font-size:12px">Todas as propostas</a>
+</div>
+</div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4800},"accent":{"editor":"color","default":"#D6B083","options":["#D6B083","#E9D6B2","#B8925A"]}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:'pt', menu:false, favs:[], img:0, tab:'desc', price:1380000, down:20, years:30, rate:3.5, day:0, hour:-1, vlang:'pt', name:'', email:'', phone:'', err:'', done:false }; }
+  renderVals(){
+    const s = this.state, p = this.props || {}, gold = p.accent || '#D6B083';
+    const T = {
+      pt:{ nav:{home:'Início',imoveis:'Imóveis',emp:'Empreendimentos',vender:'Vender',serv:'Serviços',cont:'Contactos'},
+        top:'Private Office · Caldas da Rainha — por marcação', all:'Todas as propostas',
+        h1a:'Moradia T5,', h1b:'entre o mar e a Lagoa.', visit:'Agendar visita', book:'Pedir a visita', sim:'Simulador de crédito',
+        tabs:['Descrição','Características','Localização'] },
+      fr:{ nav:{home:'Accueil',imoveis:'Biens',emp:'Programmes',vender:'Vendre',serv:'Services',cont:'Contact'},
+        top:'Private Office · Caldas da Rainha — sur rendez-vous', all:'Toutes les propositions',
+        h1a:'Villa T5,', h1b:'entre l’océan et la Lagune.', visit:'Planifier une visite', book:'Demander la visite', sim:'Simulateur de crédit',
+        tabs:['Description','Caractéristiques','Situation'] }
+    };
+    const t = T[s.lang];
+    const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ' €';
+    const G = [
+      ['assets/villa-infinity.webp','Piscina infinita'],
+      ['assets/pool-sea.webp','Piscina e mar'],
+      ['assets/terrace-sea.webp','Terraço'],
+      ['assets/int-living.webp','Sala de estar'],
+      ['assets/int-marble.webp','Mármore'],
+      ['assets/int-kitchen.webp','Cozinha'],
+      ['assets/int-bedroom.webp','Suite master'],
+      ['assets/int-bath.webp','Casa de banho'],
+      ['assets/lagoa-aerial.webp','Lagoa de Óbidos']
+    ];
+    const N = G.length;
+    const gallery = G.map((g,i) => { const on = s.img === i; return {
+      src:g[0], alt:'Moradia T5 Nadadouro — ' + g[1] + ' (imagem ilustrativa)', label:'Ver imagem ' + (i + 1) + ': ' + g[1],
+      sel:on ? 'true' : 'false', pick:() => this.setState({img:i}),
+      style:on ? 'opacity:1;transform:scale(1.03)' : 'opacity:0;transform:scale(1)',
+      thumbStyle:on ? 'border-color:' + gold : '', thumbImg:on ? 'filter:brightness(1)' : 'filter:brightness(.5) grayscale(.5)' }; });
+    const tk = ['desc','feat','loc'];
+    const tabs = tk.map((k,i) => ({ label:t.tabs[i], sel:s.tab === k ? 'true' : 'false', pick:() => this.setState({tab:k}),
+      style:'color:' + (s.tab === k ? '#E9D6B2' : '#A39E94') + ';border-bottom:1px solid ' + (s.tab === k ? gold : 'transparent') + ';margin-bottom:-1px' }));
+    const feats = [
+      {name:'Vista mar e Lagoa de Óbidos', note:'Panorâmica sobre a água'},
+      {name:'Piscina aquecida', note:'Utilização prolongada ao longo do ano'},
+      {name:'Painéis solares', note:'Energia para águas quentes [CONFIRMAR]'},
+      {name:'Piso radiante', note:'Conforto térmico uniforme'},
+      {name:'Suite master', note:'Dimensões em dossier privado'},
+      {name:'Construída em 2014', note:'Moradia T5 · 301 m²'}
+    ];
+    const loan = s.price * (1 - s.down / 100), r = s.rate / 100 / 12, n = s.years * 12;
+    const m = r > 0 ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
+    const chipOn = 'border-color:' + gold + ';background:' + gold + ';color:#070707';
+    const WD = s.lang === 'fr' ? ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'] : ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+    const dd = []; const base = new Date(); let k = 1;
+    while (dd.length < 6) { const d = new Date(base.getFullYear(), base.getMonth(), base.getDate() + k); if (d.getDay() !== 0) dd.push(d); k++; }
+    const days = dd.map((d,i) => ({ label:WD[d.getDay()] + ' ' + d.getDate(), sel:s.day === i ? 'true' : 'false', style:s.day === i ? chipOn : '', pick:() => this.setState({day:i}) }));
+    const HS = ['10:00','11:30','14:30','16:00','17:30','[HORA]'];
+    const hours = HS.slice(0,5).map((h,i) => ({ label:h, sel:s.hour === i ? 'true' : 'false', style:s.hour === i ? chipOn : '', pick:() => this.setState({hour:i}) }));
+    const vlangs = [['pt','Português'],['fr','Français']].map(v => ({ label:v[1], sel:s.vlang === v[0] ? 'true' : 'false', style:s.vlang === v[0] ? chipOn : '', pick:() => this.setState({vlang:v[0]}) }));
+    const P = [
+      {id:5,typ:'T3',title:'Moradia T3',loc:'Nadadouro',area:183,price:650000,img:'assets/villa-pool.webp'},
+      {id:2,typ:'T3',title:'Moradia T3',loc:'Serra do Bouro',area:177,price:645000,img:'assets/villa-white.webp'},
+      {id:3,typ:'T3',title:'Moradia T3',loc:'Caldas da Rainha',area:195,price:780000,img:'assets/villa-modern-pool.webp'}
+    ];
+    const similar = P.map(x => Object.assign({}, x, { no:'N.º ' + String(x.id).padStart(2,'0'), meta:x.area + ' m² · ' + x.typ, priceLabel:fmt(x.price),
+      aria:x.title + ' em ' + x.loc + ' — ver ficha', alt:x.title + ' em ' + x.loc + ' — fotografia ilustrativa' }));
+    const fav = s.favs.indexOf(1) > -1;
+    const book = () => {
+      if (!s.name.trim()) return this.setState({err:'Indique o seu nome.'});
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s.email) && s.phone.replace(/\D/g,'').length < 9) return this.setState({err:'Indique um email válido ou um telefone.'});
+      if (s.hour < 0) return this.setState({err:'Escolha uma hora.'});
+      this.setState({done:true, err:''});
+    };
+    return {
+      rootStyle:'--gold:' + gold + ';--champ:#E9D6B2', t,
+      ptStyle:s.lang === 'pt' ? 'color:#E9D6B2' : 'color:#8A857C', frStyle:s.lang === 'fr' ? 'color:#E9D6B2' : 'color:#8A857C',
+      ptPressed:s.lang === 'pt' ? 'true' : 'false', frPressed:s.lang === 'fr' ? 'true' : 'false',
+      setPt:() => this.setState({lang:'pt'}), setFr:() => this.setState({lang:'fr'}),
+      favCount:String(s.favs.length), favAria:'Favoritos: ' + s.favs.length,
+      menuOpen:s.menu, menuExpanded:s.menu ? 'true' : 'false', toggleMenu:() => this.setState({menu:!s.menu}),
+      favPressed:fav ? 'true' : 'false', favFill:fav ? 'currentColor' : 'none', favBtnLabel:fav ? 'Remover dos favoritos' : 'Guardar nos favoritos',
+      favBtnStyle:'border:1px solid ' + (fav ? gold : 'rgba(242,237,228,.25)') + ';border-radius:22px;color:' + (fav ? gold : '#F2EDE4'),
+      toggleFav:() => this.setState({favs:fav ? [] : [1]}),
+      gallery, imgNo:String(s.img + 1).padStart(2,'0'), imgMeta:'/ ' + String(N).padStart(2,'0') + ' — ' + G[s.img][1],
+      prevImg:() => this.setState({img:(s.img + N - 1) % N}), nextImg:() => this.setState({img:(s.img + 1) % N}),
+      tabs, isDesc:s.tab === 'desc', isFeat:s.tab === 'feat', isLoc:s.tab === 'loc', feats,
+      priceVal:String(s.price), downVal:String(s.down), yearsVal:String(s.years), rateVal:String(s.rate),
+      simPrice:fmt(s.price), simDown:s.down + ' %', simYears:s.years + ' anos', simRate:s.rate.toFixed(1).replace('.',',') + ' %',
+      setPrice:e => this.setState({price:+e.target.value}), setDown:e => this.setState({down:+e.target.value}),
+      setYears:e => this.setState({years:+e.target.value}), setRate:e => this.setState({rate:+e.target.value}),
+      monthly:fmt(m), downAmt:fmt(s.price - loan), loanAmt:fmt(loan), interest:fmt(m * n - loan),
+      days, hours, vlangs,
+      vName:s.name, vEmail:s.email, vPhone:s.phone, vErr:s.err,
+      setName:e => this.setState({name:e.target.value, err:''}), setEmail:e => this.setState({email:e.target.value, err:''}), setPhone:e => this.setState({phone:e.target.value, err:''}),
+      book, formOpen:!s.done, formDone:s.done,
+      doneLine:(days[s.day] ? days[s.day].label : '') + ' · ' + (s.hour > -1 ? HS[s.hour] : '') + ' · visita em ' + (s.vlang === 'fr' ? 'francês' : 'português'),
+      again:() => this.setState({done:false}),
+      similar
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Caldas — Moradia T5 Nadadouro</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#ECEAE4}
+.cz{container-type:inline-size;background:#ECEAE4;color:#0E0E0D;font-family:'Archivo',system-ui,sans-serif;font-size:16px;line-height:1.5;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+:where(.cz) a{color:inherit}
+:where(.cz) h1,:where(.cz) h2,:where(.cz) h3,:where(.cz) p,:where(.cz) figure,:where(.cz) dl,:where(.cz) dd,:where(.cz) ul{margin:0;padding:0}
+:where(.cz) ul{list-style:none}
+:where(.cz) button,:where(.cz) input,:where(.cz) select,:where(.cz) textarea{font-family:inherit;color:inherit;font-size:inherit}
+.cz img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px;position:relative}
+.xp{font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;line-height:.9}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.hl{background:#D6B083;color:#0E0E0D;padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cz :focus-visible{outline:2px solid #0E0E0D;outline-offset:3px}
+.dk :focus-visible{outline-color:#D6B083}
+.gov{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40;mix-blend-mode:multiply}
+.gov-in{width:100%;max-width:1440px;padding:0 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.gov-in i{border-left:1px solid rgba(14,14,13,.06);border-right:1px solid rgba(14,14,13,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.hdr-top{border-bottom:1px solid #0E0E0D;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.hdr-top-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:34px}
+.lnk-top{text-decoration:none;display:inline-flex;align-items:center;min-height:34px;padding:0 8px;transition:background .25s}
+.lnk-top:hover{background:#D6B083}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{display:inline-flex;gap:5px;font-size:26px;font-weight:900;font-stretch:125%;letter-spacing:-.03em;text-decoration:none;line-height:1;min-height:44px;align-items:center}
+.logo i{width:9px;height:9px;background:#D6B083;align-self:flex-start;margin-top:8px}
+.nav{display:flex;gap:2px}
+.nav-a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;text-decoration:none;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.nav-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A5852;padding:1px 3px}
+.nav-a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:#0E0E0D;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.nav-a:hover::after,.nav-a.on::after{transform:scaleX(1);transform-origin:left}
+.nav-a.on .nav-n{background:#D6B083;color:#0E0E0D}
+.hdr-act{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #0E0E0D}
+.lang-b{min-width:44px;min-height:42px;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s,color .25s}
+.fav{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s}
+.fav:hover{background:#D6B083}
+.menu-b{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #0E0E0D;background:transparent;cursor:pointer}
+.mnav{display:none;flex-direction:column;border-top:1px solid #0E0E0D}
+.mnav a{display:flex;align-items:center;gap:14px;min-height:56px;padding:0 16px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase}
+.mnav a:hover{background:#D6B083}
+.mnav span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:#5A5852}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;isolation:isolate;transition:color .35s}
+.btn::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:#D6B083;transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:#0E0E0D}
+.btn:hover::before{transform:translateY(0)}
+.btn-o{background:transparent;color:#0E0E0D}
+.btn-g{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.btn-g::before{background:#ECEAE4}
+.btn-sm{min-height:44px;padding:0 16px;font-size:11px}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.hov:hover .ph,.hov:focus-within .ph{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:120px 0 28px;border-bottom:1px solid #0E0E0D}
+.sh-num{grid-column:1/span 4;font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #0E0E0D;transition:color .6s}
+.sh:hover .sh-num{color:#0E0E0D}
+.sh-t{grid-column:5/span 5}
+.sh-t h2{font-size:clamp(32px,3.6cqw,52px);margin-top:10px}
+.sh-x{grid-column:10/span 3;text-align:right;font-size:15px;color:#5A5852}
+.heart{position:relative;z-index:3;flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid currentColor;background:transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.heart:hover{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.heart svg{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.heart:active svg{transform:scale(.75)}
+.ftr{background:#0E0E0D;color:#ECEAE4;padding:72px 0 28px;position:relative;z-index:41}
+.ftr-word{display:flex;justify-content:space-between;font-size:clamp(54px,14.3cqw,206px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #ECEAE4;transition:color .6s}
+.ftr-word:hover{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:32px;padding:56px 0;margin-top:48px;border-top:1px solid rgba(236,234,228,.25)}
+.ftr .lbl{color:#A9A69E;margin-bottom:12px}
+.ftr p{font-size:15px;line-height:1.7}
+.ftr-l a{display:flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(236,234,228,.12);transition:color .25s,padding .35s}
+.ftr-l a:hover{color:#D6B083;padding-left:8px}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;border-top:1px solid rgba(236,234,228,.25);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#A9A69E}
+.ftr-bot a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ftr-bot a:hover{color:#D6B083}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes roll{from{transform:translateY(0)}}
+@keyframes ltr{0%{transform:translateY(105%);font-stretch:62%}55%{font-stretch:62%}100%{transform:translateY(0);font-stretch:125%}}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+.fl{display:flex;gap:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:44px;line-height:1}
+.fl-d{position:relative;display:block;width:.74em;height:1.12em;background:#0E0E0D;color:#ECEAE4;overflow:hidden}
+.fl-d::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:rgba(236,234,228,.07);z-index:2}
+.fl-d::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#ECEAE4;opacity:.4;z-index:2}
+.fl-s{display:flex;flex-direction:column;transform:translateY(calc(var(--n) * -1.12em));animation:roll 1.9s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.fl-s i{display:flex;align-items:center;justify-content:center;height:1.12em;font-style:normal}
+.fl-c{display:flex;align-items:center;justify-content:center;width:.42em;height:1.12em}
+.dk .fl-d{background:#ECEAE4;color:#0E0E0D}
+.dk .fl-d::after{background:#0E0E0D}
+/* detail */
+.crumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:18px 0;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #0E0E0D}
+.crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:none}
+.crumb a:hover{background:#D6B083}
+.ttl{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:28px 0 24px}
+.ttl-l{grid-column:1/span 9}
+.ttl-w{display:flex;justify-content:space-between;font-size:clamp(42px,10.2cqw,148px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;overflow:hidden;padding:.05em 0 .03em;margin-top:12px}
+.ttl-w span{display:inline-block;font-stretch:125%;animation:ltr 1.2s cubic-bezier(.16,.84,.2,1) backwards;transition:font-stretch .7s cubic-bezier(.7,0,.2,1),color .3s}
+.ttl-w span:hover{font-stretch:62%;color:#D6B083}
+.ttl-r{grid-column:10/span 3;display:flex;flex-direction:column;align-items:flex-end;gap:12px;animation:up .9s .7s both}
+.price{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(26px,2.6cqw,38px);background:#D6B083;padding:4px 10px;line-height:1.2}
+.ttl-a{display:flex;gap:8px}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));border-top:1px solid #0E0E0D;border-left:1px solid #0E0E0D}
+.spec{display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D}
+.spec-u{font-family:'JetBrains Mono',monospace;font-size:13px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:32px}
+.gal-m{grid-column:1/span 9;position:relative;height:640px;overflow:hidden;background:#0E0E0D;animation:wipe 1.3s .3s cubic-bezier(.7,0,.2,1) both}
+.gal-ctr{position:absolute;top:0;left:0;z-index:3;background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px;padding:10px 14px}
+.gal-cap{position:absolute;left:0;bottom:0;z-index:3;background:#0E0E0D;color:#ECEAE4;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:10px 14px}
+.gal-nav{position:absolute;right:0;bottom:0;z-index:3;display:flex}
+.gal-nav button{width:64px;height:64px;border:0;border-left:1px solid #0E0E0D;background:#ECEAE4;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.gal-nav button:hover{background:#D6B083}
+.gal-t{grid-column:10/span 3;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
+.th{position:relative;height:150px;padding:0;border:0;cursor:pointer;overflow:hidden;background:#0E0E0D}
+.th img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);opacity:.75;transition:filter .5s,opacity .5s,transform .8s}
+.th:hover img{filter:none;opacity:1;transform:scale(1.06)}
+.th span{position:absolute;top:0;left:0;background:#0E0E0D;color:#ECEAE4;font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 6px;z-index:2}
+/* tabs + sheet */
+.inf{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:40px;align-items:start}
+.inf-l{grid-column:1/span 8}
+.inf-r{grid-column:9/span 4;position:sticky;top:130px}
+.tabs{display:flex;border:1px solid #0E0E0D}
+.tab{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;padding:0 18px;border:0;border-right:1px solid #0E0E0D;cursor:pointer;font-stretch:125%;font-weight:800;font-size:14px;text-transform:uppercase;transition:background .3s,color .3s}
+.tab:last-child{border-right:0}
+.tab .mono{font-size:10px;font-weight:400}
+.pane{border:1px solid #0E0E0D;border-top:0;padding:32px;animation:fade .5s both;min-height:420px}
+.pane p{font-size:18px;line-height:1.6;max-width:62ch}
+.pane p+p{margin-top:16px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));border-top:1px solid #0E0E0D;border-left:1px solid #0E0E0D}
+.feat li{display:flex;gap:16px;align-items:baseline;padding:18px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;font-stretch:125%;font-weight:700;font-size:16px;text-transform:uppercase;transition:background .3s,color .3s}
+.feat li:hover{background:#0E0E0D;color:#ECEAE4}
+.feat li span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400}
+.locmap{position:relative;height:340px;border:1px solid #0E0E0D;background:#ECEAE4;overflow:hidden}
+.locmap svg{position:absolute;top:0;left:0;width:100%;height:100%}
+.plc{position:absolute;transform:translate(0,-50%);font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;white-space:nowrap}
+.plc::before{content:"";display:inline-block;width:5px;height:5px;background:#0E0E0D;margin-right:6px;vertical-align:middle}
+.lpin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%);background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;padding:8px 10px;border:1px solid #0E0E0D;z-index:3}
+.lpulse{position:absolute;left:52%;top:46%;width:18px;height:18px;margin:-9px 0 0 -9px;border:1px solid #0E0E0D;animation:ping 1.8s ease-out infinite}
+.dist{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:13px;border-top:1px solid #0E0E0D}
+.dist div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #0E0E0D}
+.sheet{border:1px solid #0E0E0D}
+.sheet h3{font-size:18px;padding:16px 18px;border-bottom:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4}
+.sheet dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 18px;border-bottom:1px solid #0E0E0D;font-family:'JetBrains Mono',monospace;font-size:13px}
+.sheet dl div:last-child{border-bottom:0}
+.sheet dt{color:#5A5852;text-transform:uppercase}
+.sheet dd{text-align:right}
+/* simulator */
+.sim{display:grid;grid-template-columns:repeat(12,1fr);border:1px solid #0E0E0D;margin-top:40px}
+.sim-l{grid-column:span 7;padding:12px 32px 28px}
+.sim-row{padding:20px 0;border-bottom:1px solid #0E0E0D}
+.sim-row:last-child{border-bottom:0}
+.sim-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sim-v{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:4px 0 0}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:#0E0E0D}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-11px;background:#D6B083;border:1px solid #0E0E0D;border-radius:0;transition:transform .2s}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
+input[type=range]::-moz-range-track{height:1px;background:#0E0E0D}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:#D6B083;border:1px solid #0E0E0D;border-radius:0}
+.sim-r{grid-column:span 5;background:#0E0E0D;color:#ECEAE4;padding:32px;display:flex;flex-direction:column;gap:22px}
+.sim-r .lbl{color:#A9A69E}
+.sim-m{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.sim-m small{font-family:'JetBrains Mono',monospace;font-size:14px;padding-bottom:8px}
+.sim-dl{font-family:'JetBrains Mono',monospace;font-size:13px;border-top:1px solid rgba(236,234,228,.25)}
+.sim-dl div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(236,234,228,.25)}
+.sim-dl dt{color:#A9A69E;text-transform:uppercase}
+.bar{display:flex;height:14px;border:1px solid #ECEAE4}
+.bar span{display:block;height:100%;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.bar-k{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;color:#A9A69E;margin-top:8px}
+.bar-k i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle}
+/* visit */
+.vis{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:40px}
+.vis-l{grid-column:1/span 7}
+.vis-r{grid-column:9/span 4}
+.step{padding:20px 0;border-bottom:1px solid #0E0E0D}
+.step:first-child{padding-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;min-height:64px;padding:6px 12px;border:1px solid #0E0E0D;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.chip:hover{background:#D6B083;color:#0E0E0D;transform:translateY(-2px)}
+.chip b{font-family:'JetBrains Mono',monospace;font-size:20px}
+.chip span{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase}
+.chip.h{min-height:48px;flex-direction:row;font-family:'JetBrains Mono',monospace;font-size:14px}
+.flds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:20px;margin-top:12px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.fi input,.fi textarea{border:0;border-bottom:1px solid #0E0E0D;border-radius:0;background:transparent;min-height:48px;font-size:17px;padding:8px 0;transition:border-color .25s,background .25s}
+.fi input:focus,.fi textarea:focus{outline:none;background:rgba(214,176,131,.18);border-bottom-color:#0E0E0D;border-bottom-width:2px}
+.err{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8A2A12;min-height:18px;margin-top:12px}
+.done{border:1px solid #0E0E0D;padding:40px;animation:up .6s both}
+.done-n{font-size:110px;font-weight:900;font-stretch:125%;line-height:.8;background:#D6B083;display:inline-block;padding:8px 14px 0}
+.agent{border:1px solid #0E0E0D}
+.agent-img{height:300px;overflow:hidden;background:#0E0E0D}
+.agent-b{padding:20px;display:flex;flex-direction:column;gap:6px}
+.agent-b a{display:flex;align-items:center;min-height:44px;font-family:'JetBrains Mono',monospace;font-size:13px;text-decoration:none;border-top:1px solid #0E0E0D}
+.agent-b a:hover{background:#D6B083}
+/* similar */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));border-top:1px solid #0E0E0D;border-left:1px solid #0E0E0D;margin-top:40px}
+.card{display:flex;flex-direction:column;gap:16px;padding:18px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;transition:background .35s}
+.card:hover{background:#E3E0D8}
+.card-img{position:relative;display:block;height:300px;overflow:hidden;background:#0E0E0D}
+.card-no{position:absolute;top:0;left:0;z-index:2;background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:7px 10px}
+.card-b{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card-t{font-stretch:125%;font-weight:800;font-size:24px;text-transform:uppercase;line-height:1;margin-top:6px}
+.card-t a{text-decoration:none}
+.card-d{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #0E0E0D;padding-top:12px;font-family:'JetBrains Mono',monospace;font-size:14px}
+.card-d b{font-size:18px}
+.red{display:inline-block;background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 6px;text-transform:uppercase}
+@media (max-width:1100px){.nav{display:none}.menu-b{display:inline-flex}.mnav{display:flex}.hide-md{display:none}}
+@media (max-width:900px){
+.sh,.ttl,.gal,.inf,.sim,.vis{grid-template-columns:1fr}
+.sh-num,.sh-t,.sh-x,.ttl-l,.ttl-r,.gal-m,.gal-t,.inf-l,.inf-r,.sim-l,.sim-r,.vis-l,.vis-r{grid-column:auto;text-align:left;align-items:flex-start}
+.sh-x{margin-top:12px}.ttl-r{margin-top:20px}
+.gal-m{height:400px}.gal-t{grid-template-columns:repeat(4,1fr);margin-top:8px}.th{height:80px}
+.inf-r{position:static;margin-top:24px}.vis-r{margin-top:32px}.sim-l{padding:12px 16px 20px}
+.pane{padding:20px}
+}
+@media (max-width:640px){.hide-sm{display:none}.wrap,.gov-in{padding:0 16px}.tabs{flex-direction:column}.tab{border-right:0;border-bottom:1px solid #0E0E0D}.fl{font-size:34px}}
+@media (prefers-reduced-motion:reduce){.cz *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div class="cz">
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+<div class="gov" aria-hidden="true"><div class="gov-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</sc-if>
+
+<header class="hdr">
+  <div class="hdr-top mono">
+    <div class="wrap hdr-top-in">
+      <span>Imonovo — Caldas da Rainha · 39°24′N 9°08′W</span>
+      <span class="hide-sm">AMI 10355 · APEMIP 5259</span>
+      <a class="lnk-top" href="index.html">← {{ n.all }}</a>
+    </div>
+  </div>
+  <div class="wrap hdr-bar">
+    <a class="logo" href="Caldas-Home.html" aria-label="Imonovo — Início">IMONOVO<i></i></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-a" href="Caldas-Home.html"><span class="nav-n">01</span>{{ n.home }}</a>
+      <a class="nav-a on" href="Caldas-Imoveis.html"><span class="nav-n">02</span>{{ n.imoveis }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.html#empreendimentos"><span class="nav-n">03</span>{{ n.emp }}</a>
+      <a class="nav-a" href="Caldas-Vender.html"><span class="nav-n">04</span>{{ n.vender }}</a>
+      <a class="nav-a" href="Caldas-Servicos.html"><span class="nav-n">05</span>{{ n.servicos }}</a>
+      <a class="nav-a" href="Caldas-Contactos.html"><span class="nav-n">06</span>{{ n.contactos }}</a>
+    </nav>
+    <div class="hdr-act">
+      <div class="lang" role="group" aria-label="Idioma / Langue">
+        <button type="button" class="lang-b" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <button type="button" class="lang-b" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a class="fav" href="Caldas-Imoveis.html" style="{{ favStyle }}" aria-label="{{ favAria }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg><span>{{ favCount }}</span></a>
+      <a class="btn btn-sm hide-md" href="Caldas-Vender.html">{{ n.cta }}</a>
+      <button type="button" class="menu-b" aria-label="Menu" aria-expanded="{{ menuAria }}" onClick="{{ toggleMenu }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Caldas-Home.html"><span>01</span>{{ n.home }}</a>
+      <a href="Caldas-Imoveis.html"><span>02</span>{{ n.imoveis }}</a>
+      <a href="Caldas-Imoveis.html#empreendimentos"><span>03</span>{{ n.emp }}</a>
+      <a href="Caldas-Vender.html"><span>04</span>{{ n.vender }}</a>
+      <a href="Caldas-Servicos.html"><span>05</span>{{ n.servicos }}</a>
+      <a href="Caldas-Contactos.html"><span>06</span>{{ n.contactos }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="Caldas-Home.html">{{ n.home }}</a><span>/</span><a href="Caldas-Imoveis.html">{{ n.imoveis }}</a><span>/</span><span>Nº 01</span></nav>
+
+  <section class="ttl" aria-labelledby="ttl-h">
+    <div class="ttl-l">
+      <p class="lbl">Nº 01 — {{ t.kind }} · Caldas da Rainha · {{ t.illus }}</p>
+      <h1 class="ttl-w" id="ttl-h" aria-label="{{ t.h1 }}"><span aria-hidden="true" style="animation-delay:.05s">N</span><span aria-hidden="true" style="animation-delay:.11s">A</span><span aria-hidden="true" style="animation-delay:.17s">D</span><span aria-hidden="true" style="animation-delay:.23s">A</span><span aria-hidden="true" style="animation-delay:.29s">D</span><span aria-hidden="true" style="animation-delay:.35s">O</span><span aria-hidden="true" style="animation-delay:.41s">U</span><span aria-hidden="true" style="animation-delay:.47s">R</span><span aria-hidden="true" style="animation-delay:.53s">O</span></h1>
+    </div>
+    <div class="ttl-r">
+      <p class="price">1.380.000 €</p>
+      <div class="ttl-a">
+        <a class="btn" href="#visita">{{ t.book }}</a>
+        <button type="button" class="heart" aria-label="{{ favLabel }}" aria-pressed="{{ favPr }}" onClick="{{ toggleFav }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path fill="{{ heartFill }}" d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="specs">
+    <sc-for list="{{ specs }}" as="sp" hint-placeholder-count="4">
+      <div class="spec">
+        <p class="lbl">{{ sp.k }}</p>
+        <div style="display:flex;align-items:flex-end;gap:10px">
+          <div class="fl" aria-label="{{ sp.v }}">
+            <sc-for list="{{ sp.digits }}" as="d" hint-placeholder-count="3">
+              <sc-if value="{{ d.isD }}" hint-placeholder-val="{{ true }}"><span class="fl-d" aria-hidden="true"><span class="fl-s" style="{{ d.st }}"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span></sc-if>
+              <sc-if value="{{ d.isC }}" hint-placeholder-val="{{ false }}"><span class="fl-c" aria-hidden="true">{{ d.ch }}</span></sc-if>
+            </sc-for>
+          </div>
+          <span class="spec-u">{{ sp.u }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- gallery -->
+  <section class="gal" aria-label="{{ t.gallery }}">
+    <figure class="gal-m hov">
+      <img class="ph" src="{{ cur.src }}" alt="{{ cur.alt }}">
+      <span class="gal-ctr">{{ counter }}</span>
+      <figcaption class="gal-cap">{{ cur.cap }} — {{ t.illus }}</figcaption>
+      <div class="gal-nav">
+        <button type="button" aria-label="{{ t.prev }}" onClick="{{ prev }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"></path></svg></button>
+        <button type="button" aria-label="{{ t.next }}" onClick="{{ next }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></button>
+      </div>
+    </figure>
+    <div class="gal-t">
+      <sc-for list="{{ thumbs }}" as="g" hint-placeholder-count="8">
+        <button type="button" class="th" style="{{ g.st }}" aria-label="{{ g.aria }}" aria-pressed="{{ g.pr }}" onClick="{{ g.pick }}"><img src="{{ g.src }}" alt="" style="{{ g.imgSt }}"><span>{{ g.no }}</span></button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 01 info -->
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">01</span>
+    <div class="sh-t"><p class="lbl">{{ t.s1k }}</p><h2 class="xp">{{ t.s1 }}</h2></div>
+    <p class="sh-x">{{ t.s1x }}</p>
+  </div>
+  <div class="inf">
+    <div class="inf-l">
+      <div class="tabs" role="group" aria-label="{{ t.s1 }}">
+        <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3"><button type="button" class="tab" style="{{ tb.st }}" aria-pressed="{{ tb.pr }}" onClick="{{ tb.pick }}">{{ tb.label }}<span class="mono">{{ tb.no }}</span></button></sc-for>
+      </div>
+      <sc-if value="{{ tabDesc }}" hint-placeholder-val="{{ true }}">
+        <div class="pane">
+          <p>{{ t.d1 }}</p>
+          <p>{{ t.d2 }}</p>
+          <p style="color:#5A5852;font-size:15px">[DESCRIÇÃO COMPLETA DO IMÓVEL]</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ tabFeat }}" hint-placeholder-val="{{ false }}">
+        <div class="pane">
+          <ul class="feat">
+            <sc-for list="{{ feats }}" as="f" hint-placeholder-count="8"><li><span>{{ f.no }}</span>{{ f.t }}</li></sc-for>
+          </ul>
+        </div>
+      </sc-if>
+      <sc-if value="{{ tabLoc }}" hint-placeholder-val="{{ false }}">
+        <div class="pane">
+          <div class="locmap" role="img" aria-label="{{ t.mapAria }}">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs><pattern id="cz-sea2" width="2" height="2" patternUnits="userSpaceOnUse"><path d="M0 1h2" stroke="#0E0E0D" stroke-width=".25" vector-effect="non-scaling-stroke" opacity=".35"></path></pattern></defs>
+              <path d="M0 0 L38 0 L33 30 L28 48 L22 62 L18 100 L0 100 Z" fill="#DCD9D1"></path>
+              <path d="M0 0 L38 0 L33 30 L28 48 L22 62 L18 100 L0 100 Z" fill="url(#cz-sea2)"></path>
+              <path d="M38 0 L33 30 L28 48 L22 62 L18 100" fill="none" stroke="#0E0E0D" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+              <path d="M24 56 C32 44 46 42 56 50 C64 57 60 70 50 74 C40 78 30 72 25 64 Z" fill="#DCD9D1" stroke="#0E0E0D" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+              <path d="M24 56 C32 44 46 42 56 50 C64 57 60 70 50 74 C40 78 30 72 25 64 Z" fill="url(#cz-sea2)"></path>
+              <path d="M52 46 C62 40 74 36 90 30 M52 46 C60 60 72 76 84 92" fill="none" stroke="#0E0E0D" stroke-width="1" stroke-dasharray="4 4" vector-effect="non-scaling-stroke" opacity=".55"></path>
+              <path d="M0 33 H100 M0 66 H100 M33 0 V100 M66 0 V100" stroke="#0E0E0D" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".08"></path>
+            </svg>
+            <span class="plc" style="left:4%;top:20%">Oceano Atlântico</span>
+            <span class="plc" style="left:34%;top:62%">Lagoa de Óbidos</span>
+            <span class="plc" style="left:6%;top:52%">Foz do Arelho</span>
+            <span class="plc" style="left:80%;top:24%">Caldas da Rainha</span>
+            <span class="plc" style="left:76%;top:88%">Óbidos</span>
+            <span class="lpulse"></span>
+            <span class="lpin">Nº 01 · Nadadouro</span>
+          </div>
+          <div class="dist">
+            <div><span>Lagoa de Óbidos</span><span>[MIN]</span></div>
+            <div><span>Foz do Arelho · {{ t.beach }}</span><span>[MIN]</span></div>
+            <div><span>Caldas da Rainha · {{ t.centre }}</span><span>[MIN]</span></div>
+            <div><span>Lisboa</span><span>[MIN]</span></div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+    <aside class="inf-r">
+      <div class="sheet">
+        <h3 class="xp">{{ t.sheet }}</h3>
+        <dl>
+          <sc-for list="{{ sheet }}" as="r" hint-placeholder-count="9"><div><dt>{{ r.k }}</dt><dd>{{ r.v }}</dd></div></sc-for>
+        </dl>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 02 simulator -->
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">02</span>
+    <div class="sh-t"><p class="lbl">{{ t.s2k }}</p><h2 class="xp">{{ t.s2 }}</h2></div>
+    <p class="sh-x">{{ t.s2x }}</p>
+  </div>
+  <div class="sim">
+    <div class="sim-l">
+      <div class="sim-row">
+        <div class="sim-h"><label class="lbl" for="r-price">{{ t.rPrice }}</label><span class="sim-v">{{ priceF }}</span></div>
+        <input id="r-price" type="range" min="100000" max="2000000" step="10000" value="{{ price }}" onInput="{{ setPrice }}">
+      </div>
+      <div class="sim-row">
+        <div class="sim-h"><label class="lbl" for="r-dep">{{ t.rDep }}</label><span class="sim-v">{{ depF }}</span></div>
+        <input id="r-dep" type="range" min="10" max="60" step="1" value="{{ dep }}" onInput="{{ setDep }}">
+      </div>
+      <div class="sim-row">
+        <div class="sim-h"><label class="lbl" for="r-yrs">{{ t.rYrs }}</label><span class="sim-v">{{ yrsF }}</span></div>
+        <input id="r-yrs" type="range" min="5" max="40" step="1" value="{{ years }}" onInput="{{ setYears }}">
+      </div>
+      <div class="sim-row">
+        <div class="sim-h"><label class="lbl" for="r-rate">{{ t.rRate }}</label><span class="sim-v">{{ rateF }}</span></div>
+        <input id="r-rate" type="range" min="1" max="7" step="0.1" value="{{ rate }}" onInput="{{ setRate }}">
+      </div>
+    </div>
+    <div class="sim-r dk" aria-live="polite">
+      <p class="lbl">{{ t.monthly }}</p>
+      <div class="sim-m">
+        <div class="fl" aria-label="{{ monthlyF }}" style="font-size:54px">
+          <sc-for list="{{ mDigits }}" as="d" hint-placeholder-count="5">
+            <sc-if value="{{ d.isD }}" hint-placeholder-val="{{ true }}"><span class="fl-d" aria-hidden="true"><span class="fl-s" style="{{ d.st }}"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span></sc-if>
+            <sc-if value="{{ d.isC }}" hint-placeholder-val="{{ false }}"><span class="fl-c" aria-hidden="true">{{ d.ch }}</span></sc-if>
+          </sc-for>
+        </div>
+        <small>€ / {{ t.month }}</small>
+      </div>
+      <dl class="sim-dl">
+        <div><dt>{{ t.loan }}</dt><dd>{{ loanF }}</dd></div>
+        <div><dt>{{ t.down }}</dt><dd>{{ downF }}</dd></div>
+        <div><dt>{{ t.interest }}</dt><dd>{{ intF }}</dd></div>
+        <div><dt>{{ t.total }}</dt><dd>{{ totalF }}</dd></div>
+      </dl>
+      <div>
+        <div class="bar" aria-hidden="true"><span style="{{ barA }}"></span><span style="{{ barB }}"></span></div>
+        <div class="bar-k"><span><i style="background:#ECEAE4"></i>{{ t.capital }}</span><span><i style="background:#D6B083"></i>{{ t.juros }}</span></div>
+      </div>
+      <p class="lbl">{{ t.simNote }}</p>
+    </div>
+  </div>
+
+  <!-- 03 visit -->
+  <div class="sh" id="visita">
+    <span class="sh-num" aria-hidden="true">03</span>
+    <div class="sh-t"><p class="lbl">{{ t.s3k }}</p><h2 class="xp">{{ t.book }}</h2></div>
+    <p class="sh-x">{{ t.s3x }}</p>
+  </div>
+  <div class="vis">
+    <div class="vis-l">
+      <sc-if value="{{ formOn }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div class="step">
+            <p class="lbl">A — {{ t.day }}</p>
+            <div class="chips">
+              <sc-for list="{{ days }}" as="d" hint-placeholder-count="6"><button type="button" class="chip" style="{{ d.st }}" aria-pressed="{{ d.pr }}" onClick="{{ d.pick }}"><span>{{ d.wd }}</span><b>{{ d.dd }}</b><span>{{ d.mo }}</span></button></sc-for>
+            </div>
+          </div>
+          <div class="step">
+            <p class="lbl">B — {{ t.hour }}</p>
+            <div class="chips">
+              <sc-for list="{{ hours }}" as="h" hint-placeholder-count="5"><button type="button" class="chip h" style="{{ h.st }}" aria-pressed="{{ h.pr }}" onClick="{{ h.pick }}">{{ h.label }}</button></sc-for>
+            </div>
+          </div>
+          <div class="step">
+            <p class="lbl">C — {{ t.you }}</p>
+            <div class="flds">
+              <div class="fi"><label for="v-name">{{ t.name }}</label><input id="v-name" type="text" autocomplete="name" value="{{ vName }}" onInput="{{ setVName }}"></div>
+              <div class="fi"><label for="v-tel">{{ t.tel }}</label><input id="v-tel" type="tel" autocomplete="tel" value="{{ vTel }}" onInput="{{ setVTel }}"></div>
+              <div class="fi"><label for="v-mail">Email</label><input id="v-mail" type="email" autocomplete="email" value="{{ vEmail }}" onInput="{{ setVEmail }}"></div>
+            </div>
+          </div>
+          <p class="err" aria-live="polite">{{ vErr }}</p>
+          <button type="button" class="btn" style="margin-top:12px" onClick="{{ submitVisit }}">{{ t.confirm }} <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ doneOn }}" hint-placeholder-val="{{ false }}">
+        <div class="done" role="status">
+          <span class="done-n">OK</span>
+          <h3 class="xp" style="font-size:34px;margin-top:24px">{{ t.doneT }}</h3>
+          <p style="margin-top:12px;font-size:18px">{{ doneP }}</p>
+          <p class="lbl" style="margin-top:16px">{{ t.doneNote }}</p>
+          <button type="button" class="btn btn-o" style="margin-top:24px" onClick="{{ resetVisit }}">{{ t.again }}</button>
+        </div>
+      </sc-if>
+    </div>
+    <aside class="vis-r">
+      <div class="agent hov">
+        <div class="agent-img"><img class="ph" src="assets/p-ines.webp" alt="[NOME CONSULTOR]"></div>
+        <div class="agent-b">
+          <p class="lbl">{{ t.agent }}</p>
+          <p class="xp" style="font-size:22px;margin-bottom:8px">[NOME CONSULTOR]</p>
+          <a href="tel:+351919192220">+351 919 192 220</a>
+          <a href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 04 similar -->
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">04</span>
+    <div class="sh-t"><p class="lbl">{{ t.s4k }}</p><h2 class="xp">{{ t.s4 }}</h2></div>
+    <p class="sh-x"><a class="btn btn-o btn-sm" href="Caldas-Imoveis.html">{{ t.allP }}</a></p>
+  </div>
+  <div class="cards">
+    <sc-for list="{{ similar }}" as="p" hint-placeholder-count="3">
+      <article class="card hov">
+        <a class="card-img" href="Caldas-Imovel.html" aria-label="{{ p.aria }}"><img class="ph" src="{{ p.img }}" alt="{{ p.alt }}"><span class="card-no">Nº {{ p.no }}</span></a>
+        <div class="card-b">
+          <div><p class="lbl">{{ p.loc }}</p><h3 class="card-t"><a href="Caldas-Imovel.html">{{ p.title }}</a></h3></div>
+          <button type="button" class="heart" aria-label="{{ p.favLabel }}" aria-pressed="{{ p.favPr }}" onClick="{{ p.toggle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path fill="{{ p.heartFill }}" d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg></button>
+        </div>
+        <div class="card-d"><span>{{ p.areaF }}</span><b>{{ p.priceF }}</b></div>
+        <sc-if value="{{ p.reduced }}" hint-placeholder-val="{{ false }}"><span class="red">{{ p.redLabel }}</span></sc-if>
+      </article>
+    </sc-for>
+  </div>
+  <div style="height:120px"></div>
+</div>
+</main>
+
+<footer class="ftr dk">
+  <div class="wrap">
+    <div class="ftr-word" aria-hidden="true"><span>I</span><span>M</span><span>O</span><span>N</span><span>O</span><span>V</span><span>O</span></div>
+    <div class="ftr-grid">
+      <div><p class="lbl">Escritório</p><p>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br>Portugal</p><p class="lbl" style="margin-top:20px">Horário</p><p>[HORÁRIO]</p></div>
+      <div class="ftr-l"><p class="lbl">Contactos</p><a href="tel:+351210958271">Tel +351 210 958 271</a><a href="tel:+351919192220">Tlm +351 919 192 220</a><a href="mailto:info@imonovo.pt">info@imonovo.pt</a><a href="https://www.instagram.com/imonovo_portugal/">Instagram @imonovo_portugal</a></div>
+      <div class="ftr-l"><p class="lbl">Páginas</p><a href="Caldas-Home.html">{{ n.home }}</a><a href="Caldas-Imoveis.html">{{ n.imoveis }}</a><a href="Caldas-Vender.html">{{ n.vender }}</a><a href="Caldas-Servicos.html">{{ n.servicos }}</a><a href="Caldas-Contactos.html">{{ n.contactos }}</a></div>
+      <div><p class="lbl">Licenças</p><p>Imonovo é uma marca de MAJBI Lda<br>AMI 10355<br>APEMIP 5259</p></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© Imonovo · MAJBI Lda</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+      <a href="index.html">{{ n.all }} →</a>
+    </div>
+  </div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4700},"showGrid":{"editor":"boolean","default":true}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[], img:0, tab:'desc', price:1380000, dep:20, years:30, rate:3.5, day:'', hour:'', vName:'', vTel:'', vEmail:'', vDone:false, vErr:'' };
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#0E0E0D;color:#ECEAE4', OFF = 'background:transparent;color:#0E0E0D';
+    const n = fr
+      ? { home:'Accueil', imoveis:'Biens', emp:'Programmes neufs', vender:'Vendre', servicos:'Services', contactos:'Contacts', cta:'Estimation gratuite', all:'Toutes les propositions' }
+      : { home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', servicos:'Serviços', contactos:'Contactos', cta:'Avaliação gratuita', all:'Todas as propostas' };
+    const t = fr ? {
+      kind:'Maison T5', illus:'photos illustratives', h1:'Maison T5 — Nadadouro', book:'Planifier une visite', gallery:'Galerie', prev:'Photo précédente', next:'Photo suivante',
+      s1k:'Le bien', s1:'Description et fiche', s1x:'Vue mer et lagune, construite en 2014.',
+      d1:'Maison T5 de 301 m² à Nadadouro, Caldas da Rainha, construite en 2014, avec vue sur la mer et la Lagoa de Óbidos.',
+      d2:'Piscine chauffée, panneaux solaires, chauffage au sol et suite parentale. Une maison pensée pour vivre toute l’année face à la lagune.',
+      mapAria:'Carte schématique : Nadadouro au bord de la Lagoa de Óbidos', beach:'plage', centre:'centre', sheet:'Fiche technique',
+      s2k:'Simulateur', s2:'Crédit immobilier', s2x:'Valeurs indicatives — à confirmer avec votre banque.',
+      rPrice:'Prix du bien', rDep:'Apport', rYrs:'Durée', rRate:'Taux indicatif (TAN)', monthly:'Mensualité estimée', month:'mois',
+      loan:'Montant financé', down:'Apport', interest:'Total des intérêts', total:'Coût total du crédit', capital:'Capital', juros:'Intérêts',
+      simNote:'Simulation sans valeur contractuelle. Hors frais, IMT, assurances.', years:'ans',
+      s3k:'Visite', s3x:'Choisissez un jour et une heure — nous confirmons par téléphone.', day:'Jour', hour:'Heure', you:'Vos coordonnées', name:'Nom', tel:'Téléphone',
+      confirm:'Demander la visite', doneT:'Demande enregistrée', doneNote:'Prototype — rien n’est envoyé.', again:'Nouvelle demande', agent:'Votre conseiller',
+      errDay:'→ Choisissez un jour et une heure.', errC:'→ Indiquez votre nom et un téléphone ou un email.',
+      s4k:'Dans la même veine', s4:'Biens similaires', allP:'Tout le portefeuille', unfav:'Retirer des favoris', fav:'Ajouter aux favoris', red:'Prix réduit'
+    } : {
+      kind:'Moradia T5', illus:'fotos ilustrativas', h1:'Moradia T5 — Nadadouro', book:'Agendar visita', gallery:'Galeria', prev:'Foto anterior', next:'Foto seguinte',
+      s1k:'O imóvel', s1:'Descrição e ficha', s1x:'Vista mar e lagoa, construída em 2014.',
+      d1:'Moradia T5 com 301 m² no Nadadouro, Caldas da Rainha, construída em 2014, com vista sobre o mar e a Lagoa de Óbidos.',
+      d2:'Piscina aquecida, painéis solares, piso radiante e suite master. Uma casa pensada para viver todo o ano de frente para a lagoa.',
+      mapAria:'Mapa esquemático: Nadadouro na margem da Lagoa de Óbidos', beach:'praia', centre:'centro', sheet:'Ficha técnica',
+      s2k:'Simulador', s2:'Crédito habitação', s2x:'Valores indicativos — a confirmar com o seu banco.',
+      rPrice:'Preço do imóvel', rDep:'Entrada', rYrs:'Prazo', rRate:'Taxa indicativa (TAN)', monthly:'Prestação mensal estimada', month:'mês',
+      loan:'Montante financiado', down:'Entrada', interest:'Total de juros', total:'Custo total do crédito', capital:'Capital', juros:'Juros',
+      simNote:'Simulação sem valor contratual. Não inclui comissões, IMT, imposto do selo nem seguros.', years:'anos',
+      s3k:'Visita', s3x:'Escolha dia e hora — confirmamos por telefone.', day:'Dia', hour:'Hora', you:'Os seus dados', name:'Nome', tel:'Telefone',
+      confirm:'Pedir visita', doneT:'Pedido registado', doneNote:'Protótipo — nada é enviado.', again:'Novo pedido', agent:'O seu consultor',
+      errDay:'→ Escolha um dia e uma hora.', errC:'→ Indique o nome e um telefone ou email.',
+      s4k:'Na mesma linha', s4:'Imóveis semelhantes', allP:'Toda a carteira', unfav:'Remover dos favoritos', fav:'Adicionar aos favoritos', red:'Preço reduzido'
+    };
+    const pad = x => (x < 10 ? '0' : '') + x;
+    const dots = x => String(Math.round(x)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    const fmt = x => dots(x) + ' €';
+    const flap = (v, base) => v.split('').map((ch, i) => { const d = /\d/.test(ch); return { ch: ch, isD: d, isC: !d, st: '--n:' + (d ? ch : 0) + ';animation-delay:' + (base + i * 0.1).toFixed(2) + 's' }; });
+    const caps = fr
+      ? ['Extérieur · piscine à débordement','Piscine · vue mer','Terrasse','Séjour','Salon','Cuisine','Suite parentale','Salle de bain']
+      : ['Exterior · piscina infinita','Piscina · vista mar','Terraço','Sala','Sala de estar','Cozinha','Suite master','Casa de banho'];
+    const G = ['assets/villa-infinity.webp','assets/pool-sea.webp','assets/terrace-sea.webp','assets/int-living.webp','assets/int-lounge.webp','assets/int-kitchen.webp','assets/int-bedroom.webp','assets/int-bath.webp'];
+    const gi = s.img;
+    const thumbs = G.map((src, i) => ({ src: src, no: pad(i + 1), aria: (fr ? 'Photo ' : 'Foto ') + (i + 1) + ' — ' + caps[i], pr: i === gi ? 'true' : 'false',
+      st: i === gi ? 'outline:3px solid #D6B083;outline-offset:-3px' : '', imgSt: i === gi ? 'filter:none;opacity:1' : '', pick: () => this.setState({ img: i }) }));
+    const tabDefs = fr ? [['desc','Description'],['feat','Caractéristiques'],['loc','Localisation']] : [['desc','Descrição'],['feat','Características'],['loc','Localização']];
+    const tabs = tabDefs.map((d, i) => ({ label:d[1], no:'0' + (i + 1), st: s.tab === d[0] ? ON : OFF, pr: s.tab === d[0] ? 'true' : 'false', pick: () => this.setState({ tab: d[0] }) }));
+    const featT = fr
+      ? ['Vue mer','Vue sur la Lagoa de Óbidos','Piscine chauffée','Panneaux solaires','Chauffage au sol','Suite parentale','Construite en 2014','301 m²']
+      : ['Vista mar','Vista Lagoa de Óbidos','Piscina aquecida','Painéis solares','Piso radiante','Suite master','Construída em 2014','301 m²'];
+    const sheet = (fr ? [
+      ['Référence','[RÉF]'],['Type','Maison'],['Typologie','T5'],['Surface','301 m²'],['Construction','2014'],['Localité','Nadadouro'],['Commune','Caldas da Rainha'],['État','[ÉTAT]'],['Cert. énergétique','[CE]'],['Prix','1.380.000 €']
+    ] : [
+      ['Referência','[REF]'],['Tipo','Moradia'],['Tipologia','T5'],['Área','301 m²'],['Construção','2014'],['Localidade','Nadadouro'],['Concelho','Caldas da Rainha'],['Estado','[ESTADO]'],['Cert. energético','[CE]'],['Preço','1.380.000 €']
+    ]).map(r => ({ k:r[0], v:r[1] }));
+    const specs = [
+      { k: fr ? 'Surface' : 'Área', v:'301', u:'m²' },
+      { k: fr ? 'Chambres (T5)' : 'Quartos (T5)', v:'05', u:'T5' },
+      { k: fr ? 'Construction' : 'Construção', v:'2014', u: fr ? 'année' : 'ano' },
+      { k: fr ? 'Référence index' : 'Índice', v:'01', u:'/ 06' }
+    ].map((x, i) => Object.assign(x, { digits: flap(x.v, 0.5 + i * 0.2) }));
+    // mortgage
+    const loan = s.price * (1 - s.dep / 100), r = s.rate / 1200, nper = s.years * 12;
+    const m = r > 0 ? loan * r / (1 - Math.pow(1 + r, -nper)) : loan / nper;
+    const total = m * nper, juros = total - loan;
+    const capPct = total > 0 ? (loan / total * 100) : 100;
+    const mStr = dots(m);
+    // visit
+    const wd = fr ? ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'] : ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+    const mo = fr ? ['janv','févr','mars','avr','mai','juin','juil','août','sept','oct','nov','déc'] : ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const now = new Date(); const days = []; let k = 1;
+    while (days.length < 6 && k < 14) {
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + k); k++;
+      if (d.getDay() === 0) continue;
+      const key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+      days.push({ key: key, wd: wd[d.getDay()], dd: pad(d.getDate()), mo: mo[d.getMonth()], label: wd[d.getDay()] + ' ' + pad(d.getDate()) + ' ' + mo[d.getMonth()] });
+    }
+    const dayItems = days.map(d => Object.assign({}, d, { st: s.day === d.key ? ON : '', pr: s.day === d.key ? 'true' : 'false', pick: () => this.setState({ day: d.key, vErr:'' }) }));
+    const hours = ['10:00','11:30','14:00','15:30','17:00','18:30'].map(h => ({ label:h, st: s.hour === h ? ON : '', pr: s.hour === h ? 'true' : 'false', pick: () => this.setState({ hour: h, vErr:'' }) }));
+    const dSel = days.filter(d => d.key === s.day)[0];
+    // similar
+    const typeName = c => fr ? (c === 'moradia' ? 'Maison' : 'Appartement') : (c === 'moradia' ? 'Moradia' : 'Apartamento');
+    const S = [
+      { id:5, cat:'moradia', tip:'T3', loc:'Nadadouro', area:183, price:650000, img:'assets/villa-arcades.webp', reduced:true },
+      { id:2, cat:'moradia', tip:'T3', loc:'Serra do Bouro', area:177, price:645000, img:'assets/villa-yellow-pool.webp' },
+      { id:3, cat:'moradia', tip:'T3', loc:'Caldas da Rainha', area:195, price:780000, img:'assets/villa-modern-pool.webp' }
+    ];
+    const isFav = id => s.favs.indexOf(id) > -1;
+    const tog = id => () => { const f = this.state.favs; this.setState({ favs: f.indexOf(id) > -1 ? f.filter(x => x !== id) : f.concat(id) }); };
+    const similar = S.map(p => { const title = typeName(p.cat) + ' ' + p.tip; const on = isFav(p.id); return Object.assign({}, p, {
+      no: pad(p.id), title: title, priceF: fmt(p.price), areaF: p.area + ' m²', aria: title + ', ' + p.loc + ', ' + fmt(p.price), alt: title + ' — ' + p.loc + ' (foto ilustrativa)',
+      reduced: !!p.reduced, redLabel: t.red, heartFill: on ? 'currentColor' : 'none', favPr: on ? 'true' : 'false', favLabel: (on ? t.unfav : t.fav) + ' — ' + title + ', ' + p.loc, toggle: tog(p.id) }); });
+    const fc = s.favs.length, mine = isFav(1);
+    return {
+      n: n, t: t,
+      showGrid: !(this.props && this.props.showGrid === false),
+      ptStyle: fr ? OFF : ON, frStyle: fr ? ON : OFF, ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: pad(fc), favAria: (fr ? 'Favoris : ' : 'Favoritos: ') + fc, favStyle: fc ? 'background:#D6B083;border-color:#D6B083' : '',
+      menuOpen: s.menu, menuAria: s.menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      heartFill: mine ? 'currentColor' : 'none', favPr: mine ? 'true' : 'false', favLabel: mine ? t.unfav : t.fav, toggleFav: tog(1),
+      specs: specs,
+      cur: { src: G[gi], cap: caps[gi], alt: caps[gi] + ' — ' + t.illus },
+      counter: pad(gi + 1) + ' / ' + pad(G.length), thumbs: thumbs,
+      prev: () => this.setState({ img: (this.state.img + G.length - 1) % G.length }),
+      next: () => this.setState({ img: (this.state.img + 1) % G.length }),
+      tabs: tabs, tabDesc: s.tab === 'desc', tabFeat: s.tab === 'feat', tabLoc: s.tab === 'loc',
+      feats: featT.map((x, i) => ({ t:x, no: pad(i + 1) })), sheet: sheet,
+      price: s.price, dep: s.dep, years: s.years, rate: s.rate,
+      priceF: fmt(s.price), depF: s.dep + '% · ' + fmt(s.price * s.dep / 100), yrsF: s.years + ' ' + t.years, rateF: s.rate.toFixed(1).replace('.', ',') + ' %',
+      setPrice: e => this.setState({ price: +e.target.value }), setDep: e => this.setState({ dep: +e.target.value }),
+      setYears: e => this.setState({ years: +e.target.value }), setRate: e => this.setState({ rate: +e.target.value }),
+      monthlyF: mStr + ' €', mDigits: flap(mStr, 0.3),
+      loanF: fmt(loan), downF: fmt(s.price - loan), intF: fmt(juros), totalF: fmt(total),
+      barA: 'width:' + capPct.toFixed(1) + '%;background:#ECEAE4', barB: 'width:' + (100 - capPct).toFixed(1) + '%;background:#D6B083',
+      days: dayItems, hours: hours,
+      vName: s.vName, vTel: s.vTel, vEmail: s.vEmail, vErr: s.vErr,
+      setVName: e => this.setState({ vName: e.target.value }), setVTel: e => this.setState({ vTel: e.target.value }), setVEmail: e => this.setState({ vEmail: e.target.value }),
+      submitVisit: () => {
+        const st = this.state;
+        if (!st.day || !st.hour) { this.setState({ vErr: t.errDay }); return; }
+        if (!st.vName.trim() || (!st.vTel.trim() && !/.+@.+\..+/.test(st.vEmail))) { this.setState({ vErr: t.errC }); return; }
+        this.setState({ vDone: true, vErr: '' });
+      },
+      resetVisit: () => this.setState({ vDone:false, day:'', hour:'', vName:'', vTel:'', vEmail:'' }),
+      formOn: !s.vDone, doneOn: s.vDone,
+      doneP: (s.vName || '') + ' — ' + (dSel ? dSel.label : '') + ' · ' + s.hour + ' · Moradia T5, Nadadouro',
+      similar: similar
+    };
+  }
+}
+</script>
+</body>
+</html>

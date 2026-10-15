@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Azulejo — Imóveis</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+<style>
+body{margin:0;background:#F7F3EA}
+:root{--wash:#F7F3EA;--wash2:#EEE6D4;--paper:#FFFDF7;--cob:#1E3A8A;--cob2:#142A66;--cob3:#0D1C47;--terra:#B5552F;--terraInk:#9C4322;--gold:#D6B083;--ink:#18181B;--mute:#4A4A56;--line:rgba(20,42,102,.16)}
+*{box-sizing:border-box}
+.root{background:var(--wash);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip}
+.root img{display:block;max-width:100%}
+.root a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.serif{font-family:'Gloock',Georgia,serif;font-weight:400}
+.sc{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin:0}
+.smc{font-variant-caps:all-small-caps;letter-spacing:.1em;font-size:17px;color:var(--mute);margin:0}
+.folio{display:inline-flex;align-items:center;gap:12px;font:400 15px 'Gloock',serif;color:var(--terraInk)}
+.folio::before{content:"";width:32px;height:1px;background:currentColor}
+.h2{font-size:clamp(40px,5vw,72px);line-height:1;margin:12px 0 0;color:var(--cob2);letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.az{background-color:#FBFAF6;background-image:radial-gradient(circle at 50% 50%,#1E3A8A 0 2.5px,transparent 3px),radial-gradient(circle at 50% 50%,transparent 0 7px,#1E3A8A 7.5px 9px,transparent 9.5px),radial-gradient(circle at 0 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 0 100%,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 100%,#1E3A8A 0 12px,transparent 12.5px),conic-gradient(from 45deg at 50% 50%,#DCE3F3 0 25%,#FBFAF6 0 50%,#DCE3F3 0 75%,#FBFAF6 0);background-size:40px 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 26px;border:1.5px solid var(--cob);background:var(--cob);color:#F7F3EA !important;font:600 14px/1 'Work Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .3s,color .3s,transform .3s,border-color .3s}
+.btn:hover{background:var(--cob2);transform:translateY(-2px)}
+.btn svg{transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--cob) !important}
+.btn.ghost:hover{background:var(--cob);color:#F7F3EA !important}
+.btn.terra{background:var(--terraInk);border-color:var(--terraInk)}
+.btn.terra:hover{background:#7E3418;border-color:#7E3418}
+.chip{min-height:44px;padding:0 16px;border:1.5px solid var(--cob);border-radius:999px;background:transparent;color:var(--cob);font:500 15px 'Work Sans',sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.chip:hover{background:rgba(30,58,138,.09)}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--cob2)}
+.inp{min-height:52px;width:100%;padding:12px 14px;border:0;border-bottom:1.5px solid var(--cob);border-radius:0;background:rgba(255,255,255,.7);font:16px 'Work Sans',sans-serif;color:var(--ink)}
+.inp:focus{background:#fff;border-bottom-color:var(--terra)}
+input[type=range]{width:100%;height:44px;accent-color:#1E3A8A;cursor:pointer}
+.mast{position:relative;z-index:20;background:var(--wash)}
+.strip{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 40px;max-width:1320px;margin:0 auto;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cob2);border-bottom:1px solid var(--line)}
+.strip a{text-decoration:none;margin-left:20px}
+.strip a:hover{color:var(--terraInk)}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 40px;max-width:1320px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cob2) !important}
+.logo-tile{width:42px;height:42px;background-size:21px 21px;border:2px solid var(--cob);box-shadow:3px 3px 0 var(--gold)}
+.logo b{font:400 34px/1 'Gloock',serif;letter-spacing:-.01em}
+.links{display:flex;gap:2px}
+.links a{position:relative;padding:12px 12px;text-decoration:none;font-size:15px;font-weight:500;color:var(--ink)}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+.links a.on{color:var(--cob)}
+.tools{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1.5px solid var(--cob);border-radius:999px;overflow:hidden}
+.lang button{min-width:48px;min-height:44px;border:0;background:transparent;font:600 13px 'Work Sans',sans-serif;letter-spacing:.08em;color:var(--cob);cursor:pointer;transition:background .3s,color .3s}
+.ibtn{position:relative;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--cob);background:transparent;color:var(--cob);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.ibtn:hover{background:var(--cob);color:#F7F3EA}
+.cnt{position:absolute;top:-5px;right:-5px;min-width:22px;height:22px;border-radius:11px;background:var(--terraInk);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.burger{display:none}
+.favpop{position:absolute;right:40px;top:calc(100% - 6px);width:340px;max-width:calc(100% - 32px);background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(20,42,102,.35);padding:22px;z-index:30;animation:fadeUp .35s both;display:flex;flex-direction:column;gap:12px}
+.favrow{display:flex;gap:12px;align-items:center;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--line)}
+.favrow img{width:56px;height:56px;object-fit:cover}
+.mnav{display:flex;flex-direction:column;padding:8px 24px 24px;border-top:1px solid var(--line);animation:fadeUp .35s both}
+.mnav a{padding:14px 0;font:400 28px 'Gloock',serif;text-decoration:none;color:var(--cob2);border-bottom:1px solid var(--line)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes kb{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{0%{transform:translate(-50%,-100%) scale(.4);opacity:0}100%{transform:translate(-50%,-100%) scale(1);opacity:1}}
+.rise{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.12s}.d2{animation-delay:.24s}.d3{animation-delay:.36s}.d4{animation-delay:.48s}
+.badge{position:absolute;display:block;border-radius:50%;z-index:6;transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 30px rgba(20,42,102,.3))}
+.badge:hover{transform:scale(1.07) rotate(-6deg)}
+.badge .ring{width:100%;height:100%;display:block;animation:spin 28s linear infinite}
+.badge:hover .ring{animation-duration:9s}
+.badge .core{position:absolute;inset:27%;border-radius:50%;background:var(--wash);display:flex;align-items:center;justify-content:center;border:2px solid var(--gold)}
+/* opener */
+.opener{padding-top:40px;padding-bottom:30px}
+.op-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px;align-items:end}
+.op-h{font:400 clamp(64px,9vw,148px)/.86 'Gloock',serif;margin:18px 0 26px;color:var(--cob2);letter-spacing:-.03em}
+.op-h span{color:var(--terra)}
+.op-lead{max-width:600px;font-size:18px;color:#2B2B33;margin:0}
+.drop::first-letter{float:left;font:400 66px/.82 'Gloock',serif;color:#F7F3EA;background:var(--cob);padding:12px 12px 8px;margin:6px 14px 0 0;box-shadow:4px 4px 0 var(--gold)}
+.op-side{position:relative}
+.op-photo{padding:18px;animation:reveal 1.2s cubic-bezier(.7,0,.2,1) both;transform:rotate(1.5deg)}
+.op-photo img{width:100%;height:360px;object-fit:cover;animation:kb 8s both}
+.op-side .badge{width:150px;height:150px;left:-56px;bottom:-40px}
+.op-toc{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.op-toc a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border:1px solid var(--line);text-decoration:none;font-size:15px;transition:border-color .3s,background .3s}
+.op-toc a:hover{border-color:var(--cob);background:var(--paper)}
+.op-toc b{font:400 16px 'Gloock',serif;color:var(--terraInk)}
+/* catalog */
+.cat{padding-top:70px}
+.cat-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;align-items:start}
+.filters{position:sticky;top:16px;background:var(--paper);border:1.5px solid var(--cob);padding:26px 24px;display:flex;flex-direction:column;gap:26px}
+.filters::before{content:"";display:block;height:18px;margin:-26px -24px 4px;background:radial-gradient(circle,#D6B083 0 2px,transparent 2.5px) 0 0/14px 14px,#1E3A8A}
+.f-group{display:flex;flex-direction:column;gap:10px;border:0;margin:0;padding:0;min-width:0}
+.f-group legend{padding:0;margin-bottom:10px}
+.f-chips{display:flex;gap:8px;flex-wrap:wrap}
+.f-val{font:400 28px 'Gloock',serif;color:var(--cob2)}
+.toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-bottom:20px;border-bottom:2px solid var(--cob2)}
+.count{font:400 clamp(40px,4vw,60px)/1 'Gloock',serif;color:var(--cob2);margin:6px 0 0}
+.count span{color:var(--terra)}
+.tb-right{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.views{display:flex;border:1.5px solid var(--cob)}
+.views button{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 16px;border:0;background:transparent;color:var(--cob);font:500 14px 'Work Sans',sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.views button + button{border-left:1.5px solid var(--cob)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:34px;margin-top:34px}
+.tile{position:relative;height:480px;perspective:1600px;animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
+.flip-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.2,.75,.2,1)}
+.tile:hover .flip-in,.flip-in:focus-within{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column}
+.front{padding:12px;box-shadow:0 26px 50px -30px rgba(20,42,102,.55)}
+.fr-img{position:relative;flex:1;overflow:hidden;background:#DCE3F3}
+.fr-img img{width:100%;height:100%;object-fit:cover}
+.fr-cap{background:var(--paper);padding:14px 16px;display:flex;align-items:baseline;gap:12px}
+.fr-no{font:400 15px 'Gloock',serif;color:var(--terraInk)}
+.fr-loc{font:400 22px/1.1 'Gloock',serif;color:var(--cob2);flex:1}
+.fr-price{font-weight:600;font-size:15px}
+.tag-red{position:absolute;left:14px;top:14px;background:var(--terraInk);color:#fff;padding:7px 12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.back{transform:rotateY(180deg);background:var(--cob2);color:#F7F3EA;padding:30px;justify-content:space-between;overflow:hidden;border:12px solid #FBFAF6;outline:2px solid var(--cob);outline-offset:-14px}
+.back::before{content:"";position:absolute;inset:0;background:url(/_blob/70234912acd2555e4445a4716a50660e) center/320px;opacity:.1}
+.back > *{position:relative}
+.back h3{font:400 32px/1.05 'Gloock',serif;margin:10px 0 0}
+.back .sc{color:var(--gold)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin:0}
+.specs dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#C9D1E6}
+.specs dd{margin:2px 0 0;font:400 22px 'Gloock',serif}
+.b-price{font:400 40px/1 'Gloock',serif;color:var(--gold);margin:0}
+.b-link{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;background:#F7F3EA;color:var(--cob2) !important;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;align-self:flex-start;transition:background .3s}
+.b-link:hover{background:var(--gold)}
+.fav{position:absolute;top:24px;right:24px;z-index:7;width:48px;height:48px;border-radius:50%;border:0;background:rgba(251,250,246,.95);color:var(--terraInk);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .3s,background .3s,color .3s;box-shadow:0 6px 18px rgba(13,28,71,.25)}
+.fav:hover{transform:scale(1.1)}
+/* list view */
+.rows{display:flex;flex-direction:column;margin-top:10px}
+.row{position:relative;display:grid;grid-template-columns:70px 220px minmax(0,1fr) auto;gap:26px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);animation:fadeUp .6s both;transition:background .35s}
+.row:hover{background:var(--paper)}
+.row-no{font:400 34px 'Gloock',serif;color:var(--terraInk);padding-left:8px}
+.row-img{height:150px;overflow:hidden;padding:8px}
+.row-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.row:hover .row-img img{transform:scale(1.06)}
+.row h3{font:400 30px/1.1 'Gloock',serif;margin:0;color:var(--cob2)}
+.row h3 a{text-decoration:none}
+.row h3 a:hover{color:var(--terraInk)}
+.row-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:15px;color:var(--mute)}
+.row-r{display:flex;align-items:center;gap:16px;padding-right:8px}
+.row-price{font:400 28px 'Gloock',serif;color:var(--ink);white-space:nowrap}
+.row .fav{position:static;box-shadow:none;border:1.5px solid var(--terraInk)}
+/* map */
+.mapwrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:30px;margin-top:30px;align-items:start}
+.map{position:relative;height:620px;padding:14px}
+.map-in{position:relative;width:100%;height:100%;overflow:hidden;background:#FBFAF6}
+.map-in svg{position:absolute;inset:0;width:100%;height:100%}
+.town{position:absolute;transform:translate(-50%,-50%);font:400 15px 'Gloock',serif;color:var(--cob2);white-space:nowrap;pointer-events:none}
+.town.sea{color:#F7F3EA;font:600 11px 'Work Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase}
+.pin{position:absolute;transform:translate(-50%,-100%);width:46px;height:56px;border:0;padding:0;background:transparent;cursor:pointer;animation:pop .5s cubic-bezier(.2,1.4,.4,1) both;transition:filter .3s}
+.pin:hover{filter:drop-shadow(0 6px 10px rgba(13,28,71,.4))}
+.pin svg{width:100%;height:100%;display:block}
+.pin b{position:absolute;left:0;right:0;top:11px;text-align:center;font:600 12px 'Work Sans',sans-serif;color:#F7F3EA}
+.map-card{background:var(--cob2);color:#F7F3EA;padding:16px;animation:fadeUp .5s both}
+.map-card img{width:100%;height:220px;object-fit:cover}
+.map-card h3{font:400 30px/1.1 'Gloock',serif;margin:16px 0 6px}
+.map-card p{margin:0 0 6px;color:#D5DBEA;font-size:15px}
+.map-card .b-price{margin:12px 0 16px}
+.empty{margin-top:34px;padding:56px 40px;border:1.5px dashed var(--cob);text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;background:var(--paper)}
+.empty h3{font:400 34px 'Gloock',serif;margin:0;color:var(--cob2)}
+.roofline{display:block;line-height:0;margin-top:120px}
+.roofline svg{display:block;width:100%;height:90px}
+/* developments */
+.dev{background:var(--cob2);color:#F7F3EA;padding:100px 0 120px;scroll-margin-top:20px}
+.dev .folio{color:var(--gold)}
+.dev .h2{color:#F7F3EA}
+.dev-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.dev .chip{border-color:rgba(247,243,234,.55);color:#F7F3EA}
+.dev .chip:hover{background:rgba(247,243,234,.1)}
+.dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:34px;margin-top:44px}
+.dev-card{position:relative;background:#FBFAF6;color:var(--ink);padding:14px 14px 22px;animation:fadeUp .6s both;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.dev-card:nth-child(odd){transform:rotate(-1deg)}
+.dev-card:nth-child(even){transform:rotate(1deg)}
+.dev-card:hover{transform:rotate(0) translateY(-6px)}
+.dev-card img{width:100%;height:260px;object-fit:cover}
+.stamp{position:absolute;right:26px;top:212px;width:104px;height:104px;border-radius:50%;background:var(--terraInk);color:#F7F3EA;display:flex;align-items:center;justify-content:center;text-align:center;font:600 11px/1.25 'Work Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:12px;transform:rotate(-12deg);border:3px double #F7F3EA;box-shadow:0 10px 20px rgba(13,28,71,.3)}
+.dev-card h3{font:400 26px/1.1 'Gloock',serif;margin:18px 0 6px;color:var(--cob2);padding-right:110px}
+.dev-card p{margin:0 0 14px;font-size:15px;color:var(--mute)}
+.dev-card a{font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--cob) !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.dev-card a:hover{color:var(--terraInk) !important}
+.dev-note{margin:24px 0 0;font-size:14px;color:#C9D1E6}
+.after{padding:100px 0 120px}
+.after-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:30px;align-items:center;border-top:2px solid var(--cob2);border-bottom:2px solid var(--cob2);padding:40px 0}
+.after-box h2{font:400 clamp(36px,4vw,56px)/1.02 'Gloock',serif;margin:0;color:var(--cob2)}
+.after-acts{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.foot{background:var(--cob2);color:#F7F3EA;font-size:15px}
+.foot-az{height:28px;background-size:28px 28px}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:40px;padding-top:70px;padding-bottom:50px}
+.foot .logo{color:#F7F3EA !important}
+.foot p,.foot address{margin:0 0 10px;font-style:normal;color:#D5DBEA;line-height:1.75}
+.foot .sc{color:var(--gold);margin-bottom:16px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li a,.foot address a,.foot-links a{text-decoration:none;display:inline-block;padding:3px 0;color:#F7F3EA}
+.foot li a:hover,.foot address a:hover,.foot-links a:hover{color:var(--gold)}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:28px;border-top:1px solid rgba(247,243,234,.22);font-size:13px;color:#C9D1E6}
+@media (max-width:1100px){.cat-grid{grid-template-columns:1fr}.filters{position:relative;top:0}.mapwrap{grid-template-columns:1fr}}
+@media (max-width:980px){.links{display:none}.burger{display:inline-flex}.op-grid{grid-template-columns:1fr}.strip-mid{display:none}}
+@media (max-width:760px){.wrap,.navbar,.strip{padding-left:16px;padding-right:16px}.row{grid-template-columns:1fr;gap:12px}.row-no{display:none}.row-img{height:220px}.map{height:480px;padding:8px}.op-side .badge{left:auto;right:0;bottom:-30px;width:120px;height:120px}.logo b{font-size:28px}.favpop{right:16px}.tile{height:440px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="root">
+
+<header class="mast">
+  <div class="strip">
+    <span>{{ t.issue }}</span>
+    <span class="strip-mid">Revista Imonovo · Nº 01 · Secção 02</span>
+    <span><a href="Main.dc.html">{{ t.all }}</a><a href="tel:+351919192220">+351 919 192 220</a></span>
+  </div>
+  <div class="navbar">
+    <a class="logo" href="Azulejo-Home.dc.html" aria-label="Imonovo, início">
+      <span class="logo-tile az" aria-hidden="true"></span>
+      <b>Imonovo</b>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="Azulejo-Home.dc.html">{{ t.n1 }}</a>
+      <a class="on" href="Azulejo-Imoveis.dc.html" aria-current="page">{{ t.n2 }}</a>
+      <a href="#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.dc.html">{{ t.n4 }}</a>
+      <a href="Azulejo-Servicos.dc.html">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.dc.html">{{ t.n6 }}</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" onClick="{{ setPt }}" style="{{ ptSt }}" aria-pressed="{{ isPt }}">PT</button>
+        <button type="button" onClick="{{ setFr }}" style="{{ frSt }}" aria-pressed="{{ isFr }}">FR</button>
+      </div>
+      <button type="button" class="ibtn" aria-label="Favoritos" onClick="{{ toggleFavPop }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+        <span class="cnt">{{ favCount }}</span>
+      </button>
+      <button type="button" class="ibtn burger" aria-label="Abrir menu" onClick="{{ toggleMenu }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ favOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="favpop" role="dialog" aria-label="Favoritos">
+      <p class="sc" style="color:#9C4322">{{ t.fav }} · {{ favCount }}</p>
+      <sc-if value="{{ favNone }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font-size:15px;color:#4A4A56">{{ t.favEmpty }}</p>
+      </sc-if>
+      <sc-for list="{{ favList }}" as="f" hint-placeholder-count="2">
+        <a class="favrow" href="Azulejo-Imovel.dc.html"><img src="{{ f.img }}" alt=""><span><span class="serif" style="display:block;font-size:18px;color:#142A66">{{ f.title }} · {{ f.loc }}</span><span style="font-size:14px">{{ f.priceTxt }}</span></span></a>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Azulejo-Home.dc.html">{{ t.n1 }}</a>
+      <a href="Azulejo-Imoveis.dc.html">{{ t.n2 }}</a>
+      <a href="#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.dc.html">{{ t.n4 }}</a>
+      <a href="Azulejo-Servicos.dc.html">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.dc.html">{{ t.n6 }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- OPENER -->
+<section class="opener wrap">
+  <div class="op-grid">
+    <div>
+      <span class="folio rise">p. 04 — Secção 02</span>
+      <h1 class="op-h rise d1">{{ t.h1a }} <span>{{ t.h1b }}</span></h1>
+      <p class="op-lead drop rise d2">{{ t.lead }}</p>
+      <nav class="op-toc rise d3" aria-label="Nesta secção">
+        <a href="#catalogo"><b>04</b>{{ t.tocA }}</a>
+        <a href="#catalogo"><b>06</b>{{ t.tocB }}</a>
+        <a href="#empreendimentos"><b>10</b>{{ t.n3 }}</a>
+      </nav>
+    </div>
+    <div class="op-side">
+      <div class="op-photo az"><img src="/_blob/f597766173c931e01e878e7513489f3c" alt="Rua de Óbidos com buganvílias"></div>
+      <a class="badge" href="Azulejo-Vender.dc.html" aria-label="{{ t.badgeAria }}">
+        <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="bcI" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"></path></defs>
+          <circle cx="100" cy="100" r="99" fill="{{ acc }}"></circle>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#D6B083" stroke-width="1" stroke-dasharray="2 4"></circle>
+          <text font-family="Work Sans, sans-serif" font-size="14.5" font-weight="600" letter-spacing="2" fill="#F7F3EA"><textPath href="#bcI" textLength="474" lengthAdjust="spacing">{{ t.badge }}</textPath></text>
+        </svg>
+        <span class="core" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40"><g fill="none" stroke="#1E3A8A" stroke-width="1.8"><path d="M20 3c5 6 5 10 0 15c-5-5-5-9 0-15z"></path><path d="M37 20c-6 5-10 5-15 0c5-5 9-5 15 0z"></path><path d="M20 37c-5-6-5-10 0-15c5 5 5 9 0 15z"></path><path d="M3 20c6-5 10-5 15 0c-5 5-9 5-15 0z"></path></g><circle cx="20" cy="20" r="3" fill="#B5552F"></circle></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="wrap cat" id="catalogo" aria-labelledby="cat-title">
+  <div class="cat-grid">
+    <aside class="filters" aria-label="{{ t.filters }}">
+      <p class="sc" style="color:#9C4322">{{ t.filters }}</p>
+      <fieldset class="f-group">
+        <legend class="lbl">{{ t.fTipo }}</legend>
+        <div class="f-chips">
+          <sc-for list="{{ tipos }}" as="c" hint-placeholder-count="4">
+            <button type="button" class="chip" aria-pressed="{{ c.on }}" style="{{ c.st }}" onClick="{{ c.pick }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <fieldset class="f-group">
+        <legend class="lbl">{{ t.fTip }}</legend>
+        <div class="f-chips">
+          <sc-for list="{{ tips }}" as="c" hint-placeholder-count="3">
+            <button type="button" class="chip" aria-pressed="{{ c.on }}" style="{{ c.st }}" onClick="{{ c.pick }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <div class="f-group">
+        <label class="lbl" for="f-max">{{ t.fMax }}</label>
+        <span class="f-val" aria-live="polite">{{ maxTxt }}</span>
+        <input id="f-max" type="range" min="300000" max="1400000" step="10000" value="{{ max }}" onInput="{{ setMax }}">
+        <span class="smc" style="display:flex;justify-content:space-between;font-size:15px"><span>300 mil €</span><span>1,4 M€</span></span>
+      </div>
+      <div class="f-group">
+        <label class="lbl" for="f-loc">{{ t.fLoc }}</label>
+        <select id="f-loc" class="inp" onInput="{{ setLoc }}">
+          <option value="todas">Todas as localidades</option>
+          <option value="Caldas da Rainha">Caldas da Rainha</option>
+          <option value="Nadadouro">Nadadouro</option>
+          <option value="Serra do Bouro">Serra do Bouro</option>
+        </select>
+      </div>
+      <button type="button" class="btn ghost" onClick="{{ reset }}">{{ t.reset }}</button>
+    </aside>
+
+    <div>
+      <div class="toolbar">
+        <div>
+          <p class="sc" style="color:#9C4322">{{ t.results }}</p>
+          <h2 class="count" id="cat-title" aria-live="polite"><span>{{ count }}</span> {{ countWord }}</h2>
+        </div>
+        <div class="tb-right">
+          <div class="field" style="min-width:210px">
+            <label class="lbl" for="f-sort">{{ t.sort }}</label>
+            <select id="f-sort" class="inp" onInput="{{ setSort }}">
+              <option value="recentes">Mais recentes</option>
+              <option value="asc">Preço: do mais baixo</option>
+              <option value="desc">Preço: do mais alto</option>
+              <option value="area">Maior área</option>
+            </select>
+          </div>
+          <div class="views" role="group" aria-label="Vista">
+            <button type="button" aria-pressed="{{ vGridOn }}" style="{{ vGridSt }}" onClick="{{ vGrid }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5"></rect><rect x="13.5" y="4" width="6.5" height="6.5"></rect><rect x="4" y="13.5" width="6.5" height="6.5"></rect><rect x="13.5" y="13.5" width="6.5" height="6.5"></rect></svg>{{ t.vGrid }}</button>
+            <button type="button" aria-pressed="{{ vListOn }}" style="{{ vListSt }}" onClick="{{ vList }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"></path></svg>{{ t.vList }}</button>
+            <button type="button" aria-pressed="{{ vMapOn }}" style="{{ vMapSt }}" onClick="{{ vMap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>{{ t.vMap }}</button>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+        <div class="tiles">
+          <sc-for list="{{ items }}" as="p" hint-placeholder-count="6">
+            <article class="tile">
+              <button type="button" class="fav" aria-label="Guardar nos favoritos" aria-pressed="{{ p.favOn }}" onClick="{{ p.fav }}" style="{{ p.favSt }}">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="{{ p.heartFill }}"></path></svg>
+              </button>
+              <div class="flip-in">
+                <div class="face front az">
+                  <div class="fr-img">
+                    <img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy">
+                    <sc-if value="{{ p.reduced }}" hint-placeholder-val="{{ false }}"><span class="tag-red">{{ p.red }}</span></sc-if>
+                  </div>
+                  <div class="fr-cap"><span class="fr-no">{{ p.no }}</span><span class="fr-loc">{{ p.loc }}</span><span class="fr-price">{{ p.priceTxt }}</span></div>
+                </div>
+                <div class="face back">
+                  <div>
+                    <p class="sc">{{ p.kind }} · {{ p.no }}</p>
+                    <h3>{{ p.title }}, {{ p.loc }}</h3>
+                  </div>
+                  <dl class="specs">
+                    <div><dt>Área</dt><dd>{{ p.areaTxt }}</dd></div>
+                    <div><dt>Tipologia</dt><dd>{{ p.tip }}</dd></div>
+                    <div><dt>Concelho</dt><dd>Caldas da Rainha</dd></div>
+                    <div><dt>€/m²</dt><dd>{{ p.m2 }}</dd></div>
+                  </dl>
+                  <p class="b-price">{{ p.priceTxt }}</p>
+                  <a class="b-link" href="Azulejo-Imovel.dc.html">{{ p.read }}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
+        <div class="rows">
+          <sc-for list="{{ items }}" as="p" hint-placeholder-count="6">
+            <article class="row">
+              <span class="row-no">{{ p.nn }}</span>
+              <div class="row-img az"><img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy"></div>
+              <div>
+                <p class="sc" style="color:#9C4322">{{ p.kind }} · {{ p.tip }}</p>
+                <h3><a href="Azulejo-Imovel.dc.html">{{ p.title }}, {{ p.loc }}</a></h3>
+                <div class="row-meta"><span>{{ p.areaTxt }}</span><span>Concelho de Caldas da Rainha</span><span>{{ p.m2 }} €/m²</span><sc-if value="{{ p.reduced }}" hint-placeholder-val="{{ false }}"><span style="color:#9C4322;font-weight:600">{{ p.red }}</span></sc-if></div>
+              </div>
+              <div class="row-r">
+                <span class="row-price">{{ p.priceTxt }}</span>
+                <button type="button" class="fav" aria-label="Guardar nos favoritos" aria-pressed="{{ p.favOn }}" onClick="{{ p.fav }}" style="{{ p.favSt }}">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="{{ p.heartFill }}"></path></svg>
+                </button>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showMap }}" hint-placeholder-val="{{ false }}">
+        <div class="mapwrap">
+          <div class="map az">
+            <div class="map-in">
+              <svg viewBox="0 0 600 620" preserveAspectRatio="none" aria-hidden="true">
+                <path fill="#1E3A8A" d="M0 0H300C282 60 262 92 250 140C236 200 216 250 200 300C186 340 162 362 150 390C140 432 130 500 120 560L112 620H0Z"></path>
+                <path fill="none" stroke="#3E5AA8" stroke-width="1.5" stroke-dasharray="10 8" d="M40 80q20-8 40 0t40 0M30 220q20-8 40 0t40 0M60 360q20-8 40 0t40 0M20 480q20-8 40 0t40 0M50 570q20-8 40 0t40 0M160 40q20-8 40 0t40 0"></path>
+                <path fill="#4A6BC0" stroke="#1E3A8A" stroke-width="2" d="M156 388C198 362 262 370 302 396C332 416 322 446 286 456C246 466 206 452 182 432C166 420 152 402 156 388Z"></path>
+                <path fill="none" stroke="#B5552F" stroke-width="3" stroke-dasharray="1 0" d="M380 330L420 470M380 330L250 455M380 330L232 250M380 330L330 200L270 70M232 250L270 70"></path>
+                <path fill="none" stroke="#FBFAF6" stroke-width="1" stroke-dasharray="6 6" d="M380 330L420 470M380 330L250 455M380 330L232 250M380 330L330 200L270 70M232 250L270 70"></path>
+                <g fill="none" stroke="#142A66" stroke-width="1.2"><circle cx="540" cy="70" r="26"></circle><path d="M540 36V104M506 70H574"></path><path fill="#142A66" d="M540 40L546 70L540 66L534 70Z"></path></g>
+                <path stroke="#142A66" stroke-width="2" d="M440 590H560"></path>
+                <path stroke="#142A66" stroke-width="2" d="M440 584V596M500 586V594M560 584V596"></path>
+              </svg>
+              <span class="town" style="left:45%;top:9%">Nazaré</span>
+              <span class="town" style="left:22%;top:56%">Foz do Arelho</span>
+              <span class="town" style="left:70%;top:80%">Óbidos</span>
+              <span class="town" style="left:72%;top:47%">Caldas da Rainha</span>
+              <span class="town" style="left:40%;top:66%;font-size:13px;color:#F7F3EA">Lagoa de Óbidos</span>
+              <span class="town" style="left:50%;top:37%">Serra do Bouro</span>
+              <span class="town sea" style="left:13%;top:30%">Oceano Atlântico</span>
+              <span class="town" style="left:83%;top:92%;font:500 11px 'Work Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#4A4A56">Esquema, sem escala</span>
+              <sc-for list="{{ items }}" as="p" hint-placeholder-count="6">
+                <button type="button" class="pin" style="{{ p.pinSt }}" onClick="{{ p.sel }}" aria-label="{{ p.pinLabel }}">
+                  <svg viewBox="0 0 46 56" aria-hidden="true"><path d="M23 54s-19-17-19-31a19 19 0 0 1 38 0c0 14-19 31-19 31z" fill="{{ p.pinFill }}" stroke="#FBFAF6" stroke-width="2.5"></path></svg>
+                  <b>{{ p.nn }}</b>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ true }}">
+            <article class="map-card">
+              <img src="{{ selP.img }}" alt="{{ selP.alt }}">
+              <p class="sc" style="color:#D6B083;margin-top:16px">{{ selP.no }} · {{ selP.kind }} · {{ selP.tip }}</p>
+              <h3>{{ selP.title }}, {{ selP.loc }}</h3>
+              <p>{{ selP.areaTxt }} · Concelho de Caldas da Rainha</p>
+              <p class="b-price">{{ selP.priceTxt }}</p>
+              <a class="b-link" href="Azulejo-Imovel.dc.html">{{ selP.read }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            </article>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+        <div class="empty" role="status">
+          <svg width="54" height="54" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#1E3A8A" stroke-width="1.6"><rect x="3" y="3" width="34" height="34"></rect><path d="M20 6c4 5 4 9 0 14c-4-5-4-9 0-14z"></path><path d="M34 20c-5 4-9 4-14 0c5-4 9-4 14 0z"></path><path d="M20 34c-4-5-4-9 0-14c4 5 4 9 0 14z"></path><path d="M6 20c5-4 9-4 14 0c-5 4-9 4-14 0z"></path></g></svg>
+          <h3>{{ t.emptyH }}</h3>
+          <p style="margin:0;max-width:480px;color:#4A4A56">{{ t.emptyP }}</p>
+          <button type="button" class="btn" onClick="{{ reset }}">{{ t.reset }}</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<div class="roofline" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <path fill="#D6B083" opacity=".6" d="M676 90V34H690V12L703 0L716 12V34H730V90Z"></path>
+    <path fill="#B5552F" d="M0 90V58L36 34L72 58V46L118 20L164 46V60L196 40L228 60V50L270 26L312 50V56L352 32L392 56V44L440 18L488 44V58L520 38L552 58V48L596 24L640 48V54L684 30L728 54V42L776 16L824 42V58L858 36L892 58V50L934 26L976 50V56L1016 34L1056 56V44L1104 20L1152 44V58L1186 38L1220 58V48L1264 24L1308 48V54L1350 30L1392 54V46L1440 28V90Z"></path>
+    <path fill="none" stroke="#963F1E" stroke-width="1.2" d="M0 68H1440M0 79H1440"></path>
+  </svg>
+</div>
+
+<!-- DEVELOPMENTS -->
+<section class="dev" id="empreendimentos" aria-labelledby="dev-title">
+  <div class="wrap">
+    <div class="dev-head">
+      <div>
+        <span class="folio">p. 10 — Em obra</span>
+        <h2 class="h2 serif" id="dev-title">{{ t.n3 }}</h2>
+        <p style="margin:16px 0 0;max-width:520px;color:#D5DBEA">{{ t.devText }}</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;max-width:640px" role="group" aria-label="Estado">
+        <sc-for list="{{ ests }}" as="c" hint-placeholder-count="7">
+          <button type="button" class="chip" aria-pressed="{{ c.on }}" style="{{ c.st }}" onClick="{{ c.pick }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="dev-grid">
+      <sc-for list="{{ devs }}" as="d" hint-placeholder-count="6">
+        <article class="dev-card">
+          <img src="{{ d.img }}" alt="{{ d.alt }}" loading="lazy">
+          <span class="stamp">{{ d.st }}</span>
+          <h3>[NOME DO EMPREENDIMENTO]</h3>
+          <p>[LOCALIDADE] · [N] frações · {{ d.st }}</p>
+          <a href="Azulejo-Contactos.dc.html">{{ t.devAsk }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </article>
+      </sc-for>
+    </div>
+    <p class="dev-note">{{ devCount }} · Fichas de empreendimento a preencher pela agência; fotografias ilustrativas.</p>
+  </div>
+</section>
+
+<section class="wrap after">
+  <div class="after-box">
+    <h2>{{ t.afterH }}</h2>
+    <div class="after-acts">
+      <a class="btn ghost" href="Azulejo-Contactos.dc.html">{{ t.afterA }}</a>
+      <a class="btn terra" href="Azulejo-Vender.dc.html">{{ t.afterB }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-az az" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="logo" href="Azulejo-Home.dc.html" aria-label="Imonovo, início"><span class="logo-tile az" aria-hidden="true"></span><b>Imonovo</b></a>
+      <p style="margin-top:18px">{{ t.footAbout }}</p>
+      <a href="https://www.instagram.com/imonovo_portugal" style="color:#D6B083;text-decoration:none">Instagram @imonovo_portugal</a>
+    </div>
+    <div>
+      <p class="sc">Índice</p>
+      <ul>
+        <li><a href="Azulejo-Imoveis.dc.html">{{ t.n2 }}</a></li>
+        <li><a href="#empreendimentos">{{ t.n3 }}</a></li>
+        <li><a href="Azulejo-Vender.dc.html">{{ t.n4 }}</a></li>
+        <li><a href="Azulejo-Servicos.dc.html">{{ t.n5 }}</a></li>
+        <li><a href="Azulejo-Contactos.dc.html">{{ t.n6 }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="sc">Escritório</p>
+      <address>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br><a href="tel:+351210958271">Tel +351 210 958 271</a><br><a href="tel:+351919192220">Tlm +351 919 192 220</a><br><a href="mailto:info@imonovo.pt">info@imonovo.pt</a></address>
+      <p>Horário: [HORÁRIO]</p>
+    </div>
+    <div>
+      <p class="sc">Colofão</p>
+      <p>Imonovo é uma marca de MAJBI Lda.<br>AMI 10355 · APEMIP 5259</p>
+      <p class="foot-links"><a href="Main.dc.html">← Todas as propostas</a></p>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <span>© 2026 Imonovo · MAJBI Lda · Fotografias ilustrativas</span>
+    <span>Proposta de redesign — conceito, não é o site oficial</span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200},"accent":{"editor":"color","default":"#9C4322","options":["#9C4322","#1E3A8A","#8A6A3B"]}}'>
+const P = [
+  { id: 1, tipo: 'moradia', tip: 'T5', loc: 'Nadadouro', area: 301, price: 1380000, img: '/_blob/ff34c1294cc844b14c6b7026e0b4ff6f', alt: 'Moradia moderna branca com piscina', reduced: false },
+  { id: 2, tipo: 'moradia', tip: 'T3', loc: 'Serra do Bouro', area: 177, price: 645000, img: '/_blob/5619f2a66d4edbff5e027d591b3dd193', alt: 'Moradia clássica com piscina', reduced: false },
+  { id: 3, tipo: 'moradia', tip: 'T3', loc: 'Caldas da Rainha', area: 195, price: 780000, img: '/_blob/6c143c21f750eba585c1cabb58394f4c', alt: 'Moradia branca contemporânea', reduced: false },
+  { id: 4, tipo: 'moradia', tip: 'T3', loc: 'Caldas da Rainha', area: 131, price: 670000, img: '/_blob/0f0ec96be62eca61ccacfeb37b3d5c9f', alt: 'Casa branca com jardim', reduced: false },
+  { id: 5, tipo: 'moradia', tip: 'T3', loc: 'Nadadouro', area: 183, price: 650000, img: '/_blob/b1d11c5ba1386a68d24d93c6d30f0934', alt: 'Moradia com piscina', reduced: true },
+  { id: 6, tipo: 'apartamento', tip: 'T3', loc: 'Caldas da Rainha', area: 94, price: 344000, img: '/_blob/20e15a9994c85d55758735e1e0def5de', alt: 'Sala de estar luminosa', reduced: false },
+];
+// ponytail: schematic map coordinates (% of map box), not geodata
+const PIN = { 'Nadadouro': [41.7, 73.4], 'Caldas da Rainha': [63.3, 53.2], 'Serra do Bouro': [38.7, 40.3] };
+const E = [
+  { st: 'Novo', img: '/_blob/3cf659bed43e5ca778d0f3df7c56486b', alt: 'Piscina infinita sobre o mar' },
+  { st: 'Usado', img: '/_blob/9831f1d347baeed6548357113988f7e7', alt: 'Terraço com vista mar' },
+  { st: 'Em construção', img: '/_blob/e9b5697a63b5c0818b3655c243dee632', alt: 'Moradias modernas em vista aérea' },
+  { st: 'Para recuperar', img: '/_blob/1edd01da763cd1e8d147c50943422e23', alt: 'Casa de pedra no campo com nevoeiro' },
+  { st: 'Renovado', img: '/_blob/c6771783e0f22c17c5c3511093eb4339', alt: 'Moradia com arcadas' },
+  { st: 'Em projeto', img: '/_blob/190c5b49663579c2051f7a56374cbab6', alt: 'Muralhas de Óbidos e campo' },
+];
+const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+const T = {
+  pt: {
+    n1: 'Início', n2: 'Imóveis', n3: 'Empreendimentos', n4: 'Vender', n5: 'Serviços', n6: 'Contactos',
+    issue: 'Edição Outono 2026 · Costa de Prata', all: 'Todas as propostas', fav: 'Favoritos', favEmpty: 'Ainda não guardou nenhum imóvel. Toque no coração de um anúncio.',
+    badge: 'AVALIAÇÃO GRATUITA · CALDAS DA RAINHA · ', badgeAria: 'Pedir avaliação gratuita do seu imóvel',
+    kindM: 'Moradia', kindA: 'Apartamento', read: 'Ler o artigo', reduced: 'Preço reduzido',
+    h1a: 'Imóveis', h1b: 'à venda.', lead: 'Seis casas entre Caldas da Rainha, o Nadadouro e a Serra do Bouro, escolhidas e visitadas pela equipa. Filtre, ordene, abra o mapa e guarde as suas preferidas no coração.',
+    tocA: 'Classificados', tocB: 'Mapa da costa',
+    filters: 'Filtros', fTipo: 'Tipo', fTip: 'Tipologia', fMax: 'Preço máximo', fLoc: 'Localidade', reset: 'Limpar filtros',
+    tipos: ['Todos', 'Moradia', 'Apartamento', 'Terreno'], tipAll: 'Todas',
+    results: 'Resultados', one: 'imóvel', many: 'imóveis', sort: 'Ordenar', vGrid: 'Grelha', vList: 'Lista', vMap: 'Mapa',
+    emptyH: 'Nenhum imóvel nesta página', emptyP: 'Nenhum anúncio corresponde a estes filtros. Alargue o preço ou a localidade — ou escreva-nos com o que procura.',
+    devText: 'Projetos novos, casas para recuperar e obras em curso. Filtre pelo estado do empreendimento.', estAll: 'Todos', devAsk: 'Pedir informação',
+    devN: ['empreendimento', 'empreendimentos'],
+    afterH: 'Não encontrou a casa certa? Conte-nos o que procura.', afterA: 'Escrever à equipa', afterB: 'Avaliar a minha casa',
+    footAbout: 'Agência imobiliária em Caldas da Rainha. Comprar, vender e viver na Costa de Prata, em português e em francês.',
+  },
+  fr: {
+    n1: 'Accueil', n2: 'Biens', n3: 'Programmes', n4: 'Vendre', n5: 'Services', n6: 'Contact',
+    issue: 'Édition Automne 2026 · Costa de Prata', all: 'Toutes les propositions', fav: 'Favoris', favEmpty: 'Aucun bien enregistré. Touchez le cœur d’une annonce.',
+    badge: 'ESTIMATION GRATUITE · CALDAS DA RAINHA · ', badgeAria: 'Demander une estimation gratuite de votre bien',
+    kindM: 'Villa', kindA: 'Appartement', read: 'Lire l’article', reduced: 'Prix réduit',
+    h1a: 'Biens', h1b: 'à vendre.', lead: 'Six maisons entre Caldas da Rainha, Nadadouro et Serra do Bouro, choisies et visitées par l’équipe. Filtrez, triez, ouvrez la carte et gardez vos préférées.',
+    tocA: 'Annonces', tocB: 'Carte de la côte',
+    filters: 'Filtres', fTipo: 'Type', fTip: 'Typologie', fMax: 'Prix maximum', fLoc: 'Localité', reset: 'Effacer les filtres',
+    tipos: ['Tous', 'Villa', 'Appartement', 'Terrain'], tipAll: 'Toutes',
+    results: 'Résultats', one: 'bien', many: 'biens', sort: 'Trier', vGrid: 'Grille', vList: 'Liste', vMap: 'Carte',
+    emptyH: 'Aucun bien sur cette page', emptyP: 'Aucune annonce ne correspond à ces filtres. Élargissez le prix ou la localité.',
+    devText: 'Programmes neufs, maisons à rénover et chantiers en cours. Filtrez par état.', estAll: 'Tous', devAsk: 'Demander des infos',
+    devN: ['programme', 'programmes'],
+    afterH: 'Pas trouvé la bonne maison ? Dites-nous ce que vous cherchez.', afterA: 'Écrire à l’équipe', afterB: 'Estimer ma maison',
+    footAbout: 'Agence immobilière à Caldas da Rainha. Acheter, vendre et vivre sur la Costa de Prata, en portugais et en français.',
+  },
+};
+const TIPOS = ['todos', 'moradia', 'apartamento', 'terreno'];
+const TIPS = ['todas', 'T3', 'T5'];
+const ESTS = ['todos', 'Novo', 'Usado', 'Em construção', 'Para recuperar', 'Renovado', 'Em projeto'];
+const val = (e) => (e && e.target ? e.target.value : e);
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { lang: 'pt', menu: false, favOpen: false, favs: [], tipo: 'todos', tip: 'todas', max: 1400000, loc: 'todas', sort: 'recentes', view: 'grelha', sel: 1, est: 'todos' }; }
+  toggleFav(id) { const f = this.state.favs; this.setState({ favs: f.indexOf(id) > -1 ? f.filter((x) => x !== id) : f.concat([id]) }); }
+  renderVals() {
+    const s = this.state, t = T[s.lang];
+    const ON = 'background:#1E3A8A;color:#F7F3EA;border-color:#1E3A8A';
+    const ONL = 'background:#F7F3EA;color:#142A66;border-color:#F7F3EA';
+    const acc = typeof this.props.accent === 'string' ? this.props.accent : '#9C4322';
+    const seen = {};
+    const card = (p, i) => {
+      const on = s.favs.indexOf(p.id) > -1;
+      const kind = p.tipo === 'moradia' ? t.kindM : t.kindA;
+      const xy = PIN[p.loc] || [50, 50];
+      const k = seen[p.loc] = (seen[p.loc] || 0) + 1;
+      const isSel = p.id === s.sel;
+      return { ...p, no: 'Nº 0' + p.id, nn: '0' + p.id, kind, title: kind + ' ' + p.tip, priceTxt: fmt(p.price), areaTxt: p.area + ' m²',
+        m2: String(Math.round(p.price / p.area)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'),
+        favOn: on ? 'true' : 'false', heartFill: on ? 'currentColor' : 'none', favSt: on ? 'background:#9C4322;color:#F7F3EA' : '',
+        fav: () => this.toggleFav(p.id), read: t.read, red: t.reduced,
+        pinSt: 'left:calc(' + xy[0] + '% + ' + ((k - 1) * 30) + 'px);top:calc(' + xy[1] + '% - ' + ((k - 1) * 8) + 'px);z-index:' + (isSel ? 5 : 2) + (isSel ? ';width:56px;height:68px' : ''),
+        pinFill: isSel ? '#9C4322' : '#142A66', pinLabel: kind + ' ' + p.tip + ', ' + p.loc + ', ' + fmt(p.price),
+        sel: () => this.setState({ sel: p.id }) };
+    };
+    let list = P.filter((p) => (s.tipo === 'todos' || p.tipo === s.tipo) && (s.tip === 'todas' || p.tip === s.tip) && p.price <= s.max && (s.loc === 'todas' || p.loc === s.loc));
+    list = list.slice().sort((a, b) => s.sort === 'asc' ? a.price - b.price : s.sort === 'desc' ? b.price - a.price : s.sort === 'area' ? b.area - a.area : a.id - b.id);
+    const items = list.map(card);
+    const selP = items.find((p) => p.id === s.sel) || items[0] || null;
+    const favList = P.filter((p) => s.favs.indexOf(p.id) > -1).map((p) => { const kind = p.tipo === 'moradia' ? t.kindM : t.kindA; return { ...p, title: kind + ' ' + p.tip, priceTxt: fmt(p.price) }; });
+    const view = (v) => ({ on: s.view === v ? 'true' : 'false', st: s.view === v ? ON : '' });
+    const devList = E.filter((d) => s.est === 'todos' || d.st === s.est);
+    const n = items.length;
+    return {
+      t, acc,
+      isPt: s.lang === 'pt' ? 'true' : 'false', isFr: s.lang === 'fr' ? 'true' : 'false',
+      ptSt: s.lang === 'pt' ? ON : '', frSt: s.lang === 'fr' ? ON : '',
+      setPt: () => this.setState({ lang: 'pt' }), setFr: () => this.setState({ lang: 'fr' }),
+      menu: s.menu, toggleMenu: () => this.setState({ menu: !this.state.menu, favOpen: false }),
+      favOpen: s.favOpen, toggleFavPop: () => this.setState({ favOpen: !this.state.favOpen, menu: false }),
+      favCount: s.favs.length, favList, favNone: s.favs.length === 0,
+      tipos: TIPOS.map((k, i) => ({ label: t.tipos[i], on: s.tipo === k ? 'true' : 'false', st: s.tipo === k ? ON : '', pick: () => this.setState({ tipo: k }) })),
+      tips: TIPS.map((k) => ({ label: k === 'todas' ? t.tipAll : k, on: s.tip === k ? 'true' : 'false', st: s.tip === k ? ON : '', pick: () => this.setState({ tip: k }) })),
+      max: s.max, maxTxt: fmt(s.max),
+      setMax: (e) => this.setState({ max: Number(val(e)) || 1400000 }),
+      setLoc: (e) => this.setState({ loc: val(e) || 'todas' }),
+      setSort: (e) => this.setState({ sort: val(e) || 'recentes' }),
+      reset: () => this.setState({ tipo: 'todos', tip: 'todas', max: 1400000, loc: 'todas' }),
+      count: n, countWord: n === 1 ? t.one : t.many,
+      vGridOn: view('grelha').on, vGridSt: view('grelha').st, vGrid: () => this.setState({ view: 'grelha' }),
+      vListOn: view('lista').on, vListSt: view('lista').st, vList: () => this.setState({ view: 'lista' }),
+      vMapOn: view('mapa').on, vMapSt: view('mapa').st, vMap: () => this.setState({ view: 'mapa' }),
+      items, isEmpty: n === 0,
+      showGrid: n > 0 && s.view === 'grelha', showList: n > 0 && s.view === 'lista', showMap: n > 0 && s.view === 'mapa',
+      hasSel: !!selP, selP: selP || {},
+      ests: ESTS.map((k) => ({ label: k === 'todos' ? t.estAll : k, on: s.est === k ? 'true' : 'false', st: s.est === k ? ONL : '', pick: () => this.setState({ est: k }) })),
+      devs: devList, devCount: devList.length + ' ' + t.devN[devList.length === 1 ? 0 : 1],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noir — Vender</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap">
+<style>
+body{margin:0;background:#070707}
+sc-for,sc-if{display:contents}
+.nx,.nx *{box-sizing:border-box}
+.nx{font-family:'Jost',sans-serif;font-weight:300;color:#F2EDE4;background:#070707;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.nx a{color:inherit;text-decoration:none}
+.nx button,.nx input,.nx select,.nx textarea{font-family:'Jost',sans-serif}
+.nx button{cursor:pointer}
+.nx img{display:block}
+.nx-disp{font-family:'Italiana',serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
+.nx-caps{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;line-height:1.5}
+.nx-wrap{max-width:1280px;margin:0 auto;padding-left:48px;padding-right:48px}
+.nx :focus-visible{outline:1px solid #E9D6B2;outline-offset:4px}
+.nx-link{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#F2EDE4;transition:color .4s}
+.nx-link::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-link:hover,.nx-link.on{color:#E9D6B2}
+.nx-link:hover::after,.nx-link.on::after{transform:scaleX(1);transform-origin:left}
+.nx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 32px;border:1px solid var(--gold);background:transparent;color:#F2EDE4;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;position:relative;overflow:hidden;transition:color .5s;cursor:pointer}
+.nx-btn::before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--gold);transform:translateY(101%);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-btn>*{position:relative;z-index:1}
+.nx-btn:hover{color:#070707}
+.nx-btn:hover::before{transform:translateY(0)}
+.nx-btn.solid{background:var(--gold);color:#070707}
+.nx-btn.solid::before{background:#E9D6B2}
+.nx-ghost{display:inline-flex;align-items:center;gap:14px;min-height:44px;color:#E9D6B2;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;background:transparent;border:0}
+.nx-ghost svg{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.nx-ghost:hover svg{transform:translateX(8px)}
+.nx-lang{min-width:44px;min-height:44px;background:transparent;border:0;font-size:11px;letter-spacing:.24em;transition:color .3s}
+.nx-icon{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#F2EDE4;background:transparent;border:0;transition:color .3s}
+.nx-icon:hover{color:#E9D6B2}
+.nx-badge{position:absolute;top:3px;right:0;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#070707;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;letter-spacing:0}
+.nx-burger{display:none}
+.nx-chip{min-height:48px;padding:0 22px;background:transparent;border:1px solid rgba(242,237,228,.18);color:#F2EDE4;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;transition:border-color .4s,color .4s,background .4s}
+.nx-chip:hover{border-color:var(--gold);color:#E9D6B2}
+.nx-label{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#A39E94;font-weight:400;margin-bottom:4px}
+.nx-in{width:100%;min-height:48px;background:transparent;border:0;border-bottom:1px solid rgba(242,237,228,.24);color:#F2EDE4;font-size:16px;font-weight:300;padding:10px 0;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .4s}
+.nx-in:focus{outline:none;border-bottom-color:var(--gold)}
+.nx-in::placeholder{color:#8A857C}
+.nx-in option{background:#121212;color:#F2EDE4}
+textarea.nx-in{min-height:150px;border:1px solid rgba(242,237,228,.24);padding:14px 16px;resize:vertical;line-height:1.6}
+textarea.nx-in:focus{border-color:var(--gold)}
+.nx-sel{position:relative}
+.nx-sel svg{position:absolute;right:2px;bottom:20px;pointer-events:none;color:var(--gold)}
+.nx-check{display:flex;gap:14px;align-items:flex-start;min-height:44px;cursor:pointer;color:#C9C3B8;font-size:14px}
+.nx-check input{width:20px;height:20px;margin:2px 0 0;accent-color:#D6B083;flex:0 0 auto}
+@keyframes nxUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes nxDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes nxBurns{from{transform:scale(1.02)}to{transform:scale(1.12) translateY(-12px)}}
+.nx-up{animation:nxUp 1.4s cubic-bezier(.2,.7,.1,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.7s}.d4{animation-delay:1s}
+.nx-panel{animation:nxUp .9s cubic-bezier(.2,.7,.1,1) both}
+.nx-burns{animation:nxBurns 24s ease-in-out infinite alternate}
+.nx-wstep{background:transparent;border:0;padding:0 0 18px;text-align:left;min-height:44px;transition:color .4s}
+.nx-arg{padding:40px 32px 40px 0;border-top:1px solid rgba(214,176,131,.3);transition:border-color .6s}
+.nx-arg:hover{border-top-color:#E9D6B2}
+.nx-arg:hover .nx-disp{color:#E9D6B2}
+.nx-proc{position:relative;padding:28px 20px 0 0}
+.nx-proc::before{content:"";position:absolute;left:0;top:0;width:9px;height:9px;transform:rotate(45deg);border:1px solid var(--gold);background:#070707}
+@media (max-width:960px){
+.nx-nav{display:none}
+.nx-burger{display:inline-flex}
+.nx-wrap{padding-left:20px;padding-right:20px}
+.nx-topl{display:none}
+.nx-wiz{padding:32px 22px !important}
+.nx-sec{padding-top:80px !important;padding-bottom:80px !important}
+}
+@media (prefers-reduced-motion:reduce){.nx *{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="nx" style="{{ rootStyle }}">
+
+<div style="border-bottom:1px solid rgba(242,237,228,.07)">
+<div class="nx-wrap" style="display:flex;justify-content:space-between;align-items:center;min-height:40px;gap:16px">
+<span class="nx-caps nx-topl" style="font-size:10px;color:#A39E94">{{ t.top }}</span>
+<a href="index.html" class="nx-ghost" style="font-size:10px;min-height:40px">{{ t.all }}<svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M0 4h20M17 1l3 3-3 3" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+</div>
+
+<header style="position:relative;z-index:20;background:#070707;border-bottom:1px solid rgba(214,176,131,.16)">
+<div class="nx-wrap" style="display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:24px">
+<a href="Noir-Home.html" aria-label="Imonovo — página inicial" style="display:flex;flex-direction:column;line-height:1">
+<span class="nx-disp" style="font-size:30px;letter-spacing:.2em">IMONOVO</span>
+<span class="nx-caps" style="font-size:9px;letter-spacing:.46em;color:var(--gold);margin-top:7px">Private Office</span>
+</a>
+<nav class="nx-nav" aria-label="Navegação principal" style="display:flex;gap:34px;align-items:center">
+<a class="nx-link nx-caps" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-caps on" aria-current="page" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-caps" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-caps" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+<div style="display:flex;align-items:center;gap:4px">
+<div role="group" aria-label="Idioma" style="display:flex;align-items:center">
+<button type="button" class="nx-lang" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPt }}">PT</button>
+<span aria-hidden="true" style="width:1px;height:12px;background:rgba(242,237,228,.2)"></span>
+<button type="button" class="nx-lang" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFr }}">FR</button>
+</div>
+<a href="Noir-Imoveis.html" class="nx-icon" aria-label="{{ favAria }}">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg>
+<span class="nx-badge">{{ favCount }}</span>
+</a>
+<button type="button" class="nx-icon nx-burger" aria-label="Abrir menu" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}">
+<svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><path d="M0 1h24M6 13h18" stroke="currentColor" stroke-width="1.1" fill="none"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Navegação móvel" style="border-top:1px solid rgba(214,176,131,.16);padding:12px 20px 28px;display:flex;flex-direction:column;background:#070707">
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+</sc-if>
+</header>
+
+<main>
+<!-- intro -->
+<section style="padding:0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr))">
+<div style="padding:120px 48px 100px;max-width:700px;margin-left:auto;display:flex;flex-direction:column;justify-content:center">
+<p class="nx-caps nx-up d1" style="color:var(--gold);margin:0 0 26px">Avaliação gratuita · Confidencial</p>
+<h1 class="nx-disp nx-up d2" style="margin:0;font-size:clamp(54px,6.6vw,104px);line-height:.98">{{ t.h1a }}<span style="display:block;color:#E9D6B2">{{ t.h1b }}</span></h1>
+<p class="nx-up d3" style="color:#A39E94;font-size:17px;max-width:480px;margin:30px 0 40px">{{ t.sub }}</p>
+<div class="nx-up d4"><a href="#avaliacao" class="nx-btn solid"><span>{{ t.cta }}</span></a></div>
+</div>
+<div style="position:relative;height:720px;overflow:hidden">
+<img class="nx-burns" src="assets/obidos-dusk.webp" alt="Telhados de Óbidos ao pôr do sol" style="width:100%;height:720px;object-fit:cover;filter:brightness(.62) saturate(.8)">
+<span aria-hidden="true" style="position:absolute;left:24px;top:24px;right:24px;bottom:24px;border:1px solid rgba(214,176,131,.4)"></span>
+<span class="nx-caps" style="position:absolute;right:48px;bottom:48px;color:#E9D6B2;font-size:10px">Óbidos — Costa de Prata</span>
+</div>
+</div>
+</section>
+
+<!-- wizard -->
+<section id="avaliacao" class="nx-sec" style="padding:140px 0" aria-labelledby="wz-title">
+<div class="nx-wrap">
+<div style="text-align:center;margin-bottom:56px">
+<p class="nx-caps" style="color:var(--gold);margin:0">Pedido de avaliação</p>
+<h2 id="wz-title" class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:16px 0 0">Quatro passos, em privado.</h2>
+</div>
+<div class="nx-wiz" style="max-width:900px;margin:0 auto;background:#121212;border:1px solid rgba(214,176,131,.28);padding:52px 60px 48px">
+<sc-if value="{{ wizOpen }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+<sc-for list="{{ wsteps }}" as="w" hint-placeholder-count="4">
+<button type="button" class="nx-wstep" aria-current="{{ w.cur }}" onClick="{{ w.pick }}" style="{{ w.style }}">
+<span class="nx-disp" style="display:block;font-size:26px">{{ w.roman }}</span>
+<span class="nx-caps" style="display:block;font-size:10px;margin-top:4px">{{ w.label }}</span>
+</button>
+</sc-for>
+</div>
+<div aria-hidden="true" style="position:relative;height:1px;background:rgba(242,237,228,.14)"><div style="{{ barStyle }}"></div></div>
+<p class="nx-caps" role="status" style="font-size:10px;color:#A39E94;margin:16px 0 0">{{ stepInfo }}</p>
+
+<sc-if value="{{ is1 }}" hint-placeholder-val="{{ true }}">
+<div class="nx-panel" style="padding-top:40px">
+<h3 class="nx-disp" style="font-size:38px;margin:0 0 28px">Que imóvel deseja confiar-nos?</h3>
+<span class="nx-label" id="lb-tipo">Tipo de imóvel</span>
+<div role="group" aria-labelledby="lb-tipo" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 34px">
+<sc-for list="{{ tipos }}" as="tp" hint-placeholder-count="4">
+<button type="button" class="nx-chip" aria-pressed="{{ tp.sel }}" onClick="{{ tp.pick }}" style="{{ tp.style }}">{{ tp.label }}</button>
+</sc-for>
+</div>
+<span class="nx-label" id="lb-obj">Objetivo</span>
+<div role="group" aria-labelledby="lb-obj" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+<sc-for list="{{ objs }}" as="ob" hint-placeholder-count="2">
+<button type="button" class="nx-chip" aria-pressed="{{ ob.sel }}" onClick="{{ ob.pick }}" style="{{ ob.style }}">{{ ob.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ is2 }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" style="padding-top:40px">
+<h3 class="nx-disp" style="font-size:38px;margin:0 0 28px">Onde se encontra?</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:28px">
+<div class="nx-sel">
+<label class="nx-label" for="w-dist">Distrito</label>
+<select id="w-dist" class="nx-in" value="{{ f.distrito }}" onChange="{{ setDistrito }}">
+<option value="Leiria">Leiria</option><option value="Lisboa">Lisboa</option><option value="Santarém">Santarém</option><option value="Outro">Outro</option>
+</select>
+<svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0l5 5 5-5" stroke="currentColor" fill="none"></path></svg>
+</div>
+<div class="nx-sel">
+<label class="nx-label" for="w-conc">Concelho</label>
+<select id="w-conc" class="nx-in" value="{{ f.concelho }}" onChange="{{ setConcelho }}">
+<option value="Caldas da Rainha">Caldas da Rainha</option><option value="Óbidos">Óbidos</option><option value="Nazaré">Nazaré</option><option value="Alcobaça">Alcobaça</option><option value="Peniche">Peniche</option><option value="Bombarral">Bombarral</option><option value="Lourinhã">Lourinhã</option><option value="Torres Vedras">Torres Vedras</option><option value="Outro">Outro</option>
+</select>
+<svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0l5 5 5-5" stroke="currentColor" fill="none"></path></svg>
+</div>
+<div>
+<label class="nx-label" for="w-freg">Freguesia</label>
+<input id="w-freg" class="nx-in" type="text" placeholder="ex. Nadadouro" value="{{ f.freguesia }}" onInput="{{ setFreguesia }}">
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ is3 }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" style="padding-top:40px">
+<h3 class="nx-disp" style="font-size:38px;margin:0 0 28px">Conte-nos o essencial.</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:28px;margin-bottom:28px">
+<div>
+<label class="nx-label" for="w-area">Área aproximada (m²)</label>
+<input id="w-area" class="nx-in" type="number" min="0" inputmode="numeric" placeholder="ex. 180" value="{{ f.area }}" onInput="{{ setArea }}">
+</div>
+<div>
+<span class="nx-label" id="lb-typo">Tipologia</span>
+<div role="group" aria-labelledby="lb-typo" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+<sc-for list="{{ typos }}" as="ty" hint-placeholder-count="6">
+<button type="button" class="nx-chip" style="{{ ty.style }}" aria-pressed="{{ ty.sel }}" onClick="{{ ty.pick }}">{{ ty.label }}</button>
+</sc-for>
+</div>
+</div>
+</div>
+<label class="nx-label" for="w-desc">Descrição</label>
+<textarea id="w-desc" class="nx-in" placeholder="Estado de conservação, vistas, exterior, o que torna este imóvel especial…" onInput="{{ setDesc }}">{{ f.desc }}</textarea>
+</div>
+</sc-if>
+
+<sc-if value="{{ is4 }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" style="padding-top:40px">
+<h3 class="nx-disp" style="font-size:38px;margin:0 0 28px">Como podemos contactá-lo?</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:28px">
+<div><label class="nx-label" for="w-n">Nome</label><input id="w-n" class="nx-in" type="text" autocomplete="name" value="{{ f.name }}" onInput="{{ setName }}"></div>
+<div><label class="nx-label" for="w-t">Telefone</label><input id="w-t" class="nx-in" type="tel" autocomplete="tel" value="{{ f.phone }}" onInput="{{ setPhone }}"></div>
+<div><label class="nx-label" for="w-e">Email</label><input id="w-e" class="nx-in" type="email" autocomplete="email" value="{{ f.email }}" onInput="{{ setEmail }}"></div>
+</div>
+<label class="nx-check" style="margin-top:28px"><input type="checkbox" checked="{{ f.consent }}" onChange="{{ setConsent }}"><span>Aceito ser contactado pela Imonovo a propósito deste pedido. Os dados não são partilhados.</span></label>
+</div>
+</sc-if>
+
+<p role="alert" style="color:#E9D6B2;font-size:14px;min-height:22px;margin:24px 0 0">{{ err }}</p>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;padding-top:28px;border-top:1px solid rgba(242,237,228,.1)">
+<button type="button" class="nx-ghost" style="{{ backStyle }}" onClick="{{ back }}"><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M28 5H2M6 1L2 5l4 4" stroke="currentColor" fill="none" stroke-width="1"></path></svg>Voltar</button>
+<button type="button" class="nx-btn solid" onClick="{{ next }}"><span>{{ nextLabel }}</span></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ wizDone }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="status" style="text-align:center;padding:30px 0 10px">
+<svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" style="margin:0 auto"><path d="M28 2l26 26-26 26L2 28z" fill="none" stroke="#D6B083"></path><path d="M18 28l7 7 13-15" fill="none" stroke="#E9D6B2" stroke-width="1.2"></path></svg>
+<p class="nx-disp" style="font-size:48px;margin:26px 0 10px">Pedido registado.</p>
+<p style="color:#A39E94;margin:0 0 32px">Protótipo — nada é enviado. Num site real, um consultor contactá-lo-ia em [PRAZO].</p>
+<div style="max-width:520px;margin:0 auto;text-align:left;border-top:1px solid rgba(214,176,131,.3)">
+<sc-for list="{{ summary }}" as="sm" hint-placeholder-count="5">
+<div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid rgba(242,237,228,.08)"><span style="color:#A39E94">{{ sm.k }}</span><span style="text-align:right">{{ sm.v }}</span></div>
+</sc-for>
+</div>
+<button type="button" class="nx-btn" style="margin-top:36px" onClick="{{ restart }}"><span>Novo pedido</span></button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- arguments -->
+<section class="nx-sec" style="padding:140px 0;background:#0B0B0B;border-top:1px solid rgba(214,176,131,.14)">
+<div class="nx-wrap">
+<p class="nx-caps" style="color:var(--gold);margin:0 0 20px">Porquê a Imonovo</p>
+<h2 class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:0 0 64px;max-width:760px">Vender bem é, antes de mais, apresentar bem.</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:0 32px">
+<div class="nx-arg"><p class="nx-disp" style="font-size:22px;color:var(--gold);margin:0">I</p><p class="nx-disp" style="font-size:30px;margin:14px 0 12px;transition:color .5s">Avaliação gratuita</p><p style="color:#A39E94;margin:0">Um valor fundamentado no mercado local, explicado de viva voz — sem compromisso.</p></div>
+<div class="nx-arg"><p class="nx-disp" style="font-size:22px;color:var(--gold);margin:0">II</p><p class="nx-disp" style="font-size:30px;margin:14px 0 12px;transition:color .5s">Compradores de dois mundos</p><p style="color:#A39E94;margin:0">Clientela local e internacional francófona, acompanhada na sua língua.</p></div>
+<div class="nx-arg"><p class="nx-disp" style="font-size:22px;color:var(--gold);margin:0">III</p><p class="nx-disp" style="font-size:30px;margin:14px 0 12px;transition:color .5s">Discrição</p><p style="color:#A39E94;margin:0">Visitas por marcação e apresentação privada quando o imóvel o pede.</p></div>
+<div class="nx-arg"><p class="nx-disp" style="font-size:22px;color:var(--gold);margin:0">IV</p><p class="nx-disp" style="font-size:30px;margin:14px 0 12px;transition:color .5s">Uma só equipa</p><p style="color:#A39E94;margin:0">Do primeiro contacto à escritura, com um interlocutor que conhece o dossier de cor.</p></div>
+</div>
+</div>
+</section>
+
+<!-- process -->
+<section class="nx-sec" style="padding:140px 0">
+<div class="nx-wrap">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:64px">
+<div><p class="nx-caps" style="color:var(--gold);margin:0 0 20px">O processo</p><h2 class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:0">Da avaliação à escritura</h2></div>
+<p style="color:#A39E94;max-width:380px;margin:0">Seis etapas, conduzidas ao seu ritmo. Prazos indicativos partilhados na primeira conversa.</p>
+</div>
+<div style="position:relative">
+<div aria-hidden="true" style="position:absolute;left:0;right:0;top:4px;height:1px;background:rgba(214,176,131,.3)"></div>
+<ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:36px 20px">
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">01</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Avaliação</p><p style="color:#A39E94;font-size:14px;margin:0">Visita ao imóvel e estudo do mercado da freguesia.</p></li>
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">02</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Estratégia</p><p style="color:#A39E94;font-size:14px;margin:0">Preço, público, grau de exposição — definidos consigo.</p></li>
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">03</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Apresentação</p><p style="color:#A39E94;font-size:14px;margin:0">Imagens, descrição em português e francês, dossier.</p></li>
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">04</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Visitas</p><p style="color:#A39E94;font-size:14px;margin:0">Por marcação, com compradores qualificados.</p></li>
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">05</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Negociação &amp; CPCV</p><p style="color:#A39E94;font-size:14px;margin:0">Propostas, contrato-promessa e sinal.</p></li>
+<li class="nx-proc"><p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">06</p><p class="nx-disp" style="font-size:26px;margin:8px 0 8px">Escritura</p><p style="color:#A39E94;font-size:14px;margin:0">Documentação reunida, acompanhamento até ao fim.</p></li>
+</ol>
+</div>
+<div style="margin-top:96px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;border:1px solid rgba(214,176,131,.3);padding:40px 44px">
+<p class="nx-disp" style="font-size:34px;margin:0">Prefere falar primeiro?</p>
+<div style="display:flex;gap:14px;flex-wrap:wrap">
+<a href="tel:+351919192220" class="nx-btn"><span>+351 919 192 220</span></a>
+<a href="#avaliacao" class="nx-btn solid"><span>{{ t.cta }}</span></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="border-top:1px solid rgba(214,176,131,.2);background:#070707;overflow:hidden">
+<div class="nx-wrap" style="padding-top:96px;padding-bottom:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+<div>
+<span class="nx-disp" style="font-size:28px;letter-spacing:.2em">IMONOVO</span>
+<p style="color:#A39E94;font-size:14px;margin:16px 0 0;max-width:260px">Private real-estate office na Costa de Prata. Compra, Acompanhamento, Conciergerie.</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Escritório</p>
+<p style="margin:0;font-size:15px">Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha</p>
+<p style="margin:10px 0 0;font-size:14px;color:#A39E94">Por marcação · [HORÁRIO]</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Contacto</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351210958271">+351 210 958 271</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351919192220">+351 919 192 220</a><br>
+<span style="font-size:11px;color:#A39E94">Chamada para a rede fixa / móvel nacional</span><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="mailto:info@imonovo.pt">info@imonovo.pt</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="https://www.instagram.com/imonovo_portugal">@imonovo_portugal</a>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Casa</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Imoveis.html">Imóveis</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Vender.html">Vender</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Servicos.html">Serviços</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Contactos.html">Contactos &amp; Recrutamento</a>
+</div>
+</div>
+<p class="nx-disp" aria-hidden="true" style="font-size:clamp(80px,17vw,250px);line-height:.9;margin:80px 0 0;color:#151515;text-align:center;letter-spacing:.08em">IMONOVO</p>
+<div style="height:1px;background:rgba(214,176,131,.2);margin:28px 0 22px"></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12px;color:#A39E94">
+<span>© Imonovo · MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+<span>Proposta de redesign — conceito, não é o site oficial</span>
+<a href="index.html" class="nx-link" style="min-height:24px;font-size:12px">Todas as propostas</a>
+</div>
+</div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400},"accent":{"editor":"color","default":"#D6B083","options":["#D6B083","#E9D6B2","#B8925A"]}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:'pt', menu:false, step:1, done:false, err:'',
+    f:{ tipo:'', obj:'Venda', distrito:'Leiria', concelho:'Caldas da Rainha', freguesia:'', area:'', typo:'', desc:'', name:'', phone:'', email:'', consent:false } }; }
+  renderVals(){
+    const s = this.state, f = s.f, p = this.props || {}, gold = p.accent || '#D6B083';
+    const T = {
+      pt:{ nav:{home:'Início',imoveis:'Imóveis',emp:'Empreendimentos',vender:'Vender',serv:'Serviços',cont:'Contactos'},
+        top:'Private Office · Caldas da Rainha — por marcação', all:'Todas as propostas',
+        h1a:'Vender', h1b:'em privado.', sub:'Avaliação gratuita do seu imóvel por quem conhece a Costa de Prata, rua a rua — e compradores, locais e francófonos, que a procuram.',
+        cta:'Pedir avaliação gratuita', steps:['Imóvel','Localização','Detalhes','Contacto'], next:'Seguinte', send:'Enviar pedido' },
+      fr:{ nav:{home:'Accueil',imoveis:'Biens',emp:'Programmes',vender:'Vendre',serv:'Services',cont:'Contact'},
+        top:'Private Office · Caldas da Rainha — sur rendez-vous', all:'Toutes les propositions',
+        h1a:'Vendre', h1b:'en privé.', sub:'Estimation gratuite de votre bien par ceux qui connaissent la Costa de Prata, rue par rue — et des acheteurs, locaux et francophones, qui la recherchent.',
+        cta:'Demander une estimation gratuite', steps:['Bien','Situation','Détails','Contact'], next:'Suivant', send:'Envoyer la demande' }
+    };
+    const t = T[s.lang];
+    const set = (k, v) => this.setState({ f:Object.assign({}, s.f, {[k]:v}), err:'' });
+    const chipOn = 'border-color:' + gold + ';background:' + gold + ';color:#070707';
+    const chips = (arr, key) => arr.map(v => ({ label:v, sel:f[key] === v ? 'true' : 'false', style:f[key] === v ? chipOn : '', pick:() => set(key, v) }));
+    const R = ['I','II','III','IV'];
+    const wsteps = t.steps.map((l,i) => { const n = i + 1, cur = n === s.step, reach = n <= s.step; return {
+      roman:R[i], label:l, cur:cur ? 'step' : 'false', pick:() => { if (reach) this.setState({step:n, err:''}); },
+      style:'color:' + (cur ? '#E9D6B2' : (reach ? '#F2EDE4' : '#7A756D')) + ';cursor:' + (reach ? 'pointer' : 'default') }; });
+    const validate = () => {
+      if (s.step === 1 && !f.tipo) return 'Escolha o tipo de imóvel.';
+      if (s.step === 2 && !f.freguesia.trim()) return 'Indique a freguesia.';
+      if (s.step === 4) {
+        if (!f.name.trim()) return 'Indique o seu nome.';
+        if (f.phone.replace(/\D/g,'').length < 9 && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) return 'Indique um telefone ou um email válido.';
+        if (!f.consent) return 'Confirme que aceita ser contactado.';
+      }
+      return '';
+    };
+    const next = () => { const e = validate(); if (e) return this.setState({err:e}); if (s.step < 4) this.setState({step:s.step + 1, err:''}); else this.setState({done:true, err:''}); };
+    const summary = [
+      {k:'Imóvel', v:(f.tipo || '—') + ' · ' + f.obj},
+      {k:'Localização', v:(f.freguesia || '—') + ', ' + f.concelho + ' (' + f.distrito + ')'},
+      {k:'Área · tipologia', v:(f.area ? f.area + ' m²' : '—') + ' · ' + (f.typo || '—')},
+      {k:'Contacto', v:f.name + (f.phone ? ' · ' + f.phone : '') + (f.email ? ' · ' + f.email : '')},
+      {k:'Descrição', v:f.desc ? (f.desc.length > 60 ? f.desc.slice(0,60) + '…' : f.desc) : '—'}
+    ];
+    return {
+      rootStyle:'--gold:' + gold + ';--champ:#E9D6B2', t, f,
+      ptStyle:s.lang === 'pt' ? 'color:#E9D6B2' : 'color:#8A857C', frStyle:s.lang === 'fr' ? 'color:#E9D6B2' : 'color:#8A857C',
+      ptPressed:s.lang === 'pt' ? 'true' : 'false', frPressed:s.lang === 'fr' ? 'true' : 'false',
+      setPt:() => this.setState({lang:'pt'}), setFr:() => this.setState({lang:'fr'}),
+      favCount:'0', favAria:'Favoritos: 0',
+      menuOpen:s.menu, menuExpanded:s.menu ? 'true' : 'false', toggleMenu:() => this.setState({menu:!s.menu}),
+      wizOpen:!s.done, wizDone:s.done, wsteps,
+      barStyle:'position:absolute;left:0;top:0;height:1px;background:' + gold + ';transition:width .9s cubic-bezier(.2,.7,.1,1);width:' + (s.step * 25) + '%',
+      stepInfo:'Passo ' + s.step + ' de 4',
+      is1:s.step === 1, is2:s.step === 2, is3:s.step === 3, is4:s.step === 4,
+      tipos:chips(['Moradia','Apartamento','Terreno','Outro'], 'tipo'), objs:chips(['Venda','Arrendamento'], 'obj'),
+      typos:chips(['T0','T1','T2','T3','T4','T5+'], 'typo'),
+      setDistrito:e => set('distrito', e.target.value), setConcelho:e => set('concelho', e.target.value), setFreguesia:e => set('freguesia', e.target.value),
+      setArea:e => set('area', e.target.value), setDesc:e => set('desc', e.target.value),
+      setName:e => set('name', e.target.value), setPhone:e => set('phone', e.target.value), setEmail:e => set('email', e.target.value),
+      setConsent:e => set('consent', e.target.checked),
+      err:s.err, back:() => this.setState({step:Math.max(1, s.step - 1), err:''}),
+      backStyle:s.step === 1 ? 'visibility:hidden' : '', next, nextLabel:s.step === 4 ? t.send : t.next,
+      summary,
+      restart:() => this.setState({ step:1, done:false, err:'', f:{ tipo:'', obj:'Venda', distrito:'Leiria', concelho:'Caldas da Rainha', freguesia:'', area:'', typo:'', desc:'', name:'', phone:'', email:'', consent:false } })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Caldas — Serviços</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#ECEAE4}
+.cz{container-type:inline-size;background:#ECEAE4;color:#0E0E0D;font-family:'Archivo',system-ui,sans-serif;font-size:16px;line-height:1.5;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+:where(.cz) a{color:inherit}
+:where(.cz) h1,:where(.cz) h2,:where(.cz) h3,:where(.cz) p,:where(.cz) figure,:where(.cz) dl,:where(.cz) dd,:where(.cz) ul,:where(.cz) ol{margin:0;padding:0}
+:where(.cz) ul,:where(.cz) ol{list-style:none}
+:where(.cz) button,:where(.cz) input,:where(.cz) select,:where(.cz) textarea{font-family:inherit;color:inherit;font-size:inherit}
+.cz img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px;position:relative}
+.xp{font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;line-height:.9}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.hl{background:#D6B083;color:#0E0E0D;padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cz :focus-visible{outline:2px solid #0E0E0D;outline-offset:3px}
+.dk :focus-visible{outline-color:#D6B083}
+.gov{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40;mix-blend-mode:multiply}
+.gov-in{width:100%;max-width:1440px;padding:0 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.gov-in i{border-left:1px solid rgba(14,14,13,.06);border-right:1px solid rgba(14,14,13,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.hdr-top{border-bottom:1px solid #0E0E0D;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.hdr-top-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:34px}
+.lnk-top{text-decoration:none;display:inline-flex;align-items:center;min-height:34px;padding:0 8px;transition:background .25s}
+.lnk-top:hover{background:#D6B083}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{display:inline-flex;gap:5px;font-size:26px;font-weight:900;font-stretch:125%;letter-spacing:-.03em;text-decoration:none;line-height:1;min-height:44px;align-items:center}
+.logo i{width:9px;height:9px;background:#D6B083;align-self:flex-start;margin-top:8px}
+.nav{display:flex;gap:2px}
+.nav-a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;text-decoration:none;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.nav-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A5852;padding:1px 3px}
+.nav-a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:#0E0E0D;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.nav-a:hover::after,.nav-a.on::after{transform:scaleX(1);transform-origin:left}
+.nav-a.on .nav-n{background:#D6B083;color:#0E0E0D}
+.hdr-act{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #0E0E0D}
+.lang-b{min-width:44px;min-height:42px;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s,color .25s}
+.fav{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s}
+.fav:hover{background:#D6B083}
+.menu-b{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #0E0E0D;background:transparent;cursor:pointer}
+.mnav{display:none;flex-direction:column;border-top:1px solid #0E0E0D}
+.mnav a{display:flex;align-items:center;gap:14px;min-height:56px;padding:0 16px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase}
+.mnav a:hover{background:#D6B083}
+.mnav span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:#5A5852}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;isolation:isolate;transition:color .35s}
+.btn::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:#D6B083;transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:#0E0E0D}
+.btn:hover::before{transform:translateY(0)}
+.btn-o{background:transparent;color:#0E0E0D}
+.btn-sm{min-height:44px;padding:0 16px;font-size:11px}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.hov:hover .ph,.hov:focus-within .ph{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:120px 0 28px;border-bottom:1px solid #0E0E0D}
+.sh-num{grid-column:1/span 4;font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #0E0E0D;transition:color .6s}
+.sh:hover .sh-num{color:#0E0E0D}
+.sh-t{grid-column:5/span 5}
+.sh-t h2{font-size:clamp(32px,3.6cqw,52px);margin-top:10px}
+.sh-x{grid-column:10/span 3;text-align:right;font-size:15px;color:#5A5852}
+.ftr{background:#0E0E0D;color:#ECEAE4;padding:72px 0 28px;position:relative;z-index:41}
+.ftr-word{display:flex;justify-content:space-between;font-size:clamp(54px,14.3cqw,206px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #ECEAE4;transition:color .6s}
+.ftr-word:hover{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:32px;padding:56px 0;margin-top:48px;border-top:1px solid rgba(236,234,228,.25)}
+.ftr .lbl{color:#A9A69E;margin-bottom:12px}
+.ftr p{font-size:15px;line-height:1.7}
+.ftr-l a{display:flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(236,234,228,.12);transition:color .25s,padding .35s}
+.ftr-l a:hover{color:#D6B083;padding-left:8px}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;border-top:1px solid rgba(236,234,228,.25);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#A9A69E}
+.ftr-bot a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ftr-bot a:hover{color:#D6B083}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes roll{from{transform:translateY(0)}}
+@keyframes ltr{0%{transform:translateY(105%);font-stretch:62%}55%{font-stretch:62%}100%{transform:translateY(0);font-stretch:125%}}
+.fl{display:flex;gap:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:64px;line-height:1}
+.fl-d{position:relative;display:block;width:.74em;height:1.12em;background:#0E0E0D;color:#ECEAE4;overflow:hidden}
+.fl-d::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:rgba(236,234,228,.07);z-index:2}
+.fl-d::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#ECEAE4;opacity:.4;z-index:2}
+.fl-s{display:flex;flex-direction:column;transform:translateY(calc(var(--n) * -1.12em));animation:roll 1.9s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.fl-s i{display:flex;align-items:center;justify-content:center;height:1.12em;font-style:normal}
+/* hero */
+.pt{padding-top:24px}
+.pt-meta{display:flex;justify-content:space-between;gap:16px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-bottom:12px;border-bottom:1px solid #0E0E0D;animation:fade .8s both}
+.pt-word{display:flex;justify-content:space-between;margin-top:14px;font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;overflow:hidden;padding:.05em 0 .03em}
+.pt-word span{display:inline-block;font-stretch:125%;animation:ltr 1.2s cubic-bezier(.16,.84,.2,1) backwards;transition:font-stretch .7s cubic-bezier(.7,0,.2,1),color .3s}
+.pt-word span:hover{font-stretch:62%;color:#D6B083}
+.pt-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:28px 0 0;border-top:1px solid #0E0E0D;margin-top:8px}
+.pt-l{grid-column:1/span 6;animation:up .9s .6s both}
+.pt-l h2{font-size:clamp(30px,3.4cqw,50px);line-height:.98;margin-top:14px}
+.pt-c{grid-column:7/span 3;font-size:17px;animation:up .9s .75s both}
+.pt-r{grid-column:10/span 3;display:flex;flex-direction:column;align-items:flex-end;gap:8px;animation:up .9s .9s both}
+/* big tabs */
+.btabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid #0E0E0D;margin-top:56px}
+.btab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;min-height:150px;padding:22px 24px;border:0;border-right:1px solid #0E0E0D;cursor:pointer;text-align:left;transition:background .4s,color .4s}
+.btab:last-child{border-right:0}
+.btab:hover{background:#D6B083;color:#0E0E0D}
+.btab-t{font-size:clamp(28px,4cqw,58px);font-weight:900;font-stretch:125%;line-height:.85;text-transform:uppercase;letter-spacing:-.03em}
+.btab-n{font-family:'JetBrains Mono',monospace;font-size:13px}
+.btab-p{display:block;font-size:15px;margin-top:12px;max-width:40ch;font-weight:400;opacity:.9}
+/* accordion */
+.acc{border-top:1px solid #0E0E0D;margin-top:32px}
+.ac{border-bottom:1px solid #0E0E0D;animation:up .6s both}
+.ac-h{position:relative;display:grid;grid-template-columns:72px minmax(0,1.3fr) minmax(0,1.6fr) 56px;column-gap:24px;align-items:center;width:100%;min-height:104px;padding:0;border:0;background:transparent;cursor:pointer;text-align:left;transition:background .35s,color .35s,padding .45s cubic-bezier(.7,0,.2,1)}
+.ac-h:hover{background:#0E0E0D;color:#ECEAE4;padding-left:18px}
+.ac-no{font-family:'JetBrains Mono',monospace;font-size:13px}
+.ac-t{font-stretch:125%;font-weight:800;font-size:clamp(20px,2.1cqw,30px);text-transform:uppercase;line-height:1}
+.ac-s{font-size:16px;line-height:1.45}
+.ac-i{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid currentColor;transition:transform .5s cubic-bezier(.7,0,.2,1),background .3s}
+.ac-h:hover .ac-i{background:#D6B083;color:#0E0E0D;border-color:#D6B083}
+.ac-b{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:8px 0 36px;animation:wipe .7s cubic-bezier(.7,0,.2,1) both}
+.ac-bt{grid-column:2/span 5;padding-left:0}
+.ac-bt p{font-size:19px;line-height:1.55}
+.ac-bt ul{margin-top:22px;border-top:1px solid #0E0E0D}
+.ac-bt li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid #0E0E0D;font-size:15px}
+.ac-bt li span{font-family:'JetBrains Mono',monospace;font-size:11px;background:#D6B083;padding:1px 5px}
+.ac-img{grid-column:8/span 5;height:320px;overflow:hidden;background:#0E0E0D}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #0E0E0D;margin-top:40px}
+.pr{position:relative;display:flex;flex-direction:column;gap:20px;min-height:340px;padding:24px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;border-top:1px solid #0E0E0D;transition:background .4s,color .4s;overflow:hidden}
+.pr::after{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:#D6B083;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.pr:hover{background:#0E0E0D;color:#ECEAE4}
+.pr:hover::after{transform:scaleX(1)}
+.pr-n{font-size:clamp(64px,8cqw,120px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px currentColor;transition:color .4s}
+.pr:hover .pr-n{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.pr h3{font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.05;margin-top:auto}
+.pr p{font-size:15px;line-height:1.5}
+/* marquee band */
+.band{background:#0E0E0D;color:#ECEAE4;overflow:hidden;margin-top:120px;position:relative;z-index:41}
+.band-row{display:flex;width:max-content;animation:mq 38s linear infinite}
+.band span{font-size:clamp(40px,6cqw,88px);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.03em;padding:18px 28px;white-space:nowrap;line-height:1}
+.band span:nth-child(even){color:transparent;-webkit-text-stroke:1px #D6B083}
+@keyframes mq{to{transform:translateX(-50%)}}
+.cta{background:#D6B083;position:relative;z-index:41}
+.cta-in{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:80px 0}
+.cta-t{grid-column:1/span 7;font-size:clamp(40px,5.6cqw,82px);font-weight:900;font-stretch:125%;line-height:.86;letter-spacing:-.035em;text-transform:uppercase}
+.cta-r{grid-column:9/span 4;display:flex;flex-direction:column;gap:10px}
+.cta-r p{font-size:18px}
+@media (max-width:1100px){.nav{display:none}.menu-b{display:inline-flex}.mnav{display:flex}.hide-md{display:none}.proc{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){
+.sh,.pt-row,.ac-b,.cta-in{grid-template-columns:1fr}
+.sh-num,.sh-t,.sh-x,.pt-l,.pt-c,.pt-r,.ac-bt,.ac-img,.cta-t,.cta-r{grid-column:auto;text-align:left;align-items:flex-start}
+.sh-x,.pt-c,.pt-r{margin-top:16px}.ac-img{margin-top:20px;height:220px}
+.btabs{grid-template-columns:1fr}.btab{border-right:0;border-bottom:1px solid #0E0E0D;min-height:120px}
+.ac-h{grid-template-columns:44px 1fr 48px;row-gap:6px;padding:16px 0}.ac-s{grid-column:2;grid-row:2}.ac-i{grid-column:3;grid-row:1}
+}
+@media (max-width:640px){.hide-sm{display:none}.wrap,.gov-in{padding:0 16px}.proc{grid-template-columns:1fr}.fl{font-size:44px}}
+@media (prefers-reduced-motion:reduce){.cz *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div class="cz">
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+<div class="gov" aria-hidden="true"><div class="gov-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</sc-if>
+
+<header class="hdr">
+  <div class="hdr-top mono">
+    <div class="wrap hdr-top-in">
+      <span>Imonovo — Caldas da Rainha · 39°24′N 9°08′W</span>
+      <span class="hide-sm">AMI 10355 · APEMIP 5259</span>
+      <a class="lnk-top" href="Main.dc.html">← {{ n.all }}</a>
+    </div>
+  </div>
+  <div class="wrap hdr-bar">
+    <a class="logo" href="Caldas-Home.dc.html" aria-label="Imonovo — Início">IMONOVO<i></i></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-a" href="Caldas-Home.dc.html"><span class="nav-n">01</span>{{ n.home }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.dc.html"><span class="nav-n">02</span>{{ n.imoveis }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.dc.html#empreendimentos"><span class="nav-n">03</span>{{ n.emp }}</a>
+      <a class="nav-a" href="Caldas-Vender.dc.html"><span class="nav-n">04</span>{{ n.vender }}</a>
+      <a class="nav-a on" href="Caldas-Servicos.dc.html" aria-current="page"><span class="nav-n">05</span>{{ n.servicos }}</a>
+      <a class="nav-a" href="Caldas-Contactos.dc.html"><span class="nav-n">06</span>{{ n.contactos }}</a>
+    </nav>
+    <div class="hdr-act">
+      <div class="lang" role="group" aria-label="Idioma / Langue">
+        <button type="button" class="lang-b" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <button type="button" class="lang-b" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a class="fav" href="Caldas-Imoveis.dc.html" aria-label="{{ favAria }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg><span>{{ favCount }}</span></a>
+      <a class="btn btn-sm hide-md" href="Caldas-Vender.dc.html">{{ n.cta }}</a>
+      <button type="button" class="menu-b" aria-label="Menu" aria-expanded="{{ menuAria }}" onClick="{{ toggleMenu }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Caldas-Home.dc.html"><span>01</span>{{ n.home }}</a>
+      <a href="Caldas-Imoveis.dc.html"><span>02</span>{{ n.imoveis }}</a>
+      <a href="Caldas-Imoveis.dc.html#empreendimentos"><span>03</span>{{ n.emp }}</a>
+      <a href="Caldas-Vender.dc.html"><span>04</span>{{ n.vender }}</a>
+      <a href="Caldas-Servicos.dc.html"><span>05</span>{{ n.servicos }}</a>
+      <a href="Caldas-Contactos.dc.html"><span>06</span>{{ n.contactos }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section class="pt wrap" aria-labelledby="pt-h">
+  <div class="pt-meta mono"><span>(Nº 005) — {{ n.servicos }}</span><span class="hide-sm">{{ t.metaB }}</span><span>PT · FR</span></div>
+  <h1 class="pt-word" id="pt-h" aria-label="{{ t.word }}" style="{{ wordSt }}">
+    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="8"><span aria-hidden="true" style="{{ l.st }}">{{ l.ch }}</span></sc-for>
+  </h1>
+  <div class="pt-row">
+    <div class="pt-l"><p class="lbl">(01) — {{ t.kicker }}</p><h2 class="xp">{{ t.h2a }} <span class="hl">{{ t.h2b }}</span></h2></div>
+    <p class="pt-c">{{ t.intro }}</p>
+    <div class="pt-r">
+      <div class="fl" aria-label="10">
+        <span class="fl-d" aria-hidden="true"><span class="fl-s" style="--n:1;animation-delay:.6s"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+        <span class="fl-d" aria-hidden="true"><span class="fl-s" style="--n:0;animation-delay:.75s"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+      </div>
+      <p class="lbl" style="color:#0E0E0D">{{ t.count }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="{{ n.servicos }}">
+  <div class="btabs" role="group" aria-label="{{ n.servicos }}">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+      <button type="button" class="btab" style="{{ g.st }}" aria-pressed="{{ g.pr }}" onClick="{{ g.pick }}">
+        <span><span class="btab-t">{{ g.label }}</span><span class="btab-p">{{ g.p }}</span></span>
+        <span class="btab-n">({{ g.cnt }})</span>
+      </button>
+    </sc-for>
+  </div>
+  <div class="acc">
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="7">
+      <div class="ac" style="{{ it.delay }}">
+        <button type="button" class="ac-h" aria-expanded="{{ it.exp }}" onClick="{{ it.toggle }}">
+          <span class="ac-no">{{ it.no }}</span>
+          <span class="ac-t">{{ it.t }}</span>
+          <span class="ac-s">{{ it.s }}</span>
+          <span class="ac-i" style="{{ it.iconSt }}" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16M4 12h16"></path></svg></span>
+        </button>
+        <sc-if value="{{ it.open }}" hint-placeholder-val="{{ false }}">
+          <div class="ac-b">
+            <div class="ac-bt">
+              <p>{{ it.d }}</p>
+              <ul>
+                <sc-for list="{{ it.pts }}" as="b" hint-placeholder-count="3"><li><span>{{ b.no }}</span>{{ b.t }}</li></sc-for>
+              </ul>
+            </div>
+            <div class="ac-img hov"><img class="ph" src="{{ it.img }}" alt="{{ it.alt }}"></div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="s2">
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">02</span>
+    <div class="sh-t"><p class="lbl">{{ t.s2k }}</p><h2 class="xp" id="s2">{{ t.s2 }}</h2></div>
+    <p class="sh-x">{{ t.s2x }}</p>
+  </div>
+  <ol class="proc">
+    <sc-for list="{{ proc }}" as="p" hint-placeholder-count="4">
+      <li class="pr"><span class="pr-n" aria-hidden="true">{{ p.no }}</span><h3>{{ p.t }}</h3><p>{{ p.p }}</p></li>
+    </sc-for>
+  </ol>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="band-row">
+    <sc-for list="{{ band }}" as="b" hint-placeholder-count="12"><span>{{ b.t }}</span></sc-for>
+  </div>
+</div>
+<section class="cta" aria-labelledby="cta-t">
+  <div class="wrap cta-in">
+    <h2 class="cta-t" id="cta-t">{{ t.ctaT }}</h2>
+    <div class="cta-r">
+      <p>{{ t.ctaP }}</p>
+      <a class="btn" href="Caldas-Contactos.dc.html">{{ t.ctaB }} <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></a>
+      <a class="btn btn-o" href="tel:+351919192220">+351 919 192 220</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr dk">
+  <div class="wrap">
+    <div class="ftr-word" aria-hidden="true"><span>I</span><span>M</span><span>O</span><span>N</span><span>O</span><span>V</span><span>O</span></div>
+    <div class="ftr-grid">
+      <div><p class="lbl">Escritório</p><p>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br>Portugal</p><p class="lbl" style="margin-top:20px">Horário</p><p>[HORÁRIO]</p></div>
+      <div class="ftr-l"><p class="lbl">Contactos</p><a href="tel:+351210958271">Tel +351 210 958 271</a><a href="tel:+351919192220">Tlm +351 919 192 220</a><a href="mailto:info@imonovo.pt">info@imonovo.pt</a><a href="https://www.instagram.com/imonovo_portugal/">Instagram @imonovo_portugal</a></div>
+      <div class="ftr-l"><p class="lbl">Páginas</p><a href="Caldas-Home.dc.html">{{ n.home }}</a><a href="Caldas-Imoveis.dc.html">{{ n.imoveis }}</a><a href="Caldas-Vender.dc.html">{{ n.vender }}</a><a href="Caldas-Contactos.dc.html">{{ n.contactos }}</a></div>
+      <div><p class="lbl">Licenças</p><p>Imonovo é uma marca de MAJBI Lda<br>AMI 10355<br>APEMIP 5259</p></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© Imonovo · MAJBI Lda</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+      <a href="Main.dc.html">{{ n.all }} →</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500},"showGrid":{"editor":"boolean","default":true}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[], group:'acomp', open:'acomp-0' };
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#0E0E0D;color:#ECEAE4', OFF = 'background:transparent;color:#0E0E0D';
+    const n = fr
+      ? { home:'Accueil', imoveis:'Biens', emp:'Programmes neufs', vender:'Vendre', servicos:'Services', contactos:'Contacts', cta:'Estimation gratuite', all:'Toutes les propositions' }
+      : { home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', servicos:'Serviços', contactos:'Contactos', cta:'Avaliação gratuita', all:'Todas as propostas' };
+    const t = fr ? {
+      word:'Services', metaB:'Accompagnement · Conciergerie', kicker:'Au-delà de la transaction', h2a:'Du NIF', h2b:'aux clés.',
+      intro:'S’installer au Portugal, c’est aussi de l’administratif. Nous nous en occupons avec vous — en français.', count:'Services',
+      s2k:'Méthode', s2:'Comment nous travaillons', s2x:'Un interlocuteur, du début à la fin.',
+      ctaT:'Besoin d’un de ces services ?', ctaP:'Dites-nous où vous en êtes — nous vous proposons un plan.', ctaB:'Nous contacter'
+    } : {
+      word:'Serviços', metaB:'Acompanhamento · Conciergerie', kicker:'Para além da transação', h2a:'Do NIF', h2b:'à chave.',
+      intro:'Instalar-se em Portugal também é burocracia. Tratamos dela consigo — em português e em francês.', count:'Serviços',
+      s2k:'Método', s2:'Como trabalhamos', s2x:'Um interlocutor, do início ao fim.',
+      ctaT:'Precisa de um destes serviços?', ctaP:'Diga-nos em que ponto está — propomos-lhe um plano.', ctaB:'Fale connosco'
+    };
+    const pad = x => (x < 10 ? '0' : '') + x;
+    const A = fr ? [
+      ['Obtention du NIF','Le numéro fiscal, indispensable pour acheter au Portugal.','Pour les non-résidents, le NIF est la première étape : nous le demandons avec vous auprès des Finances.',['Demande auprès des Finances','Représentant fiscal si nécessaire','Accès au Portail des Finances'],'/_blob/f597766173c931e01e878e7513489f3c'],
+      ['Ouverture de compte bancaire','Un compte dans une banque portugaise, sans détour.','Nous vous aidons à choisir la banque, à réunir les documents et nous vous accompagnons au rendez-vous.',['Choix de la banque','Liste des documents','Rendez-vous accompagné'],'/_blob/190c5b49663579c2051f7a56374cbab6'],
+      ['Traduction du CPCV','Le compromis traduit, pour savoir exactement ce que vous signez.','Le contrat-promesse (CPCV) est traduit et ses clauses expliquées : délais, acompte, conditions.',['Traduction PT → FR','Clauses expliquées','Délais et acompte'],'/_blob/a76ca0a39a8f83db6e61ae17768505f3'],
+      ['Aide au crédit bancaire','Préparer le dossier de crédit immobilier auprès des banques.','Simulations, constitution du dossier et suivi jusqu’à la réponse de la banque.',['Simulations','Dossier complet','Suivi jusqu’à l’accord'],'/_blob/20e15a9994c85d55758735e1e0def5de'],
+      ['Golden Visa','Orientation sur l’autorisation de résidence pour investissement.','Nous vous orientons sur le programme et les règles en vigueur, et vers les professionnels compétents.',['Règles en vigueur','Orientation','Mise en relation'],'/_blob/bb457c9f3424597cb772a842f195dbee'],
+      ['Eau, électricité, internet','La maison branchée, à votre nom.','Ouverture ou transfert des contrats d’eau, d’électricité et d’internet.',['Eau','Électricité','Internet'],'/_blob/a076e2a86c8302b915e1a267d77c782a'],
+      ['Légalisation de voiture','Immatriculer au Portugal un véhicule venu de l’étranger.','Nous vous accompagnons dans les démarches de légalisation de votre véhicule.',['Démarches','Documents','Suivi'],'/_blob/fb6b1ad8f8aba1ce9b9d383b77f42533']
+    ] : [
+      ['Obtenção de NIF','O número fiscal, indispensável para comprar casa em Portugal.','Para não residentes, o NIF é o primeiro passo: pedimo-lo consigo junto das Finanças.',['Pedido junto das Finanças','Representante fiscal, se necessário','Acesso ao Portal das Finanças'],'/_blob/f597766173c931e01e878e7513489f3c'],
+      ['Abertura de conta bancária','Uma conta num banco português, sem complicações.','Ajudamos a escolher o banco, a reunir os documentos e acompanhamo-lo à reunião.',['Escolha do banco','Lista de documentos','Reunião acompanhada'],'/_blob/190c5b49663579c2051f7a56374cbab6'],
+      ['Tradução do CPCV','O contrato-promessa traduzido, para saber exatamente o que assina.','O CPCV é traduzido e as cláusulas explicadas: prazos, sinal, condições.',['Tradução PT → FR','Cláusulas explicadas','Prazos e sinal'],'/_blob/a76ca0a39a8f83db6e61ae17768505f3'],
+      ['Apoio ao crédito bancário','Preparar o processo de crédito habitação junto dos bancos.','Simulações, preparação do processo e acompanhamento até à resposta do banco.',['Simulações','Processo completo','Acompanhamento até à aprovação'],'/_blob/20e15a9994c85d55758735e1e0def5de'],
+      ['Golden Visa','Orientação sobre a autorização de residência para investimento.','Orientamos sobre o programa e as regras em vigor, e encaminhamos para os profissionais competentes.',['Regras em vigor','Orientação','Encaminhamento'],'/_blob/bb457c9f3424597cb772a842f195dbee'],
+      ['Água, luz e internet','A casa ligada, em seu nome.','Abertura ou transferência dos contratos de água, eletricidade e internet.',['Água','Eletricidade','Internet'],'/_blob/a076e2a86c8302b915e1a267d77c782a'],
+      ['Legalização de automóvel','Legalizar em Portugal um veículo trazido do estrangeiro.','Acompanhamos os passos da legalização do seu veículo.',['Procedimentos','Documentação','Acompanhamento'],'/_blob/fb6b1ad8f8aba1ce9b9d383b77f42533']
+    ];
+    const C = fr ? [
+      ['Ménage','Un ménage régulier ou avant votre arrivée.','La maison prête à vivre quand vous arrivez, et entretenue quand vous partez.',['Ménage régulier','Avant arrivée','Après départ'],'/_blob/acc247b59fa38b9eae4764b12c68fc96'],
+      ['Entretien','Vérifications et petites réparations en votre absence.','Passages réguliers et coordination des interventions nécessaires.',['Passages réguliers','Petites réparations','Coordination'],'/_blob/9831f1d347baeed6548357113988f7e7'],
+      ['Suivi de travaux','Nous suivons le chantier sur place et vous tenons informé.','Visites de chantier et points d’étape réguliers, avec photos.',['Visites de chantier','Points d’étape','Photos'],'/_blob/1edd01da763cd1e8d147c50943422e23']
+    ] : [
+      ['Limpeza','Limpeza regular ou antes da sua chegada.','A casa pronta a viver quando chega, e cuidada quando parte.',['Limpeza regular','Antes da chegada','Depois da partida'],'/_blob/acc247b59fa38b9eae4764b12c68fc96'],
+      ['Manutenção','Verificações e pequenas reparações enquanto está fora.','Visitas regulares e coordenação das intervenções necessárias.',['Visitas regulares','Pequenas reparações','Coordenação'],'/_blob/9831f1d347baeed6548357113988f7e7'],
+      ['Acompanhamento de obras','Seguimos a obra no local e mantemo-lo informado.','Visitas à obra e pontos de situação regulares, com fotografias.',['Visitas à obra','Pontos de situação','Fotografias'],'/_blob/1edd01da763cd1e8d147c50943422e23']
+    ];
+    const groupDefs = fr
+      ? [['acomp','Accompagnement','Toutes les démarches pour acheter et s’installer.', A.length],['conc','Conciergerie','Votre maison suivie quand vous n’êtes pas là.', C.length]]
+      : [['acomp','Acompanhamento','Todos os passos para comprar e instalar-se.', A.length],['conc','Conciergerie','A sua casa cuidada quando não está cá.', C.length]];
+    const groups = groupDefs.map(g => ({ label:g[1], p:g[2], cnt: pad(g[3]), st: s.group === g[0] ? ON : OFF, pr: s.group === g[0] ? 'true' : 'false', pick: () => this.setState({ group: g[0], open: g[0] + '-0' }) }));
+    const src = s.group === 'acomp' ? A : C;
+    const items = src.map((x, i) => {
+      const key = s.group + '-' + i, open = s.open === key;
+      return { no: pad(i + 1), t: x[0], s: x[1], d: x[2], img: x[4], alt: x[0] + ' — foto ilustrativa',
+        pts: x[3].map((p, j) => ({ no: pad(j + 1), t: p })),
+        open: open, exp: open ? 'true' : 'false',
+        iconSt: open ? 'transform:rotate(45deg);background:#D6B083;color:#0E0E0D;border-color:#D6B083' : '',
+        delay: 'animation-delay:' + (i * 0.06).toFixed(2) + 's',
+        toggle: () => this.setState({ open: this.state.open === key ? '' : key }) };
+    });
+    const proc = (fr ? [
+      ['Premier échange','Votre situation, vos délais, vos priorités.'],['Plan','Les services utiles, dans le bon ordre.'],
+      ['Exécution','Nous faisons avec vous — ou pour vous.'],['Point d’étape','Vous savez toujours où en est chaque dossier.']
+    ] : [
+      ['Primeira conversa','A sua situação, prazos e prioridades.'],['Plano','Os serviços úteis, pela ordem certa.'],
+      ['Execução','Fazemos consigo — ou por si.'],['Ponto de situação','Sabe sempre em que fase está cada processo.']
+    ]).map((p, i) => ({ no: pad(i + 1), t: p[0], p: p[1] }));
+    const bandWords = A.concat(C).map(x => x[0]);
+    const word = t.word.toUpperCase();
+    return {
+      n: n, t: t,
+      showGrid: !(this.props && this.props.showGrid === false),
+      ptStyle: fr ? OFF : ON, frStyle: fr ? ON : OFF, ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: pad(s.favs.length), favAria: (fr ? 'Favoris : ' : 'Favoritos: ') + s.favs.length,
+      menuOpen: s.menu, menuAria: s.menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      letters: word.split('').map((ch, i) => ({ ch: ch, st: 'animation-delay:' + (0.05 + i * 0.07).toFixed(2) + 's' })),
+      wordSt: 'font-size:clamp(42px,12.6cqw,180px)',
+      groups: groups, items: items, proc: proc,
+      band: bandWords.concat(bandWords).map(w => ({ t: w + ' —' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

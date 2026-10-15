@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Caldas — Vender</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#ECEAE4}
+.cz{container-type:inline-size;background:#ECEAE4;color:#0E0E0D;font-family:'Archivo',system-ui,sans-serif;font-size:16px;line-height:1.5;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+:where(.cz) a{color:inherit}
+:where(.cz) h1,:where(.cz) h2,:where(.cz) h3,:where(.cz) p,:where(.cz) figure,:where(.cz) dl,:where(.cz) dd,:where(.cz) ul,:where(.cz) ol{margin:0;padding:0}
+:where(.cz) ul,:where(.cz) ol{list-style:none}
+:where(.cz) button,:where(.cz) input,:where(.cz) select,:where(.cz) textarea{font-family:inherit;color:inherit;font-size:inherit}
+.cz img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px;position:relative}
+.xp{font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;line-height:.9}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.hl{background:#D6B083;color:#0E0E0D;padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cz :focus-visible{outline:2px solid #0E0E0D;outline-offset:3px}
+.dk :focus-visible{outline-color:#D6B083}
+.gov{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40;mix-blend-mode:multiply}
+.gov-in{width:100%;max-width:1440px;padding:0 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.gov-in i{border-left:1px solid rgba(14,14,13,.06);border-right:1px solid rgba(14,14,13,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.hdr-top{border-bottom:1px solid #0E0E0D;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.hdr-top-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:34px}
+.lnk-top{text-decoration:none;display:inline-flex;align-items:center;min-height:34px;padding:0 8px;transition:background .25s}
+.lnk-top:hover{background:#D6B083}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{display:inline-flex;gap:5px;font-size:26px;font-weight:900;font-stretch:125%;letter-spacing:-.03em;text-decoration:none;line-height:1;min-height:44px;align-items:center}
+.logo i{width:9px;height:9px;background:#D6B083;align-self:flex-start;margin-top:8px}
+.nav{display:flex;gap:2px}
+.nav-a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;text-decoration:none;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.nav-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A5852;padding:1px 3px}
+.nav-a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:#0E0E0D;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.nav-a:hover::after,.nav-a.on::after{transform:scaleX(1);transform-origin:left}
+.nav-a.on .nav-n{background:#D6B083;color:#0E0E0D}
+.hdr-act{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #0E0E0D}
+.lang-b{min-width:44px;min-height:42px;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s,color .25s}
+.fav{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s}
+.fav:hover{background:#D6B083}
+.menu-b{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #0E0E0D;background:transparent;cursor:pointer}
+.mnav{display:none;flex-direction:column;border-top:1px solid #0E0E0D}
+.mnav a{display:flex;align-items:center;gap:14px;min-height:56px;padding:0 16px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase}
+.mnav a:hover{background:#D6B083}
+.mnav span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:#5A5852}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;isolation:isolate;transition:color .35s}
+.btn::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:#D6B083;transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:#0E0E0D}
+.btn:hover::before{transform:translateY(0)}
+.btn-o{background:transparent;color:#0E0E0D}
+.btn-g{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.btn-g::before{background:#0E0E0D}
+.btn-g:hover{color:#ECEAE4}
+.btn-sm{min-height:44px;padding:0 16px;font-size:11px}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.hov:hover .ph,.hov:focus-within .ph{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:120px 0 28px;border-bottom:1px solid #0E0E0D}
+.sh-num{grid-column:1/span 4;font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #0E0E0D;transition:color .6s}
+.sh:hover .sh-num{color:#0E0E0D}
+.sh-t{grid-column:5/span 5}
+.sh-t h2{font-size:clamp(32px,3.6cqw,52px);margin-top:10px}
+.sh-x{grid-column:10/span 3;text-align:right;font-size:15px;color:#5A5852}
+.ftr{background:#0E0E0D;color:#ECEAE4;padding:72px 0 28px;position:relative;z-index:41}
+.ftr-word{display:flex;justify-content:space-between;font-size:clamp(54px,14.3cqw,206px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #ECEAE4;transition:color .6s}
+.ftr-word:hover{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:32px;padding:56px 0;margin-top:48px;border-top:1px solid rgba(236,234,228,.25)}
+.ftr .lbl{color:#A9A69E;margin-bottom:12px}
+.ftr p{font-size:15px;line-height:1.7}
+.ftr-l a{display:flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(236,234,228,.12);transition:color .25s,padding .35s}
+.ftr-l a:hover{color:#D6B083;padding-left:8px}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;border-top:1px solid rgba(236,234,228,.25);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#A9A69E}
+.ftr-bot a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ftr-bot a:hover{color:#D6B083}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes roll{from{transform:translateY(0)}}
+@keyframes ltr{0%{transform:translateY(105%);font-stretch:62%}55%{font-stretch:62%}100%{transform:translateY(0);font-stretch:125%}}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes stamp{0%{transform:scale(2.2) rotate(-8deg);opacity:0}60%{transform:scale(.94) rotate(-3deg);opacity:1}100%{transform:scale(1) rotate(-3deg)}}
+.fl{display:flex;gap:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:64px;line-height:1}
+.fl-d{position:relative;display:block;width:.74em;height:1.12em;background:#0E0E0D;color:#ECEAE4;overflow:hidden}
+.fl-d::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:rgba(236,234,228,.07);z-index:2}
+.fl-d::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#ECEAE4;opacity:.4;z-index:2}
+.fl-s{display:flex;flex-direction:column;transform:translateY(calc(var(--n) * -1.12em));animation:roll 1.9s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.fl-s i{display:flex;align-items:center;justify-content:center;height:1.12em;font-style:normal}
+.fl-c{display:flex;align-items:center;justify-content:center;width:.6em;height:1.12em}
+/* hero */
+.pt{padding-top:24px}
+.pt-meta{display:flex;justify-content:space-between;gap:16px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-bottom:12px;border-bottom:1px solid #0E0E0D;animation:fade .8s both}
+.pt-word{display:flex;justify-content:space-between;margin-top:14px;font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;overflow:hidden;padding:.05em 0 .03em}
+.pt-word span{display:inline-block;font-stretch:125%;animation:ltr 1.2s cubic-bezier(.16,.84,.2,1) backwards;transition:font-stretch .7s cubic-bezier(.7,0,.2,1),color .3s}
+.pt-word span:hover{font-stretch:62%;color:#D6B083}
+.pt-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:28px 0 0;border-top:1px solid #0E0E0D;margin-top:8px}
+.pt-l{grid-column:1/span 6;animation:up .9s .6s both}
+.pt-l h2{font-size:clamp(30px,3.4cqw,50px);line-height:.98}
+.pt-c{grid-column:7/span 3;font-size:17px;animation:up .9s .75s both}
+.pt-r{grid-column:10/span 3;display:flex;flex-direction:column;align-items:flex-end;gap:8px;animation:up .9s .9s both}
+/* wizard */
+.wz{display:grid;grid-template-columns:repeat(12,1fr);border:1px solid #0E0E0D;margin-top:56px}
+.wz-side{grid-column:span 4;background:#0E0E0D;color:#ECEAE4;padding:28px;display:flex;flex-direction:column;gap:22px}
+.wz-side .lbl{color:#A9A69E}
+.prog{height:6px;background:rgba(236,234,228,.18);position:relative}
+.prog span{position:absolute;left:0;top:0;bottom:0;background:#D6B083;transition:width .7s cubic-bezier(.7,0,.2,1)}
+.wz-steps li{display:flex;align-items:center;gap:16px;min-height:60px;border-bottom:1px solid rgba(236,234,228,.18);transition:padding .4s,color .3s}
+.wz-steps b{font-family:'JetBrains Mono',monospace;font-size:13px;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid currentColor;flex:none}
+.wz-steps span{font-stretch:125%;font-weight:800;font-size:18px;text-transform:uppercase}
+.recap{font-family:'JetBrains Mono',monospace;font-size:12px;border-top:1px solid rgba(236,234,228,.18);margin-top:auto}
+.recap div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(236,234,228,.18)}
+.recap dt{color:#A9A69E;text-transform:uppercase}
+.recap dd{text-align:right}
+.wz-main{grid-column:span 8;padding:36px 40px 32px;display:flex;flex-direction:column;min-height:600px}
+.wz-pane{animation:slideIn .55s cubic-bezier(.2,.7,.1,1) both;flex:1}
+.wz-big{font-size:clamp(34px,4cqw,56px);font-weight:900;font-stretch:125%;line-height:.88;text-transform:uppercase;letter-spacing:-.025em;margin:8px 0 28px}
+.q{margin-bottom:28px}
+.q>.lbl{display:block;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 20px;border:1px solid #0E0E0D;cursor:pointer;font-stretch:125%;font-weight:700;font-size:15px;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+.chip:hover{background:#D6B083;color:#0E0E0D;transform:translateY(-2px)}
+.chip .mono{font-size:10px;font-weight:400}
+.flds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:24px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.fi input,.fi textarea,.fi select{border:0;border-bottom:1px solid #0E0E0D;border-radius:0;background:transparent;min-height:48px;font-size:18px;padding:8px 0;transition:background .25s}
+.fi select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.fi textarea{min-height:120px;resize:vertical;border:1px solid #0E0E0D;padding:12px}
+.fi input:focus,.fi textarea:focus,.fi select:focus{outline:none;background:rgba(214,176,131,.18)}
+.wz-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:24px;border-top:1px solid #0E0E0D;margin-top:24px;flex-wrap:wrap}
+.err{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8A2A12;min-height:18px}
+.done{animation:up .6s both;flex:1;display:flex;flex-direction:column;gap:16px}
+.stampx{display:inline-block;align-self:flex-start;background:#D6B083;font-weight:900;font-stretch:125%;font-size:84px;line-height:.85;padding:12px 18px 6px;text-transform:uppercase;animation:stamp .7s cubic-bezier(.2,.8,.2,1) both}
+/* arguments index */
+.ix{border-top:1px solid #0E0E0D;margin-top:0}
+.ax{position:relative;display:grid;grid-template-columns:72px minmax(0,1.3fr) minmax(0,1.5fr);column-gap:24px;align-items:center;min-height:120px;border-bottom:1px solid #0E0E0D;transition:background .35s,color .35s,padding .45s cubic-bezier(.7,0,.2,1)}
+.ax:hover{background:#0E0E0D;color:#ECEAE4;padding-left:18px}
+.ax-no{font-family:'JetBrains Mono',monospace;font-size:13px}
+.ax-t{font-stretch:125%;font-weight:800;font-size:clamp(20px,2.2cqw,30px);text-transform:uppercase;line-height:1}
+.ax-p{font-size:17px;max-width:52ch}
+.ix-rev{position:absolute;right:6%;top:50%;width:260px;height:180px;z-index:4;pointer-events:none;overflow:hidden;opacity:0;transform:translateY(-50%) rotate(-2.5deg) scale(.86);clip-path:inset(50% 0 50% 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1),opacity .3s,transform .6s cubic-bezier(.7,0,.2,1)}
+.ix-rev img{width:100%;height:100%;object-fit:cover}
+.ax:hover .ix-rev{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(-50%) rotate(-2.5deg) scale(1)}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid #0E0E0D;margin-top:40px}
+.pr{position:relative;display:flex;flex-direction:column;gap:18px;min-height:360px;padding:22px 18px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;border-top:1px solid #0E0E0D;transition:background .4s,color .4s;overflow:hidden}
+.pr::after{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:#D6B083;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.pr:hover{background:#0E0E0D;color:#ECEAE4}
+.pr:hover::after{transform:scaleX(1)}
+.pr-n{font-size:clamp(56px,6cqw,92px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px currentColor;transition:color .4s}
+.pr:hover .pr-n{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.pr h3{font-stretch:125%;font-weight:800;font-size:17px;text-transform:uppercase;line-height:1.05;margin-top:auto}
+.pr p{font-size:14px;line-height:1.5}
+.cta{background:#D6B083;margin-top:120px;position:relative;z-index:41}
+.cta-in{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:80px 0}
+.cta-t{grid-column:1/span 7;font-size:clamp(34px,5.2cqw,76px);font-weight:900;font-stretch:125%;line-height:.86;letter-spacing:-.035em;text-transform:uppercase}
+.cta-r{grid-column:9/span 4;display:flex;flex-direction:column;gap:10px}
+.cta-r a.tel{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:26px;text-decoration:none;display:flex;align-items:center;min-height:52px;border-bottom:1px solid #0E0E0D}
+.cta-r a.tel:hover{background:#0E0E0D;color:#D6B083}
+@media (max-width:1100px){.nav{display:none}.menu-b{display:inline-flex}.mnav{display:flex}.hide-md{display:none}.proc{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){
+.sh,.pt-row,.wz,.cta-in{grid-template-columns:1fr}
+.sh-num,.sh-t,.sh-x,.pt-l,.pt-c,.pt-r,.wz-side,.wz-main,.cta-t,.cta-r{grid-column:auto;text-align:left;align-items:flex-start}
+.sh-x,.pt-c,.pt-r{margin-top:16px}.wz-main{padding:24px 16px}
+.ax{grid-template-columns:48px 1fr;row-gap:8px;padding:18px 0}.ax-p{grid-column:2}.ix-rev{display:none}
+.proc{grid-template-columns:1fr 1fr}.pr{min-height:260px}
+}
+@media (max-width:640px){.hide-sm{display:none}.wrap,.gov-in{padding:0 16px}.proc{grid-template-columns:1fr}.fl{font-size:44px}}
+@media (prefers-reduced-motion:reduce){.cz *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div class="cz">
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+<div class="gov" aria-hidden="true"><div class="gov-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</sc-if>
+
+<header class="hdr">
+  <div class="hdr-top mono">
+    <div class="wrap hdr-top-in">
+      <span>Imonovo — Caldas da Rainha · 39°24′N 9°08′W</span>
+      <span class="hide-sm">AMI 10355 · APEMIP 5259</span>
+      <a class="lnk-top" href="index.html">← {{ n.all }}</a>
+    </div>
+  </div>
+  <div class="wrap hdr-bar">
+    <a class="logo" href="Caldas-Home.html" aria-label="Imonovo — Início">IMONOVO<i></i></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-a" href="Caldas-Home.html"><span class="nav-n">01</span>{{ n.home }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.html"><span class="nav-n">02</span>{{ n.imoveis }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.html#empreendimentos"><span class="nav-n">03</span>{{ n.emp }}</a>
+      <a class="nav-a on" href="Caldas-Vender.html" aria-current="page"><span class="nav-n">04</span>{{ n.vender }}</a>
+      <a class="nav-a" href="Caldas-Servicos.html"><span class="nav-n">05</span>{{ n.servicos }}</a>
+      <a class="nav-a" href="Caldas-Contactos.html"><span class="nav-n">06</span>{{ n.contactos }}</a>
+    </nav>
+    <div class="hdr-act">
+      <div class="lang" role="group" aria-label="Idioma / Langue">
+        <button type="button" class="lang-b" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <button type="button" class="lang-b" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a class="fav" href="Caldas-Imoveis.html" aria-label="{{ favAria }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg><span>{{ favCount }}</span></a>
+      <a class="btn btn-sm hide-md" href="#avaliacao">{{ n.cta }}</a>
+      <button type="button" class="menu-b" aria-label="Menu" aria-expanded="{{ menuAria }}" onClick="{{ toggleMenu }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Caldas-Home.html"><span>01</span>{{ n.home }}</a>
+      <a href="Caldas-Imoveis.html"><span>02</span>{{ n.imoveis }}</a>
+      <a href="Caldas-Imoveis.html#empreendimentos"><span>03</span>{{ n.emp }}</a>
+      <a href="Caldas-Vender.html"><span>04</span>{{ n.vender }}</a>
+      <a href="Caldas-Servicos.html"><span>05</span>{{ n.servicos }}</a>
+      <a href="Caldas-Contactos.html"><span>06</span>{{ n.contactos }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section class="pt wrap" aria-labelledby="pt-h">
+  <div class="pt-meta mono"><span>(Nº 004) — {{ n.vender }}</span><span class="hide-sm">{{ t.metaB }}</span><span>{{ t.metaC }}</span></div>
+  <h1 class="pt-word" id="pt-h" aria-label="{{ t.word }}" style="{{ wordSt }}">
+    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="6"><span aria-hidden="true" style="{{ l.st }}">{{ l.ch }}</span></sc-for>
+  </h1>
+  <div class="pt-row">
+    <div class="pt-l"><p class="lbl">(01) — {{ n.cta }}</p><h2 class="xp" style="margin-top:14px">{{ t.h2a }} <span class="hl">{{ t.h2b }}</span></h2></div>
+    <p class="pt-c">{{ t.intro }}</p>
+    <div class="pt-r">
+      <div class="fl" aria-label="0 €">
+        <span class="fl-d" aria-hidden="true"><span class="fl-s" style="--n:0;animation-delay:.6s"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+        <span class="fl-c" aria-hidden="true">€</span>
+      </div>
+      <p class="lbl" style="color:#0E0E0D">{{ t.free }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- WIZARD -->
+<section class="wrap" id="avaliacao" aria-labelledby="wz-h">
+  <div class="wz">
+    <aside class="wz-side dk">
+      <p class="lbl">{{ t.wzK }}</p>
+      <h2 class="xp" id="wz-h" style="font-size:30px">{{ n.cta }}</h2>
+      <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="{{ stepNow }}" aria-label="{{ t.progress }}"><span style="{{ progSt }}"></span></div>
+      <ol class="wz-steps">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4"><li style="{{ st.st }}"><b style="{{ st.bSt }}">{{ st.no }}</b><span>{{ st.label }}</span></li></sc-for>
+      </ol>
+      <dl class="recap" aria-label="{{ t.recap }}">
+        <sc-for list="{{ recap }}" as="r" hint-placeholder-count="5"><div><dt>{{ r.k }}</dt><dd>{{ r.v }}</dd></div></sc-for>
+      </dl>
+    </aside>
+    <div class="wz-main">
+      <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+        <div class="wz-pane">
+          <p class="lbl">{{ t.stepOf }} 01 / 04</p>
+          <p class="wz-big">{{ t.q1 }}</p>
+          <div class="q"><span class="lbl">{{ t.lType }}</span>
+            <div class="chips" role="group" aria-label="{{ t.lType }}"><sc-for list="{{ typeChips }}" as="c" hint-placeholder-count="4"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+          </div>
+          <div class="q"><span class="lbl">{{ t.lGoal }}</span>
+            <div class="chips" role="group" aria-label="{{ t.lGoal }}"><sc-for list="{{ goalChips }}" as="c" hint-placeholder-count="2"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+        <div class="wz-pane">
+          <p class="lbl">{{ t.stepOf }} 02 / 04</p>
+          <p class="wz-big">{{ t.q2 }}</p>
+          <div class="flds">
+            <div class="fi"><label for="w-dist">{{ t.lDist }}</label>
+              <select id="w-dist" value="{{ f.dist }}" onInput="{{ setDist }}">
+                <option value="">—</option><option value="Leiria">Leiria</option><option value="Lisboa">Lisboa</option><option value="Santarém">Santarém</option><option value="Outro">{{ t.other }}</option>
+              </select>
+            </div>
+            <div class="fi"><label for="w-conc">{{ t.lConc }}</label><input id="w-conc" type="text" list="cz-conc" value="{{ f.conc }}" onInput="{{ setConc }}" placeholder="Caldas da Rainha"></div>
+            <div class="fi"><label for="w-freg">{{ t.lFreg }}</label><input id="w-freg" type="text" value="{{ f.freg }}" onInput="{{ setFreg }}" placeholder="Nadadouro"></div>
+          </div>
+          <datalist id="cz-conc"><option value="Caldas da Rainha"></option><option value="Óbidos"></option><option value="Nazaré"></option><option value="Alcobaça"></option><option value="Bombarral"></option><option value="Peniche"></option></datalist>
+        </div>
+      </sc-if>
+      <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+        <div class="wz-pane">
+          <p class="lbl">{{ t.stepOf }} 03 / 04</p>
+          <p class="wz-big">{{ t.q3 }}</p>
+          <div class="q"><span class="lbl">{{ t.lTip }}</span>
+            <div class="chips" role="group" aria-label="{{ t.lTip }}"><sc-for list="{{ tipChips }}" as="c" hint-placeholder-count="6"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+          </div>
+          <div class="flds">
+            <div class="fi"><label for="w-area">{{ t.lArea }}</label><input id="w-area" type="number" min="0" inputmode="numeric" value="{{ f.area }}" onInput="{{ setArea }}" placeholder="180"></div>
+            <div class="fi" style="grid-column:1/-1"><label for="w-desc">{{ t.lDesc }}</label><textarea id="w-desc" onInput="{{ setDesc }}" placeholder="{{ t.descPh }}">{{ f.desc }}</textarea></div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+        <div class="wz-pane">
+          <p class="lbl">{{ t.stepOf }} 04 / 04</p>
+          <p class="wz-big">{{ t.q4 }}</p>
+          <div class="flds">
+            <div class="fi"><label for="w-name">{{ t.lName }}</label><input id="w-name" type="text" autocomplete="name" value="{{ f.name }}" onInput="{{ setName }}"></div>
+            <div class="fi"><label for="w-tel">{{ t.lTel }}</label><input id="w-tel" type="tel" autocomplete="tel" value="{{ f.tel }}" onInput="{{ setTel }}"></div>
+            <div class="fi"><label for="w-mail">Email</label><input id="w-mail" type="email" autocomplete="email" value="{{ f.email }}" onInput="{{ setEmail }}"></div>
+          </div>
+          <p class="lbl" style="margin-top:20px">{{ t.privacy }}</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <div class="done" role="status">
+          <span class="stampx">{{ t.stamp }}</span>
+          <p class="wz-big" style="margin:12px 0 0">{{ t.doneT }}</p>
+          <p style="font-size:18px;max-width:52ch">{{ doneP }}</p>
+          <p class="lbl">{{ t.doneNote }}</p>
+          <div><button type="button" class="btn btn-o" onClick="{{ restart }}">{{ t.restart }}</button></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showFoot }}" hint-placeholder-val="{{ true }}">
+        <div class="wz-foot">
+          <button type="button" class="btn btn-o" onClick="{{ back }}" style="{{ backSt }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"></path></svg>{{ t.back }}</button>
+          <p class="err" aria-live="polite">{{ err }}</p>
+          <button type="button" class="btn" onClick="{{ next }}">{{ nextLabel }} <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- 01 WHY -->
+<section class="wrap" aria-labelledby="s1">
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">01</span>
+    <div class="sh-t"><p class="lbl">{{ t.s1k }}</p><h2 class="xp" id="s1">{{ t.s1 }}</h2></div>
+    <p class="sh-x">{{ t.s1x }}</p>
+  </div>
+  <div class="ix">
+    <sc-for list="{{ args }}" as="a" hint-placeholder-count="4">
+      <div class="ax">
+        <span class="ax-no">{{ a.no }}</span>
+        <h3 class="ax-t">{{ a.t }}</h3>
+        <p class="ax-p">{{ a.p }}</p>
+        <span class="ix-rev" aria-hidden="true"><img src="{{ a.img }}" alt=""></span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- 02 PROCESS -->
+<section class="wrap" aria-labelledby="s2">
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">02</span>
+    <div class="sh-t"><p class="lbl">{{ t.s2k }}</p><h2 class="xp" id="s2">{{ t.s2 }}</h2></div>
+    <p class="sh-x">{{ t.s2x }}</p>
+  </div>
+  <ol class="proc">
+    <sc-for list="{{ proc }}" as="p" hint-placeholder-count="6">
+      <li class="pr"><span class="pr-n" aria-hidden="true">{{ p.no }}</span><h3>{{ p.t }}</h3><p>{{ p.p }}</p></li>
+    </sc-for>
+  </ol>
+</section>
+
+<section class="cta" aria-labelledby="cta-t">
+  <div class="wrap cta-in">
+    <h2 class="cta-t" id="cta-t">{{ t.ctaT }}</h2>
+    <div class="cta-r">
+      <p class="lbl" style="color:#0E0E0D">{{ t.ctaK }}</p>
+      <a class="tel" href="tel:+351210958271">+351 210 958 271</a>
+      <a class="tel" href="tel:+351919192220">+351 919 192 220</a>
+      <a class="btn" href="Caldas-Contactos.html" style="margin-top:12px">{{ n.contactos }}</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr dk">
+  <div class="wrap">
+    <div class="ftr-word" aria-hidden="true"><span>I</span><span>M</span><span>O</span><span>N</span><span>O</span><span>V</span><span>O</span></div>
+    <div class="ftr-grid">
+      <div><p class="lbl">Escritório</p><p>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br>Portugal</p><p class="lbl" style="margin-top:20px">Horário</p><p>[HORÁRIO]</p></div>
+      <div class="ftr-l"><p class="lbl">Contactos</p><a href="tel:+351210958271">Tel +351 210 958 271</a><a href="tel:+351919192220">Tlm +351 919 192 220</a><a href="mailto:info@imonovo.pt">info@imonovo.pt</a><a href="https://www.instagram.com/imonovo_portugal/">Instagram @imonovo_portugal</a></div>
+      <div class="ftr-l"><p class="lbl">Páginas</p><a href="Caldas-Home.html">{{ n.home }}</a><a href="Caldas-Imoveis.html">{{ n.imoveis }}</a><a href="Caldas-Servicos.html">{{ n.servicos }}</a><a href="Caldas-Contactos.html">{{ n.contactos }}</a></div>
+      <div><p class="lbl">Licenças</p><p>Imonovo é uma marca de MAJBI Lda<br>AMI 10355<br>APEMIP 5259</p></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© Imonovo · MAJBI Lda</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+      <a href="index.html">{{ n.all }} →</a>
+    </div>
+  </div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500},"showGrid":{"editor":"boolean","default":true}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[], step:1, done:false, err:'',
+      f:{ type:'', goal:'', dist:'', conc:'', freg:'', tip:'', area:'', desc:'', name:'', tel:'', email:'' } };
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr', f = s.f;
+    const ON = 'background:#0E0E0D;color:#ECEAE4', OFF = 'background:transparent;color:#0E0E0D';
+    const n = fr
+      ? { home:'Accueil', imoveis:'Biens', emp:'Programmes neufs', vender:'Vendre', servicos:'Services', contactos:'Contacts', cta:'Estimation gratuite', all:'Toutes les propositions' }
+      : { home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', servicos:'Serviços', contactos:'Contactos', cta:'Avaliação gratuita', all:'Todas as propostas' };
+    const t = fr ? {
+      word:'Vendre', metaB:'Vente · Location', metaC:'4 étapes · 2 min', h2a:'Combien vaut', h2b:'votre bien ?',
+      intro:'Une estimation gratuite et sans engagement, fondée sur le marché local de Caldas da Rainha, Óbidos et Nazaré.', free:'Coût de l’estimation',
+      wzK:'Assistant', progress:'Progression', recap:'Récapitulatif', stepOf:'Étape',
+      q1:'Quel bien, pour quel objectif ?', q2:'Où se trouve-t-il ?', q3:'Parlez-nous de lui.', q4:'Comment vous joindre ?',
+      lType:'Type de bien', lGoal:'Objectif', lDist:'District', lConc:'Commune (concelho)', lFreg:'Paroisse (freguesia)', other:'Autre',
+      lTip:'Typologie', lArea:'Surface (m²)', lDesc:'Description', descPh:'État, vue, extérieurs, travaux récents…', lName:'Nom', lTel:'Téléphone',
+      privacy:'Vos données servent uniquement à vous recontacter au sujet de cette estimation.',
+      back:'Retour', nextL:'Suivant', send:'Envoyer la demande',
+      e1:'→ Choisissez le type et l’objectif.', e2:'→ Indiquez le district et la commune.', e4:'→ Nom et téléphone ou email requis.',
+      stamp:'Reçu', doneT:'Demande enregistrée', doneNote:'Prototype — rien n’est envoyé.', restart:'Nouvelle estimation',
+      s1k:'Pourquoi Imonovo', s1:'Vendre avec nous', s1x:'Survolez une ligne.',
+      s2k:'Processus', s2:'De l’estimation à l’acte', s2x:'Six étapes, un interlocuteur.',
+      ctaK:'Vous préférez parler ?', ctaT:'Appelez-nous, tout simplement.'
+    } : {
+      word:'Vender', metaB:'Venda · Arrendamento', metaC:'4 passos · 2 min', h2a:'Quanto vale', h2b:'o seu imóvel?',
+      intro:'Uma avaliação gratuita e sem compromisso, fundamentada no mercado local de Caldas da Rainha, Óbidos e Nazaré.', free:'Custo da avaliação',
+      wzK:'Assistente', progress:'Progresso', recap:'Resumo', stepOf:'Passo',
+      q1:'Que imóvel, com que objetivo?', q2:'Onde fica?', q3:'Fale-nos dele.', q4:'Como o contactamos?',
+      lType:'Tipo de imóvel', lGoal:'Objetivo', lDist:'Distrito', lConc:'Concelho', lFreg:'Freguesia', other:'Outro',
+      lTip:'Tipologia', lArea:'Área (m²)', lDesc:'Descrição', descPh:'Estado, vista, exteriores, obras recentes…', lName:'Nome', lTel:'Telefone',
+      privacy:'Os seus dados servem apenas para o contactarmos sobre esta avaliação.',
+      back:'Voltar', nextL:'Seguinte', send:'Enviar pedido',
+      e1:'→ Escolha o tipo e o objetivo.', e2:'→ Indique o distrito e o concelho.', e4:'→ Nome e telefone ou email obrigatórios.',
+      stamp:'Recebido', doneT:'Pedido registado', doneNote:'Protótipo — nada é enviado.', restart:'Nova avaliação',
+      s1k:'Porquê a Imonovo', s1:'Vender connosco', s1x:'Passe o cursor numa linha.',
+      s2k:'Processo', s2:'Da avaliação à escritura', s2x:'Seis etapas, um interlocutor.',
+      ctaK:'Prefere falar?', ctaT:'Ligue-nos, simplesmente.'
+    };
+    const pad = x => (x < 10 ? '0' : '') + x;
+    const setF = (k, v) => this.setState({ f: Object.assign({}, this.state.f, { [k]: v }), err:'' });
+    const chipSet = (defs, key) => defs.map(d => ({ label:d[1], st: f[key] === d[0] ? ON : OFF, pr: f[key] === d[0] ? 'true' : 'false', pick: () => setF(key, d[0]) }));
+    const typeDefs = fr ? [['Apartamento','Appartement'],['Moradia','Maison'],['Terreno','Terrain'],['Outro','Autre']] : [['Apartamento','Apartamento'],['Moradia','Moradia'],['Terreno','Terreno'],['Outro','Outro']];
+    const goalDefs = fr ? [['Venda','Vente'],['Arrendamento','Location']] : [['Venda','Venda'],['Arrendamento','Arrendamento']];
+    const tipDefs = [['T0','T0'],['T1','T1'],['T2','T2'],['T3','T3'],['T4','T4'],['T5+','T5+']];
+    const lbl = (defs, v) => { const d = defs.filter(x => x[0] === v)[0]; return d ? d[1] : '—'; };
+    const stepNames = fr ? ['Bien','Localisation','Détails','Contact'] : ['Imóvel','Localização','Detalhes','Contacto'];
+    const cur = s.done ? 5 : s.step;
+    const steps = stepNames.map((x, i) => {
+      const k = i + 1, active = k === cur, past = k < cur;
+      return { no: pad(k), label: x,
+        st: active ? 'color:#ECEAE4;padding-left:10px' : (past ? 'color:#D6B083' : 'color:#A9A69E'),
+        bSt: active ? 'background:#D6B083;color:#0E0E0D;border-color:#D6B083' : (past ? 'background:transparent' : '') };
+    });
+    const validate = st => {
+      const g = this.state.f;
+      if (st === 1 && (!g.type || !g.goal)) return t.e1;
+      if (st === 2 && (!g.dist || !g.conc.trim())) return t.e2;
+      if (st === 4 && (!g.name.trim() || (!g.tel.trim() && !/.+@.+\..+/.test(g.email)))) return t.e4;
+      return '';
+    };
+    const recap = [
+      [t.lType, lbl(typeDefs, f.type)], [t.lGoal, lbl(goalDefs, f.goal)],
+      [fr ? 'Lieu' : 'Local', f.conc ? (f.conc + (f.freg ? ' · ' + f.freg : '')) : '—'],
+      [t.lTip, f.tip || '—'], [t.lArea, f.area ? f.area + ' m²' : '—']
+    ].map(r => ({ k:r[0], v:r[1] }));
+    const word = t.word.toUpperCase();
+    const args = (fr ? [
+      ['Estimation gratuite et argumentée','Une valeur justifiée par le marché local, sans engagement.'],
+      ['Acheteurs locaux et internationaux','Diffusion en portugais et en français pour toucher ceux qui cherchent dans l’Ouest.'],
+      ['Accompagnement jusqu’à l’acte','CPCV, documents, banque et notaire : chaque étape est suivie avec vous.'],
+      ['Une agence de la région','Un bureau à Caldas da Rainha, au cœur de l’Ouest.']
+    ] : [
+      ['Avaliação gratuita e fundamentada','Um valor justificado pelo mercado local, sem compromisso.'],
+      ['Compradores locais e internacionais','Divulgação em português e em francês para chegar a quem procura no Oeste.'],
+      ['Acompanhamento até à escritura','CPCV, documentação, banco e notário: cada passo é tratado consigo.'],
+      ['Uma agência da região','Escritório em Caldas da Rainha, no coração do Oeste.']
+    ]).map((a, i) => ({ no: pad(i + 1), t:a[0], p:a[1], img: ['assets/kitchen-white.webp','assets/boardwalk.webp','assets/int-dining.webp','assets/obidos-dusk.webp'][i] }));
+    const proc = (fr ? [
+      ['Estimation','Visite du bien et valeur argumentée.'],['Stratégie et prix','Prix de mise en vente et calendrier, décidés ensemble.'],
+      ['Photo et diffusion','Annonce en PT et FR, photos du bien.'],['Visites','Visites accompagnées et retours après chacune.'],
+      ['Offre et CPCV','Négociation et compromis de vente.'],['Acte','Banque, documents, notaire — jusqu’aux clés.']
+    ] : [
+      ['Avaliação','Visita ao imóvel e valor fundamentado.'],['Estratégia e preço','Preço de lançamento e calendário, decididos consigo.'],
+      ['Fotografia e divulgação','Anúncio em PT e FR, fotografias do imóvel.'],['Visitas','Visitas acompanhadas e feedback após cada uma.'],
+      ['Proposta e CPCV','Negociação e contrato-promessa.'],['Escritura','Banco, documentos, notário — até às chaves.']
+    ]).map((p, i) => ({ no: pad(i + 1), t:p[0], p:p[1] }));
+    const fc = s.favs.length;
+    return {
+      n: n, t: t, f: f,
+      showGrid: !(this.props && this.props.showGrid === false),
+      ptStyle: fr ? OFF : ON, frStyle: fr ? ON : OFF, ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: pad(fc), favAria: (fr ? 'Favoris : ' : 'Favoritos: ') + fc,
+      menuOpen: s.menu, menuAria: s.menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      letters: word.split('').map((ch, i) => ({ ch: ch, st: 'animation-delay:' + (0.05 + i * 0.08).toFixed(2) + 's' })),
+      wordSt: 'font-size:clamp(50px,16cqw,230px)',
+      stepNow: String(Math.min(cur, 4)), progSt: 'width:' + (Math.min(cur, 4) / 4 * 100) + '%' + (s.done ? ';background:#ECEAE4' : ''),
+      steps: steps, recap: recap,
+      s1: !s.done && s.step === 1, s2: !s.done && s.step === 2, s3: !s.done && s.step === 3, s4: !s.done && s.step === 4,
+      isDone: s.done, showFoot: !s.done,
+      typeChips: chipSet(typeDefs, 'type'), goalChips: chipSet(goalDefs, 'goal'), tipChips: chipSet(tipDefs, 'tip'),
+      setDist: e => setF('dist', e.target.value), setConc: e => setF('conc', e.target.value), setFreg: e => setF('freg', e.target.value),
+      setArea: e => setF('area', e.target.value), setDesc: e => setF('desc', e.target.value),
+      setName: e => setF('name', e.target.value), setTel: e => setF('tel', e.target.value), setEmail: e => setF('email', e.target.value),
+      err: s.err,
+      backSt: s.step === 1 ? 'visibility:hidden' : '',
+      back: () => this.setState({ step: Math.max(1, this.state.step - 1), err:'' }),
+      nextLabel: s.step === 4 ? t.send : t.nextL,
+      next: () => {
+        const st = this.state.step, e = validate(st);
+        if (e) { this.setState({ err: e }); return; }
+        if (st === 4) this.setState({ done: true, err:'' }); else this.setState({ step: st + 1, err:'' });
+      },
+      doneP: (f.name || '') + ' — ' + lbl(typeDefs, f.type) + (f.tip ? ' ' + f.tip : '') + ' · ' + lbl(goalDefs, f.goal) + ' · ' + (f.conc || '') + (f.dist ? ', ' + f.dist : '') + '. ' + (fr ? 'Un conseiller vous contactera.' : 'Um consultor entrará em contacto.'),
+      restart: () => this.setState({ step:1, done:false, err:'', f:{ type:'', goal:'', dist:'', conc:'', freg:'', tip:'', area:'', desc:'', name:'', tel:'', email:'' } }),
+      args: args, proc: proc
+    };
+  }
+}
+</script>
+</body>
+</html>

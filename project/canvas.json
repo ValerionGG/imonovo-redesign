@@ -1,0 +1,432 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Atlantico-Contactos.dc.html": {
+      "expand": "fill",
+      "h": 4177,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Contactos & Recrutamento",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Atlantico-Home.dc.html": {
+      "expand": "fill",
+      "h": 7497,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Início",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Atlantico-Imoveis.dc.html": {
+      "expand": "fill",
+      "h": 5088,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Imóveis",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Atlantico-Imovel.dc.html": {
+      "expand": "fill",
+      "h": 5508,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Imóvel T5 Nadadouro",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Atlantico-Servicos.dc.html": {
+      "expand": "fill",
+      "h": 4172,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Serviços",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Atlantico-Vender.dc.html": {
+      "expand": "fill",
+      "h": 4171,
+      "is_interactive": true,
+      "page": "atlantico",
+      "title": "Atlântico · Vender",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Azulejo-Contactos.dc.html": {
+      "expand": "fill",
+      "h": 3753,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Contactos & Recrutamento",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Azulejo-Home.dc.html": {
+      "expand": "fill",
+      "h": 8333,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Início",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Azulejo-Imoveis.dc.html": {
+      "expand": "fill",
+      "h": 5110,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Imóveis",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Azulejo-Imovel.dc.html": {
+      "expand": "fill",
+      "h": 4855,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Imóvel T5 Nadadouro",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Azulejo-Servicos.dc.html": {
+      "expand": "fill",
+      "h": 3817,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Serviços",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Azulejo-Vender.dc.html": {
+      "expand": "fill",
+      "h": 3804,
+      "is_interactive": true,
+      "page": "azulejo",
+      "title": "Azulejo · Vender",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Caldas-Contactos.dc.html": {
+      "expand": "fill",
+      "h": 3761,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Contactos & Recrutamento",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Caldas-Home.dc.html": {
+      "expand": "fill",
+      "h": 6593,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Início",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Caldas-Imoveis.dc.html": {
+      "expand": "fill",
+      "h": 3355,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Imóveis",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Caldas-Imovel.dc.html": {
+      "expand": "fill",
+      "h": 5436,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Imóvel T5 Nadadouro",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Caldas-Servicos.dc.html": {
+      "expand": "fill",
+      "h": 3829,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Serviços",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Caldas-Vender.dc.html": {
+      "expand": "fill",
+      "h": 3931,
+      "is_interactive": true,
+      "page": "caldas",
+      "title": "Caldas · Vender",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Lagoa-Contactos.dc.html": {
+      "expand": "fill",
+      "h": 4486,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Contactos & Recrutamento",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Lagoa-Home.dc.html": {
+      "expand": "fill",
+      "h": 8199,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Início",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Lagoa-Imoveis.dc.html": {
+      "expand": "fill",
+      "h": 4624,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Imóveis",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Lagoa-Imovel.dc.html": {
+      "expand": "fill",
+      "h": 5189,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Imóvel T5 Nadadouro",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Lagoa-Servicos.dc.html": {
+      "expand": "fill",
+      "h": 4365,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Serviços",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Lagoa-Vender.dc.html": {
+      "expand": "fill",
+      "h": 4280,
+      "is_interactive": true,
+      "page": "lagoa",
+      "title": "Lagoa · Vender",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "is_interactive": true,
+      "page": "capa",
+      "title": "Capa — as 5 propostas",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Noir-Contactos.dc.html": {
+      "expand": "fill",
+      "h": 4205,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Contactos & Recrutamento",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Noir-Home.dc.html": {
+      "expand": "fill",
+      "h": 8566,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Início",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Noir-Imoveis.dc.html": {
+      "expand": "fill",
+      "h": 4638,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Imóveis",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Noir-Imovel.dc.html": {
+      "expand": "fill",
+      "h": 5178,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Imóvel T5 Nadadouro",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Noir-Servicos.dc.html": {
+      "expand": "fill",
+      "h": 4930,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Serviços",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Noir-Vender.dc.html": {
+      "expand": "fill",
+      "h": 4317,
+      "is_interactive": true,
+      "page": "noir",
+      "title": "Noir Concierge · Vender",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-15T09:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "file": "Main.dc.html",
+    "view": "focused"
+  },
+  "notes": {
+    "t_atl": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "atlantico",
+      "text": "1 · Atlântico — cinematográfico, oceano noturno",
+      "w": 240,
+      "x": 0,
+      "y": -340
+    },
+    "t_azu": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "azulejo",
+      "text": "4 · Azulejo — revista de artesanato português",
+      "w": 240,
+      "x": 0,
+      "y": -340
+    },
+    "t_cal": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "caldas",
+      "text": "3 · Caldas — tipografia cinética, índice de arquiteto",
+      "w": 240,
+      "x": 0,
+      "y": -340
+    },
+    "t_lag": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "lagoa",
+      "text": "2 · Lagoa — luz, cal e arcos",
+      "w": 240,
+      "x": 0,
+      "y": -340
+    },
+    "t_noi": {
+      "kind": "title1",
+      "maxW": 8000,
+      "page": "noir",
+      "text": "5 · Noir Concierge — escritório privado, preto e champanhe",
+      "w": 240,
+      "x": 0,
+      "y": -340
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Atlantico-Home.dc.html",
+    "Atlantico-Imoveis.dc.html",
+    "Atlantico-Imovel.dc.html",
+    "Atlantico-Vender.dc.html",
+    "Atlantico-Servicos.dc.html",
+    "Atlantico-Contactos.dc.html",
+    "Lagoa-Home.dc.html",
+    "Lagoa-Imoveis.dc.html",
+    "Lagoa-Imovel.dc.html",
+    "Lagoa-Vender.dc.html",
+    "Lagoa-Servicos.dc.html",
+    "Lagoa-Contactos.dc.html",
+    "Caldas-Home.dc.html",
+    "Caldas-Imoveis.dc.html",
+    "Caldas-Imovel.dc.html",
+    "Caldas-Vender.dc.html",
+    "Caldas-Servicos.dc.html",
+    "Caldas-Contactos.dc.html",
+    "Azulejo-Home.dc.html",
+    "Azulejo-Imoveis.dc.html",
+    "Azulejo-Imovel.dc.html",
+    "Azulejo-Vender.dc.html",
+    "Azulejo-Servicos.dc.html",
+    "Azulejo-Contactos.dc.html",
+    "Noir-Home.dc.html",
+    "Noir-Imoveis.dc.html",
+    "Noir-Imovel.dc.html",
+    "Noir-Vender.dc.html",
+    "Noir-Servicos.dc.html",
+    "Noir-Contactos.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "capa",
+      "name": "Capa"
+    },
+    {
+      "id": "atlantico",
+      "name": "1 · Atlântico"
+    },
+    {
+      "id": "lagoa",
+      "name": "2 · Lagoa"
+    },
+    {
+      "id": "caldas",
+      "name": "3 · Caldas"
+    },
+    {
+      "id": "azulejo",
+      "name": "4 · Azulejo"
+    },
+    {
+      "id": "noir",
+      "name": "5 · Noir Concierge"
+    }
+  ],
+  "title": "Imonovo — 5 propostas de refonte"
+}

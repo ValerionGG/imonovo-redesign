@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Atlântico — Início</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;background:#0A1518}
+.at{background:#0A1518;color:#E8E4DA;font-family:'Manrope',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden}
+.at *{box-sizing:border-box}
+.at a{color:inherit}
+.at img{display:block;max-width:100%}
+.serif{font-family:'Bodoni Moda',Didot,serif;font-optical-sizing:auto}
+.disp{font-family:'Bodoni Moda',Didot,serif;font-variation-settings:'opsz' 96;font-weight:400;letter-spacing:-0.025em;line-height:.94}
+.num{font-family:'Bodoni Moda',Didot,serif;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1,'lnum' 1}
+.it{font-style:italic;color:#D6B083}
+.eyebrow{font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#D6B083;margin:0}
+.muted{color:#9FB0AE}
+.wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 28px;border:1px solid #D6B083;background:#D6B083;color:#0A1518;font:600 12px/1 'Manrope',sans-serif;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .4s,color .4s,border-color .4s}
+.at a.btn{color:#0A1518}
+.btn:hover,.at a.btn:hover{background:transparent;color:#D6B083}
+.btn svg{transition:transform .5s cubic-bezier(.19,1,.22,1)}
+.btn:hover svg{transform:translateX(5px)}
+.btn-g,.at a.btn-g{background:transparent;color:#E8E4DA;border-color:rgba(232,228,218,.4)}
+.btn-g:hover,.at a.btn-g:hover{border-color:#D6B083;color:#D6B083}
+.btn-sm{min-height:44px;padding:0 18px;font-size:11px}
+.at :focus-visible{outline:1px solid #D6B083;outline-offset:4px}
+.nl{position:relative;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;padding:12px 0}
+.nl::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:#D6B083;transform:scaleX(0);transform-origin:right;transition:transform .6s cubic-bezier(.19,1,.22,1)}
+.nl:hover::after{transform:scaleX(1);transform-origin:left}
+.lg{min-width:44px;min-height:44px;background:transparent;border:0;color:#9FB0AE;font:600 11px 'Manrope';letter-spacing:.2em;cursor:pointer;transition:color .3s}
+.lg:hover{color:#E8E4DA}
+.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(232,228,218,.25);border-radius:50%;text-decoration:none;transition:border-color .3s,color .3s;background:transparent;color:#E8E4DA;cursor:pointer}
+.icon-btn:hover{border-color:#D6B083;color:#D6B083}
+.badge{position:absolute;top:-4px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#D6B083;color:#0A1518;font-size:12px;line-height:20px;text-align:center}
+.burger{display:none}
+.mnav a{display:block;padding:14px 0;border-bottom:1px solid rgba(214,176,131,.18);font-family:'Bodoni Moda',serif;font-size:30px;text-decoration:none}
+@keyframes kb{0%{transform:scale(1.04) translate3d(0,0,0)}100%{transform:scale(1.2) translate3d(-2.5%,-2%,0)}}
+.kb{animation:kb 26s ease-in-out infinite alternate;transform-origin:62% 45%;will-change:transform}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:inline-block;animation:lnUp 1.5s cubic-bezier(.19,1,.22,1) both}
+@keyframes lnUp{0%{transform:translateY(108%);clip-path:inset(0 0 100% 0)}100%{transform:translateY(0);clip-path:inset(-10% 0 -20% 0)}}
+.d1{animation-delay:.2s!important}.d2{animation-delay:.36s!important}.d3{animation-delay:.52s!important}.d4{animation-delay:.9s!important}.d5{animation-delay:1.1s!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.fu{animation:fadeUp 1.2s cubic-bezier(.19,1,.22,1) both}
+@keyframes wmIn{0%{clip-path:inset(100% 0 0 0);transform:translateY(40%);letter-spacing:.14em}100%{clip-path:inset(0 0 0 0);transform:translateY(17%);letter-spacing:-.03em}}
+@keyframes wmPan{0%{background-position:50% 30%}100%{background-position:50% 85%}}
+.wm{position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;font-family:'Bodoni Moda',serif;font-variation-settings:'opsz' 96;font-weight:500;font-size:clamp(84px,17.4vw,262px);line-height:.8;color:#E8E4DA;background:url(assets/nazare-sunset.webp) 50% 40%/cover;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:wmIn 2.2s cubic-bezier(.19,1,.22,1) .5s both,wmPan 30s ease-in-out 2.7s infinite alternate;pointer-events:none;user-select:none;white-space:nowrap}
+.grain{position:absolute;inset:-24px;pointer-events:none;z-index:60;opacity:.55;mix-blend-mode:overlay;background-image:repeating-radial-gradient(circle at 13% 27%,rgba(232,228,218,.07) 0,rgba(232,228,218,.07) 1px,transparent 1px,transparent 3px),repeating-radial-gradient(circle at 71% 63%,rgba(0,0,0,.25) 0,rgba(0,0,0,.25) 1px,transparent 1px,transparent 4px),repeating-linear-gradient(97deg,rgba(232,228,218,.03) 0 1px,transparent 1px 3px)}
+.grain-a{animation:grain 1.1s steps(5) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-9px,6px)}40%{transform:translate(7px,-10px)}60%{transform:translate(-5px,11px)}80%{transform:translate(10px,4px)}100%{transform:translate(0,0)}}
+.rail-i{display:flex;align-items:center;gap:14px;text-decoration:none;padding:9px 0;color:#9FB0AE;font-size:11px;letter-spacing:.24em;text-transform:uppercase;transition:color .3s}
+.rail-i .rl{display:block;width:18px;height:1px;background:rgba(214,176,131,.5);transition:width .5s cubic-bezier(.19,1,.22,1)}
+.rail-i:hover{color:#E8E4DA}
+.rail-i:hover .rl{width:44px;background:#D6B083}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq{display:flex;align-items:center;width:max-content;animation:mq 46s linear infinite}
+.mqw:hover .mq{animation-play-state:paused}
+.chap{display:grid;grid-template-columns:96px minmax(0,1fr);max-width:1440px;margin:0 auto;padding:0 40px}
+.rail{position:relative;border-right:1px solid rgba(214,176,131,.2)}
+.rail .rn{position:absolute;top:0;right:22px;font-size:15px;color:#D6B083}
+.rail .rv{position:absolute;top:48px;right:20px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#9FB0AE;white-space:nowrap}
+.cbody{padding-left:56px;min-width:0}
+.seg{min-height:44px;padding:0 18px;background:transparent;border:1px solid rgba(232,228,218,.25);color:#E8E4DA;font:600 11px 'Manrope';letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:border-color .3s}
+.seg:hover{border-color:#D6B083}
+.selw{position:relative}
+.selw svg{position:absolute;right:4px;top:50%;margin-top:-7px;pointer-events:none;color:#D6B083}
+.sel{appearance:none;-webkit-appearance:none;width:100%;min-height:52px;background:transparent;color:#E8E4DA;border:0;border-bottom:1px solid rgba(232,228,218,.3);font:500 16px 'Manrope';padding:0 28px 0 0;cursor:pointer;transition:border-color .3s;border-radius:0}
+.sel:hover,.sel:focus{border-bottom-color:#D6B083}
+.sel option{background:#0F2126;color:#E8E4DA}
+.tab{background:transparent;border:0;border-bottom:1px solid transparent;color:#E8E4DA;min-height:52px;padding:0 2px;cursor:pointer;font-family:'Bodoni Moda',serif;font-size:26px;display:inline-flex;align-items:baseline;gap:8px;transition:color .3s,border-color .3s}
+.tab:hover{color:#D6B083}
+.tab sup{font-family:'Manrope';font-size:11px;letter-spacing:.1em;color:#9FB0AE}
+.strip{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 40px 30px 0;scrollbar-width:thin;scrollbar-color:#D6B083 rgba(232,228,218,.08)}
+.strip>*{flex:0 0 min(430px,84%);scroll-snap-align:start}
+.card{position:relative;animation:fadeUp 1s cubic-bezier(.19,1,.22,1) both}
+.card .ph{position:relative;overflow:hidden;background:#0F2126}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.19,1,.22,1),filter .8s}
+.card:hover .ph img{transform:scale(1.07);filter:brightness(.72)}
+.ring{position:absolute;left:50%;top:50%;width:118px;height:118px;margin:-59px 0 0 -59px;border:1px solid #D6B083;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#E8E4DA;font:600 10px/1 'Manrope';letter-spacing:.32em;text-transform:uppercase;opacity:0;transform:scale(.35);transition:opacity .5s,transform .8s cubic-bezier(.19,1,.22,1);pointer-events:none;background:rgba(10,21,24,.28)}
+.ring::after{content:"";position:absolute;inset:-9px;border:1px solid rgba(214,176,131,.35);border-radius:50%;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:.3}}
+.card:hover .ring{opacity:1;transform:scale(1)}
+.stretch{text-decoration:none}
+.stretch::after{content:"";position:absolute;inset:0;z-index:1}
+.fav{position:absolute;top:16px;right:16px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid rgba(232,228,218,.4);background:rgba(10,21,24,.45);color:#E8E4DA;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .3s,transform .4s}
+.fav:hover{border-color:#D6B083;transform:scale(1.08)}
+.tagr{position:absolute;left:16px;top:16px;background:#D6B083;color:#0A1518;font:700 10px/1 'Manrope';letter-spacing:.2em;text-transform:uppercase;padding:8px 10px}
+.place{display:flex;align-items:baseline;gap:20px;width:100%;background:transparent;border:0;border-top:1px solid rgba(232,228,218,.12);color:#E8E4DA;text-align:left;padding:18px 0;min-height:44px;cursor:pointer;transition:color .4s,padding-left .6s cubic-bezier(.19,1,.22,1)}
+.place:hover{padding-left:14px;color:#D6B083}
+.pline{display:block;height:1px;background:#D6B083;transition:width .7s cubic-bezier(.19,1,.22,1)}
+.pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease,transform 2.4s cubic-bezier(.19,1,.22,1)}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-top:1px solid rgba(232,228,218,.12);text-decoration:none;transition:color .3s,padding-left .5s cubic-bezier(.19,1,.22,1)}
+.srow svg{opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .5s;color:#D6B083}
+.srow:hover{color:#D6B083;padding-left:10px}
+.srow:hover svg{opacity:1;transform:none}
+.fld{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid rgba(232,228,218,.35);color:#E8E4DA;font:400 17px 'Manrope';padding:0;border-radius:0;transition:border-color .3s}
+.fld::placeholder{color:#7F918F}
+.fld:focus{outline:none;border-bottom-color:#D6B083}
+.foot-wm{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(64px,16.5vw,250px);line-height:.85;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(214,176,131,.38);margin:72px 0 28px;letter-spacing:-.02em;white-space:nowrap;user-select:none}
+.flink{display:block;text-decoration:none;padding:6px 0;transition:color .3s}
+.flink:hover{color:#D6B083}
+@media (max-width:960px){
+.nav-links,.hide-m{display:none!important}
+.burger{display:inline-flex}
+.wrap{padding:0 20px}
+.chap{grid-template-columns:1fr;padding:0 20px}
+.rail{border-right:0;border-top:1px solid rgba(214,176,131,.2);height:44px}
+.rail .rn{left:0;right:auto;top:12px}
+.rail .rv{writing-mode:horizontal-tb;transform:none;top:16px;left:44px;right:auto}
+.cbody{padding-left:0}
+.hero-rail{display:none!important}
+.strip{padding-right:20px}
+}
+@media (prefers-reduced-motion:reduce){.kb,.mq,.grain-a,.wm,.ln>span,.fu,.card{animation:none!important}}
+</style>
+</helmet>
+<div class="at">
+<div class="grain" aria-hidden="true" style="{{ grainStyle }}"></div>
+
+<header style="position:absolute;top:0;left:0;right:0;z-index:40">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:24px;height:96px">
+    <a href="Atlantico-Home.html" aria-label="Imonovo — Início" style="text-decoration:none;display:flex;align-items:center;gap:14px">
+      <span style="display:block;width:28px;height:1px;background:#D6B083"></span>
+      <span class="serif" style="font-size:21px;letter-spacing:.36em;font-weight:500">IMONOVO</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal" style="display:flex;gap:32px;align-items:center">
+      <a class="nl" href="Atlantico-Home.html" aria-current="page" style="color:#D6B083">{{ t.home }}</a>
+      <a class="nl" href="Atlantico-Imoveis.html">{{ t.imoveis }}</a>
+      <a class="nl" href="Atlantico-Imoveis.html#empreendimentos">{{ t.emp }}</a>
+      <a class="nl" href="Atlantico-Vender.html">{{ t.vender }}</a>
+      <a class="nl" href="Atlantico-Servicos.html">{{ t.serv }}</a>
+      <a class="nl" href="Atlantico-Contactos.html">{{ t.cont }}</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div role="group" aria-label="Idioma / Langue" style="display:flex;align-items:center">
+        <button type="button" class="lg" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <span aria-hidden="true" style="width:1px;height:14px;background:rgba(232,228,218,.3)"></span>
+        <button type="button" class="lg" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a href="Atlantico-Imoveis.html" class="icon-btn" aria-label="{{ favLabel }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20.5C9 18.6 3.9 15.2 2.9 11.3 2.1 8.1 4.1 5 7.2 5c2.1 0 3.7 1.3 4.8 3 1.1-1.7 2.7-3 4.8-3 3.1 0 5.1 3.1 4.3 6.3-1 3.9-6.1 7.3-9.1 9.2z"/></svg>
+        <span class="badge num">{{ favCount }}</span>
+      </a>
+      <a href="Atlantico-Vender.html" class="btn btn-sm hide-m" style="margin-left:10px">{{ t.cta }}</a>
+      <button type="button" class="icon-btn burger" aria-label="Menu" aria-expanded="{{ menuExp }}" onClick="{{ toggleMenu }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h18M3 16h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav wrap" aria-label="Menu móvel" style="background:#0F2126;padding-top:12px;padding-bottom:28px;border-top:1px solid rgba(214,176,131,.25)">
+      <a href="Atlantico-Home.html">{{ t.home }}</a>
+      <a href="Atlantico-Imoveis.html">{{ t.imoveis }}</a>
+      <a href="Atlantico-Imoveis.html#empreendimentos">{{ t.emp }}</a>
+      <a href="Atlantico-Vender.html">{{ t.vender }}</a>
+      <a href="Atlantico-Servicos.html">{{ t.serv }}</a>
+      <a href="Atlantico-Contactos.html">{{ t.cont }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- HERO -->
+<section aria-label="Imonovo" style="position:relative;height:980px;overflow:hidden;background:#0A1518">
+  <div style="position:absolute;inset:0;overflow:hidden">
+    <img class="kb" src="assets/nazare-sunset.webp" alt="Praia da Nazaré ao pôr do sol (imagem ilustrativa)" style="width:100%;height:100%;object-fit:cover;opacity:.82">
+  </div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,21,24,.82) 0%,rgba(10,21,24,.45) 42%,rgba(10,21,24,0) 70%)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,21,24,.7) 0%,rgba(10,21,24,0) 22%,rgba(10,21,24,0) 52%,rgba(10,21,24,.94) 80%,#0A1518 100%)"></div>
+  <div class="grain grain-a" aria-hidden="true" style="z-index:2;opacity:.45"></div>
+
+  <div class="wrap" style="position:relative;z-index:5;padding-top:186px">
+    <p class="eyebrow fu d1" style="display:flex;align-items:center;gap:16px"><span style="display:block;width:40px;height:1px;background:#D6B083"></span>{{ t.eyebrow }}</p>
+    <h1 class="disp" style="font-size:clamp(52px,7.6vw,118px);margin:30px 0 0;max-width:1000px">
+      <span class="ln"><span class="d1">{{ t.h1a }}</span></span>
+      <span class="ln"><span class="d2">{{ t.h1b }}</span></span>
+      <span class="ln"><span class="d3 it">{{ t.h1c }}</span></span>
+    </h1>
+    <p class="fu d4" style="max-width:500px;margin:34px 0 0;font-size:17px;color:#E8E4DA;line-height:1.7">{{ t.sub }}</p>
+    <div class="fu d5" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
+      <a href="Atlantico-Imoveis.html" class="btn">{{ t.ctaSee }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <a href="Atlantico-Vender.html" class="btn btn-g">{{ t.cta }}</a>
+    </div>
+  </div>
+
+  <nav class="hero-rail fu d5" aria-label="Capítulos" style="position:absolute;z-index:5;right:40px;top:230px;border-left:1px solid rgba(214,176,131,.3);padding-left:24px">
+    <p class="eyebrow" style="margin-bottom:14px;color:#9FB0AE">{{ t.index }}</p>
+    <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="6">
+      <a class="rail-i" href="{{ c.href }}"><span class="num" style="font-size:14px;letter-spacing:0;color:#D6B083">{{ c.n }}</span><span class="rl"></span><span>{{ c.label }}</span></a>
+    </sc-for>
+  </nav>
+
+  <div class="hide-m" style="position:absolute;z-index:5;left:40px;right:40px;top:776px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9FB0AE">
+    <span>Fig. 01 — Nazaré, ao pôr do sol · ilustrativa</span>
+    <span style="display:flex;align-items:center;gap:12px">Caldas da Rainha · Oeste<span style="display:block;width:60px;height:1px;background:rgba(214,176,131,.5)"></span><span class="num" style="letter-spacing:.1em;color:#D6B083">39°24′ N</span></span>
+  </div>
+
+  <p class="wm" aria-hidden="true" style="z-index:4">IMONOVO</p>
+</section>
+
+<!-- MARQUEE -->
+<div class="mqw" style="border-top:1px solid rgba(214,176,131,.28);border-bottom:1px solid rgba(214,176,131,.28);overflow:hidden;padding:26px 0;background:#0A1518" aria-label="Óbidos, Foz do Arelho, Nazaré, Lagoa de Óbidos, Serra do Bouro, Caldas da Rainha">
+  <div class="mq" aria-hidden="true">
+    <sc-for list="{{ marquee }}" as="m" hint-placeholder-count="12">
+      <span class="serif" style="font-size:52px;font-style:italic;padding:0 34px;white-space:nowrap;line-height:1.1">{{ m.name }}</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D6B083" stroke-width="1.2"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+    </sc-for>
+  </div>
+</div>
+
+<!-- 01 PESQUISA -->
+<section id="ch-01" class="chap" style="padding-top:110px">
+  <div class="rail"><span class="rn num">01</span><span class="rv">{{ t.c1 }}</span></div>
+  <div class="cbody">
+    <p class="eyebrow">{{ t.chapter }} 01</p>
+    <h2 class="disp" style="font-size:clamp(44px,5.6vw,84px);margin:18px 0 44px">{{ t.searchT1 }} <span class="it">{{ t.searchT2 }}</span></h2>
+    <div style="background:#0F2126;border:1px solid rgba(214,176,131,.22);padding:34px 36px 30px">
+      <div role="group" aria-label="Modo de pesquisa" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+          <button type="button" class="seg" style="{{ m.style }}" aria-pressed="{{ m.pressed }}" onClick="{{ m.pick }}">{{ m.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:28px;align-items:end">
+        <label style="display:block"><span class="eyebrow" style="color:#9FB0AE;display:block;margin-bottom:6px">{{ t.fType }}</span>
+          <span class="selw" style="display:block"><select class="sel" onChange="{{ setSType }}">
+            <option value="all">Todos os tipos</option>
+            <option value="novo">Novos imóveis</option>
+            <option value="apartamento">Apartamentos</option>
+            <option value="moradia">Moradias</option>
+            <option value="terreno">Terrenos</option>
+          </select><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </label>
+        <label style="display:block"><span class="eyebrow" style="color:#9FB0AE;display:block;margin-bottom:6px">{{ t.fLoc }}</span>
+          <span class="selw" style="display:block"><select class="sel" onChange="{{ setSLoc }}">
+            <option value="all">Toda a região</option>
+            <option value="Caldas da Rainha">Caldas da Rainha</option>
+            <option value="Nadadouro">Nadadouro</option>
+            <option value="Serra do Bouro">Serra do Bouro</option>
+            <option value="Óbidos">Óbidos</option>
+            <option value="Foz do Arelho">Foz do Arelho</option>
+            <option value="Nazaré">Nazaré</option>
+          </select><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </label>
+        <label style="display:block"><span class="eyebrow" style="color:#9FB0AE;display:block;margin-bottom:6px">{{ t.fPrice }}</span>
+          <span class="selw" style="display:block"><select class="sel" onChange="{{ setSMax }}">
+            <option value="0">Sem limite</option>
+            <option value="400000">400.000 €</option>
+            <option value="700000">700.000 €</option>
+            <option value="1000000">1.000.000 €</option>
+            <option value="1500000">1.500.000 €</option>
+          </select><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </label>
+        <a href="Atlantico-Imoveis.html" class="btn" style="width:100%">{{ t.search }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      </div>
+      <p aria-live="polite" style="margin:26px 0 0;display:flex;align-items:baseline;gap:14px;border-top:1px solid rgba(232,228,218,.1);padding-top:20px">
+        <span class="num" style="font-size:40px;color:#D6B083;line-height:1">{{ resultN }}</span>
+        <span class="serif" style="font-style:italic;font-size:20px">{{ resultTxt }}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLEÇÃO -->
+<section id="ch-02" class="chap" style="padding-top:150px">
+  <div class="rail"><span class="rn num">02</span><span class="rv">{{ t.c2 }}</span></div>
+  <div class="cbody">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div>
+        <p class="eyebrow">{{ t.chapter }} 02</p>
+        <h2 class="disp" style="font-size:clamp(44px,5.6vw,84px);margin:18px 0 0">{{ t.colT1 }} <span class="it">{{ t.colT2 }}</span></h2>
+      </div>
+      <a href="Atlantico-Imoveis.html" class="nl" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase">{{ t.seeAll }} →</a>
+    </div>
+    <div role="tablist" aria-label="Tipos de imóvel" style="display:flex;flex-wrap:wrap;gap:34px;margin:44px 0 40px;border-bottom:1px solid rgba(232,228,218,.12)">
+      <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+        <button type="button" role="tab" class="tab" style="{{ tb.style }}" aria-selected="{{ tb.pressed }}" onClick="{{ tb.pick }}">{{ tb.label }}<sup class="num">{{ tb.count }}</sup></button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ hasStrip }}" hint-placeholder-val="{{ true }}">
+      <div class="strip" role="list">
+        <sc-for list="{{ strip }}" as="p" hint-placeholder-count="4">
+          <article class="card" role="listitem" style="{{ p.delay }}">
+            <div class="ph" style="aspect-ratio:4/5">
+              <img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy">
+              <span class="ring" aria-hidden="true">Ver</span>
+              <sc-if value="{{ p.reduced }}" hint-placeholder-val="{{ false }}"><span class="tagr">Preço reduzido</span></sc-if>
+            </div>
+            <button type="button" class="fav" aria-label="{{ p.favLabel }}" aria-pressed="{{ p.favPressed }}" onClick="{{ p.toggle }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" style="{{ p.heartStyle }}"><path d="M12 20.5C9 18.6 3.9 15.2 2.9 11.3 2.1 8.1 4.1 5 7.2 5c2.1 0 3.7 1.3 4.8 3 1.1-1.7 2.7-3 4.8-3 3.1 0 5.1 3.1 4.3 6.3-1 3.9-6.1 7.3-9.1 9.2z"/></svg>
+            </button>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:18px">
+              <span class="num muted" style="font-size:15px">{{ p.idx }}</span>
+              <span class="eyebrow" style="color:#9FB0AE;letter-spacing:.24em">{{ p.place }}</span>
+            </div>
+            <h3 class="serif" style="font-size:34px;font-weight:400;margin:6px 0 10px;line-height:1.1"><a class="stretch" href="Atlantico-Imovel.html">{{ p.title }}</a></h3>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(214,176,131,.25);padding-top:12px">
+              <span class="muted" style="font-size:14px">{{ p.m2Txt }}</span>
+              <span class="num" style="font-size:26px;color:#D6B083">{{ p.priceTxt }}</span>
+            </div>
+          </article>
+        </sc-for>
+        <a href="Atlantico-Imoveis.html" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;border:1px solid rgba(214,176,131,.3);padding:36px;text-decoration:none;scroll-snap-align:start" class="srow">
+          <span class="eyebrow">{{ t.seeAll }}</span>
+          <span class="disp" style="font-size:64px;margin-top:16px">{{ t.allT }} <span class="it">→</span></span>
+        </a>
+      </div>
+      <p class="muted" style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin:6px 0 0"><span style="display:block;width:40px;height:1px;background:#D6B083"></span>{{ t.drag }}</p>
+    </sc-if>
+    <sc-if value="{{ noStrip }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px solid rgba(214,176,131,.25);padding:72px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;align-items:end">
+        <p class="disp it" style="font-size:96px;margin:0">{{ t.soon }}</p>
+        <div>
+          <p style="margin:0 0 24px;max-width:440px">{{ emptyTxt }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px"><a href="Atlantico-Contactos.html" class="btn btn-sm">{{ t.talk }}</a><a href="#newsletter" class="btn btn-g btn-sm">Newsletter</a></div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- 03 DUAS PALAVRAS -->
+<section id="ch-03" class="chap" style="padding-top:170px">
+  <div class="rail"><span class="rn num">03</span><span class="rv">{{ t.c3 }}</span></div>
+  <div class="cbody">
+    <p class="eyebrow">{{ t.chapter }} 03 — Imonovo em 2 palavras</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:64px;margin-top:36px;align-items:start">
+      <div>
+        <p class="disp" style="font-size:clamp(80px,10.5vw,168px);margin:0">Local,</p>
+        <p style="max-width:440px;margin:22px 0 56px;font-size:17px">Estamos em Caldas da Rainha, na Rua Vitorino Frois. Conhecemos o Oeste de perto — de Óbidos à Nazaré, da Foz do Arelho à Serra do Bouro — e ajudamos quem compra, vende ou arrenda aqui.</p>
+        <p class="disp it" style="font-size:clamp(48px,6.2vw,96px);margin:0">internacional.</p>
+        <p style="max-width:440px;margin:22px 0 0;font-size:17px">Acompanhamos quem chega de fora, sobretudo do mundo francófono: atendimento em francês e um serviço de acompanhamento do NIF à escritura — e depois dela.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:48px;margin-top:56px;border-top:1px solid rgba(214,176,131,.25);padding-top:26px">
+          <div><span class="num" style="font-size:40px;color:#D6B083;display:block;line-height:1">10355</span><span class="eyebrow" style="color:#9FB0AE">Licença AMI</span></div>
+          <div><span class="num" style="font-size:40px;color:#D6B083;display:block;line-height:1">5259</span><span class="eyebrow" style="color:#9FB0AE">APEMIP</span></div>
+          <div><span class="num" style="font-size:40px;color:#D6B083;display:block;line-height:1">PT · FR</span><span class="eyebrow" style="color:#9FB0AE">Idiomas</span></div>
+        </div>
+      </div>
+      <figure style="margin:0;position:relative">
+        <div style="position:relative;overflow:hidden;height:720px;background:#0F2126">
+          <img class="kb" src="assets/cliff-mist.webp" alt="Falésia em nevoeiro dourado na Costa de Prata (ilustrativa)" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption class="muted" style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-top:14px"><span>Fig. 03 — Costa de Prata</span><span class="num" style="letter-spacing:.1em">03 / 06</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 REGIÃO -->
+<section id="ch-04" class="chap" style="padding-top:170px">
+  <div class="rail"><span class="rn num">04</span><span class="rv">{{ t.c4 }}</span></div>
+  <div class="cbody">
+    <p class="eyebrow">{{ t.chapter }} 04</p>
+    <h2 class="disp" style="font-size:clamp(44px,5.6vw,84px);margin:18px 0 50px">{{ t.regT1 }} <span class="it">{{ t.regT2 }}</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:56px;align-items:stretch">
+      <div role="tablist" aria-label="Localidades" style="border-bottom:1px solid rgba(232,228,218,.12)">
+        <sc-for list="{{ places }}" as="pl" hint-placeholder-count="6">
+          <button type="button" role="tab" class="place" aria-selected="{{ pl.pressed }}" onClick="{{ pl.pick }}" style="{{ pl.style }}">
+            <span class="num" style="font-size:14px;color:#D6B083;width:28px">{{ pl.n }}</span>
+            <span class="serif" style="font-size:40px;line-height:1.1;flex:1">{{ pl.name }}</span>
+            <span class="pline" style="{{ pl.lineW }}"></span>
+          </button>
+        </sc-for>
+      </div>
+      <figure style="margin:0">
+        <div style="position:relative;overflow:hidden;height:600px;background:#0F2126">
+          <sc-for list="{{ places }}" as="pl" hint-placeholder-count="6">
+            <img class="pimg" src="{{ pl.img }}" alt="{{ pl.alt }}" style="{{ pl.imgStyle }}">
+          </sc-for>
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,21,24,0) 45%,rgba(10,21,24,.88) 100%)"></div>
+          <div style="position:absolute;left:36px;right:36px;bottom:32px" aria-live="polite">
+            <p class="eyebrow" style="color:#E8E4DA">Fig. 04 · {{ cur.n }} / 06</p>
+            <p class="disp" style="font-size:72px;margin:12px 0 10px">{{ cur.name }}</p>
+            <p style="margin:0;max-width:460px;font-size:16px">{{ cur.caption }}</p>
+            <p class="eyebrow" style="margin-top:18px">{{ cur.countTxt }}</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SERVIÇOS -->
+<section id="ch-05" class="chap" style="padding-top:170px">
+  <div class="rail"><span class="rn num">05</span><span class="rv">{{ t.c5 }}</span></div>
+  <div class="cbody">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:56px">
+      <div>
+        <p class="eyebrow">{{ t.chapter }} 05</p>
+        <h2 class="disp" style="font-size:clamp(44px,5vw,76px);margin:18px 0 24px">{{ t.servT1 }} <span class="it">{{ t.servT2 }}</span></h2>
+        <p class="muted" style="max-width:360px;margin:0 0 32px">Para quem se instala na região, tratamos da parte administrativa e cuidamos da casa — do primeiro papel à manutenção.</p>
+        <a href="Atlantico-Servicos.html" class="btn btn-g">{{ t.servCta }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:18px;color:#9FB0AE">Acompanhamento</p>
+        <sc-for list="{{ servA }}" as="sv" hint-placeholder-count="7">
+          <a href="Atlantico-Servicos.html" class="srow"><span style="display:flex;gap:18px;align-items:baseline"><span class="num" style="font-size:13px;color:#D6B083">{{ sv.n }}</span><span class="serif" style="font-size:22px">{{ sv.name }}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </sc-for>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:18px;color:#9FB0AE">Conciergerie</p>
+        <sc-for list="{{ servC }}" as="sv" hint-placeholder-count="3">
+          <a href="Atlantico-Servicos.html" class="srow"><span style="display:flex;gap:18px;align-items:baseline"><span class="num" style="font-size:13px;color:#D6B083">{{ sv.n }}</span><span class="serif" style="font-size:22px">{{ sv.name }}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </sc-for>
+        <div style="position:relative;overflow:hidden;height:250px;margin-top:30px">
+          <img src="assets/az-tile-teal.webp" alt="Mosaico de azulejo azul-petróleo" style="width:100%;height:100%;object-fit:cover;opacity:.85">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 AVALIAÇÃO -->
+<section id="ch-06" style="position:relative;margin-top:170px;height:640px;overflow:hidden">
+  <img class="kb" src="assets/cliffs-sea.webp" alt="Falésias e mar azul (ilustrativa)" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(10,21,24,.62)"></div>
+  <div class="grain grain-a" aria-hidden="true" style="z-index:2;opacity:.4"></div>
+  <div class="chap" style="position:relative;z-index:3;height:640px">
+    <div class="rail" style="border-right-color:rgba(214,176,131,.35)"><span class="rn num" style="top:120px">06</span><span class="rv" style="top:168px;color:#E8E4DA">{{ t.c6 }}</span></div>
+    <div class="cbody" style="padding-top:120px">
+      <p class="eyebrow">{{ t.chapter }} 06 — {{ t.free }}</p>
+      <h2 class="disp" style="font-size:clamp(54px,7.4vw,116px);margin:22px 0 26px">{{ t.ctaT1 }}<br><span class="it">{{ t.ctaT2 }}</span></h2>
+      <p style="max-width:480px;margin:0 0 36px;font-size:17px">{{ t.ctaSub }}</p>
+      <a href="Atlantico-Vender.html" class="btn">{{ t.ctaBtn }}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" class="wrap" style="padding-top:130px;padding-bottom:130px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:48px;align-items:end;border-top:1px solid rgba(214,176,131,.3);padding-top:56px">
+    <div>
+      <p class="eyebrow">Newsletter</p>
+      <h2 class="disp" style="font-size:clamp(40px,4.6vw,68px);margin:18px 0 0">{{ t.nlT1 }} <span class="it">{{ t.nlT2 }}</span></h2>
+    </div>
+    <div>
+      <sc-if value="{{ nlForm }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap">
+          <label style="flex:1 1 260px;display:block"><span class="eyebrow" style="color:#9FB0AE;display:block;margin-bottom:4px">Email</span>
+            <input class="fld" type="email" placeholder="nome@exemplo.pt" value="{{ email }}" onInput="{{ setEmail }}" autocomplete="email">
+          </label>
+          <button type="button" class="btn" onClick="{{ subscribe }}">{{ t.nlBtn }}</button>
+        </div>
+        <sc-if value="{{ nlErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="color:#E8B4A0;margin:14px 0 0;font-size:14px">Indique um email válido.</p></sc-if>
+        <p class="muted" style="font-size:13px;margin:16px 0 0">Protótipo — nenhum dado é enviado.</p>
+      </sc-if>
+      <sc-if value="{{ nlOk }}" hint-placeholder-val="{{ false }}">
+        <p role="status" class="serif" style="font-size:28px;font-style:italic;margin:0;color:#D6B083">Obrigado. Subscrição registada — protótipo, nada é enviado.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="position:relative;background:#081114;border-top:1px solid rgba(214,176,131,.25)">
+  <div class="wrap" style="padding-top:90px;padding-bottom:36px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+      <div>
+        <p class="serif" style="font-size:24px;letter-spacing:.34em;margin:0">IMONOVO</p>
+        <p class="muted" style="margin:18px 0 0;max-width:280px;font-size:14px">Agência imobiliária em Caldas da Rainha — Costa de Prata, Oeste. Atendimento em português e francês.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Escritório</p>
+        <address style="font-style:normal;font-size:15px;line-height:1.8">Rua Vitorino Frois, 64<br>2500-256 Caldas da Rainha<br>Portugal</address>
+        <p class="muted" style="font-size:14px;margin:12px 0 0">Horário: [HORÁRIO]</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Contactos</p>
+        <a class="flink" href="tel:+351210958271">Tel. +351 210 958 271</a>
+        <a class="flink" href="tel:+351919192220">Tlm. +351 919 192 220</a>
+        <a class="flink" href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+        <a class="flink" href="https://www.instagram.com/imonovo_portugal" style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>@imonovo_portugal</a>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Navegação</p>
+        <a class="flink" href="Atlantico-Imoveis.html">Imóveis</a>
+        <a class="flink" href="Atlantico-Imoveis.html#empreendimentos">Empreendimentos</a>
+        <a class="flink" href="Atlantico-Vender.html">Vender</a>
+        <a class="flink" href="Atlantico-Servicos.html">Serviços</a>
+        <a class="flink" href="Atlantico-Contactos.html">Contactos e recrutamento</a>
+        <a class="flink" href="index.html" style="color:#D6B083">← Todas as propostas</a>
+      </div>
+    </div>
+    <p class="foot-wm" aria-hidden="true">IMONOVO</p>
+    <div class="muted" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;border-top:1px solid rgba(232,228,218,.12);padding-top:22px;font-size:12px">
+      <span>© Imonovo — marca de MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+    </div>
+  </div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7550},"grain":{"editor":"boolean","default":false}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[], tab:'moradias', mode:'comprar', sType:'all', sLoc:'all', sMax:0, place:0, email:'', nl:'' };
+  }
+  val(e){ return e && e.target ? e.target.value : e; }
+  fmt(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €'; }
+  pad(n){ return n > 9 ? String(n) : '0' + n; }
+  toggleFav(id){
+    const f = this.state.favs;
+    this.setState({ favs: f.indexOf(id) > -1 ? f.filter(x => x !== id) : f.concat([id]) });
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#D6B083;color:#0A1518;border-color:#D6B083';
+    const T = {
+      pt:{ home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', serv:'Serviços', cont:'Contactos', cta:'Avaliação gratuita',
+        eyebrow:'Agência imobiliária · Caldas da Rainha', h1a:'Somos uma agência', h1b:'imobiliária que', h1c:'ajuda pessoas.',
+        sub:'Comprar, vender e instalar-se na Costa de Prata — com acompanhamento do primeiro contacto à escritura, em português e em francês.',
+        ctaSee:'Ver imóveis', index:'Índice', chapter:'Capítulo',
+        c1:'Pesquisa', c2:'Coleção', c3:'Duas palavras', c4:'Região', c5:'Serviços', c6:'Avaliação',
+        searchT1:'Encontrar a', searchT2:'sua casa.', fType:'Tipo', fLoc:'Localidade', fPrice:'Preço máx.', search:'Pesquisar',
+        colT1:'A', colT2:'coleção.', seeAll:'Ver todos', allT:'Todos os imóveis', drag:'Deslize para ver mais', soon:'Em breve.', talk:'Fale connosco',
+        regT1:'O Oeste,', regT2:'de perto.', servT1:'Do NIF', servT2:'às chaves.', servCta:'Ver serviços', free:'Avaliação gratuita',
+        ctaT1:'Quanto vale', ctaT2:'a sua casa?', ctaSub:'Avaliação gratuita e sem compromisso, feita por quem conhece o mercado do Oeste.', ctaBtn:'Pedir avaliação gratuita',
+        nlT1:'Novos imóveis,', nlT2:'primeiro no seu email.', nlBtn:'Subscrever', favs:'Favoritos' },
+      fr:{ home:'Accueil', imoveis:'Biens', emp:'Programmes', vender:'Vendre', serv:'Services', cont:'Contact', cta:'Estimation gratuite',
+        eyebrow:'Agence immobilière · Caldas da Rainha', h1a:'Nous sommes une agence', h1b:'immobilière qui', h1c:'aide les gens.',
+        sub:'Acheter, vendre et s’installer sur la Costa de Prata — accompagnés du premier contact jusqu’à l’acte, en portugais et en français.',
+        ctaSee:'Voir les biens', index:'Sommaire', chapter:'Chapitre',
+        c1:'Recherche', c2:'Collection', c3:'Deux mots', c4:'Région', c5:'Services', c6:'Estimation',
+        searchT1:'Trouver', searchT2:'votre maison.', fType:'Type', fLoc:'Localité', fPrice:'Prix max.', search:'Rechercher',
+        colT1:'La', colT2:'collection.', seeAll:'Tout voir', allT:'Tous les biens', drag:'Faites glisser pour voir plus', soon:'Bientôt.', talk:'Nous contacter',
+        regT1:'L’Ouest,', regT2:'de près.', servT1:'Du NIF', servT2:'aux clés.', servCta:'Voir les services', free:'Estimation gratuite',
+        ctaT1:'Combien vaut', ctaT2:'votre maison ?', ctaSub:'Estimation gratuite et sans engagement, par ceux qui connaissent le marché de l’Ouest.', ctaBtn:'Demander une estimation',
+        nlT1:'Les nouveaux biens,', nlT2:'d’abord dans votre boîte.', nlBtn:'S’abonner', favs:'Favoris' }
+    };
+    const t = fr ? T.fr : T.pt;
+
+    const P = [
+      { id:1, title:'Moradia T5', place:'Nadadouro', type:'moradia', m2:301, price:1380000, img:'assets/villa-infinity.webp', alt:'Piscina infinita sobre o mar' },
+      { id:2, title:'Moradia T3', place:'Serra do Bouro', type:'moradia', m2:177, price:645000, img:'assets/villa-white.webp', alt:'Moradia branca' },
+      { id:3, title:'Moradia T3', place:'Caldas da Rainha', type:'moradia', m2:195, price:780000, img:'assets/villa-modern-pool.webp', alt:'Moradia moderna branca com piscina' },
+      { id:4, title:'Moradia T3', place:'Caldas da Rainha', type:'moradia', m2:131, price:670000, img:'assets/house-white.webp', alt:'Casa branca' },
+      { id:5, title:'Moradia T3', place:'Nadadouro', type:'moradia', m2:183, price:650000, img:'assets/villa-pool.webp', alt:'Moradia com piscina', reduced:true },
+      { id:6, title:'Apartamento T3', place:'Caldas da Rainha', type:'apartamento', m2:94, price:344000, img:'assets/int-lounge.webp', alt:'Sala de estar' }
+    ];
+    const inTab = (p, tab) => tab === 'novos' ? !!p.isNew : tab === 'apartamentos' ? p.type === 'apartamento' : tab === 'moradias' ? p.type === 'moradia' : p.type === 'terreno';
+
+    const tabDefs = [
+      { k:'novos', pt:'Novos imóveis', fr:'Neufs' }, { k:'apartamentos', pt:'Apartamentos', fr:'Appartements' },
+      { k:'moradias', pt:'Moradias', fr:'Maisons' }, { k:'terrenos', pt:'Terrenos', fr:'Terrains' }
+    ];
+    const tabs = tabDefs.map(d => ({
+      label: fr ? d.fr : d.pt,
+      count: this.pad(P.filter(p => inTab(p, d.k)).length),
+      style: s.tab === d.k ? 'color:#D6B083;border-bottom-color:#D6B083' : '',
+      pressed: s.tab === d.k ? 'true' : 'false',
+      pick: () => this.setState({ tab: d.k })
+    }));
+    const list = P.filter(p => inTab(p, s.tab));
+    const strip = list.map((p, i) => {
+      const fav = s.favs.indexOf(p.id) > -1;
+      return {
+        img: p.img, alt: p.alt + ' (imagem ilustrativa)', title: p.title, place: p.place, reduced: !!p.reduced,
+        idx: this.pad(i + 1) + ' / ' + this.pad(list.length),
+        m2Txt: p.m2 + ' m²', priceTxt: this.fmt(p.price),
+        delay: 'animation-delay:' + (i * 0.08).toFixed(2) + 's',
+        favPressed: fav ? 'true' : 'false',
+        favLabel: (fav ? 'Remover dos favoritos: ' : 'Adicionar aos favoritos: ') + p.title + ', ' + p.place,
+        heartStyle: fav ? 'fill:#D6B083;color:#D6B083' : '',
+        toggle: () => this.toggleFav(p.id)
+      };
+    });
+    const tabName = (tabDefs.filter(d => d.k === s.tab)[0] || tabDefs[0]);
+    const emptyTxt = fr
+      ? 'Aucun bien de cette catégorie en portefeuille pour le moment. Dites-nous ce que vous cherchez — nous vous prévenons dès qu’il arrive.'
+      : 'De momento não temos ' + tabName.pt.toLowerCase() + ' em carteira. Diga-nos o que procura — avisamos assim que surgir.';
+
+    const modeDefs = [ { k:'comprar', pt:'Comprar', fr:'Acheter' }, { k:'arrendar', pt:'Arrendar', fr:'Louer' }, { k:'terrenos', pt:'Terrenos', fr:'Terrains' } ];
+    const modes = modeDefs.map(d => ({ label: fr ? d.fr : d.pt, style: s.mode === d.k ? ON : '', pressed: s.mode === d.k ? 'true' : 'false', pick: () => this.setState({ mode: d.k }) }));
+    const res = P.filter(p => {
+      if (s.mode === 'arrendar') return false;
+      if (s.mode === 'terrenos' && p.type !== 'terreno') return false;
+      if (s.sType === 'novo' && !p.isNew) return false;
+      if (s.sType !== 'all' && s.sType !== 'novo' && p.type !== s.sType) return false;
+      if (s.sLoc !== 'all' && p.place !== s.sLoc) return false;
+      if (s.sMax > 0 && p.price > s.sMax) return false;
+      return true;
+    }).length;
+    const resultTxt = res === 0
+      ? (fr ? 'aucun bien pour l’instant — parlez-nous de votre projet.' : 'sem resultados de momento — fale-nos do que procura.')
+      : res === 1 ? (fr ? 'bien correspond à votre recherche.' : 'imóvel corresponde à sua pesquisa.')
+      : (fr ? 'biens correspondent à votre recherche.' : 'imóveis correspondem à sua pesquisa.');
+
+    const placeDefs = [
+      { name:'Caldas da Rainha', img:'assets/white-lane.webp', alt:'Pátio caiado com azul e buganvília', caption:'A cidade termal e a nossa casa — o escritório fica na Rua Vitorino Frois, 64.', match:['Caldas da Rainha'] },
+      { name:'Óbidos', img:'assets/obidos-dusk.webp', alt:'Telhados de Óbidos ao pôr do sol', caption:'Vila muralhada, telhados de barro e ruas de buganvília.', match:['Óbidos'] },
+      { name:'Foz do Arelho', img:'assets/coast-village.webp', alt:'Casas brancas sobre a praia', caption:'Onde a Lagoa de Óbidos se abre ao Atlântico.', match:['Foz do Arelho'] },
+      { name:'Lagoa de Óbidos', img:'assets/lagoa-aerial.webp', alt:'Vista aérea da lagoa e do mar', caption:'Águas calmas entre o campo e o mar — o Nadadouro fica na sua margem.', match:['Nadadouro'] },
+      { name:'Nazaré', img:'assets/nazare-beach.webp', alt:'Praia da Nazaré', caption:'A vila piscatória, o promontório e as ondas que o mundo conhece.', match:['Nazaré'] },
+      { name:'Serra do Bouro', img:'assets/countryside-fog.webp', alt:'Campo verde em nevoeiro com casa de pedra', caption:'Campo verde, nevoeiro da manhã e o mar logo ali.', match:['Serra do Bouro'] }
+    ];
+    const places = placeDefs.map((d, i) => {
+      const on = s.place === i;
+      const n = P.filter(p => d.match.indexOf(p.place) > -1).length;
+      return {
+        n: this.pad(i + 1), name: d.name, img: d.img, alt: d.alt + ' (ilustrativa)', caption: d.caption,
+        countTxt: n === 0 ? 'Sem imóveis em carteira de momento' : n + (n > 1 ? ' imóveis em carteira' : ' imóvel em carteira'),
+        pressed: on ? 'true' : 'false',
+        style: on ? 'color:#D6B083;padding-left:14px' : '',
+        lineW: on ? 'width:72px' : 'width:0px',
+        imgStyle: on ? 'opacity:1;transform:scale(1)' : 'opacity:0;transform:scale(1.08)',
+        pick: () => this.setState({ place: i })
+      };
+    });
+
+    const mNames = ['Óbidos','Foz do Arelho','Nazaré','Lagoa de Óbidos','Serra do Bouro','Caldas da Rainha'];
+    const marquee = mNames.concat(mNames).map(n => ({ name: n }));
+    const chapters = [t.c1, t.c2, t.c3, t.c4, t.c5, t.c6].map((l, i) => ({ n: this.pad(i + 1), label: l, href: '#ch-0' + (i + 1) }));
+    const servA = ['Obtenção de NIF','Abertura de conta bancária','Tradução do CPCV','Apoio ao crédito bancário','Golden Visa','Contratos de água, luz e internet','Legalização de automóvel'].map((n, i) => ({ n: this.pad(i + 1), name: n }));
+    const servC = ['Limpeza','Manutenção','Acompanhamento de obras'].map((n, i) => ({ n: this.pad(i + 8), name: n }));
+
+    const grainOn = this.props.grain === true;
+    const nlOk = s.nl === 'ok';
+
+    return {
+      t, tabs, strip, modes, places, marquee, chapters, servA, servC,
+      cur: places[s.place],
+      hasStrip: strip.length > 0, noStrip: strip.length === 0, emptyTxt,
+      resultN: this.pad(res), resultTxt,
+      menu: s.menu, menuExp: s.menu ? 'true' : 'false',
+      toggleMenu: () => this.setState({ menu: !s.menu }),
+      ptStyle: fr ? '' : 'color:#D6B083', frStyle: fr ? 'color:#D6B083' : '',
+      ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: String(s.favs.length), favLabel: t.favs + ' (' + s.favs.length + ')',
+      setSType: e => this.setState({ sType: this.val(e) }),
+      setSLoc: e => this.setState({ sLoc: this.val(e) }),
+      setSMax: e => this.setState({ sMax: Number(this.val(e)) || 0 }),
+      email: s.email, setEmail: e => this.setState({ email: this.val(e), nl: s.nl === 'err' ? '' : s.nl }),
+      subscribe: () => this.setState({ nl: /.+@.+\..+/.test(s.email) ? 'ok' : 'err' }),
+      nlOk, nlForm: !nlOk, nlErr: s.nl === 'err',
+      grainStyle: grainOn ? "" : "display:none"
+    };
+  }
+}
+</script>
+</body>
+</html>

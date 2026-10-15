@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noir — Serviços</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap">
+<style>
+body{margin:0;background:#070707}
+sc-for,sc-if{display:contents}
+.nx,.nx *{box-sizing:border-box}
+.nx{font-family:'Jost',sans-serif;font-weight:300;color:#F2EDE4;background:#070707;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.nx a{color:inherit;text-decoration:none}
+.nx button,.nx input,.nx select,.nx textarea{font-family:'Jost',sans-serif}
+.nx button{cursor:pointer}
+.nx img{display:block}
+.nx-disp{font-family:'Italiana',serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
+.nx-caps{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;line-height:1.5}
+.nx-wrap{max-width:1280px;margin:0 auto;padding-left:48px;padding-right:48px}
+.nx :focus-visible{outline:1px solid #E9D6B2;outline-offset:4px}
+.nx-link{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#F2EDE4;transition:color .4s}
+.nx-link::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-link:hover,.nx-link.on{color:#E9D6B2}
+.nx-link:hover::after,.nx-link.on::after{transform:scaleX(1);transform-origin:left}
+.nx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 32px;border:1px solid var(--gold);background:transparent;color:#F2EDE4;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;position:relative;overflow:hidden;transition:color .5s;cursor:pointer}
+.nx-btn::before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--gold);transform:translateY(101%);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-btn>*{position:relative;z-index:1}
+.nx-btn:hover{color:#070707}
+.nx-btn:hover::before{transform:translateY(0)}
+.nx-btn.solid{background:var(--gold);color:#070707}
+.nx-btn.solid::before{background:#E9D6B2}
+.nx-ghost{display:inline-flex;align-items:center;gap:14px;min-height:44px;color:#E9D6B2;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;background:transparent;border:0}
+.nx-ghost svg{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.nx-ghost:hover svg{transform:translateX(8px)}
+.nx-lang{min-width:44px;min-height:44px;background:transparent;border:0;font-size:11px;letter-spacing:.24em;transition:color .3s}
+.nx-icon{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#F2EDE4;background:transparent;border:0;transition:color .3s}
+.nx-icon:hover{color:#E9D6B2}
+.nx-badge{position:absolute;top:3px;right:0;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#070707;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;letter-spacing:0}
+.nx-burger{display:none}
+@keyframes nxUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes nxFade{from{opacity:0}to{opacity:1}}
+@keyframes nxDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.nx-up{animation:nxUp 1.4s cubic-bezier(.2,.7,.1,1) both}
+.d1{animation-delay:.3s}.d2{animation-delay:.6s}.d3{animation-delay:1s}.d4{animation-delay:1.3s}
+.nx-panel{animation:nxUp .9s cubic-bezier(.2,.7,.1,1) both}
+.nx-fadein{animation:nxFade 1.2s ease both}
+.nx-draw{height:1px;background:linear-gradient(90deg,rgba(214,176,131,0),var(--gold),rgba(214,176,131,0));animation:nxDraw 2.4s .9s cubic-bezier(.7,0,.2,1) both}
+.nx-shero{position:relative;height:660px;overflow:hidden;background:#070707}
+.nx-shero .base{position:absolute;left:0;top:0;width:100%;height:660px;object-fit:cover;opacity:.07;filter:grayscale(1)}
+.nx-shero .lit{position:absolute;left:0;top:0;width:100%;height:660px;object-fit:cover;filter:saturate(.7);-webkit-mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,0) 100%);mask-image:radial-gradient(closest-side,#000 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,0) 100%);-webkit-mask-size:900px 900px;mask-size:900px 900px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:80% 40%;mask-position:80% 40%;animation:nxFade 3s .2s ease-out both,nxSpot2 24s 1s ease-in-out infinite alternate}
+@keyframes nxSpot2{0%{-webkit-mask-position:80% 40%;mask-position:80% 40%}50%{-webkit-mask-position:30% 60%;mask-position:30% 60%}100%{-webkit-mask-position:65% 20%;mask-position:65% 20%}}
+.nx-shero .veil{position:absolute;left:0;top:0;right:0;height:660px;background:radial-gradient(ellipse at 50% 50%,rgba(7,7,7,.6) 0%,rgba(7,7,7,.15) 50%,rgba(7,7,7,.7) 100%),linear-gradient(180deg,rgba(7,7,7,0) 60%,#070707 100%)}
+.nx-tabbtn{background:transparent;border:0;min-height:64px;padding:0 0 14px;text-align:left;transition:color .5s,border-color .5s}
+.nx-acc{border-bottom:1px solid rgba(242,237,228,.1)}
+.nx-acc button{display:flex;align-items:center;gap:24px;width:100%;min-height:76px;background:transparent;border:0;color:#F2EDE4;text-align:left;padding:14px 0;transition:color .4s}
+.nx-acc button:hover{color:#E9D6B2}
+.nx-plus{margin-left:auto;flex:0 0 auto;width:40px;height:40px;border:1px solid rgba(214,176,131,.45);border-radius:20px;display:flex;align-items:center;justify-content:center;transition:transform .6s cubic-bezier(.2,.7,.1,1),background .4s}
+.nx-how{padding:34px 28px 34px 0;border-top:1px solid rgba(214,176,131,.3)}
+@media (max-width:960px){
+.nx-nav{display:none}
+.nx-burger{display:inline-flex}
+.nx-wrap{padding-left:20px;padding-right:20px}
+.nx-topl{display:none}
+.nx-shero,.nx-shero .base,.nx-shero .lit,.nx-shero .veil,.nx-shero-in{height:540px !important}
+.nx-svc{grid-template-columns:1fr !important}
+.nx-svcimg{position:static !important}
+.nx-sec{padding-top:80px !important;padding-bottom:80px !important}
+}
+@media (prefers-reduced-motion:reduce){.nx *{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="nx" style="{{ rootStyle }}">
+
+<div style="border-bottom:1px solid rgba(242,237,228,.07)">
+<div class="nx-wrap" style="display:flex;justify-content:space-between;align-items:center;min-height:40px;gap:16px">
+<span class="nx-caps nx-topl" style="font-size:10px;color:#A39E94">{{ t.top }}</span>
+<a href="index.html" class="nx-ghost" style="font-size:10px;min-height:40px">{{ t.all }}<svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M0 4h20M17 1l3 3-3 3" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+</div>
+
+<header style="position:relative;z-index:20;background:#070707;border-bottom:1px solid rgba(214,176,131,.16)">
+<div class="nx-wrap" style="display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:24px">
+<a href="Noir-Home.html" aria-label="Imonovo — página inicial" style="display:flex;flex-direction:column;line-height:1">
+<span class="nx-disp" style="font-size:30px;letter-spacing:.2em">IMONOVO</span>
+<span class="nx-caps" style="font-size:9px;letter-spacing:.46em;color:var(--gold);margin-top:7px">Private Office</span>
+</a>
+<nav class="nx-nav" aria-label="Navegação principal" style="display:flex;gap:34px;align-items:center">
+<a class="nx-link nx-caps" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-caps" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-caps on" aria-current="page" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-caps" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+<div style="display:flex;align-items:center;gap:4px">
+<div role="group" aria-label="Idioma" style="display:flex;align-items:center">
+<button type="button" class="nx-lang" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPt }}">PT</button>
+<span aria-hidden="true" style="width:1px;height:12px;background:rgba(242,237,228,.2)"></span>
+<button type="button" class="nx-lang" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFr }}">FR</button>
+</div>
+<a href="Noir-Imoveis.html" class="nx-icon" aria-label="{{ favAria }}">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg>
+<span class="nx-badge">{{ favCount }}</span>
+</a>
+<button type="button" class="nx-icon nx-burger" aria-label="Abrir menu" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}">
+<svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><path d="M0 1h24M6 13h18" stroke="currentColor" stroke-width="1.1" fill="none"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Navegação móvel" style="border-top:1px solid rgba(214,176,131,.16);padding:12px 20px 28px;display:flex;flex-direction:column;background:#070707">
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Home.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Vender.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Servicos.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Contactos.html">{{ t.nav.cont }}</a>
+</nav>
+</sc-if>
+</header>
+
+<main>
+<!-- spotlight hero -->
+<section class="nx-shero" aria-label="Serviços">
+<img class="base" src="assets/int-marble.webp" alt="">
+<img class="lit" src="assets/int-marble.webp" alt="Interior em mármore, luz baixa">
+<div class="veil"></div>
+<div class="nx-wrap nx-shero-in" style="position:relative;z-index:2;height:660px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<p class="nx-caps nx-up d1" style="color:var(--gold);margin:0 0 28px;letter-spacing:.42em">{{ t.eyebrow }}</p>
+<h1 class="nx-disp nx-up d2" style="margin:0;font-size:clamp(56px,8vw,128px);line-height:.96">{{ t.h1a }}<span style="display:block;color:#E9D6B2">{{ t.h1b }}</span></h1>
+<div class="nx-draw" style="width:260px;max-width:60vw;margin:36px auto 30px"></div>
+<p class="nx-up d3" style="max-width:540px;margin:0 auto;color:#C9C3B8;font-size:17px">{{ t.sub }}</p>
+</div>
+</section>
+
+<!-- services -->
+<section class="nx-sec" style="padding:120px 0 140px" aria-labelledby="svc-title">
+<div class="nx-wrap">
+<h2 id="svc-title" class="nx-caps" style="color:var(--gold);margin:0 0 30px;font-size:11px">A carta de serviços</h2>
+<div role="tablist" aria-label="Famílias de serviços" style="display:flex;gap:56px;border-bottom:1px solid rgba(242,237,228,.12);flex-wrap:wrap">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="2">
+<button type="button" role="tab" class="nx-tabbtn" aria-selected="{{ tb.sel }}" onClick="{{ tb.pick }}" style="{{ tb.style }}">
+<span class="nx-disp" style="font-size:clamp(34px,4vw,56px)">{{ tb.label }}</span>
+<span class="nx-caps" style="font-size:10px;color:#A39E94;margin-left:14px">{{ tb.count }}</span>
+</button>
+</sc-for>
+</div>
+<div class="nx-svc" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:80px;margin-top:40px;align-items:start">
+<div>
+<p style="color:#A39E94;font-size:17px;max-width:560px;margin:0 0 24px">{{ intro }}</p>
+<sc-for list="{{ items }}" as="it" hint-placeholder-count="7">
+<div class="nx-acc">
+<button type="button" aria-expanded="{{ it.exp }}" onClick="{{ it.toggle }}">
+<span class="nx-disp" style="font-size:20px;color:var(--gold);min-width:44px">{{ it.roman }}</span>
+<span class="nx-disp" style="font-size:clamp(24px,2.4vw,32px)">{{ it.name }}</span>
+<span class="nx-plus" style="{{ it.plusStyle }}" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0v12M0 6h12" stroke="currentColor" fill="none"></path></svg></span>
+</button>
+<sc-if value="{{ it.open }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" style="padding:0 0 30px 68px">
+<p style="color:#C9C3B8;font-size:17px;line-height:1.8;margin:0 0 16px;max-width:520px">{{ it.text }}</p>
+<a href="Noir-Contactos.html" class="nx-ghost">Pedir este serviço<svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h26M22 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<div class="nx-svcimg" style="position:sticky;top:24px">
+<div style="position:relative;height:620px;overflow:hidden">
+<sc-for list="{{ tabs }}" as="ti" hint-placeholder-count="1">
+<img src="{{ ti.img }}" alt="{{ ti.alt }}" style="{{ ti.imgStyle }}">
+</sc-for>
+<span aria-hidden="true" style="position:absolute;left:16px;top:16px;right:16px;bottom:16px;border:1px solid rgba(214,176,131,.45)"></span>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:110px 36px 34px;background:linear-gradient(180deg,rgba(7,7,7,0),rgba(7,7,7,.9))">
+<p class="nx-disp nx-fadein" style="font-size:28px;line-height:1.3;margin:0;color:#F2EDE4">{{ quote }}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- the journey, vertical -->
+<section class="nx-sec" style="padding:140px 0;background:#0B0B0B;border-top:1px solid rgba(214,176,131,.14)">
+<div class="nx-wrap">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:64px;align-items:start">
+<div>
+<p class="nx-caps" style="color:var(--gold);margin:0 0 20px">O percurso completo</p>
+<h2 class="nx-disp" style="font-size:clamp(44px,5vw,76px);margin:0">Um só fio,<span style="display:block;color:#E9D6B2">do início ao fim.</span></h2>
+<p style="color:#A39E94;font-size:17px;max-width:420px;margin:26px 0 0">Compra, Acompanhamento e Conciergerie não são três serviços: são as etapas de uma mesma história. Pode entrar nela em qualquer ponto.</p>
+</div>
+<ol style="list-style:none;margin:0;padding:0 0 0 36px;border-left:1px solid rgba(214,176,131,.35)">
+<sc-for list="{{ journey }}" as="j" hint-placeholder-count="6">
+<li style="position:relative;padding:0 0 38px">
+<span aria-hidden="true" style="position:absolute;left:-42px;top:10px;width:11px;height:11px;transform:rotate(45deg);border:1px solid #D6B083;background:#0B0B0B"></span>
+<p class="nx-caps" style="color:#A39E94;font-size:10px;margin:0">{{ j.no }}</p>
+<p class="nx-disp" style="font-size:32px;margin:4px 0 6px">{{ j.name }}</p>
+<p style="color:#A39E94;margin:0;max-width:440px">{{ j.text }}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- how it works -->
+<section class="nx-sec" style="padding:140px 0">
+<div class="nx-wrap">
+<p class="nx-caps" style="color:var(--gold);margin:0 0 20px">Como funciona</p>
+<h2 class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:0 0 60px">Por marcação, à medida.</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:0 32px">
+<div class="nx-how"><p class="nx-disp" style="font-size:52px;color:rgba(214,176,131,.5);margin:0">01</p><p class="nx-disp" style="font-size:28px;margin:10px 0 10px">Conversa</p><p style="color:#A39E94;margin:0">Por telefone, no escritório ou à distância: o que precisa, e quando.</p></div>
+<div class="nx-how"><p class="nx-disp" style="font-size:52px;color:rgba(214,176,131,.5);margin:0">02</p><p class="nx-disp" style="font-size:28px;margin:10px 0 10px">Proposta</p><p style="color:#A39E94;margin:0">Os serviços escolhidos, prazos e condições por escrito [TARIFAS].</p></div>
+<div class="nx-how"><p class="nx-disp" style="font-size:52px;color:rgba(214,176,131,.5);margin:0">03</p><p class="nx-disp" style="font-size:28px;margin:10px 0 10px">Execução</p><p style="color:#A39E94;margin:0">Tratamos de cada passo e mantemo-lo informado, em português ou francês.</p></div>
+<div class="nx-how"><p class="nx-disp" style="font-size:52px;color:rgba(214,176,131,.5);margin:0">04</p><p class="nx-disp" style="font-size:28px;margin:10px 0 10px">Continuidade</p><p style="color:#A39E94;margin:0">Depois das chaves, a Conciergerie mantém a casa como a deixou.</p></div>
+</div>
+<div style="margin-top:110px;text-align:center;border:1px solid rgba(214,176,131,.4);padding:10px">
+<div style="border:1px solid rgba(214,176,131,.16);padding:72px 32px">
+<p class="nx-caps" style="color:var(--gold);margin:0">Private Office</p>
+<p class="nx-disp" style="font-size:clamp(38px,4.4vw,60px);margin:18px 0 14px">Uma conversa basta para começar.</p>
+<p style="color:#A39E94;margin:0 auto 36px;max-width:460px">Diga-nos onde está no seu percurso. Nós tratamos do resto.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+<a href="Noir-Contactos.html" class="nx-btn solid"><span>{{ t.cta }}</span></a>
+<a href="tel:+351210958271" class="nx-btn"><span>+351 210 958 271</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="border-top:1px solid rgba(214,176,131,.2);background:#070707;overflow:hidden">
+<div class="nx-wrap" style="padding-top:96px;padding-bottom:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+<div>
+<span class="nx-disp" style="font-size:28px;letter-spacing:.2em">IMONOVO</span>
+<p style="color:#A39E94;font-size:14px;margin:16px 0 0;max-width:260px">Private real-estate office na Costa de Prata. Compra, Acompanhamento, Conciergerie.</p>
+</div>
+<div>
+<p class="nx-caps" style="font-size:10px;color:#A39E94;margin:0 0 14px">Escritório</p>
+<p style="margin:0;font-size:15px">Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha</p>
+<p style="margin:10px 0 0;font-size:14px;color:#A39E94">Por marcação · [HORÁRIO]</p>
+</div>
+<div>
+<p class="nx-caps" style="font-size:10px;color:#A39E94;margin:0 0 14px">Contacto</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351210958271">+351 210 958 271</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351919192220">+351 919 192 220</a><br>
+<span style="font-size:11px;color:#A39E94">Chamada para a rede fixa / móvel nacional</span><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="mailto:info@imonovo.pt">info@imonovo.pt</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="https://www.instagram.com/imonovo_portugal">@imonovo_portugal</a>
+</div>
+<div>
+<p class="nx-caps" style="font-size:10px;color:#A39E94;margin:0 0 14px">Casa</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Imoveis.html">Imóveis</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Vender.html">Vender</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Servicos.html">Serviços</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Contactos.html">Contactos &amp; Recrutamento</a>
+</div>
+</div>
+<p class="nx-disp" aria-hidden="true" style="font-size:clamp(80px,17vw,250px);line-height:.9;margin:80px 0 0;color:#151515;text-align:center;letter-spacing:.08em">IMONOVO</p>
+<div style="height:1px;background:rgba(214,176,131,.2);margin:28px 0 22px"></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12px;color:#A39E94">
+<span>© Imonovo · MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+<span>Proposta de redesign — conceito, não é o site oficial</span>
+<a href="index.html" class="nx-link" style="min-height:24px;font-size:12px">Todas as propostas</a>
+</div>
+</div>
+</footer>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4700},"accent":{"editor":"color","default":"#D6B083","options":["#D6B083","#E9D6B2","#B8925A"]}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:'pt', menu:false, tab:'acomp', open:0 }; }
+  renderVals(){
+    const s = this.state, p = this.props || {}, gold = p.accent || '#D6B083';
+    const T = {
+      pt:{ nav:{home:'Início',imoveis:'Imóveis',emp:'Empreendimentos',vender:'Vender',serv:'Serviços',cont:'Contactos'},
+        top:'Private Office · Caldas da Rainha — por marcação', all:'Todas as propostas',
+        eyebrow:'Acompanhamento · Conciergerie', h1a:'Tudo o que vem', h1b:'depois do «sim».',
+        sub:'Papéis, bancos, contratos, chaves, obras. Um concierge privado para quem compra na Costa de Prata — e para quem já cá vive.',
+        cta:'Marcar uma conversa', tabs:['Acompanhamento','Conciergerie'] },
+      fr:{ nav:{home:'Accueil',imoveis:'Biens',emp:'Programmes',vender:'Vendre',serv:'Services',cont:'Contact'},
+        top:'Private Office · Caldas da Rainha — sur rendez-vous', all:'Toutes les propositions',
+        eyebrow:'Accompagnement · Conciergerie', h1a:'Tout ce qui vient', h1b:'après le « oui ».',
+        sub:'Papiers, banques, contrats, clés, travaux. Un concierge privé pour ceux qui achètent sur la Costa de Prata — et pour ceux qui y vivent déjà.',
+        cta:'Prendre rendez-vous', tabs:['Accompagnement','Conciergerie'] }
+    };
+    const t = T[s.lang];
+    const S = {
+      acomp:[
+        ['Obtenção de NIF','Tratamos do pedido do Número de Identificação Fiscal, indispensável para comprar, abrir conta ou assinar qualquer contrato em Portugal.'],
+        ['Abertura de conta bancária','Preparamos a documentação e acompanhamo-lo ao banco para abrir a sua conta portuguesa sem idas e voltas.'],
+        ['Tradução do CPCV','O contrato-promessa traduzido para francês, para assinar com pleno conhecimento de cada cláusula, prazo e condição.'],
+        ['Apoio ao crédito bancário','Ajudamos a reunir o dossier e a comparar as propostas de financiamento junto dos bancos.'],
+        ['Golden Visa','Informação e encaminhamento sobre a Autorização de Residência para Investimento, de acordo com o regime em vigor.'],
+        ['Contratos de água, luz e internet','Tratamos dos contratos em seu nome para que a casa esteja pronta a viver no dia em que chega.'],
+        ['Legalização de automóvel','Apoio no processo de legalização em Portugal do veículo que traz consigo.']
+      ],
+      conc:[
+        ['Limpeza','Limpeza regular ou antes de cada chegada — a casa pronta a viver, sempre que abre a porta.'],
+        ['Manutenção','Pequenas reparações e manutenção corrente: coordenamos os profissionais e verificamos o resultado por si.'],
+        ['Acompanhamento de obras','Seguimos a obra no local e mantemo-lo informado, mesmo quando está do outro lado da fronteira.']
+      ]
+    };
+    const R = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+    const keys = ['acomp','conc'];
+    const IM = { acomp:['assets/int-marble.webp','Interior em mármore'], conc:['assets/kitchen-white.webp','Cozinha branca impecável'] };
+    const tabs = keys.map((k,i) => { const on = s.tab === k; return {
+      label:t.tabs[i], count:String(S[k].length).padStart(2,'0'), sel:on ? 'true' : 'false', pick:() => this.setState({tab:k, open:0}),
+      style:'color:' + (on ? '#E9D6B2' : '#7A756D') + ';border-bottom:1px solid ' + (on ? gold : 'transparent') + ';margin-bottom:-1px',
+      img:IM[k][0], alt:IM[k][1],
+      imgStyle:'position:absolute;left:0;top:0;width:100%;height:620px;object-fit:cover;filter:brightness(.72);transition:opacity 1.2s ease,transform 5s ease;' + (on ? 'opacity:1;transform:scale(1.04)' : 'opacity:0;transform:scale(1)') }; });
+    const offset = s.tab === 'conc' ? 7 : 0;
+    const items = S[s.tab].map((x,i) => { const o = s.open === i; return {
+      roman:R[i + offset], name:x[0], text:x[1], open:o, exp:o ? 'true' : 'false',
+      toggle:() => this.setState({open:o ? -1 : i}),
+      plusStyle:o ? 'transform:rotate(45deg);background:' + gold + ';color:#070707' : 'color:' + gold }; });
+    const J = [
+      ['Procura','Briefing privado e seleção à medida na nossa carteira.'],
+      ['Visita','Por marcação, com um consultor que fala a sua língua.'],
+      ['NIF & banco','Número fiscal e conta portuguesa, antes de qualquer proposta.'],
+      ['CPCV traduzido','O contrato-promessa em francês, cláusula a cláusula.'],
+      ['Escritura','Acompanhamento até ao último documento.'],
+      ['Conciergerie','Contratos, limpeza, manutenção e obras — depois das chaves.']
+    ];
+    const journey = J.map((x,i) => ({ no:'Etapa ' + R[i], name:x[0], text:x[1] }));
+    return {
+      rootStyle:'--gold:' + gold + ';--champ:#E9D6B2', t,
+      ptStyle:s.lang === 'pt' ? 'color:#E9D6B2' : 'color:#8A857C', frStyle:s.lang === 'fr' ? 'color:#E9D6B2' : 'color:#8A857C',
+      ptPressed:s.lang === 'pt' ? 'true' : 'false', frPressed:s.lang === 'fr' ? 'true' : 'false',
+      setPt:() => this.setState({lang:'pt'}), setFr:() => this.setState({lang:'fr'}),
+      favCount:'0', favAria:'Favoritos: 0',
+      menuOpen:s.menu, menuExpanded:s.menu ? 'true' : 'false', toggleMenu:() => this.setState({menu:!s.menu}),
+      tabs, items, journey,
+      intro:s.tab === 'acomp' ? 'Os passos administrativos de uma compra em Portugal, tratados por quem os conhece de cor. Selecione um serviço.' : 'A casa cuidada como se estivesse lá — mesmo quando está em França. Selecione um serviço.',
+      quote:s.tab === 'acomp' ? '«Do NIF à escritura, nunca sozinho.»' : '«A casa pronta, sempre que chega.»'
+    };
+  }
+}
+</script>
+</body>
+</html>

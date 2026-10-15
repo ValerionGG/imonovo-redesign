@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Caldas — Contactos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#ECEAE4}
+.cz{container-type:inline-size;background:#ECEAE4;color:#0E0E0D;font-family:'Archivo',system-ui,sans-serif;font-size:16px;line-height:1.5;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+:where(.cz) a{color:inherit}
+:where(.cz) h1,:where(.cz) h2,:where(.cz) h3,:where(.cz) p,:where(.cz) figure,:where(.cz) dl,:where(.cz) dd,:where(.cz) ul,:where(.cz) ol{margin:0;padding:0}
+:where(.cz) ul,:where(.cz) ol{list-style:none}
+:where(.cz) button,:where(.cz) input,:where(.cz) select,:where(.cz) textarea{font-family:inherit;color:inherit;font-size:inherit}
+.cz img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px;position:relative}
+.xp{font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;line-height:.9}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.hl{background:#D6B083;color:#0E0E0D;padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cz :focus-visible{outline:2px solid #0E0E0D;outline-offset:3px}
+.dk :focus-visible{outline-color:#D6B083}
+.gov{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40;mix-blend-mode:multiply}
+.gov-in{width:100%;max-width:1440px;padding:0 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.gov-in i{border-left:1px solid rgba(14,14,13,.06);border-right:1px solid rgba(14,14,13,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.hdr-top{border-bottom:1px solid #0E0E0D;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.hdr-top-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:34px}
+.lnk-top{text-decoration:none;display:inline-flex;align-items:center;min-height:34px;padding:0 8px;transition:background .25s}
+.lnk-top:hover{background:#D6B083}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{display:inline-flex;gap:5px;font-size:26px;font-weight:900;font-stretch:125%;letter-spacing:-.03em;text-decoration:none;line-height:1;min-height:44px;align-items:center}
+.logo i{width:9px;height:9px;background:#D6B083;align-self:flex-start;margin-top:8px}
+.nav{display:flex;gap:2px}
+.nav-a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;text-decoration:none;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.nav-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A5852;padding:1px 3px}
+.nav-a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:#0E0E0D;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.nav-a:hover::after,.nav-a.on::after{transform:scaleX(1);transform-origin:left}
+.nav-a.on .nav-n{background:#D6B083;color:#0E0E0D}
+.hdr-act{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #0E0E0D}
+.lang-b{min-width:44px;min-height:42px;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s,color .25s}
+.fav{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s}
+.fav:hover{background:#D6B083}
+.menu-b{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #0E0E0D;background:transparent;cursor:pointer}
+.mnav{display:none;flex-direction:column;border-top:1px solid #0E0E0D}
+.mnav a{display:flex;align-items:center;gap:14px;min-height:56px;padding:0 16px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase}
+.mnav a:hover{background:#D6B083}
+.mnav span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:#5A5852}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;isolation:isolate;transition:color .35s}
+.btn::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:#D6B083;transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:#0E0E0D}
+.btn:hover::before{transform:translateY(0)}
+.btn-o{background:transparent;color:#0E0E0D}
+.btn-g{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.btn-g::before{background:#ECEAE4}
+.btn-sm{min-height:44px;padding:0 16px;font-size:11px}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.hov:hover .ph,.hov:focus-within .ph{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:120px 0 28px;border-bottom:1px solid #0E0E0D}
+.sh-num{grid-column:1/span 4;font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #0E0E0D;transition:color .6s}
+.sh:hover .sh-num{color:#0E0E0D}
+.sh-t{grid-column:5/span 5}
+.sh-t h2{font-size:clamp(32px,3.6cqw,52px);margin-top:10px}
+.sh-x{grid-column:10/span 3;text-align:right;font-size:15px;color:#5A5852}
+.ftr{background:#0E0E0D;color:#ECEAE4;padding:72px 0 28px;position:relative;z-index:41}
+.ftr-word{display:flex;justify-content:space-between;font-size:clamp(54px,14.3cqw,206px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #ECEAE4;transition:color .6s}
+.ftr-word:hover{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:32px;padding:56px 0;margin-top:48px;border-top:1px solid rgba(236,234,228,.25)}
+.ftr .lbl{color:#A9A69E;margin-bottom:12px}
+.ftr p{font-size:15px;line-height:1.7}
+.ftr-l a{display:flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(236,234,228,.12);transition:color .25s,padding .35s}
+.ftr-l a:hover{color:#D6B083;padding-left:8px}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;border-top:1px solid rgba(236,234,228,.25);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#A9A69E}
+.ftr-bot a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ftr-bot a:hover{color:#D6B083}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes ltr{0%{transform:translateY(105%);font-stretch:62%}55%{font-stretch:62%}100%{transform:translateY(0);font-stretch:125%}}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+@keyframes stamp{0%{transform:scale(2.2) rotate(-8deg);opacity:0}60%{transform:scale(.94) rotate(-3deg);opacity:1}100%{transform:scale(1) rotate(-3deg)}}
+/* hero */
+.pt{padding-top:24px}
+.pt-meta{display:flex;justify-content:space-between;gap:16px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-bottom:12px;border-bottom:1px solid #0E0E0D;animation:fade .8s both}
+.pt-word{display:flex;justify-content:space-between;margin-top:14px;font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;overflow:hidden;padding:.05em 0 .03em}
+.pt-word span{display:inline-block;font-stretch:125%;animation:ltr 1.2s cubic-bezier(.16,.84,.2,1) backwards;transition:font-stretch .7s cubic-bezier(.7,0,.2,1),color .3s}
+.pt-word span:hover{font-stretch:62%;color:#D6B083}
+.pt-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:28px 0 0;border-top:1px solid #0E0E0D;margin-top:8px}
+.pt-l{grid-column:1/span 5;animation:up .9s .6s both}
+.pt-l h2{font-size:clamp(30px,3.4cqw,50px);line-height:.98;margin-top:14px}
+.pt-c{grid-column:6/span 3;font-size:17px;animation:up .9s .75s both}
+.pt-r{grid-column:9/span 4;display:flex;flex-direction:column;align-items:flex-end;animation:up .9s .9s both}
+.pt-r a{display:flex;align-items:center;justify-content:flex-end;min-height:52px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(20px,2.1cqw,30px);text-decoration:none;border-bottom:1px solid #0E0E0D;width:100%;transition:background .3s,padding .35s}
+.pt-r a:hover{background:#D6B083;padding-right:12px}
+/* contact grid */
+.cg{display:grid;grid-template-columns:repeat(12,1fr);border:1px solid #0E0E0D;margin-top:56px}
+.cf{grid-column:span 7;padding:32px 36px;border-right:1px solid #0E0E0D}
+.co{grid-column:span 5;display:flex;flex-direction:column}
+.q{margin-bottom:26px}
+.q>.lbl{display:block;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px;border:1px solid currentColor;cursor:pointer;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+.chip:hover{background:#D6B083;color:#0E0E0D;border-color:#D6B083;transform:translateY(-2px)}
+.flds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px}
+.fi{display:flex;flex-direction:column;gap:6px}
+.fi label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.fi input,.fi textarea{border:0;border-bottom:1px solid currentColor;border-radius:0;background:transparent;min-height:48px;font-size:17px;padding:8px 0;transition:background .25s}
+.fi textarea{min-height:130px;resize:vertical;border:1px solid currentColor;padding:12px}
+.fi input:focus,.fi textarea:focus{outline:none;background:rgba(214,176,131,.18)}
+.err{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8A2A12;min-height:18px;margin:14px 0 8px}
+.done{display:flex;flex-direction:column;gap:14px;animation:up .6s both}
+.stampx{display:inline-block;align-self:flex-start;background:#D6B083;color:#0E0E0D;font-weight:900;font-stretch:125%;font-size:72px;line-height:.85;padding:12px 16px 6px;text-transform:uppercase;animation:stamp .7s cubic-bezier(.2,.8,.2,1) both}
+.omap{position:relative;height:330px;overflow:hidden;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.omap svg{position:absolute;top:0;left:0;width:100%;height:100%}
+.opin{position:absolute;left:54%;top:50%;transform:translate(-50%,-100%);background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;text-transform:uppercase;padding:8px 10px;border:1px solid #0E0E0D;white-space:nowrap;z-index:3}
+.opin::after{content:"";position:absolute;left:50%;bottom:-9px;width:1px;height:9px;background:#0E0E0D}
+.opulse{position:absolute;left:54%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border:1px solid #0E0E0D;animation:ping 1.8s ease-out infinite}
+.ocoord{position:absolute;right:12px;top:12px;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;background:#ECEAE4;border:1px solid #0E0E0D;padding:5px 7px}
+.ob{padding:24px 28px;display:flex;flex-direction:column;gap:4px}
+.ob h3{font-size:26px;margin-bottom:10px}
+.ob a.row,.ob div.row{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:46px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:13px;transition:background .25s,padding .35s}
+.ob a.row:hover{background:#D6B083;padding:0 10px}
+.ob .row span:first-child{color:#5A5852;text-transform:uppercase;font-size:11px}
+/* team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));border-left:1px solid #0E0E0D;margin-top:40px}
+.tm{border-right:1px solid #0E0E0D;border-top:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;animation:up .7s both}
+.tm-img{position:relative;height:340px;overflow:hidden;background:#0E0E0D}
+.tm-no{position:absolute;top:0;left:0;z-index:2;background:#0E0E0D;color:#ECEAE4;font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 9px}
+.tm-b{padding:18px;display:flex;flex-direction:column;gap:6px;transition:background .35s}
+.tm:hover .tm-b{background:#D6B083}
+.tm-n{font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase;line-height:1}
+.tm-b .lbl{transition:color .35s}
+.tm:hover .tm-b .lbl{color:#0E0E0D}
+/* recruitment */
+.rec{background:#0E0E0D;color:#ECEAE4;margin-top:120px;position:relative;z-index:41}
+.rec .lbl{color:#A9A69E}
+.rec-in{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:96px 0}
+.rec-l{grid-column:1/span 5}
+.rec-n{font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #D6B083}
+.rec-t{font-size:clamp(36px,4.6cqw,68px);font-weight:900;font-stretch:125%;line-height:.86;text-transform:uppercase;letter-spacing:-.03em;margin-top:24px}
+.rec-p{font-size:18px;line-height:1.55;margin-top:22px;max-width:44ch}
+.rec-f{grid-column:7/span 6;border:1px solid rgba(236,234,228,.35);padding:32px}
+.rec .fi label{color:#A9A69E}
+.yn{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(236,234,228,.25);flex-wrap:wrap}
+.yn>span{font-size:16px}
+.yn .chips{gap:0}
+.yn .chip{min-width:72px;justify-content:center;border-color:rgba(236,234,228,.6)}
+.file{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid rgba(236,234,228,.25)}
+.file input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.file label.btn{cursor:pointer}
+.file input:focus-visible+label{outline:2px solid #D6B083;outline-offset:3px}
+.file-n{font-family:'JetBrains Mono',monospace;font-size:12px;color:#A9A69E}
+.rec .err{color:#E8A08A}
+@media (max-width:1100px){.nav{display:none}.menu-b{display:inline-flex}.mnav{display:flex}.hide-md{display:none}}
+@media (max-width:900px){
+.sh,.pt-row,.cg,.rec-in{grid-template-columns:1fr}
+.sh-num,.sh-t,.sh-x,.pt-l,.pt-c,.pt-r,.cf,.co,.rec-l,.rec-f{grid-column:auto;text-align:left;align-items:flex-start}
+.sh-x,.pt-c,.pt-r{margin-top:16px}.cf{border-right:0;border-bottom:1px solid #0E0E0D;padding:22px 16px}.rec-f{margin-top:40px;padding:20px}
+}
+@media (max-width:640px){.hide-sm{display:none}.wrap,.gov-in{padding:0 16px}}
+@media (prefers-reduced-motion:reduce){.cz *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div class="cz">
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+<div class="gov" aria-hidden="true"><div class="gov-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</sc-if>
+
+<header class="hdr">
+  <div class="hdr-top mono">
+    <div class="wrap hdr-top-in">
+      <span>Imonovo — Caldas da Rainha · 39°24′N 9°08′W</span>
+      <span class="hide-sm">AMI 10355 · APEMIP 5259</span>
+      <a class="lnk-top" href="Main.dc.html">← {{ n.all }}</a>
+    </div>
+  </div>
+  <div class="wrap hdr-bar">
+    <a class="logo" href="Caldas-Home.dc.html" aria-label="Imonovo — Início">IMONOVO<i></i></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-a" href="Caldas-Home.dc.html"><span class="nav-n">01</span>{{ n.home }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.dc.html"><span class="nav-n">02</span>{{ n.imoveis }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.dc.html#empreendimentos"><span class="nav-n">03</span>{{ n.emp }}</a>
+      <a class="nav-a" href="Caldas-Vender.dc.html"><span class="nav-n">04</span>{{ n.vender }}</a>
+      <a class="nav-a" href="Caldas-Servicos.dc.html"><span class="nav-n">05</span>{{ n.servicos }}</a>
+      <a class="nav-a on" href="Caldas-Contactos.dc.html" aria-current="page"><span class="nav-n">06</span>{{ n.contactos }}</a>
+    </nav>
+    <div class="hdr-act">
+      <div class="lang" role="group" aria-label="Idioma / Langue">
+        <button type="button" class="lang-b" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <button type="button" class="lang-b" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a class="fav" href="Caldas-Imoveis.dc.html" aria-label="{{ favAria }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg><span>{{ favCount }}</span></a>
+      <a class="btn btn-sm hide-md" href="Caldas-Vender.dc.html">{{ n.cta }}</a>
+      <button type="button" class="menu-b" aria-label="Menu" aria-expanded="{{ menuAria }}" onClick="{{ toggleMenu }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Caldas-Home.dc.html"><span>01</span>{{ n.home }}</a>
+      <a href="Caldas-Imoveis.dc.html"><span>02</span>{{ n.imoveis }}</a>
+      <a href="Caldas-Imoveis.dc.html#empreendimentos"><span>03</span>{{ n.emp }}</a>
+      <a href="Caldas-Vender.dc.html"><span>04</span>{{ n.vender }}</a>
+      <a href="Caldas-Servicos.dc.html"><span>05</span>{{ n.servicos }}</a>
+      <a href="Caldas-Contactos.dc.html"><span>06</span>{{ n.contactos }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section class="pt wrap" aria-labelledby="pt-h">
+  <div class="pt-meta mono"><span>(Nº 006) — {{ n.contactos }}</span><span class="hide-sm">Rua Vitorino Frois 64 · 2500-256</span><span>PT · FR</span></div>
+  <h1 class="pt-word" id="pt-h" aria-label="{{ t.word }}" style="{{ wordSt }}">
+    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="9"><span aria-hidden="true" style="{{ l.st }}">{{ l.ch }}</span></sc-for>
+  </h1>
+  <div class="pt-row">
+    <div class="pt-l"><p class="lbl">(01) — {{ t.kicker }}</p><h2 class="xp">{{ t.h2a }} <span class="hl">{{ t.h2b }}</span></h2></div>
+    <p class="pt-c">{{ t.intro }}</p>
+    <div class="pt-r">
+      <a href="tel:+351210958271">+351 210 958 271</a>
+      <a href="tel:+351919192220">+351 919 192 220</a>
+      <a href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="{{ t.formT }}">
+  <div class="cg">
+    <div class="cf">
+      <sc-if value="{{ cFormOn }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <p class="lbl">A — {{ t.formT }}</p>
+          <h2 class="xp" style="font-size:34px;margin:10px 0 28px">{{ t.formH }}</h2>
+          <div class="q"><span class="lbl">{{ t.subject }}</span>
+            <div class="chips" role="group" aria-label="{{ t.subject }}"><sc-for list="{{ subjects }}" as="c" hint-placeholder-count="6"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+          </div>
+          <div class="flds">
+            <div class="fi"><label for="c-name">{{ t.name }}</label><input id="c-name" type="text" autocomplete="name" value="{{ c.name }}" onInput="{{ setCName }}"></div>
+            <div class="fi"><label for="c-mail">Email</label><input id="c-mail" type="email" autocomplete="email" value="{{ c.email }}" onInput="{{ setCEmail }}"></div>
+            <div class="fi"><label for="c-tel">{{ t.tel }}</label><input id="c-tel" type="tel" autocomplete="tel" value="{{ c.tel }}" onInput="{{ setCTel }}"></div>
+            <div class="fi" style="grid-column:1/-1"><label for="c-msg">{{ t.msg }}</label><textarea id="c-msg" onInput="{{ setCMsg }}">{{ c.msg }}</textarea></div>
+          </div>
+          <p class="err" aria-live="polite">{{ cErr }}</p>
+          <button type="button" class="btn" onClick="{{ sendContact }}">{{ t.send }} <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ cDoneOn }}" hint-placeholder-val="{{ false }}">
+        <div class="done" role="status">
+          <span class="stampx">{{ t.stamp }}</span>
+          <h2 class="xp" style="font-size:34px">{{ t.doneT }}</h2>
+          <p style="font-size:18px">{{ cDoneP }}</p>
+          <p class="lbl">{{ t.doneNote }}</p>
+          <div><button type="button" class="btn btn-o" onClick="{{ resetContact }}">{{ t.again }}</button></div>
+        </div>
+      </sc-if>
+    </div>
+    <div class="co">
+      <div class="omap" role="img" aria-label="{{ t.mapAria }}">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 18 H100 M0 41 H100 M0 63 H100 M0 86 H100 M14 0 V100 M33 0 V100 M71 0 V100 M88 0 V100" stroke="#0E0E0D" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".14"></path>
+          <path d="M0 74 L40 52 L100 30" stroke="#0E0E0D" stroke-width="6" vector-effect="non-scaling-stroke" opacity=".1" fill="none"></path>
+          <path d="M8 100 L30 60 L54 50 L80 0" stroke="#0E0E0D" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"></path>
+          <path d="M54 50 L100 66" stroke="#0E0E0D" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none" stroke-dasharray="5 4"></path>
+          <rect x="60" y="8" width="18" height="14" fill="#0E0E0D" opacity=".08"></rect>
+          <rect x="18" y="70" width="12" height="12" fill="#0E0E0D" opacity=".08"></rect>
+          <rect x="74" y="70" width="10" height="20" fill="#0E0E0D" opacity=".08"></rect>
+        </svg>
+        <span class="opulse"></span>
+        <span class="opin">Imonovo · Rua Vitorino Frois 64</span>
+        <span class="ocoord">39°24′N 9°08′W · {{ t.schem }}</span>
+      </div>
+      <div class="ob">
+        <p class="lbl">B — {{ t.office }}</p>
+        <h3 class="xp">Caldas da Rainha</h3>
+        <div class="row"><span>{{ t.addr }}</span><span>Rua Vitorino Frois 64, 2500-256</span></div>
+        <a class="row" href="tel:+351210958271"><span>Tel</span><span>+351 210 958 271</span></a>
+        <a class="row" href="tel:+351919192220"><span>Tlm</span><span>+351 919 192 220</span></a>
+        <a class="row" href="mailto:info@imonovo.pt"><span>Email</span><span>info@imonovo.pt</span></a>
+        <a class="row" href="https://www.instagram.com/imonovo_portugal/"><span>Instagram</span><span>@imonovo_portugal</span></a>
+        <div class="row"><span>{{ t.wk }}</span><span>[HORÁRIO]</span></div>
+        <div class="row"><span>{{ t.sat }}</span><span>[HORÁRIO]</span></div>
+        <div class="row"><span>{{ t.sun }}</span><span>[HORÁRIO]</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="s2">
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">02</span>
+    <div class="sh-t"><p class="lbl">{{ t.s2k }}</p><h2 class="xp" id="s2">{{ t.s2 }}</h2></div>
+    <p class="sh-x">{{ t.s2x }}</p>
+  </div>
+  <div class="team">
+    <sc-for list="{{ team }}" as="m" hint-placeholder-count="4">
+      <article class="tm hov" style="{{ m.delay }}">
+        <div class="tm-img"><img class="ph" src="{{ m.img }}" alt="[NOME CONSULTOR]"><span class="tm-no">T{{ m.no }}</span></div>
+        <div class="tm-b">
+          <p class="tm-n">[NOME CONSULTOR]</p>
+          <p class="lbl">[FUNÇÃO] · [LÍNGUAS]</p>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<section class="rec dk" id="recrutamento" aria-labelledby="rec-h">
+  <div class="wrap rec-in">
+    <div class="rec-l">
+      <span class="rec-n" aria-hidden="true">03</span>
+      <p class="lbl" style="margin-top:24px">{{ t.recK }}</p>
+      <h2 class="rec-t" id="rec-h">{{ t.recT }}</h2>
+      <p class="rec-p">{{ t.recP }}</p>
+    </div>
+    <div class="rec-f">
+      <sc-if value="{{ rFormOn }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div class="flds">
+            <div class="fi"><label for="r-name">{{ t.name }}</label><input id="r-name" type="text" autocomplete="name" value="{{ r.name }}" onInput="{{ setRName }}"></div>
+            <div class="fi"><label for="r-contact">{{ t.contact }}</label><input id="r-contact" type="text" value="{{ r.contact }}" onInput="{{ setRContact }}" placeholder="{{ t.contactPh }}"></div>
+          </div>
+          <div style="margin-top:20px">
+            <sc-for list="{{ yn }}" as="q" hint-placeholder-count="3">
+              <div class="yn">
+                <span>{{ q.label }}</span>
+                <div class="chips" role="group" aria-label="{{ q.label }}">
+                  <button type="button" class="chip" style="{{ q.yesSt }}" aria-pressed="{{ q.yesPr }}" onClick="{{ q.yes }}">{{ q.yesL }}</button>
+                  <button type="button" class="chip" style="{{ q.noSt }}" aria-pressed="{{ q.noPr }}" onClick="{{ q.no }}">{{ q.noL }}</button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div class="file">
+            <input id="r-cv" type="file" accept=".pdf,.doc,.docx" onInput="{{ setFile }}">
+            <label class="btn btn-g btn-sm" for="r-cv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"></path></svg>{{ t.cv }}</label>
+            <span class="file-n">{{ fileName }}</span>
+          </div>
+          <p class="err" aria-live="polite">{{ rErr }}</p>
+          <button type="button" class="btn btn-g" onClick="{{ sendRec }}">{{ t.apply }} <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ rDoneOn }}" hint-placeholder-val="{{ false }}">
+        <div class="done" role="status">
+          <span class="stampx">{{ t.stamp }}</span>
+          <h3 class="xp" style="font-size:30px">{{ t.recDone }}</h3>
+          <p style="font-size:17px">{{ rDoneP }}</p>
+          <p class="lbl">{{ t.doneNote }}</p>
+          <div><button type="button" class="btn btn-g" onClick="{{ resetRec }}">{{ t.again }}</button></div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr dk">
+  <div class="wrap">
+    <div class="ftr-word" aria-hidden="true"><span>I</span><span>M</span><span>O</span><span>N</span><span>O</span><span>V</span><span>O</span></div>
+    <div class="ftr-grid">
+      <div><p class="lbl">Escritório</p><p>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br>Portugal</p><p class="lbl" style="margin-top:20px">Horário</p><p>[HORÁRIO]</p></div>
+      <div class="ftr-l"><p class="lbl">Contactos</p><a href="tel:+351210958271">Tel +351 210 958 271</a><a href="tel:+351919192220">Tlm +351 919 192 220</a><a href="mailto:info@imonovo.pt">info@imonovo.pt</a><a href="https://www.instagram.com/imonovo_portugal/">Instagram @imonovo_portugal</a></div>
+      <div class="ftr-l"><p class="lbl">Páginas</p><a href="Caldas-Home.dc.html">{{ n.home }}</a><a href="Caldas-Imoveis.dc.html">{{ n.imoveis }}</a><a href="Caldas-Vender.dc.html">{{ n.vender }}</a><a href="Caldas-Servicos.dc.html">{{ n.servicos }}</a></div>
+      <div><p class="lbl">Licenças</p><p>Imonovo é uma marca de MAJBI Lda<br>AMI 10355<br>APEMIP 5259</p></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© Imonovo · MAJBI Lda</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+      <a href="Main.dc.html">{{ n.all }} →</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600},"showGrid":{"editor":"boolean","default":true}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[],
+      subj:'', c:{ name:'', email:'', tel:'', msg:'' }, cDone:false, cErr:'',
+      r:{ name:'', contact:'', exp:'', carta:'', viat:'', file:'' }, rDone:false, rErr:'' };
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#0E0E0D;color:#ECEAE4', OFF = 'background:transparent;color:#0E0E0D';
+    const GON = 'background:#D6B083;color:#0E0E0D;border-color:#D6B083', GOFF = 'background:transparent;color:#ECEAE4';
+    const n = fr
+      ? { home:'Accueil', imoveis:'Biens', emp:'Programmes neufs', vender:'Vendre', servicos:'Services', contactos:'Contacts', cta:'Estimation gratuite', all:'Toutes les propositions' }
+      : { home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', servicos:'Serviços', contactos:'Contactos', cta:'Avaliação gratuita', all:'Todas as propostas' };
+    const t = fr ? {
+      word:'Contacts', kicker:'Bureau de Caldas da Rainha', h2a:'Parlons de', h2b:'votre projet.',
+      intro:'Achat, vente, location ou services : écrivez-nous ou passez au bureau. Nous répondons en portugais et en français.',
+      formT:'Formulaire', formH:'Écrivez-nous', subject:'Sujet', name:'Nom', tel:'Téléphone', msg:'Message', send:'Envoyer',
+      e1:'→ Choisissez un sujet.', e2:'→ Nom et email ou téléphone requis.', e3:'→ Écrivez un message.',
+      stamp:'Reçu', doneT:'Message enregistré', doneNote:'Prototype — rien n’est envoyé.', again:'Nouveau message',
+      mapAria:'Plan schématique du bureau, Rua Vitorino Frois 64, Caldas da Rainha', schem:'plan schématique', office:'Bureau', addr:'Adresse', wk:'Lun–Ven', sat:'Samedi', sun:'Dimanche',
+      s2k:'Équipe', s2:'Les personnes', s2x:'Survolez un portrait.',
+      recK:'Recrutement', recT:'Rejoignez l’équipe.', recP:'Nous cherchons des consultants pour Caldas da Rainha et l’Ouest. Envoyez-nous votre profil.',
+      contact:'Téléphone ou email', contactPh:'+351 … / nom@exemple.pt', cv:'Joindre le CV', noFile:'Aucun fichier (PDF, DOC)', apply:'Postuler',
+      rE1:'→ Nom et contact requis.', rE2:'→ Répondez aux trois questions.', recDone:'Candidature enregistrée', yes:'Oui', no:'Non'
+    } : {
+      word:'Contactos', kicker:'Escritório de Caldas da Rainha', h2a:'Vamos falar do', h2b:'seu projeto.',
+      intro:'Comprar, vender, arrendar ou serviços: escreva-nos ou passe pelo escritório. Respondemos em português e em francês.',
+      formT:'Formulário', formH:'Escreva-nos', subject:'Assunto', name:'Nome', tel:'Telefone', msg:'Mensagem', send:'Enviar',
+      e1:'→ Escolha um assunto.', e2:'→ Nome e email ou telefone obrigatórios.', e3:'→ Escreva uma mensagem.',
+      stamp:'Recebido', doneT:'Mensagem registada', doneNote:'Protótipo — nada é enviado.', again:'Nova mensagem',
+      mapAria:'Planta esquemática do escritório, Rua Vitorino Frois 64, Caldas da Rainha', schem:'planta esquemática', office:'Escritório', addr:'Morada', wk:'Seg–Sex', sat:'Sábado', sun:'Domingo',
+      s2k:'Equipa', s2:'As pessoas', s2x:'Passe o cursor num retrato.',
+      recK:'Recrutamento', recT:'Junte-se à equipa.', recP:'Procuramos consultores para Caldas da Rainha e o Oeste. Envie-nos o seu perfil.',
+      contact:'Telefone ou email', contactPh:'+351 … / nome@exemplo.pt', cv:'Anexar CV', noFile:'Nenhum ficheiro (PDF, DOC)', apply:'Candidatar',
+      rE1:'→ Nome e contacto obrigatórios.', rE2:'→ Responda às três perguntas.', recDone:'Candidatura registada', yes:'Sim', no:'Não'
+    };
+    const pad = x => (x < 10 ? '0' : '') + x;
+    const subjDefs = fr
+      ? [['comprar','Acheter'],['vender','Vendre'],['arrendar','Louer'],['servicos','Services'],['recrutamento','Recrutement'],['outro','Autre']]
+      : [['comprar','Comprar'],['vender','Vender'],['arrendar','Arrendar'],['servicos','Serviços'],['recrutamento','Recrutamento'],['outro','Outro']];
+    const subjects = subjDefs.map(d => ({ label:d[1], st: s.subj === d[0] ? ON : OFF, pr: s.subj === d[0] ? 'true' : 'false', pick: () => this.setState({ subj: d[0], cErr:'' }) }));
+    const subjLabel = (subjDefs.filter(d => d[0] === s.subj)[0] || ['', ''])[1];
+    const setC = (k, v) => this.setState({ c: Object.assign({}, this.state.c, { [k]: v }), cErr:'' });
+    const setR = (k, v) => this.setState({ r: Object.assign({}, this.state.r, { [k]: v }), rErr:'' });
+    const ynDefs = fr
+      ? [['exp','Expérience dans l’immobilier ?'],['carta','Permis de conduire ?'],['viat','Véhicule personnel ?']]
+      : [['exp','Experiência no imobiliário?'],['carta','Carta de condução?'],['viat','Viatura própria?']];
+    const yn = ynDefs.map(d => {
+      const v = s.r[d[0]];
+      return { label:d[1], yesL:t.yes, noL:t.no,
+        yesSt: v === 'sim' ? GON : GOFF, noSt: v === 'nao' ? GON : GOFF,
+        yesPr: v === 'sim' ? 'true' : 'false', noPr: v === 'nao' ? 'true' : 'false',
+        yes: () => setR(d[0], 'sim'), no: () => setR(d[0], 'nao') };
+    });
+    const team = ['/_blob/43a1a4cb26fa0e061665e6ea4e7479c8','/_blob/1c7889bca3670467e66a65b2056d5ded','/_blob/990fec5a20ad67059d812785288d075b','/_blob/19cd7f8636e2aa29f335c99c7a69234e']
+      .map((img, i) => ({ img: img, no: pad(i + 1), delay: 'animation-delay:' + (i * 0.1).toFixed(2) + 's' }));
+    const word = t.word.toUpperCase();
+    return {
+      n: n, t: t, c: s.c, r: s.r,
+      showGrid: !(this.props && this.props.showGrid === false),
+      ptStyle: fr ? OFF : ON, frStyle: fr ? ON : OFF, ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: pad(s.favs.length), favAria: (fr ? 'Favoris : ' : 'Favoritos: ') + s.favs.length,
+      menuOpen: s.menu, menuAria: s.menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      letters: word.split('').map((ch, i) => ({ ch: ch, st: 'animation-delay:' + (0.05 + i * 0.07).toFixed(2) + 's' })),
+      wordSt: 'font-size:clamp(38px,10.8cqw,156px)',
+      subjects: subjects,
+      setCName: e => setC('name', e.target.value), setCEmail: e => setC('email', e.target.value),
+      setCTel: e => setC('tel', e.target.value), setCMsg: e => setC('msg', e.target.value),
+      cErr: s.cErr, cFormOn: !s.cDone, cDoneOn: s.cDone,
+      sendContact: () => {
+        const st = this.state, c = st.c;
+        if (!st.subj) { this.setState({ cErr: t.e1 }); return; }
+        if (!c.name.trim() || (!/.+@.+\..+/.test(c.email) && !c.tel.trim())) { this.setState({ cErr: t.e2 }); return; }
+        if (!c.msg.trim()) { this.setState({ cErr: t.e3 }); return; }
+        this.setState({ cDone: true, cErr:'' });
+      },
+      cDoneP: s.c.name + ' — ' + subjLabel + '. ' + (fr ? 'Nous vous répondons rapidement.' : 'Respondemos com brevidade.'),
+      resetContact: () => this.setState({ cDone:false, subj:'', c:{ name:'', email:'', tel:'', msg:'' } }),
+      setRName: e => setR('name', e.target.value), setRContact: e => setR('contact', e.target.value),
+      setFile: e => { const fl = e.target.files && e.target.files[0]; setR('file', fl ? fl.name : ''); },
+      fileName: s.r.file || t.noFile, yn: yn,
+      rErr: s.rErr, rFormOn: !s.rDone, rDoneOn: s.rDone,
+      sendRec: () => {
+        const r = this.state.r;
+        if (!r.name.trim() || !r.contact.trim()) { this.setState({ rErr: t.rE1 }); return; }
+        if (!r.exp || !r.carta || !r.viat) { this.setState({ rErr: t.rE2 }); return; }
+        this.setState({ rDone: true, rErr:'' });
+      },
+      rDoneP: s.r.name + (s.r.file ? ' — CV: ' + s.r.file : '') + '. ' + (fr ? 'Merci, nous reviendrons vers vous.' : 'Obrigado, entraremos em contacto.'),
+      resetRec: () => this.setState({ rDone:false, r:{ name:'', contact:'', exp:'', carta:'', viat:'', file:'' } }),
+      team: team
+    };
+  }
+}
+</script>
+</body>
+</html>

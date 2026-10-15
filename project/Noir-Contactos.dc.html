@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Noir — Contactos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap">
+<style>
+body{margin:0;background:#070707}
+sc-for,sc-if{display:contents}
+.nx,.nx *{box-sizing:border-box}
+.nx{font-family:'Jost',sans-serif;font-weight:300;color:#F2EDE4;background:#070707;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.nx a{color:inherit;text-decoration:none}
+.nx button,.nx input,.nx select,.nx textarea{font-family:'Jost',sans-serif}
+.nx button{cursor:pointer}
+.nx img{display:block}
+.nx-disp{font-family:'Italiana',serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
+.nx-caps{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;line-height:1.5}
+.nx-wrap{max-width:1280px;margin:0 auto;padding-left:48px;padding-right:48px}
+.nx :focus-visible{outline:1px solid #E9D6B2;outline-offset:4px}
+.nx-link{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#F2EDE4;transition:color .4s}
+.nx-link::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-link:hover,.nx-link.on{color:#E9D6B2}
+.nx-link:hover::after,.nx-link.on::after{transform:scaleX(1);transform-origin:left}
+.nx-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 32px;border:1px solid var(--gold);background:transparent;color:#F2EDE4;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;position:relative;overflow:hidden;transition:color .5s;cursor:pointer}
+.nx-btn::before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:var(--gold);transform:translateY(101%);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.nx-btn>*{position:relative;z-index:1}
+.nx-btn:hover{color:#070707}
+.nx-btn:hover::before{transform:translateY(0)}
+.nx-btn.solid{background:var(--gold);color:#070707}
+.nx-btn.solid::before{background:#E9D6B2}
+.nx-ghost{display:inline-flex;align-items:center;gap:14px;min-height:44px;color:#E9D6B2;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;background:transparent;border:0}
+.nx-ghost svg{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.nx-ghost:hover svg{transform:translateX(8px)}
+.nx-lang{min-width:44px;min-height:44px;background:transparent;border:0;font-size:11px;letter-spacing:.24em;transition:color .3s}
+.nx-icon{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#F2EDE4;background:transparent;border:0;transition:color .3s}
+.nx-icon:hover{color:#E9D6B2}
+.nx-badge{position:absolute;top:3px;right:0;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#070707;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;letter-spacing:0}
+.nx-burger{display:none}
+.nx-chip{min-height:44px;padding:0 18px;background:transparent;border:1px solid rgba(242,237,228,.18);color:#F2EDE4;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;transition:border-color .4s,color .4s,background .4s}
+.nx-chip:hover{border-color:var(--gold);color:#E9D6B2}
+.nx-label{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#A39E94;font-weight:400;margin-bottom:4px}
+.nx-in{width:100%;min-height:48px;background:transparent;border:0;border-bottom:1px solid rgba(242,237,228,.24);color:#F2EDE4;font-size:16px;font-weight:300;padding:10px 0;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .4s}
+.nx-in:focus{outline:none;border-bottom-color:var(--gold)}
+.nx-in::placeholder{color:#8A857C}
+textarea.nx-in{min-height:140px;border:1px solid rgba(242,237,228,.24);padding:14px 16px;resize:vertical;line-height:1.6}
+textarea.nx-in:focus{border-color:var(--gold)}
+.nx-file{width:100%;min-height:56px;color:#A39E94;font-size:14px;border:1px dashed rgba(214,176,131,.45);padding:12px 14px}
+.nx-file::file-selector-button{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;background:transparent;color:#E9D6B2;border:1px solid #D6B083;padding:10px 16px;margin-right:16px;cursor:pointer}
+.nx-file::-webkit-file-upload-button{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;background:transparent;color:#E9D6B2;border:1px solid #D6B083;padding:10px 16px;margin-right:16px;cursor:pointer}
+@keyframes nxUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes nxDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes nxPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3);opacity:0}}
+@keyframes nxDash{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+.nx-up{animation:nxUp 1.4s cubic-bezier(.2,.7,.1,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.7s}
+.nx-panel{animation:nxUp .9s cubic-bezier(.2,.7,.1,1) both}
+.nx-draw{height:1px;background:linear-gradient(90deg,var(--gold),rgba(214,176,131,0));transform-origin:left;animation:nxDraw 2.2s .6s cubic-bezier(.7,0,.2,1) both}
+.nx-route{stroke-dasharray:400;animation:nxDash 3s 1s cubic-bezier(.7,0,.2,1) both}
+.nx-halo{position:absolute;width:18px;height:18px;border-radius:9px;border:1px solid #D6B083;animation:nxPulse 2.6s ease-out infinite}
+.nx-team{position:relative}
+.nx-team .pic{position:relative;height:340px;overflow:hidden;background:#121212}
+.nx-team img{width:100%;height:340px;object-fit:cover;filter:grayscale(1) brightness(.75);transition:filter 1.2s,transform 1.8s cubic-bezier(.2,.7,.1,1)}
+.nx-team:hover img{filter:grayscale(0) brightness(.95);transform:scale(1.05)}
+.nx-team .frame{position:absolute;left:12px;top:12px;right:12px;bottom:12px;border:1px solid var(--gold);opacity:0;transform:scale(1.04);transition:opacity .7s,transform .9s cubic-bezier(.2,.7,.1,1)}
+.nx-team:hover .frame{opacity:1;transform:scale(1)}
+.nx-yn{display:flex;gap:6px;margin-top:8px}
+@media (max-width:960px){
+.nx-nav{display:none}
+.nx-burger{display:inline-flex}
+.nx-wrap{padding-left:20px;padding-right:20px}
+.nx-topl{display:none}
+.nx-ccols{grid-template-columns:1fr !important}
+.nx-sec{padding-top:80px !important;padding-bottom:80px !important}
+.nx-boxpad{padding:32px 22px !important}
+}
+@media (prefers-reduced-motion:reduce){.nx *{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="nx" style="{{ rootStyle }}">
+
+<div style="border-bottom:1px solid rgba(242,237,228,.07)">
+<div class="nx-wrap" style="display:flex;justify-content:space-between;align-items:center;min-height:40px;gap:16px">
+<span class="nx-caps nx-topl" style="font-size:10px;color:#A39E94">{{ t.top }}</span>
+<a href="Main.dc.html" class="nx-ghost" style="font-size:10px;min-height:40px">{{ t.all }}<svg width="22" height="8" viewBox="0 0 22 8" aria-hidden="true"><path d="M0 4h20M17 1l3 3-3 3" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+</div>
+</div>
+
+<header style="position:relative;z-index:20;background:#070707;border-bottom:1px solid rgba(214,176,131,.16)">
+<div class="nx-wrap" style="display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:24px">
+<a href="Noir-Home.dc.html" aria-label="Imonovo — página inicial" style="display:flex;flex-direction:column;line-height:1">
+<span class="nx-disp" style="font-size:30px;letter-spacing:.2em">IMONOVO</span>
+<span class="nx-caps" style="font-size:9px;letter-spacing:.46em;color:var(--gold);margin-top:7px">Private Office</span>
+</a>
+<nav class="nx-nav" aria-label="Navegação principal" style="display:flex;gap:34px;align-items:center">
+<a class="nx-link nx-caps" href="Noir-Home.dc.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.dc.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-caps" href="Noir-Imoveis.dc.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-caps" href="Noir-Vender.dc.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-caps" href="Noir-Servicos.dc.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-caps on" aria-current="page" href="Noir-Contactos.dc.html">{{ t.nav.cont }}</a>
+</nav>
+<div style="display:flex;align-items:center;gap:4px">
+<div role="group" aria-label="Idioma" style="display:flex;align-items:center">
+<button type="button" class="nx-lang" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPt }}">PT</button>
+<span aria-hidden="true" style="width:1px;height:12px;background:rgba(242,237,228,.2)"></span>
+<button type="button" class="nx-lang" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFr }}">FR</button>
+</div>
+<a href="Noir-Imoveis.dc.html" class="nx-icon" aria-label="{{ favAria }}">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1z" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg>
+<span class="nx-badge">{{ favCount }}</span>
+</a>
+<button type="button" class="nx-icon nx-burger" aria-label="Abrir menu" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}">
+<svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><path d="M0 1h24M6 13h18" stroke="currentColor" stroke-width="1.1" fill="none"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Navegação móvel" style="border-top:1px solid rgba(214,176,131,.16);padding:12px 20px 28px;display:flex;flex-direction:column;background:#070707">
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Home.dc.html">{{ t.nav.home }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.dc.html">{{ t.nav.imoveis }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Imoveis.dc.html#empreendimentos">{{ t.nav.emp }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Vender.dc.html">{{ t.nav.vender }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Servicos.dc.html">{{ t.nav.serv }}</a>
+<a class="nx-link nx-disp" style="font-size:30px" href="Noir-Contactos.dc.html">{{ t.nav.cont }}</a>
+</nav>
+</sc-if>
+</header>
+
+<main>
+<section style="padding:110px 0 56px">
+<div class="nx-wrap">
+<p class="nx-caps nx-up d1" style="color:var(--gold);margin:0 0 24px">Contactos · Private Office</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">
+<h1 class="nx-disp nx-up d2" style="margin:0;font-size:clamp(56px,7.4vw,118px);line-height:.96">{{ t.h1a }}<span style="display:block;color:#E9D6B2">{{ t.h1b }}</span></h1>
+<p class="nx-up d3" style="color:#A39E94;max-width:420px;margin:0;font-size:17px">{{ t.sub }}</p>
+</div>
+<div class="nx-draw" style="margin-top:48px"></div>
+</div>
+</section>
+
+<!-- contact + office -->
+<section id="acesso" class="nx-sec" style="padding:40px 0 140px">
+<div class="nx-wrap nx-ccols" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:start">
+<div class="nx-boxpad" style="background:#121212;border:1px solid rgba(214,176,131,.25);padding:48px 48px 44px">
+<sc-if value="{{ cOpen }}" hint-placeholder-val="{{ true }}">
+<h2 class="nx-disp" style="font-size:42px;margin:0 0 8px">Escreva-nos.</h2>
+<p style="color:#A39E94;margin:0 0 30px">Resposta pessoal, em português ou francês.</p>
+<span class="nx-label" id="lb-subj">Assunto</span>
+<div role="group" aria-labelledby="lb-subj" style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 32px">
+<sc-for list="{{ subjects }}" as="sb" hint-placeholder-count="6">
+<button type="button" class="nx-chip" aria-pressed="{{ sb.sel }}" onClick="{{ sb.pick }}" style="{{ sb.style }}">{{ sb.label }}</button>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:24px 28px">
+<div><label class="nx-label" for="c-n">Nome</label><input id="c-n" class="nx-in" type="text" autocomplete="name" value="{{ c.name }}" onInput="{{ setCName }}"></div>
+<div><label class="nx-label" for="c-e">Email</label><input id="c-e" class="nx-in" type="email" autocomplete="email" value="{{ c.email }}" onInput="{{ setCEmail }}"></div>
+<div><label class="nx-label" for="c-t">Telefone (opcional)</label><input id="c-t" class="nx-in" type="tel" autocomplete="tel" value="{{ c.phone }}" onInput="{{ setCPhone }}"></div>
+<div>
+<span class="nx-label" id="lb-cl">Língua preferida</span>
+<div role="group" aria-labelledby="lb-cl" class="nx-yn">
+<sc-for list="{{ clangs }}" as="cl" hint-placeholder-count="2">
+<button type="button" class="nx-chip" aria-pressed="{{ cl.sel }}" onClick="{{ cl.pick }}" style="{{ cl.style }}">{{ cl.label }}</button>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="margin-top:26px"><label class="nx-label" for="c-m">Mensagem</label><textarea id="c-m" class="nx-in" placeholder="{{ msgPh }}" onInput="{{ setCMsg }}">{{ c.msg }}</textarea></div>
+<p role="alert" style="color:#E9D6B2;font-size:14px;min-height:22px;margin:16px 0 8px">{{ cErr }}</p>
+<button type="button" class="nx-btn solid" onClick="{{ sendC }}"><span>{{ t.send }}</span></button>
+</sc-if>
+<sc-if value="{{ cDone }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="status" style="text-align:center;padding:40px 0">
+<svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true" style="margin:0 auto"><path d="M26 2l24 24-24 24L2 26z" fill="none" stroke="#D6B083"></path><path d="M17 26l6 6 12-14" fill="none" stroke="#E9D6B2" stroke-width="1.2"></path></svg>
+<p class="nx-disp" style="font-size:44px;margin:24px 0 10px">Mensagem registada.</p>
+<p style="color:#C9C3B8;margin:0">{{ cDoneLine }}</p>
+<p style="color:#A39E94;font-size:13px;margin:16px 0 28px">Protótipo — nada é enviado.</p>
+<button type="button" class="nx-btn" onClick="{{ resetC }}"><span>Nova mensagem</span></button>
+</div>
+</sc-if>
+</div>
+
+<aside aria-label="Escritório" style="border:1px solid rgba(214,176,131,.25)">
+<div style="position:relative;height:320px;background:#0A0A0A;overflow:hidden;border-bottom:1px solid rgba(214,176,131,.25)">
+<svg width="100%" height="320" viewBox="0 0 500 320" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;top:0">
+<path d="M0 60 L500 90 M0 150 L500 140 M0 250 L500 230 M60 0 L90 320 M190 0 L170 320 M330 0 L350 320 M440 0 L420 320" stroke="#F2EDE4" stroke-opacity=".08" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+<path d="M0 205 C120 190 200 175 260 160 C330 142 420 120 500 112" stroke="#F2EDE4" stroke-opacity=".22" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"></path>
+<path class="nx-route" d="M500 112 C420 120 330 142 262 160" stroke="#D6B083" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"></path>
+<path d="M30 20 h90 v28 h-90z M360 230 h110 v60 h-110z M210 30 h80 v50 h-80z" fill="#121212"></path>
+</svg>
+<span class="nx-halo" style="left:52%;top:151px;margin-left:-9px"></span>
+<span aria-hidden="true" style="position:absolute;left:52%;top:154px;margin-left:-6px;width:12px;height:12px;transform:rotate(45deg);background:#D6B083"></span>
+<span class="nx-caps" style="position:absolute;left:52%;top:178px;transform:translateX(-50%);font-size:9px;color:#E9D6B2;white-space:nowrap">Rua Vitorino Frois, 64</span>
+<span class="nx-caps" style="position:absolute;left:20px;top:16px;font-size:9px;color:#7A756D">Caldas da Rainha · centro</span>
+<span class="nx-caps" style="position:absolute;right:16px;bottom:12px;font-size:9px;color:#7A756D">Mapa estilizado</span>
+</div>
+<div style="padding:36px 36px 34px">
+<p class="nx-caps" style="color:var(--gold);margin:0 0 12px">O escritório</p>
+<p class="nx-disp" style="font-size:30px;margin:0;line-height:1.25">Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha</p>
+<a class="nx-ghost" style="margin-top:12px" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Vitorino+Frois+64+Caldas+da+Rainha">Abrir itinerário<svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h26M22 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1"></path></svg></a>
+<div style="height:1px;background:rgba(242,237,228,.1);margin:22px 0"></div>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:15px;align-items:center">
+<span class="nx-label" style="margin:0">Telefone</span><a class="nx-link" style="min-height:36px" href="tel:+351210958271">+351 210 958 271</a>
+<span class="nx-label" style="margin:0">Telemóvel</span><a class="nx-link" style="min-height:36px" href="tel:+351919192220">+351 919 192 220</a>
+<span class="nx-label" style="margin:0">Email</span><a class="nx-link" style="min-height:36px" href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+<span class="nx-label" style="margin:0">Instagram</span><a class="nx-link" style="min-height:36px" href="https://www.instagram.com/imonovo_portugal">@imonovo_portugal</a>
+<span class="nx-label" style="margin:0">Horário</span><span>[HORÁRIO] · visitas por marcação</span>
+</div>
+<p style="color:#A39E94;font-size:12px;margin:18px 0 0">Chamada para a rede fixa / móvel nacional. AMI 10355 · APEMIP 5259.</p>
+</div>
+</aside>
+</div>
+</section>
+
+<!-- team -->
+<section class="nx-sec" style="padding:140px 0;background:#0B0B0B;border-top:1px solid rgba(214,176,131,.14)">
+<div class="nx-wrap">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:56px">
+<div><p class="nx-caps" style="color:var(--gold);margin:0 0 20px">A equipa</p><h2 class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:0">Os seus interlocutores</h2></div>
+<p style="color:#A39E94;max-width:400px;margin:0">Um consultor dedicado acompanha cada cliente do primeiro contacto às chaves.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px">
+<sc-for list="{{ team }}" as="m" hint-placeholder-count="4">
+<article class="nx-team">
+<div class="pic"><img src="{{ m.img }}" alt="{{ m.alt }}"><span class="frame"></span></div>
+<p class="nx-disp" style="font-size:26px;margin:20px 0 4px">[NOME CONSULTOR]</p>
+<p class="nx-caps" style="font-size:10px;color:#A39E94;margin:0">{{ m.role }}</p>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- recruitment -->
+<section id="recrutamento" class="nx-sec" style="padding:140px 0">
+<div class="nx-wrap nx-ccols" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:72px;align-items:start">
+<div>
+<p class="nx-caps" style="color:var(--gold);margin:0 0 20px">Recrutamento</p>
+<h2 class="nx-disp" style="font-size:clamp(44px,5vw,72px);margin:0">Junte-se<span style="display:block;color:#E9D6B2">ao Private Office.</span></h2>
+<p style="color:#A39E94;font-size:17px;max-width:420px;margin:26px 0 0">Procuramos pessoas que gostam de ajudar pessoas — com ou sem experiência no imobiliário. Francês é uma mais-valia.</p>
+<div style="position:relative;height:300px;overflow:hidden;margin-top:44px">
+<img src="/_blob/f597766173c931e01e878e7513489f3c" alt="Rua de Óbidos com buganvílias" style="width:100%;height:300px;object-fit:cover;filter:brightness(.7)">
+<span aria-hidden="true" style="position:absolute;left:14px;top:14px;right:14px;bottom:14px;border:1px solid rgba(214,176,131,.45)"></span>
+</div>
+</div>
+<div class="nx-boxpad" style="background:#121212;border:1px solid rgba(214,176,131,.25);padding:48px">
+<sc-if value="{{ rOpen }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:24px 28px">
+<div><label class="nx-label" for="r-n">Nome</label><input id="r-n" class="nx-in" type="text" autocomplete="name" value="{{ r.name }}" onInput="{{ setRName }}"></div>
+<div><label class="nx-label" for="r-c">Contacto (telefone ou email)</label><input id="r-c" class="nx-in" type="text" value="{{ r.contact }}" onInput="{{ setRContact }}"></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:24px;margin-top:30px">
+<sc-for list="{{ ynGroups }}" as="g" hint-placeholder-count="3">
+<div>
+<span class="nx-label" id="{{ g.id }}">{{ g.label }}</span>
+<div role="group" aria-labelledby="{{ g.id }}" class="nx-yn">
+<button type="button" class="nx-chip" style="{{ g.yesStyle }}" aria-pressed="{{ g.yesSel }}" onClick="{{ g.yes }}">Sim</button>
+<button type="button" class="nx-chip" style="{{ g.noStyle }}" aria-pressed="{{ g.noSel }}" onClick="{{ g.no }}">Não</button>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:30px">
+<label class="nx-label" for="r-cv">Curriculum vitae (PDF)</label>
+<input id="r-cv" class="nx-file" type="file" accept=".pdf,.doc,.docx" onChange="{{ setCv }}">
+<p style="color:#A39E94;font-size:13px;margin:8px 0 0">{{ cvLine }}</p>
+</div>
+<p role="alert" style="color:#E9D6B2;font-size:14px;min-height:22px;margin:16px 0 8px">{{ rErr }}</p>
+<button type="button" class="nx-btn solid" onClick="{{ sendR }}"><span>Enviar candidatura</span></button>
+</sc-if>
+<sc-if value="{{ rDone }}" hint-placeholder-val="{{ false }}">
+<div class="nx-panel" role="status" style="text-align:center;padding:40px 0">
+<svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true" style="margin:0 auto"><path d="M26 2l24 24-24 24L2 26z" fill="none" stroke="#D6B083"></path><path d="M17 26l6 6 12-14" fill="none" stroke="#E9D6B2" stroke-width="1.2"></path></svg>
+<p class="nx-disp" style="font-size:44px;margin:24px 0 10px">Candidatura registada.</p>
+<p style="color:#A39E94;font-size:13px;margin:0 0 28px">Protótipo — nada é enviado.</p>
+<button type="button" class="nx-btn" onClick="{{ resetR }}"><span>Nova candidatura</span></button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+</main>
+
+<footer style="border-top:1px solid rgba(214,176,131,.2);background:#070707;overflow:hidden">
+<div class="nx-wrap" style="padding-top:96px;padding-bottom:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:48px">
+<div>
+<span class="nx-disp" style="font-size:28px;letter-spacing:.2em">IMONOVO</span>
+<p style="color:#A39E94;font-size:14px;margin:16px 0 0;max-width:260px">Private real-estate office na Costa de Prata. Compra, Acompanhamento, Conciergerie.</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Escritório</p>
+<p style="margin:0;font-size:15px">Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha</p>
+<p style="margin:10px 0 0;font-size:14px;color:#A39E94">Por marcação · [HORÁRIO]</p>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Contacto</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351210958271">+351 210 958 271</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="tel:+351919192220">+351 919 192 220</a><br>
+<span style="font-size:11px;color:#A39E94">Chamada para a rede fixa / móvel nacional</span><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="mailto:info@imonovo.pt">info@imonovo.pt</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="https://www.instagram.com/imonovo_portugal">@imonovo_portugal</a>
+</div>
+<div>
+<p class="nx-label" style="margin-bottom:14px">Casa</p>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Imoveis.dc.html">Imóveis</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Vender.dc.html">Vender</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Servicos.dc.html">Serviços</a><br>
+<a class="nx-link" style="min-height:32px;font-size:15px" href="Noir-Contactos.dc.html">Contactos &amp; Recrutamento</a>
+</div>
+</div>
+<p class="nx-disp" aria-hidden="true" style="font-size:clamp(80px,17vw,250px);line-height:.9;margin:80px 0 0;color:#151515;text-align:center;letter-spacing:.08em">IMONOVO</p>
+<div style="height:1px;background:rgba(214,176,131,.2);margin:28px 0 22px"></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12px;color:#A39E94">
+<span>© Imonovo · MAJBI Lda · AMI 10355 · APEMIP 5259</span>
+<span>Proposta de redesign — conceito, não é o site oficial</span>
+<a href="Main.dc.html" class="nx-link" style="min-height:24px;font-size:12px">Todas as propostas</a>
+</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4300},"accent":{"editor":"color","default":"#D6B083","options":["#D6B083","#E9D6B2","#B8925A"]}}'>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:'pt', menu:false, subj:'acesso', clang:'pt',
+    c:{ name:'', email:'', phone:'', msg:'' }, cErr:'', cDone:false,
+    r:{ name:'', contact:'', exp:'', carta:'', viatura:'', cv:'' }, rErr:'', rDone:false }; }
+  renderVals(){
+    const s = this.state, p = this.props || {}, gold = p.accent || '#D6B083';
+    const T = {
+      pt:{ nav:{home:'Início',imoveis:'Imóveis',emp:'Empreendimentos',vender:'Vender',serv:'Serviços',cont:'Contactos'},
+        top:'Private Office · Caldas da Rainha — por marcação', all:'Todas as propostas',
+        h1a:'Por marcação,', h1b:'com prazer.', sub:'Uma visita ao escritório, um pedido de acesso privado, uma pergunta simples: respondemos pessoalmente.', send:'Enviar mensagem',
+        subj:['Acesso privado','Comprar','Vender','Arrendar','Serviços','Outro'] },
+      fr:{ nav:{home:'Accueil',imoveis:'Biens',emp:'Programmes',vender:'Vendre',serv:'Services',cont:'Contact'},
+        top:'Private Office · Caldas da Rainha — sur rendez-vous', all:'Toutes les propositions',
+        h1a:'Sur rendez-vous,', h1b:'avec plaisir.', sub:'Une visite au bureau, une demande d’accès privé, une simple question : nous répondons personnellement.', send:'Envoyer le message',
+        subj:['Accès privé','Acheter','Vendre','Louer','Services','Autre'] }
+    };
+    const t = T[s.lang];
+    const chipOn = 'border-color:' + gold + ';background:' + gold + ';color:#070707';
+    const SK = ['acesso','comprar','vender','arrendar','servicos','outro'];
+    const subjects = SK.map((k,i) => ({ label:t.subj[i], sel:s.subj === k ? 'true' : 'false', style:s.subj === k ? chipOn : '', pick:() => this.setState({subj:k, cErr:''}) }));
+    const PH = { acesso:'O que procura, onde, para quando — partilharemos a seleção privada.', comprar:'Tipo de imóvel, localidade, orçamento…', vender:'Tipo de imóvel e localidade — ou use o pedido de avaliação.', arrendar:'Para arrendar ou para dar de arrendamento?', servicos:'Que serviço de Acompanhamento ou Conciergerie procura?', outro:'A sua mensagem.' };
+    const clangs = [['pt','Português'],['fr','Français']].map(v => ({ label:v[1], sel:s.clang === v[0] ? 'true' : 'false', style:s.clang === v[0] ? chipOn : '', pick:() => this.setState({clang:v[0]}) }));
+    const setC = (k, v) => this.setState({ c:Object.assign({}, s.c, {[k]:v}), cErr:'' });
+    const setR = (k, v) => this.setState({ r:Object.assign({}, s.r, {[k]:v}), rErr:'' });
+    const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+    const sendC = () => {
+      if (!s.c.name.trim()) return this.setState({cErr:'Indique o seu nome.'});
+      if (!okMail(s.c.email)) return this.setState({cErr:'Indique um email válido.'});
+      if (!s.c.msg.trim()) return this.setState({cErr:'Escreva uma breve mensagem.'});
+      this.setState({cDone:true, cErr:''});
+    };
+    const G = [['exp','Experiência no imobiliário'],['carta','Carta de condução'],['viatura','Viatura própria']];
+    const ynGroups = G.map(g => { const v = s.r[g[0]]; return { id:'yn-' + g[0], label:g[1],
+      yesSel:v === 'sim' ? 'true' : 'false', noSel:v === 'nao' ? 'true' : 'false',
+      yesStyle:v === 'sim' ? chipOn + ';flex:1' : 'flex:1', noStyle:v === 'nao' ? chipOn + ';flex:1' : 'flex:1',
+      yes:() => setR(g[0], 'sim'), no:() => setR(g[0], 'nao') }; });
+    const sendR = () => {
+      if (!s.r.name.trim()) return this.setState({rErr:'Indique o seu nome.'});
+      if (!s.r.contact.trim()) return this.setState({rErr:'Indique um telefone ou email.'});
+      if (!s.r.exp || !s.r.carta || !s.r.viatura) return this.setState({rErr:'Responda às três perguntas Sim / Não.'});
+      this.setState({rDone:true, rErr:''});
+    };
+    const team = [
+      {img:'/_blob/43a1a4cb26fa0e061665e6ea4e7479c8', role:'[FUNÇÃO] · PT / FR'},
+      {img:'/_blob/1c7889bca3670467e66a65b2056d5ded', role:'[FUNÇÃO] · PT / FR'},
+      {img:'/_blob/990fec5a20ad67059d812785288d075b', role:'[FUNÇÃO] · [LÍNGUAS]'},
+      {img:'/_blob/19cd7f8636e2aa29f335c99c7a69234e', role:'[FUNÇÃO] · [LÍNGUAS]'}
+    ].map(m => Object.assign({}, m, { alt:'Retrato de consultor da equipa Imonovo' }));
+    return {
+      rootStyle:'--gold:' + gold + ';--champ:#E9D6B2', t,
+      ptStyle:s.lang === 'pt' ? 'color:#E9D6B2' : 'color:#8A857C', frStyle:s.lang === 'fr' ? 'color:#E9D6B2' : 'color:#8A857C',
+      ptPressed:s.lang === 'pt' ? 'true' : 'false', frPressed:s.lang === 'fr' ? 'true' : 'false',
+      setPt:() => this.setState({lang:'pt'}), setFr:() => this.setState({lang:'fr'}),
+      favCount:'0', favAria:'Favoritos: 0',
+      menuOpen:s.menu, menuExpanded:s.menu ? 'true' : 'false', toggleMenu:() => this.setState({menu:!s.menu}),
+      subjects, clangs, msgPh:PH[s.subj], c:s.c, cErr:s.cErr,
+      setCName:e => setC('name', e.target.value), setCEmail:e => setC('email', e.target.value), setCPhone:e => setC('phone', e.target.value), setCMsg:e => setC('msg', e.target.value),
+      sendC, cOpen:!s.cDone, cDone:s.cDone,
+      cDoneLine:'Assunto: ' + t.subj[SK.indexOf(s.subj)] + ' · resposta em ' + (s.clang === 'fr' ? 'francês' : 'português') + '.',
+      resetC:() => this.setState({cDone:false, c:{ name:'', email:'', phone:'', msg:'' }}),
+      team,
+      r:s.r, ynGroups, rErr:s.rErr,
+      setRName:e => setR('name', e.target.value), setRContact:e => setR('contact', e.target.value),
+      setCv:e => setR('cv', e.target.files && e.target.files[0] ? e.target.files[0].name : ''),
+      cvLine:s.r.cv ? 'Ficheiro escolhido: ' + s.r.cv : 'Opcional · PDF ou Word.',
+      sendR, rOpen:!s.rDone, rDone:s.rDone,
+      resetR:() => this.setState({rDone:false, r:{ name:'', contact:'', exp:'', carta:'', viatura:'', cv:'' }})
+    };
+  }
+}
+</script>
+</body>
+</html>

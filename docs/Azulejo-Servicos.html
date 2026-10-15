@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Azulejo — Serviços</title>
+<script src="vendor/preact.min.js"></script>
+<script src="dc.js"></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-template">
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+<style>
+body{margin:0;background:#F7F3EA}
+:root{--wash:#F7F3EA;--wash2:#EEE6D4;--paper:#FFFDF7;--cob:#1E3A8A;--cob2:#142A66;--cob3:#0D1C47;--terra:#B5552F;--terraInk:#9C4322;--gold:#D6B083;--ink:#18181B;--mute:#4A4A56;--line:rgba(20,42,102,.16)}
+*{box-sizing:border-box}
+.root{background:var(--wash);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip}
+.root img{display:block;max-width:100%}
+.root a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.serif{font-family:'Gloock',Georgia,serif;font-weight:400}
+.sc{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin:0}
+.folio{display:inline-flex;align-items:center;gap:12px;font:400 15px 'Gloock',serif;color:var(--terraInk)}
+.folio::before{content:"";width:32px;height:1px;background:currentColor}
+.h2{font-size:clamp(40px,5vw,72px);line-height:1;margin:12px 0 0;color:var(--cob2);letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.az{background-color:#FBFAF6;background-image:radial-gradient(circle at 50% 50%,#1E3A8A 0 2.5px,transparent 3px),radial-gradient(circle at 50% 50%,transparent 0 7px,#1E3A8A 7.5px 9px,transparent 9.5px),radial-gradient(circle at 0 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 0,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 0 100%,#1E3A8A 0 12px,transparent 12.5px),radial-gradient(circle at 100% 100%,#1E3A8A 0 12px,transparent 12.5px),conic-gradient(from 45deg at 50% 50%,#DCE3F3 0 25%,#FBFAF6 0 50%,#DCE3F3 0 75%,#FBFAF6 0);background-size:40px 40px}
+.tx1{background:url(assets/az-tile-pattern.webp) center/cover}
+.tx2{background:url(assets/az-tile-teal.webp) center/cover}
+.tx3{background:url(assets/az-tile-sage.webp) center/cover}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 26px;border:1.5px solid var(--cob);background:var(--cob);color:#F7F3EA !important;font:600 14px/1 'Work Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .3s,color .3s,transform .3s,border-color .3s}
+.btn:hover{background:var(--cob2);transform:translateY(-2px)}
+.btn svg{transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--cob) !important}
+.btn.ghost:hover{background:var(--cob);color:#F7F3EA !important}
+.btn.terra{background:var(--terraInk);border-color:var(--terraInk)}
+.btn.terra:hover{background:#7E3418;border-color:#7E3418}
+.mast{position:relative;z-index:20;background:var(--wash)}
+.strip{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 40px;max-width:1320px;margin:0 auto;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cob2);border-bottom:1px solid var(--line)}
+.strip a{text-decoration:none;margin-left:20px}
+.strip a:hover{color:var(--terraInk)}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 40px;max-width:1320px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cob2) !important}
+.logo-tile{width:42px;height:42px;background-size:21px 21px;border:2px solid var(--cob);box-shadow:3px 3px 0 var(--gold)}
+.logo b{font:400 34px/1 'Gloock',serif;letter-spacing:-.01em}
+.links{display:flex;gap:2px}
+.links a{position:relative;padding:12px 12px;text-decoration:none;font-size:15px;font-weight:500;color:var(--ink)}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+.links a.on{color:var(--cob)}
+.tools{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1.5px solid var(--cob);border-radius:999px;overflow:hidden}
+.lang button{min-width:48px;min-height:44px;border:0;background:transparent;font:600 13px 'Work Sans',sans-serif;letter-spacing:.08em;color:var(--cob);cursor:pointer;transition:background .3s,color .3s}
+.ibtn{position:relative;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--cob);background:transparent;color:var(--cob);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.ibtn:hover{background:var(--cob);color:#F7F3EA}
+.cnt{position:absolute;top:-5px;right:-5px;min-width:22px;height:22px;border-radius:11px;background:var(--terraInk);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.burger{display:none}
+.favpop{position:absolute;right:40px;top:calc(100% - 6px);width:340px;max-width:calc(100% - 32px);background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(20,42,102,.35);padding:22px;z-index:30;animation:fadeUp .35s both;display:flex;flex-direction:column;gap:12px}
+.mnav{display:flex;flex-direction:column;padding:8px 24px 24px;border-top:1px solid var(--line);animation:fadeUp .35s both}
+.mnav a{padding:14px 0;font:400 28px 'Gloock',serif;text-decoration:none;color:var(--cob2);border-bottom:1px solid var(--line)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes tileIn{from{opacity:0;transform:rotate(-90deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.rise{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.12s}.d2{animation-delay:.24s}.d3{animation-delay:.36s}
+.badge{position:absolute;display:block;border-radius:50%;z-index:6;transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 30px rgba(20,42,102,.3))}
+.badge:hover{transform:scale(1.07) rotate(-6deg)}
+.badge .ring{width:100%;height:100%;display:block;animation:spin 28s linear infinite}
+.badge:hover .ring{animation-duration:9s}
+.badge .core{position:absolute;inset:27%;border-radius:50%;background:var(--wash);display:flex;align-items:center;justify-content:center;border:2px solid var(--gold)}
+.drop::first-letter{float:left;font:400 66px/.82 'Gloock',serif;color:#F7F3EA;background:var(--cob);padding:12px 12px 8px;margin:6px 14px 0 0;box-shadow:4px 4px 0 var(--gold)}
+/* opener */
+.op{padding-top:40px;padding-bottom:30px}
+.op-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:center}
+.op-h{font:400 clamp(60px,8vw,132px)/.88 'Gloock',serif;margin:18px 0 24px;color:var(--cob2);letter-spacing:-.03em}
+.op-h span{color:var(--terra)}
+.op-lead{font-size:18px;color:#2B2B33;margin:0;max-width:560px}
+.mosaic{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:480px;margin-left:auto;padding:14px;background:var(--cob2)}
+.mt{aspect-ratio:1/1;position:relative;animation:tileIn .8s cubic-bezier(.2,.7,.2,1) both;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.mt:hover{transform:rotate(90deg)}
+.mt:nth-child(2){animation-delay:.08s}.mt:nth-child(3){animation-delay:.16s}.mt:nth-child(4){animation-delay:.24s}.mt:nth-child(5){animation-delay:.32s}.mt:nth-child(6){animation-delay:.4s}.mt:nth-child(7){animation-delay:.48s}.mt:nth-child(8){animation-delay:.56s}.mt:nth-child(9){animation-delay:.64s}
+.mt.word{background:var(--terraInk);display:flex;align-items:center;justify-content:center;font:400 54px/1 'Gloock',serif;color:#F7F3EA}
+.mt.az{background-size:50% 50%}
+.mosaic .badge{width:160px;height:160px;left:-80px;bottom:-50px}
+/* services */
+.svc{padding-top:90px}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.grp{display:flex;border:2px solid var(--cob2)}
+.grp button{min-height:60px;padding:0 28px;border:0;background:transparent;color:var(--cob2);font:400 26px 'Gloock',serif;cursor:pointer;transition:background .35s,color .35s}
+.grp button + button{border-left:2px solid var(--cob2)}
+.grp button:hover{background:rgba(30,58,138,.08)}
+.svc-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;margin-top:44px;align-items:start}
+.acc{border-top:2px solid var(--cob2)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-btn{width:100%;display:grid;grid-template-columns:64px 1fr 48px;gap:14px;align-items:center;padding:20px 6px;min-height:72px;border:0;background:transparent;text-align:left;cursor:pointer;font:inherit;color:var(--ink);transition:background .35s,padding .35s}
+.acc-btn:hover{background:var(--paper);padding-left:14px}
+.acc-n{font:400 24px 'Gloock',serif;color:var(--terraInk)}
+.acc-name{font:400 clamp(24px,2.3vw,32px)/1.1 'Gloock',serif;color:var(--cob2)}
+.acc-ico{width:44px;height:44px;border:1.5px solid var(--cob);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cob);transition:transform .45s,background .35s,color .35s}
+.acc-panel{padding:0 6px 26px 84px;animation:open .45s both}
+.acc-panel p{margin:0 0 14px;font-size:18px;color:#2B2B33;max-width:620px}
+.acc-panel a{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--cob) !important;text-decoration:none}
+.acc-panel a:hover{color:var(--terraInk) !important}
+.note{position:sticky;top:16px;padding:18px}
+.note-in{background:var(--cob2);color:#F7F3EA;padding:34px;min-height:440px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.note-in::before{content:"";position:absolute;inset:0;background:url(assets/az-tile-teal.webp) center/300px;opacity:.08}
+.note-in > *{position:relative}
+.note-n{font:400 160px/.8 'Gloock',serif;color:var(--gold);animation:fadeUp .6s both}
+.note-in h3{font:400 34px/1.08 'Gloock',serif;margin:0;animation:fadeUp .6s .08s both}
+.note-in p{margin:0;color:#D5DBEA;font-size:15px}
+/* process */
+.how{padding-top:110px}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px;margin-top:44px}
+.how-card{padding:12px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.how-card:hover{transform:translateY(-8px) rotate(-1deg)}
+.how-in{background:var(--paper);padding:28px 24px;min-height:260px;display:flex;flex-direction:column;gap:12px}
+.how-n{font:400 56px/1 'Gloock',serif;color:var(--terra)}
+.how-in h3{font:400 26px/1.1 'Gloock',serif;margin:0;color:var(--cob2)}
+.how-in p{margin:0;font-size:16px;color:#2B2B33}
+/* quote */
+.fr{padding:110px 0}
+.fr-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:2px solid var(--cob2)}
+.fr-box > div{padding:48px}
+.fr-box > div + div{border-left:2px solid var(--cob2);background:var(--paper)}
+.fr-q{font:400 clamp(36px,3.8vw,56px)/1.05 'Gloock',serif;margin:14px 0 0;color:var(--cob2)}
+.fr-q span{color:var(--terra)}
+.cta{padding-bottom:120px}
+.cta-box{position:relative;background:var(--terraInk);color:#F7F3EA;padding:60px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:center;overflow:hidden}
+.cta-box::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:2px dashed rgba(247,243,234,.4)}
+.cta-box h2{font:400 clamp(40px,4.6vw,68px)/1 'Gloock',serif;margin:10px 0 0}
+.cta-box .sc{color:#F3DCC0}
+.cta-acts{display:flex;flex-direction:column;gap:12px;align-items:flex-start;position:relative;z-index:1}
+.btn.light{background:#F7F3EA;border-color:#F7F3EA;color:var(--terraInk) !important}
+.btn.light:hover{background:#fff}
+.btn.lghost{background:transparent;border-color:#F7F3EA;color:#F7F3EA !important}
+.btn.lghost:hover{background:rgba(247,243,234,.12)}
+.roofline{display:block;line-height:0}
+.roofline svg{display:block;width:100%;height:90px}
+.foot{background:var(--cob2);color:#F7F3EA;font-size:15px}
+.foot-az{height:28px;background-size:28px 28px}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:40px;padding-top:70px;padding-bottom:50px}
+.foot .logo{color:#F7F3EA !important}
+.foot p,.foot address{margin:0 0 10px;font-style:normal;color:#D5DBEA;line-height:1.75}
+.foot .sc{color:var(--gold);margin-bottom:16px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li a,.foot address a,.foot-links a{text-decoration:none;display:inline-block;padding:3px 0;color:#F7F3EA}
+.foot li a:hover,.foot address a:hover,.foot-links a:hover{color:var(--gold)}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:28px;border-top:1px solid rgba(247,243,234,.22);font-size:13px;color:#C9D1E6}
+@media (max-width:1100px){.svc-grid{grid-template-columns:1fr}.note{position:relative;top:0}}
+@media (max-width:980px){.links{display:none}.burger{display:inline-flex}.op-grid,.fr-box,.cta-box{grid-template-columns:1fr}.fr-box > div + div{border-left:0;border-top:2px solid var(--cob2)}.strip-mid{display:none}.mosaic{margin:0 auto}}
+@media (max-width:760px){.wrap,.navbar,.strip{padding-left:16px;padding-right:16px}.acc-panel{padding-left:6px}.acc-btn{grid-template-columns:44px 1fr 48px}.grp button{font-size:20px;padding:0 16px}.fr-box > div,.cta-box{padding:28px 20px}.mosaic .badge{left:auto;right:-10px;width:120px;height:120px}.logo b{font-size:28px}.favpop{right:16px}.note-n{font-size:110px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="root">
+
+<header class="mast">
+  <div class="strip">
+    <span>{{ t.issue }}</span>
+    <span class="strip-mid">Revista Imonovo · Nº 01 · Secção 05</span>
+    <span><a href="index.html">{{ t.all }}</a><a href="tel:+351919192220">+351 919 192 220</a></span>
+  </div>
+  <div class="navbar">
+    <a class="logo" href="Azulejo-Home.html" aria-label="Imonovo, início">
+      <span class="logo-tile az" aria-hidden="true"></span>
+      <b>Imonovo</b>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="Azulejo-Home.html">{{ t.n1 }}</a>
+      <a href="Azulejo-Imoveis.html">{{ t.n2 }}</a>
+      <a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.html">{{ t.n4 }}</a>
+      <a class="on" href="Azulejo-Servicos.html" aria-current="page">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.html">{{ t.n6 }}</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" onClick="{{ setPt }}" style="{{ ptSt }}" aria-pressed="{{ isPt }}">PT</button>
+        <button type="button" onClick="{{ setFr }}" style="{{ frSt }}" aria-pressed="{{ isFr }}">FR</button>
+      </div>
+      <button type="button" class="ibtn" aria-label="Favoritos" onClick="{{ toggleFavPop }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+        <span class="cnt">{{ favCount }}</span>
+      </button>
+      <button type="button" class="ibtn burger" aria-label="Abrir menu" onClick="{{ toggleMenu }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ favOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="favpop" role="dialog" aria-label="Favoritos">
+      <p class="sc" style="color:#9C4322">{{ t.fav }} · {{ favCount }}</p>
+      <p style="margin:0;font-size:15px;color:#4A4A56">{{ t.favEmpty }}</p>
+      <a class="btn ghost" href="Azulejo-Imoveis.html">{{ t.favSee }}</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Azulejo-Home.html">{{ t.n1 }}</a>
+      <a href="Azulejo-Imoveis.html">{{ t.n2 }}</a>
+      <a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a>
+      <a href="Azulejo-Vender.html">{{ t.n4 }}</a>
+      <a href="Azulejo-Servicos.html">{{ t.n5 }}</a>
+      <a href="Azulejo-Contactos.html">{{ t.n6 }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- OPENER -->
+<section class="wrap op">
+  <div class="op-grid">
+    <div>
+      <span class="folio rise">p. 30 — Secção 05 · Guia prático</span>
+      <h1 class="op-h rise d1">{{ t.h1a }} <span>{{ t.h1b }}</span></h1>
+      <p class="op-lead drop rise d2">{{ t.lead }}</p>
+    </div>
+    <div class="mosaic" aria-hidden="true">
+      <span class="mt tx1"></span><span class="mt az"></span><span class="mt tx2"></span>
+      <span class="mt az"></span><span class="mt word">i.</span><span class="mt tx3"></span>
+      <span class="mt tx2"></span><span class="mt tx3"></span><span class="mt tx1"></span>
+      <a class="badge" href="Azulejo-Vender.html" aria-label="{{ t.badgeAria }}" tabindex="-1">
+        <svg class="ring" viewBox="0 0 200 200">
+          <defs><path id="bcS" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"></path></defs>
+          <circle cx="100" cy="100" r="99" fill="{{ acc }}"></circle>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#D6B083" stroke-width="1" stroke-dasharray="2 4"></circle>
+          <text font-family="Work Sans, sans-serif" font-size="14.5" font-weight="600" letter-spacing="2" fill="#F7F3EA"><textPath href="#bcS" textLength="474" lengthAdjust="spacing">{{ t.badge }}</textPath></text>
+        </svg>
+        <span class="core">
+          <svg width="38" height="38" viewBox="0 0 40 40"><g fill="none" stroke="#1E3A8A" stroke-width="1.8"><path d="M20 3c5 6 5 10 0 15c-5-5-5-9 0-15z"></path><path d="M37 20c-6 5-10 5-15 0c5-5 9-5 15 0z"></path><path d="M20 37c-5-6-5-10 0-15c5 5 5 9 0 15z"></path><path d="M3 20c6-5 10-5 15 0c-5 5-9 5-15 0z"></path></g><circle cx="20" cy="20" r="3" fill="#B5552F"></circle></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="wrap svc" aria-labelledby="svc-title">
+  <div class="svc-head">
+    <div>
+      <span class="folio">p. 32</span>
+      <h2 class="h2 serif" id="svc-title">{{ t.svcH }}</h2>
+    </div>
+    <div class="grp" role="tablist" aria-label="{{ t.svcH }}">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+        <button type="button" role="tab" aria-selected="{{ g.on }}" style="{{ g.st }}" onClick="{{ g.pick }}">{{ g.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <p style="margin:18px 0 0;max-width:640px;color:#2B2B33">{{ grpIntro }}</p>
+  <div class="svc-grid">
+    <div class="acc" role="tabpanel">
+      <sc-for list="{{ items }}" as="s" hint-placeholder-count="7">
+        <div class="acc-item">
+          <button type="button" class="acc-btn" aria-expanded="{{ s.open }}" onClick="{{ s.toggle }}">
+            <span class="acc-n">{{ s.n }}</span>
+            <span class="acc-name">{{ s.name }}</span>
+            <span class="acc-ico" style="{{ s.icoSt }}" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <sc-if value="{{ s.isOpen }}" hint-placeholder-val="{{ false }}">
+            <div class="acc-panel">
+              <p>{{ s.text }}</p>
+              <a href="Azulejo-Contactos.html">{{ t.ask }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <aside class="note az" aria-live="polite">
+      <div class="note-in">
+        <p class="sc" style="color:#D6B083">{{ t.noteK }} · {{ cur.grp }}</p>
+        <span class="note-n">{{ cur.n }}</span>
+        <div>
+          <h3>{{ cur.name }}</h3>
+          <p style="margin-top:12px">{{ cur.tag }}</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="wrap how" aria-labelledby="how-title">
+  <span class="folio">p. 34</span>
+  <h2 class="h2 serif" id="how-title">{{ t.howH }}</h2>
+  <div class="how-grid">
+    <div class="how-card az"><div class="how-in"><span class="how-n">01</span><h3>Uma conversa</h3><p>No escritório, por telefone ou por videochamada, em português ou em francês. Percebemos o que precisa e para quando.</p></div></div>
+    <div class="how-card az"><div class="how-in"><span class="how-n">02</span><h3>Um plano à medida</h3><p>Dizemos-lhe que documentos reunir, que serviços fazem sentido e em que ordem, por escrito.</p></div></div>
+    <div class="how-card az"><div class="how-in"><span class="how-n">03</span><h3>Tratamos do assunto</h3><p>Acompanhamo-lo às finanças, ao banco e aos fornecedores — ou tratamos por si, quando a lei o permite.</p></div></div>
+    <div class="how-card az"><div class="how-in"><span class="how-n">04</span><h3>Ponto de situação</h3><p>Recebe notícias regulares até ao fim. Para a conciergerie, um contacto fixo enquanto está fora.</p></div></div>
+  </div>
+</section>
+
+<!-- FR -->
+<section class="wrap fr">
+  <div class="fr-box">
+    <div>
+      <p class="sc" style="color:#9C4322">Clientes francófonos</p>
+      <p class="fr-q">Parlez-vous français ? <span>Nous aussi.</span></p>
+    </div>
+    <div>
+      <p style="margin:0 0 14px;font-size:18px;color:#2B2B33">Muitos dos nossos clientes chegam de países francófonos. O NIF, o CPCV, o banco e os contratos da casa são-lhes explicados na sua língua, do primeiro contacto à escritura.</p>
+      <p style="margin:0;font-size:16px;color:#4A4A56">Toque em FR no topo da página para ler o essencial em francês.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap cta">
+  <div class="cta-box">
+    <div>
+      <p class="sc">p. 36 · {{ t.ctaK }}</p>
+      <h2>{{ t.ctaH }}</h2>
+    </div>
+    <div class="cta-acts">
+      <a class="btn light" href="Azulejo-Contactos.html">{{ t.ctaBtn }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a class="btn lghost" href="tel:+351210958271">+351 210 958 271</a>
+      <a class="btn lghost" href="mailto:info@imonovo.pt">info@imonovo.pt</a>
+    </div>
+  </div>
+</section>
+
+<div class="roofline" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+    <path fill="#D6B083" opacity=".6" d="M676 90V34H690V12L703 0L716 12V34H730V90Z"></path>
+    <path fill="#B5552F" d="M0 90V58L36 34L72 58V46L118 20L164 46V60L196 40L228 60V50L270 26L312 50V56L352 32L392 56V44L440 18L488 44V58L520 38L552 58V48L596 24L640 48V54L684 30L728 54V42L776 16L824 42V58L858 36L892 58V50L934 26L976 50V56L1016 34L1056 56V44L1104 20L1152 44V58L1186 38L1220 58V48L1264 24L1308 48V54L1350 30L1392 54V46L1440 28V90Z"></path>
+    <path fill="none" stroke="#963F1E" stroke-width="1.2" d="M0 68H1440M0 79H1440"></path>
+  </svg>
+</div>
+<footer class="foot">
+  <div class="foot-az az" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="logo" href="Azulejo-Home.html" aria-label="Imonovo, início"><span class="logo-tile az" aria-hidden="true"></span><b>Imonovo</b></a>
+      <p style="margin-top:18px">{{ t.footAbout }}</p>
+      <a href="https://www.instagram.com/imonovo_portugal" style="color:#D6B083;text-decoration:none">Instagram @imonovo_portugal</a>
+    </div>
+    <div>
+      <p class="sc">Índice</p>
+      <ul>
+        <li><a href="Azulejo-Imoveis.html">{{ t.n2 }}</a></li>
+        <li><a href="Azulejo-Imoveis.html#empreendimentos">{{ t.n3 }}</a></li>
+        <li><a href="Azulejo-Vender.html">{{ t.n4 }}</a></li>
+        <li><a href="Azulejo-Servicos.html">{{ t.n5 }}</a></li>
+        <li><a href="Azulejo-Contactos.html">{{ t.n6 }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="sc">Escritório</p>
+      <address>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br><a href="tel:+351210958271">Tel +351 210 958 271</a><br><a href="tel:+351919192220">Tlm +351 919 192 220</a><br><a href="mailto:info@imonovo.pt">info@imonovo.pt</a></address>
+      <p>Horário: [HORÁRIO]</p>
+    </div>
+    <div>
+      <p class="sc">Colofão</p>
+      <p>Imonovo é uma marca de MAJBI Lda.<br>AMI 10355 · APEMIP 5259</p>
+      <p class="foot-links"><a href="index.html">← Todas as propostas</a></p>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <span>© 2026 Imonovo · MAJBI Lda · Fotografias ilustrativas</span>
+    <span>Proposta de redesign — conceito, não é o site oficial</span>
+  </div>
+</footer>
+
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3700},"accent":{"editor":"color","default":"#9C4322","options":["#9C4322","#1E3A8A","#8A6A3B"]}}'>
+const SV = {
+  acomp: [
+    ['Obtenção de NIF', 'Tratamos do pedido do seu Número de Identificação Fiscal, o primeiro passo para comprar casa em Portugal.', 'O primeiro documento'],
+    ['Abertura de conta bancária', 'Acompanhamo-lo ao banco e ajudamos a reunir os documentos para abrir uma conta portuguesa.', 'Banco em Portugal'],
+    ['Tradução do CPCV', 'O Contrato-Promessa de Compra e Venda traduzido e explicado ponto a ponto, para assinar sabendo o que assina.', 'Antes de assinar'],
+    ['Apoio ao crédito bancário', 'Preparamos consigo o processo de crédito habitação e ajudamos a comparar as propostas dos bancos.', 'Financiar a compra'],
+    ['Golden Visa', 'Informação sobre a Autorização de Residência para Investimento e encaminhamento para especialistas de confiança.', 'Residência'],
+    ['Contratos de água, luz e internet', 'Ligamos os contratos de água, eletricidade e internet para que a casa esteja pronta no dia em que chega.', 'Casa pronta'],
+    ['Legalização de automóvel', 'Apoio na legalização do veículo que traz do estrangeiro, da documentação às inspeções.', 'Mudar com o carro'],
+  ],
+  conc: [
+    ['Limpeza', 'Limpeza regular ou antes da sua chegada, para encontrar a casa pronta a habitar.', 'Chegar e ficar'],
+    ['Manutenção', 'Pequenas reparações, jardim e piscina vigiados enquanto está fora, com um contacto fixo.', 'Enquanto está fora'],
+    ['Acompanhamento de obras', 'Seguimos a obra por si: contacto com os empreiteiros, visitas ao estaleiro e ponto de situação regular.', 'A obra à distância'],
+  ],
+};
+const T = {
+  pt: {
+    n1: 'Início', n2: 'Imóveis', n3: 'Empreendimentos', n4: 'Vender', n5: 'Serviços', n6: 'Contactos',
+    issue: 'Edição Outono 2026 · Costa de Prata', all: 'Todas as propostas', fav: 'Favoritos', favEmpty: 'Os favoritos guardam-se na página Imóveis.', favSee: 'Ver imóveis',
+    badge: 'AVALIAÇÃO GRATUITA · CALDAS DA RAINHA · ', badgeAria: 'Pedir avaliação gratuita do seu imóvel',
+    h1a: 'Chegar, comprar', h1b: 'e ficar.', lead: 'Comprar casa em Portugal é também tratar do NIF, do banco, dos contratos e da casa quando está longe. Este guia reúne tudo o que a Imonovo faz por si depois do «sim».',
+    svcH: 'O guia de serviços', grp: ['Acompanhamento', 'Conciergerie'],
+    intro: ['Do NIF à escritura: a papelada de quem compra em Portugal, tratada consigo.', 'A casa cuidada enquanto está fora: limpeza, manutenção e obras.'],
+    ask: 'Pedir este serviço', noteK: 'Nota prática', howH: 'Como funciona',
+    ctaK: 'Serviços', ctaH: 'Precisa de ajuda com um destes serviços?', ctaBtn: 'Falar com a equipa',
+    footAbout: 'Agência imobiliária em Caldas da Rainha. Comprar, vender e viver na Costa de Prata, em português e em francês.',
+  },
+  fr: {
+    n1: 'Accueil', n2: 'Biens', n3: 'Programmes', n4: 'Vendre', n5: 'Services', n6: 'Contact',
+    issue: 'Édition Automne 2026 · Costa de Prata', all: 'Toutes les propositions', fav: 'Favoris', favEmpty: 'Les favoris se gèrent sur la page Biens.', favSee: 'Voir les biens',
+    badge: 'ESTIMATION GRATUITE · CALDAS DA RAINHA · ', badgeAria: 'Demander une estimation gratuite de votre bien',
+    h1a: 'Arriver, acheter', h1b: 'et rester.', lead: 'Acheter au Portugal, c’est aussi le NIF, la banque, les contrats et la maison quand vous êtes loin. Ce guide réunit tout ce qu’Imonovo fait pour vous après le « oui ».',
+    svcH: 'Le guide des services', grp: ['Accompagnement', 'Conciergerie'],
+    intro: ['Du NIF à l’acte : les démarches de l’acheteur au Portugal, faites avec vous.', 'La maison entretenue pendant votre absence : ménage, entretien et travaux.'],
+    ask: 'Demander ce service', noteK: 'Note pratique', howH: 'Comment ça marche',
+    ctaK: 'Services', ctaH: 'Besoin d’aide pour l’un de ces services ?', ctaBtn: 'Parler à l’équipe',
+    footAbout: 'Agence immobilière à Caldas da Rainha. Acheter, vendre et vivre sur la Costa de Prata, en portugais et en français.',
+  },
+};
+const GK = ['acomp', 'conc'];
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { lang: 'pt', menu: false, favOpen: false, grp: 'acomp', open: 0 }; }
+  renderVals() {
+    const s = this.state, t = T[s.lang];
+    const ON = 'background:#1E3A8A;color:#F7F3EA;border-color:#1E3A8A';
+    const acc = typeof this.props.accent === 'string' ? this.props.accent : '#9C4322';
+    const gi = GK.indexOf(s.grp);
+    const items = SV[s.grp].map((x, i) => ({
+      n: '0' + (i + 1), name: x[0], text: x[1], tag: x[2],
+      isOpen: s.open === i, open: s.open === i ? 'true' : 'false',
+      icoSt: s.open === i ? 'transform:rotate(45deg);background:#1E3A8A;color:#F7F3EA' : '',
+      toggle: () => this.setState({ open: this.state.open === i ? -1 : i }),
+    }));
+    const cur = s.open > -1 && items[s.open] ? { ...items[s.open], grp: t.grp[gi] } : { n: '—', name: t.grp[gi], tag: t.intro[gi], grp: t.grp[gi] };
+    return {
+      t, acc,
+      isPt: s.lang === 'pt' ? 'true' : 'false', isFr: s.lang === 'fr' ? 'true' : 'false',
+      ptSt: s.lang === 'pt' ? ON : '', frSt: s.lang === 'fr' ? ON : '',
+      setPt: () => this.setState({ lang: 'pt' }), setFr: () => this.setState({ lang: 'fr' }),
+      menu: s.menu, toggleMenu: () => this.setState({ menu: !this.state.menu, favOpen: false }),
+      favOpen: s.favOpen, toggleFavPop: () => this.setState({ favOpen: !this.state.favOpen, menu: false }), favCount: 0,
+      groups: GK.map((k, i) => ({ label: t.grp[i], on: s.grp === k ? 'true' : 'false', st: s.grp === k ? 'background:#142A66;color:#F7F3EA' : '', pick: () => this.setState({ grp: k, open: 0 }) })),
+      grpIntro: t.intro[gi], items, cur,
+    };
+  }
+}
+</script>
+</body>
+</html>

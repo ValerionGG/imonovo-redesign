@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Caldas — Imóveis</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#ECEAE4}
+.cz{container-type:inline-size;background:#ECEAE4;color:#0E0E0D;font-family:'Archivo',system-ui,sans-serif;font-size:16px;line-height:1.5;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+:where(.cz) a{color:inherit}
+:where(.cz) h1,:where(.cz) h2,:where(.cz) h3,:where(.cz) p,:where(.cz) figure,:where(.cz) dl,:where(.cz) dd,:where(.cz) ul{margin:0;padding:0}
+:where(.cz) ul{list-style:none}
+:where(.cz) button,:where(.cz) input,:where(.cz) select,:where(.cz) textarea{font-family:inherit;color:inherit;font-size:inherit}
+.cz img{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px;position:relative}
+.xp{font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;line-height:.9}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#5A5852}
+.hl{background:#D6B083;color:#0E0E0D;padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cz :focus-visible{outline:2px solid #0E0E0D;outline-offset:3px}
+.dk :focus-visible{outline-color:#D6B083}
+.gov{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40;mix-blend-mode:multiply}
+.gov-in{width:100%;max-width:1440px;padding:0 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.gov-in i{border-left:1px solid rgba(14,14,13,.06);border-right:1px solid rgba(14,14,13,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:#ECEAE4;border-bottom:1px solid #0E0E0D}
+.hdr-top{border-bottom:1px solid #0E0E0D;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.hdr-top-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:34px}
+.lnk-top{text-decoration:none;display:inline-flex;align-items:center;min-height:34px;padding:0 8px;transition:background .25s}
+.lnk-top:hover{background:#D6B083}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.logo{display:inline-flex;gap:5px;font-size:26px;font-weight:900;font-stretch:125%;letter-spacing:-.03em;text-decoration:none;line-height:1;min-height:44px;align-items:center}
+.logo i{width:9px;height:9px;background:#D6B083;align-self:flex-start;margin-top:8px}
+.nav{display:flex;gap:2px}
+.nav-a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;text-decoration:none;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.nav-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5A5852;padding:1px 3px}
+.nav-a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:#0E0E0D;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.nav-a:hover::after,.nav-a.on::after{transform:scaleX(1);transform-origin:left}
+.nav-a.on .nav-n{background:#D6B083;color:#0E0E0D}
+.hdr-act{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #0E0E0D}
+.lang-b{min-width:44px;min-height:42px;border:0;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s,color .25s}
+.fav{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #0E0E0D;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;transition:background .25s}
+.fav:hover{background:#D6B083}
+.menu-b{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #0E0E0D;background:transparent;cursor:pointer}
+.mnav{display:none;flex-direction:column;border-top:1px solid #0E0E0D}
+.mnav a{display:flex;align-items:center;gap:14px;min-height:56px;padding:0 16px;border-bottom:1px solid #0E0E0D;text-decoration:none;font-stretch:125%;font-weight:800;font-size:20px;text-transform:uppercase}
+.mnav a:hover{background:#D6B083}
+.mnav span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:400;color:#5A5852}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;isolation:isolate;transition:color .35s}
+.btn::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:#D6B083;transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:#0E0E0D}
+.btn:hover::before{transform:translateY(0)}
+.btn-o{background:transparent;color:#0E0E0D}
+.btn-g{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.btn-g::before{background:#0E0E0D}
+.btn-g:hover{color:#ECEAE4}
+.btn-sm{min-height:44px;padding:0 16px;font-size:11px}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.hov:hover .ph,.hov:focus-within .ph{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:120px 0 28px;border-bottom:1px solid #0E0E0D}
+.sh-num{grid-column:1/span 4;font-size:clamp(88px,13cqw,190px);font-weight:900;font-stretch:125%;line-height:.76;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #0E0E0D;transition:color .6s}
+.sh:hover .sh-num{color:#0E0E0D}
+.sh-t{grid-column:5/span 5}
+.sh-t h2{font-size:clamp(26px,2.7cqw,40px);margin-top:10px}
+.sh-x{grid-column:10/span 3;text-align:right;font-size:15px;color:#5A5852}
+.heart{position:relative;z-index:3;flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid currentColor;background:transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.heart:hover{background:#D6B083;border-color:#D6B083;color:#0E0E0D}
+.heart svg{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.heart:active svg{transform:scale(.75)}
+.ftr{background:#0E0E0D;color:#ECEAE4;padding:72px 0 28px;position:relative;z-index:41}
+.ftr-word{display:flex;justify-content:space-between;font-size:clamp(54px,14.3cqw,206px);font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #ECEAE4;transition:color .6s}
+.ftr-word:hover{color:#D6B083;-webkit-text-stroke-color:#D6B083}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:32px;padding:56px 0;margin-top:48px;border-top:1px solid rgba(236,234,228,.25)}
+.ftr .lbl{color:#A9A69E;margin-bottom:12px}
+.ftr p{font-size:15px;line-height:1.7}
+.ftr-l a{display:flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(236,234,228,.12);transition:color .25s,padding .35s}
+.ftr-l a:hover{color:#D6B083;padding-left:8px}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:20px;border-top:1px solid rgba(236,234,228,.25);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#A9A69E}
+.ftr-bot a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ftr-bot a:hover{color:#D6B083}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes roll{from{transform:translateY(0)}}
+@keyframes ltr{0%{transform:translateY(105%);font-stretch:62%}55%{font-stretch:62%}100%{transform:translateY(0);font-stretch:125%}}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.fl{display:flex;gap:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:64px;line-height:1}
+.fl-d{position:relative;display:block;width:.74em;height:1.12em;background:#0E0E0D;color:#ECEAE4;overflow:hidden}
+.fl-d::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:rgba(236,234,228,.07);z-index:2}
+.fl-d::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#ECEAE4;opacity:.4;z-index:2}
+.fl-s{display:flex;flex-direction:column;transform:translateY(calc(var(--n) * -1.12em));animation:roll 1.9s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.fl-s i{display:flex;align-items:center;justify-content:center;height:1.12em;font-style:normal}
+/* page title */
+.pt{padding-top:24px}
+.pt-meta{display:flex;justify-content:space-between;gap:16px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-bottom:12px;border-bottom:1px solid #0E0E0D;animation:fade .8s both}
+.pt-word{display:flex;justify-content:space-between;margin-top:14px;font-weight:900;font-stretch:125%;line-height:.8;letter-spacing:-.035em;overflow:hidden;padding:.05em 0 .03em}
+.pt-word span{display:inline-block;font-stretch:125%;animation:ltr 1.2s cubic-bezier(.16,.84,.2,1) backwards;transition:font-stretch .7s cubic-bezier(.7,0,.2,1),color .3s}
+.pt-word span:hover{font-stretch:62%;color:#D6B083}
+.pt-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;padding:28px 0 40px;border-top:1px solid #0E0E0D;margin-top:8px}
+.pt-l{grid-column:1/span 5;font-size:19px;line-height:1.5;animation:up .9s .6s both}
+.pt-c{grid-column:7/span 3;animation:up .9s .75s both}
+.pt-r{grid-column:10/span 3;display:flex;flex-direction:column;align-items:flex-end;gap:10px;animation:up .9s .9s both}
+/* filters */
+.flt{display:grid;grid-template-columns:repeat(12,1fr);border:1px solid #0E0E0D;background:#ECEAE4}
+.fb{padding:18px 20px 20px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;display:flex;flex-direction:column;gap:12px}
+.fb-6{grid-column:span 6}.fb-4{grid-column:span 4}.fb-3{grid-column:span 3}.fb-2{grid-column:span 2}
+.fb:last-child{border-right:0}
+.fb label,.fb .lbl{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border:1px solid #0E0E0D;cursor:pointer;font-stretch:75%;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.05em;transition:background .25s,color .25s}
+.chip:hover{background:#D6B083;color:#0E0E0D}
+.chip .mono{font-size:10px;font-weight:400}
+.rng-v{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:#0E0E0D}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-10px;background:#D6B083;border:1px solid #0E0E0D;border-radius:0}
+input[type=range]::-moz-range-track{height:1px;background:#0E0E0D}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;background:#D6B083;border:1px solid #0E0E0D;border-radius:0}
+.sel{position:relative}
+.sel select{width:100%;appearance:none;-webkit-appearance:none;border:0;border-bottom:1px solid #0E0E0D;border-radius:0;background:transparent;font-weight:600;font-size:18px;min-height:48px;padding:0 30px 0 0;cursor:pointer}
+.sel svg{position:absolute;right:2px;top:17px;pointer-events:none}
+.reset{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:100%;border:0;background:#0E0E0D;color:#ECEAE4;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;transition:background .3s,color .3s}
+.reset:hover{background:#D6B083;color:#0E0E0D}
+.fb-reset{padding:0}
+.rbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:22px 0}
+.rbar-c{font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase}
+.rbar-c b{background:#D6B083;padding:2px 6px}
+.vt{display:flex;border:1px solid #0E0E0D}
+.vt button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:0;border-right:1px solid #0E0E0D;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;transition:background .3s,color .3s}
+.vt button:last-child{border-right:0}
+/* index */
+.ix{border-top:1px solid #0E0E0D;position:relative}
+.ix-h,.ix-r{display:grid;grid-template-columns:72px minmax(0,1.5fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.6fr) minmax(0,1.1fr) 44px;align-items:center;column-gap:24px}
+.ix-h{min-height:40px;border-bottom:1px solid #0E0E0D}
+.ix-r{position:relative;min-height:96px;border-bottom:1px solid #0E0E0D;transition:background .35s,color .35s,padding .45s cubic-bezier(.7,0,.2,1);padding:0 8px 0 0;animation:up .7s cubic-bezier(.2,.7,.1,1) both}
+.ix-r:hover{background:#0E0E0D;color:#ECEAE4;padding-left:18px}
+.ix-cover{position:absolute;top:0;left:0;right:0;bottom:0;z-index:2}
+.ix-no{font-family:'JetBrains Mono',monospace;font-size:13px}
+.ix-t{font-stretch:125%;font-weight:800;font-size:clamp(20px,2cqw,28px);text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.ix-l{font-stretch:75%;font-weight:600;font-size:17px;text-transform:uppercase;letter-spacing:.05em}
+.ix-m,.ix-p,.ix-k{font-family:'JetBrains Mono',monospace;font-size:15px}
+.ix-p{font-weight:700}
+.red{display:inline-block;margin-left:8px;background:#D6B083;color:#0E0E0D;font-size:10px;font-weight:700;padding:3px 6px;text-transform:uppercase;vertical-align:middle}
+.ix-rev{position:absolute;right:30%;top:50%;width:300px;height:206px;z-index:4;pointer-events:none;overflow:hidden;opacity:0;transform:translateY(-50%) rotate(-2.5deg) scale(.86);clip-path:inset(50% 0 50% 0);transition:clip-path .6s cubic-bezier(.7,0,.2,1),opacity .3s,transform .6s cubic-bezier(.7,0,.2,1)}
+.ix-rev img{width:100%;height:100%;object-fit:cover}
+.ix-r:hover .ix-rev{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(-50%) rotate(-2.5deg) scale(1)}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));border-top:1px solid #0E0E0D;border-left:1px solid #0E0E0D}
+.card{display:flex;flex-direction:column;gap:16px;padding:18px;border-right:1px solid #0E0E0D;border-bottom:1px solid #0E0E0D;animation:up .7s cubic-bezier(.2,.7,.1,1) both;transition:background .35s}
+.card:hover{background:#E3E0D8}
+.card-img{position:relative;display:block;height:300px;overflow:hidden;background:#0E0E0D}
+.card-no{position:absolute;top:0;left:0;z-index:2;background:#D6B083;color:#0E0E0D;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:7px 10px}
+.card-b{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card-t{font-stretch:125%;font-weight:800;font-size:24px;text-transform:uppercase;line-height:1;margin-top:6px}
+.card-t a{text-decoration:none}
+.card-d{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #0E0E0D;padding-top:12px;font-family:'JetBrains Mono',monospace;font-size:14px}
+.card-d b{font-size:18px}
+/* map */
+.mapw{display:grid;grid-template-columns:repeat(12,1fr);border:1px solid #0E0E0D;animation:fade .6s both}
+.map{grid-column:span 8;position:relative;height:600px;overflow:hidden;border-right:1px solid #0E0E0D;background:#ECEAE4}
+.map svg{position:absolute;top:0;left:0;width:100%;height:100%}
+.plc{position:absolute;transform:translate(0,-50%);font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;pointer-events:none}
+.plc::before{content:"";display:inline-block;width:5px;height:5px;background:#0E0E0D;margin-right:6px;vertical-align:middle}
+.pin{position:absolute;transform:translate(-50%,-100%);display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 8px;border:1px solid #0E0E0D;background:#0E0E0D;color:#ECEAE4;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;transition:background .25s,color .25s,transform .35s cubic-bezier(.3,1.5,.5,1);z-index:3}
+.pin::after{content:"";position:absolute;left:50%;bottom:-7px;width:1px;height:7px;background:#0E0E0D}
+.pin:hover{transform:translate(-50%,-112%)}
+.pin-pulse{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border:1px solid #0E0E0D;pointer-events:none;animation:ping 1.8s ease-out infinite;z-index:2}
+.map-c{position:absolute;left:16px;bottom:16px;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;background:#ECEAE4;border:1px solid #0E0E0D;padding:6px 8px}
+.mapd{grid-column:span 4;display:flex;flex-direction:column}
+.mapd-img{height:280px;overflow:hidden;background:#0E0E0D;position:relative}
+.mapd-b{padding:22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.mapd-t{font-stretch:125%;font-weight:800;font-size:30px;text-transform:uppercase;line-height:.95}
+.mapd-dl{font-family:'JetBrains Mono',monospace;font-size:13px;border-top:1px solid #0E0E0D}
+.mapd-dl div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #0E0E0D}
+.mapd-dl dt{color:#5A5852;text-transform:uppercase}
+.mapd-a{display:flex;gap:8px;margin-top:auto}
+/* empty */
+.empty{border:1px solid #0E0E0D;padding:56px 32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:center;animation:up .6s both}
+.empty-n{grid-column:span 3;font-size:130px;font-weight:900;font-stretch:125%;line-height:.8;color:transparent;-webkit-text-stroke:1.5px #0E0E0D}
+.empty-t{grid-column:span 6}
+.empty-t h3{font-size:30px}
+.empty-t p{margin-top:10px;color:#5A5852}
+.empty-a{grid-column:span 3;text-align:right}
+/* empreendimentos */
+.emp-bar{display:flex;flex-wrap:wrap;gap:6px;padding:22px 0}
+.ex-r{display:grid;grid-template-columns:72px minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr);column-gap:24px;align-items:center;min-height:92px;border-bottom:1px solid #0E0E0D;position:relative;transition:background .35s,color .35s,padding .45s cubic-bezier(.7,0,.2,1);animation:up .6s both}
+.ex-r:hover{background:#0E0E0D;color:#ECEAE4;padding-left:18px}
+.ex-r:hover .ix-rev{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(-50%) rotate(2deg) scale(1)}
+.st-tag{display:inline-block;justify-self:start;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;padding:5px 8px;background:#D6B083;color:#0E0E0D}
+.emp-note{margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#5A5852}
+@media (max-width:1100px){.nav{display:none}.menu-b{display:inline-flex}.mnav{display:flex}.hide-md{display:none}.fb-6,.fb-4,.fb-3,.fb-2{grid-column:span 6}.fb{border-right:0}}
+@media (max-width:900px){
+.sh,.pt-row,.empty{grid-template-columns:1fr}
+.sh-num,.sh-t,.sh-x,.pt-l,.pt-c,.pt-r,.empty-n,.empty-t,.empty-a{grid-column:auto;text-align:left;align-items:flex-start}
+.sh-x,.pt-c,.pt-r{margin-top:16px}
+.fb-6,.fb-4,.fb-3,.fb-2{grid-column:1/-1}
+.ix-h{display:none}.ix-r{grid-template-columns:48px 1fr 44px;row-gap:4px;padding:14px 0}.ix-l,.ix-m,.ix-k,.ix-p{grid-column:2}.ix-rev{display:none}
+.ex-r{grid-template-columns:48px 1fr;row-gap:6px;padding:14px 0}.ex-r>*:nth-child(n+3){grid-column:2}
+.map,.mapd{grid-column:1/-1}.map{border-right:0;border-bottom:1px solid #0E0E0D;height:440px}
+}
+@media (max-width:640px){.hide-sm{display:none}.wrap,.gov-in{padding:0 16px}.fl{font-size:44px}}
+@media (prefers-reduced-motion:reduce){.cz *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div class="cz">
+<sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+<div class="gov" aria-hidden="true"><div class="gov-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</sc-if>
+
+<header class="hdr">
+  <div class="hdr-top mono">
+    <div class="wrap hdr-top-in">
+      <span>Imonovo — Caldas da Rainha · 39°24′N 9°08′W</span>
+      <span class="hide-sm">AMI 10355 · APEMIP 5259</span>
+      <a class="lnk-top" href="Main.dc.html">← {{ n.all }}</a>
+    </div>
+  </div>
+  <div class="wrap hdr-bar">
+    <a class="logo" href="Caldas-Home.dc.html" aria-label="Imonovo — Início">IMONOVO<i></i></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-a" href="Caldas-Home.dc.html"><span class="nav-n">01</span>{{ n.home }}</a>
+      <a class="nav-a on" href="Caldas-Imoveis.dc.html" aria-current="page"><span class="nav-n">02</span>{{ n.imoveis }}</a>
+      <a class="nav-a" href="Caldas-Imoveis.dc.html#empreendimentos"><span class="nav-n">03</span>{{ n.emp }}</a>
+      <a class="nav-a" href="Caldas-Vender.dc.html"><span class="nav-n">04</span>{{ n.vender }}</a>
+      <a class="nav-a" href="Caldas-Servicos.dc.html"><span class="nav-n">05</span>{{ n.servicos }}</a>
+      <a class="nav-a" href="Caldas-Contactos.dc.html"><span class="nav-n">06</span>{{ n.contactos }}</a>
+    </nav>
+    <div class="hdr-act">
+      <div class="lang" role="group" aria-label="Idioma / Langue">
+        <button type="button" class="lang-b" style="{{ ptStyle }}" aria-pressed="{{ ptPressed }}" onClick="{{ setPT }}">PT</button>
+        <button type="button" class="lang-b" style="{{ frStyle }}" aria-pressed="{{ frPressed }}" onClick="{{ setFR }}">FR</button>
+      </div>
+      <a class="fav" href="Caldas-Imoveis.dc.html" style="{{ favStyle }}" aria-label="{{ favAria }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg><span>{{ favCount }}</span></a>
+      <a class="btn btn-sm hide-md" href="Caldas-Vender.dc.html">{{ n.cta }}</a>
+      <button type="button" class="menu-b" aria-label="Menu" aria-expanded="{{ menuAria }}" onClick="{{ toggleMenu }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="mnav" aria-label="Menu móvel">
+      <a href="Caldas-Home.dc.html"><span>01</span>{{ n.home }}</a>
+      <a href="Caldas-Imoveis.dc.html"><span>02</span>{{ n.imoveis }}</a>
+      <a href="Caldas-Imoveis.dc.html#empreendimentos"><span>03</span>{{ n.emp }}</a>
+      <a href="Caldas-Vender.dc.html"><span>04</span>{{ n.vender }}</a>
+      <a href="Caldas-Servicos.dc.html"><span>05</span>{{ n.servicos }}</a>
+      <a href="Caldas-Contactos.dc.html"><span>06</span>{{ n.contactos }}</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section class="pt wrap" aria-labelledby="pt-h">
+  <div class="pt-meta mono"><span>(Nº 002) — {{ n.imoveis }}</span><span class="hide-sm">Caldas da Rainha · Nadadouro · Serra do Bouro</span><span>{{ t.upd }}</span></div>
+  <h1 class="pt-word" id="pt-h" aria-label="{{ t.word }}" style="{{ wordSt }}">
+    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="8"><span aria-hidden="true" style="{{ l.st }}">{{ l.ch }}</span></sc-for>
+  </h1>
+  <div class="pt-row">
+    <p class="pt-l">{{ t.intro }}</p>
+    <div class="pt-c"><p class="lbl">{{ t.legend }}</p><p style="margin-top:8px;font-size:15px;color:#5A5852">{{ t.legendP }}</p></div>
+    <div class="pt-r" aria-live="polite">
+      <div class="fl" aria-label="{{ resCount }}">
+        <sc-for list="{{ digits }}" as="d" hint-placeholder-count="2"><span class="fl-d" aria-hidden="true"><span class="fl-s" style="{{ d.st }}"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span></sc-for>
+      </div>
+      <p class="lbl" style="color:#0E0E0D">{{ resLabel }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="{{ t.filters }}">
+  <div class="flt">
+    <div class="fb fb-6">
+      <span class="lbl">01 — {{ t.fType }}</span>
+      <div class="chips">
+        <sc-for list="{{ types }}" as="c" hint-placeholder-count="4"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}<span class="mono">{{ c.cnt }}</span></button></sc-for>
+      </div>
+    </div>
+    <div class="fb fb-6">
+      <span class="lbl">02 — {{ t.fTip }}</span>
+      <div class="chips">
+        <sc-for list="{{ tips }}" as="c" hint-placeholder-count="6"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for>
+      </div>
+    </div>
+    <div class="fb fb-4">
+      <label class="lbl" for="f-max">03 — {{ t.fMax }}</label>
+      <span class="rng-v">{{ maxF }}</span>
+      <input id="f-max" type="range" min="300000" max="1500000" step="10000" value="{{ fMax }}" onInput="{{ setMax }}">
+      <div style="display:flex;justify-content:space-between" class="lbl"><span>300.000 €</span><span>1.500.000 €</span></div>
+    </div>
+    <div class="fb fb-3">
+      <label class="lbl" for="f-loc">04 — {{ t.fLoc }}</label>
+      <div class="sel">
+        <select id="f-loc" value="{{ fLoc }}" onInput="{{ setLoc }}">
+          <option value="todas">{{ t.all }}</option>
+          <option value="Caldas da Rainha">Caldas da Rainha</option>
+          <option value="Nadadouro">Nadadouro</option>
+          <option value="Serra do Bouro">Serra do Bouro</option>
+        </select>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div class="fb fb-3">
+      <label class="lbl" for="f-sort">05 — {{ t.fSort }}</label>
+      <div class="sel">
+        <select id="f-sort" value="{{ sort }}" onInput="{{ setSort }}">
+          <option value="recentes">{{ t.sRec }}</option>
+          <option value="pa">{{ t.sPa }}</option>
+          <option value="pd">{{ t.sPd }}</option>
+          <option value="ad">{{ t.sAd }}</option>
+        </select>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div class="fb fb-2 fb-reset">
+      <button type="button" class="reset" onClick="{{ reset }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4v6h6M20 12a8 8 0 1 1-2.3-5.7L20 8"></path></svg>{{ t.reset }}</button>
+    </div>
+  </div>
+
+  <div class="rbar">
+    <p class="rbar-c"><b>{{ resCount }}</b> {{ resLabel }}</p>
+    <div class="vt" role="group" aria-label="Vista">
+      <sc-for list="{{ views }}" as="v" hint-placeholder-count="3"><button type="button" style="{{ v.st }}" aria-pressed="{{ v.pr }}" onClick="{{ v.pick }}">{{ v.label }}</button></sc-for>
+    </div>
+  </div>
+
+  <sc-if value="{{ showIdx }}" hint-placeholder-val="{{ true }}">
+    <div class="ix" role="list">
+      <div class="ix-h lbl" aria-hidden="true"><span>Nº</span><span>{{ t.cTipo }}</span><span>{{ t.fLoc }}</span><span>m²</span><span>{{ t.cTip }}</span><span>{{ t.cPreco }}</span><span></span></div>
+      <sc-for list="{{ list }}" as="p" hint-placeholder-count="6">
+        <div class="ix-r" role="listitem" style="{{ p.delay }}">
+          <a class="ix-cover" href="Caldas-Imovel.dc.html" aria-label="{{ p.aria }}"></a>
+          <span class="ix-no">{{ p.no }}</span>
+          <span class="ix-t">{{ p.title }}</span>
+          <span class="ix-l">{{ p.loc }}</span>
+          <span class="ix-m">{{ p.areaF }}</span>
+          <span class="ix-k">{{ p.tip }}</span>
+          <span class="ix-p">{{ p.priceF }}<sc-if value="{{ p.reduced }}" hint-placeholder-val="{{ false }}"><em class="red">{{ p.redLabel }}</em></sc-if></span>
+          <button type="button" class="heart" aria-label="{{ p.favLabel }}" aria-pressed="{{ p.favPr }}" onClick="{{ p.toggle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path fill="{{ p.heartFill }}" d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg></button>
+          <span class="ix-rev" aria-hidden="true"><img src="{{ p.img }}" alt=""></span>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showGrd }}" hint-placeholder-val="{{ false }}">
+    <div class="cards">
+      <sc-for list="{{ list }}" as="p" hint-placeholder-count="6">
+        <article class="card hov" style="{{ p.delay }}">
+          <a class="card-img" href="Caldas-Imovel.dc.html" aria-label="{{ p.aria }}"><img class="ph" src="{{ p.img }}" alt="{{ p.alt }}"><span class="card-no">Nº {{ p.no }}</span></a>
+          <div class="card-b">
+            <div><p class="lbl">{{ p.loc }}</p><h3 class="card-t"><a href="Caldas-Imovel.dc.html">{{ p.title }}</a></h3></div>
+            <button type="button" class="heart" aria-label="{{ p.favLabel }}" aria-pressed="{{ p.favPr }}" onClick="{{ p.toggle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path fill="{{ p.heartFill }}" d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg></button>
+          </div>
+          <div class="card-d"><span>{{ p.areaF }}</span><b>{{ p.priceF }}</b></div>
+        </article>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showMap }}" hint-placeholder-val="{{ false }}">
+    <div class="mapw">
+      <div class="map" role="group" aria-label="{{ t.mapLabel }}">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <pattern id="cz-sea" width="2" height="2" patternUnits="userSpaceOnUse"><path d="M0 1h2" stroke="#0E0E0D" stroke-width=".25" vector-effect="non-scaling-stroke" opacity=".35"></path></pattern>
+          </defs>
+          <path d="M0 0 L82 0 L74 9 L64 21 L52 34 L41 45 L32 54 L27 61 L25 64 L21 76 L16 100 L0 100 Z" fill="#DCD9D1"></path>
+          <path d="M0 0 L82 0 L74 9 L64 21 L52 34 L41 45 L32 54 L27 61 L25 64 L21 76 L16 100 L0 100 Z" fill="url(#cz-sea)"></path>
+          <path d="M82 0 L74 9 L64 21 L52 34 L41 45 L32 54 L27 61 L25 64 L21 76 L16 100" fill="none" stroke="#0E0E0D" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+          <path d="M26 63 C30 59 35 58 39 60 C43 62 42 67 38 69.5 C34 71.5 29 69.5 26.5 66 Z" fill="#DCD9D1" stroke="#0E0E0D" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+          <path d="M53 72 C46 68 38 66 28 64 M53 72 L47 86 M53 72 C60 50 70 25 76 6" fill="none" stroke="#0E0E0D" stroke-width="1" stroke-dasharray="4 4" vector-effect="non-scaling-stroke" opacity=".55"></path>
+          <path d="M0 25 H100 M0 50 H100 M0 75 H100 M25 0 V100 M50 0 V100 M75 0 V100" stroke="#0E0E0D" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".08"></path>
+        </svg>
+        <span class="plc" style="left:4%;top:30%">Oceano Atlântico</span>
+        <span class="plc" style="left:77%;top:6%">Nazaré</span>
+        <span class="plc" style="left:45%;top:47%">Serra do Bouro</span>
+        <span class="plc" style="left:44%;top:62%">Nadadouro</span>
+        <span class="plc" style="left:9%;top:66%">Foz do Arelho</span>
+        <span class="plc" style="left:28%;top:73%">Lagoa de Óbidos</span>
+        <span class="plc" style="left:56%;top:80%">Caldas da Rainha</span>
+        <span class="plc" style="left:48%;top:89%">Óbidos</span>
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="6">
+          <sc-if value="{{ p.isSel }}" hint-placeholder-val="{{ false }}"><span class="pin-pulse" style="{{ p.pulseSt }}"></span></sc-if>
+          <button type="button" class="pin" style="{{ p.pinSt }}" aria-label="{{ p.aria }}" aria-pressed="{{ p.selPr }}" onClick="{{ p.select }}">{{ p.no }}</button>
+        </sc-for>
+        <span class="map-c">{{ t.mapNote }}</span>
+      </div>
+      <div class="mapd hov">
+        <div class="mapd-img"><img class="ph" src="{{ cur.img }}" alt="{{ cur.alt }}"></div>
+        <div class="mapd-b">
+          <p class="lbl">Nº {{ cur.no }} — {{ cur.loc }}</p>
+          <h3 class="mapd-t">{{ cur.title }}</h3>
+          <dl class="mapd-dl">
+            <div><dt>{{ t.cArea }}</dt><dd>{{ cur.areaF }}</dd></div>
+            <div><dt>{{ t.cPreco }}</dt><dd><b>{{ cur.priceF }}</b></dd></div>
+          </dl>
+          <div class="mapd-a">
+            <a class="btn" href="Caldas-Imovel.dc.html">{{ t.see }}</a>
+            <button type="button" class="heart" aria-label="{{ cur.favLabel }}" aria-pressed="{{ cur.favPr }}" onClick="{{ cur.toggle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path fill="{{ cur.heartFill }}" d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.9 1.3-1.8 2.9-2.9 4.9-2.9 3.5 0 5.6 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"></path></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+    <div class="empty">
+      <span class="empty-n" aria-hidden="true">00</span>
+      <div class="empty-t"><h3 class="xp">{{ t.emptyT }}</h3><p>{{ t.emptyP }}</p></div>
+      <div class="empty-a"><button type="button" class="btn" onClick="{{ reset }}">{{ t.reset }}</button></div>
+    </div>
+  </sc-if>
+</section>
+
+<section class="wrap" id="empreendimentos" aria-labelledby="emp-h">
+  <div class="sh">
+    <span class="sh-num" aria-hidden="true">03</span>
+    <div class="sh-t"><p class="lbl">{{ t.empK }}</p><h2 class="xp" id="emp-h">{{ n.emp }}</h2></div>
+    <p class="sh-x">{{ t.empX }}</p>
+  </div>
+  <div class="emp-bar" role="group" aria-label="{{ t.empK }}">
+    <sc-for list="{{ states }}" as="c" hint-placeholder-count="7"><button type="button" class="chip" style="{{ c.st }}" aria-pressed="{{ c.pr }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for>
+  </div>
+  <div style="border-top:1px solid #0E0E0D">
+    <sc-for list="{{ emps }}" as="e" hint-placeholder-count="6">
+      <div class="ex-r" style="{{ e.delay }}">
+        <span class="ix-no">E{{ e.no }}</span>
+        <span class="ix-t">{{ e.name }}</span>
+        <span class="st-tag">{{ e.state }}</span>
+        <span class="ix-l">[LOCALIDADE]</span>
+        <span class="ix-m">[N] {{ t.units }}</span>
+        <span class="ix-rev" aria-hidden="true"><img src="{{ e.img }}" alt=""></span>
+      </div>
+    </sc-for>
+  </div>
+  <p class="emp-note">{{ t.empNote }}</p>
+  <div style="height:120px"></div>
+</section>
+</main>
+
+<footer class="ftr dk">
+  <div class="wrap">
+    <div class="ftr-word" aria-hidden="true"><span>I</span><span>M</span><span>O</span><span>N</span><span>O</span><span>V</span><span>O</span></div>
+    <div class="ftr-grid">
+      <div><p class="lbl">Escritório</p><p>Rua Vitorino Frois 64<br>2500-256 Caldas da Rainha<br>Portugal</p><p class="lbl" style="margin-top:20px">Horário</p><p>[HORÁRIO]</p></div>
+      <div class="ftr-l"><p class="lbl">Contactos</p><a href="tel:+351210958271">Tel +351 210 958 271</a><a href="tel:+351919192220">Tlm +351 919 192 220</a><a href="mailto:info@imonovo.pt">info@imonovo.pt</a><a href="https://www.instagram.com/imonovo_portugal/">Instagram @imonovo_portugal</a></div>
+      <div class="ftr-l"><p class="lbl">Páginas</p><a href="Caldas-Home.dc.html">{{ n.home }}</a><a href="Caldas-Vender.dc.html">{{ n.vender }}</a><a href="Caldas-Servicos.dc.html">{{ n.servicos }}</a><a href="Caldas-Contactos.dc.html">{{ n.contactos }}</a></div>
+      <div><p class="lbl">Licenças</p><p>Imonovo é uma marca de MAJBI Lda<br>AMI 10355<br>APEMIP 5259</p></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© Imonovo · MAJBI Lda</span>
+      <span>Proposta de redesign — conceito, não é o site oficial</span>
+      <a href="Main.dc.html">{{ n.all }} →</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300},"showGrid":{"editor":"boolean","default":true}}'>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { lang:'pt', menu:false, favs:[], fType:'todos', fTip:'todas', fMax:1500000, fLoc:'todas', sort:'recentes', view:'index', sel:1, emp:'todos' };
+  }
+  renderVals(){
+    const s = this.state, fr = s.lang === 'fr';
+    const ON = 'background:#0E0E0D;color:#ECEAE4', OFF = 'background:transparent;color:#0E0E0D';
+    const n = fr
+      ? { home:'Accueil', imoveis:'Biens', emp:'Programmes neufs', vender:'Vendre', servicos:'Services', contactos:'Contacts', cta:'Estimation gratuite', all:'Toutes les propositions' }
+      : { home:'Início', imoveis:'Imóveis', emp:'Empreendimentos', vender:'Vender', servicos:'Serviços', contactos:'Contactos', cta:'Avaliação gratuita', all:'Todas as propostas' };
+    const t = fr ? {
+      word:'Portefeuille', upd:'Index · PT / FR', intro:'Six biens, un index. Filtrez par type, typologie, prix et localité — en liste, en grille ou sur la carte.',
+      legend:'Lecture', legendP:'Photos en noir et blanc : survolez pour la couleur. Le cœur ajoute aux favoris.',
+      filters:'Filtres', fType:'Type', fTip:'Typologie', fMax:'Prix max.', fLoc:'Localité', fSort:'Trier', all:'Toutes',
+      sRec:'Plus récents', sPa:'Prix croissant', sPd:'Prix décroissant', sAd:'Surface décroissante', reset:'Réinitialiser',
+      cTipo:'Type', cTip:'Typo.', cPreco:'Prix', cArea:'Surface', see:'Voir le bien', mapLabel:'Carte stylisée des biens', mapNote:'Carte schématique — sans échelle',
+      emptyT:'Aucun bien ne correspond.', emptyP:'Élargissez le prix ou la localité — ou réinitialisez les filtres.',
+      empK:'États', empX:'Programmes neufs et en cours, par état.', units:'lots', empNote:'Contenu à fournir par Imonovo — [LISTE DES PROGRAMMES]. Les filtres d’état fonctionnent déjà.',
+      unfav:'Retirer des favoris', fav:'Ajouter aux favoris', red:'Prix réduit', res1:'résultat', resN:'résultats'
+    } : {
+      word:'Carteira', upd:'Índice · PT / FR', intro:'Seis imóveis, um índice. Filtre por tipo, tipologia, preço e localidade — em lista, grelha ou no mapa.',
+      legend:'Leitura', legendP:'Fotografias a preto e branco: passe o cursor para ver a cor. O coração guarda nos favoritos.',
+      filters:'Filtros', fType:'Tipo', fTip:'Tipologia', fMax:'Preço máx.', fLoc:'Localidade', fSort:'Ordenar', all:'Todas',
+      sRec:'Mais recentes', sPa:'Preço crescente', sPd:'Preço decrescente', sAd:'Área decrescente', reset:'Limpar filtros',
+      cTipo:'Tipo', cTip:'Tipol.', cPreco:'Preço', cArea:'Área', see:'Ver imóvel', mapLabel:'Mapa estilizado dos imóveis', mapNote:'Mapa esquemático — sem escala',
+      emptyT:'Nenhum imóvel corresponde.', emptyP:'Alargue o preço ou a localidade — ou limpe os filtros.',
+      empK:'Estados', empX:'Empreendimentos novos e em curso, por estado.', units:'frações', empNote:'Conteúdo a fornecer pela Imonovo — [LISTA DE EMPREENDIMENTOS]. Os filtros de estado já funcionam.',
+      unfav:'Remover dos favoritos', fav:'Adicionar aos favoritos', red:'Preço reduzido', res1:'resultado', resN:'resultados'
+    };
+    const pad = x => (x < 10 ? '0' : '') + x;
+    const fmt = x => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+    const P = [
+      { id:1, cat:'moradia', tip:'T5', loc:'Nadadouro', area:301, price:1380000, img:'/_blob/3cf659bed43e5ca778d0f3df7c56486b' },
+      { id:2, cat:'moradia', tip:'T3', loc:'Serra do Bouro', area:177, price:645000, img:'/_blob/5619f2a66d4edbff5e027d591b3dd193' },
+      { id:3, cat:'moradia', tip:'T3', loc:'Caldas da Rainha', area:195, price:780000, img:'/_blob/ff34c1294cc844b14c6b7026e0b4ff6f' },
+      { id:4, cat:'moradia', tip:'T3', loc:'Caldas da Rainha', area:131, price:670000, img:'/_blob/6c143c21f750eba585c1cabb58394f4c' },
+      { id:5, cat:'moradia', tip:'T3', loc:'Nadadouro', area:183, price:650000, img:'/_blob/c6771783e0f22c17c5c3511093eb4339', reduced:true },
+      { id:6, cat:'apartamento', tip:'T3', loc:'Caldas da Rainha', area:94, price:344000, img:'/_blob/20e15a9994c85d55758735e1e0def5de' }
+    ];
+    const geo = { 'Nadadouro':[38,60], 'Serra do Bouro':[41,50], 'Caldas da Rainha':[53,73] };
+    const typeName = c => fr ? (c === 'moradia' ? 'Maison' : 'Appartement') : (c === 'moradia' ? 'Moradia' : 'Apartamento');
+    const deco = (p, i) => {
+      const on = s.favs.indexOf(p.id) > -1;
+      const title = typeName(p.cat) + ' ' + p.tip;
+      return Object.assign({}, p, {
+        no: pad(p.id), title: title, priceF: fmt(p.price), areaF: p.area + ' m²',
+        aria: title + ', ' + p.loc + ', ' + p.area + ' m², ' + fmt(p.price),
+        alt: title + ' — ' + p.loc + ' (foto ilustrativa)', reduced: !!p.reduced, redLabel: t.red,
+        heartFill: on ? 'currentColor' : 'none', favPr: on ? 'true' : 'false', favLabel: (on ? t.unfav : t.fav) + ' — ' + title + ', ' + p.loc,
+        delay: 'animation-delay:' + (i * 0.07).toFixed(2) + 's',
+        toggle: () => { const f = this.state.favs; this.setState({ favs: f.indexOf(p.id) > -1 ? f.filter(x => x !== p.id) : f.concat(p.id) }); }
+      });
+    };
+    const tipOk = p => s.fTip === 'todas' || (s.fTip === 'T5+' ? parseInt(p.tip.slice(1), 10) >= 5 : p.tip === s.fTip);
+    const match = (p, ign) => (ign === 'type' || s.fType === 'todos' || p.cat === s.fType) && tipOk(p) && p.price <= s.fMax && (s.fLoc === 'todas' || p.loc === s.fLoc);
+    const sorters = { recentes:(a,b)=>a.id-b.id, pa:(a,b)=>a.price-b.price, pd:(a,b)=>b.price-a.price, ad:(a,b)=>b.area-a.area };
+    const raw = P.filter(p => match(p)).sort(sorters[s.sort] || sorters.recentes);
+    const list = raw.map(deco);
+    const typeDefs = fr ? [['todos','Tous'],['moradia','Maisons'],['apartamento','Appartements'],['terreno','Terrains']] : [['todos','Todos'],['moradia','Moradias'],['apartamento','Apartamentos'],['terreno','Terrenos']];
+    const types = typeDefs.map(d => ({ label:d[1], cnt: pad(P.filter(p => (d[0] === 'todos' || p.cat === d[0])).length), st: s.fType === d[0] ? ON : OFF, pr: s.fType === d[0] ? 'true' : 'false', pick: () => this.setState({ fType: d[0] }) }));
+    const tips = [['todas', fr ? 'Toutes' : 'Todas'],['T1','T1'],['T2','T2'],['T3','T3'],['T4','T4'],['T5+','T5+']].map(d => ({ label:d[1], st: s.fTip === d[0] ? ON : OFF, pr: s.fTip === d[0] ? 'true' : 'false', pick: () => this.setState({ fTip: d[0] }) }));
+    const viewDefs = fr ? [['index','Index'],['grid','Grille'],['map','Carte']] : [['index','Índice'],['grid','Grelha'],['map','Mapa']];
+    const views = viewDefs.map(d => ({ label:d[1], st: s.view === d[0] ? ON : OFF, pr: s.view === d[0] ? 'true' : 'false', pick: () => this.setState({ view: d[0] }) }));
+    const cnt = list.length;
+    const resCount = pad(cnt);
+    const curRaw = list.filter(p => p.id === s.sel)[0] || list[0] || deco(P[0], 0);
+    const seen = {};
+    const pins = list.map(p => {
+      const g = geo[p.loc]; const k = seen[p.loc] || 0; seen[p.loc] = k + 1;
+      const x = g[0] + k * 4.2, y = g[1];
+      const isSel = p.id === curRaw.id;
+      return { no: p.no, isSel: isSel, selPr: isSel ? 'true' : 'false', aria: p.aria,
+        pinSt: 'left:' + x + '%;top:' + y + '%;' + (isSel ? 'background:#D6B083;color:#0E0E0D;z-index:5' : ''),
+        pulseSt: 'left:' + x + '%;top:' + y + '%',
+        select: () => this.setState({ sel: p.id }) };
+    });
+    const word = t.word.toUpperCase();
+    const letters = word.split('').map((ch, i) => ({ ch: ch, st: 'animation-delay:' + (0.05 + i * 0.07).toFixed(2) + 's' }));
+    const stDefs = fr
+      ? [['todos','Tous'],['novo','Neuf'],['usado','Ancien'],['obra','En construction'],['recuperar','À rénover'],['renovado','Rénové'],['projeto','En projet']]
+      : [['todos','Todos'],['novo','Novo'],['usado','Usado'],['obra','Em construção'],['recuperar','Para recuperar'],['renovado','Renovado'],['projeto','Em projeto']];
+    const stLabel = {}; stDefs.forEach(d => { stLabel[d[0]] = d[1]; });
+    const states = stDefs.map(d => ({ label:d[1], st: s.emp === d[0] ? ON : OFF, pr: s.emp === d[0] ? 'true' : 'false', pick: () => this.setState({ emp: d[0] }) }));
+    const E = [
+      ['novo','/_blob/e9b5697a63b5c0818b3655c243dee632'], ['usado','/_blob/0f0ec96be62eca61ccacfeb37b3d5c9f'], ['obra','/_blob/b1d11c5ba1386a68d24d93c6d30f0934'],
+      ['recuperar','/_blob/1edd01da763cd1e8d147c50943422e23'], ['renovado','/_blob/6f84d1d8fb1ddd20b230dabfee258702'], ['projeto','/_blob/6eda0c3a0fe7495d8d0db4629fa591d8']
+    ];
+    const emps = E.map((e, i) => ({ key:e[0], img:e[1], no: pad(i + 1), name: '[' + (fr ? 'PROGRAMME' : 'EMPREENDIMENTO') + ' ' + String.fromCharCode(65 + i) + ']', state: stLabel[e[0]] }))
+      .filter(e => s.emp === 'todos' || e.key === s.emp)
+      .map((e, i) => Object.assign(e, { delay: 'animation-delay:' + (i * 0.06).toFixed(2) + 's' }));
+    const fc = s.favs.length;
+    return {
+      n: n, t: t,
+      showGrid: !(this.props && this.props.showGrid === false),
+      ptStyle: fr ? OFF : ON, frStyle: fr ? ON : OFF, ptPressed: fr ? 'false' : 'true', frPressed: fr ? 'true' : 'false',
+      setPT: () => this.setState({ lang:'pt' }), setFR: () => this.setState({ lang:'fr' }),
+      favCount: pad(fc), favAria: (fr ? 'Favoris : ' : 'Favoritos: ') + fc, favStyle: fc ? 'background:#D6B083;border-color:#D6B083' : '',
+      menuOpen: s.menu, menuAria: s.menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      letters: letters, wordSt: fr ? 'font-size:clamp(34px,9.6cqw,140px)' : 'font-size:clamp(44px,13.2cqw,190px)',
+      digits: resCount.split('').map((ch, i) => ({ st: '--n:' + ch + ';animation-delay:' + (0.4 + i * 0.15).toFixed(2) + 's' })),
+      resCount: resCount, resLabel: cnt === 1 ? t.res1 : t.resN,
+      types: types, tips: tips, views: views,
+      fMax: s.fMax, maxF: (fr ? 'jusqu’à ' : 'até ') + fmt(s.fMax), setMax: e => this.setState({ fMax: +e.target.value }),
+      fLoc: s.fLoc, setLoc: e => this.setState({ fLoc: e.target.value }),
+      sort: s.sort, setSort: e => this.setState({ sort: e.target.value }),
+      reset: () => this.setState({ fType:'todos', fTip:'todas', fMax:1500000, fLoc:'todas', sort:'recentes' }),
+      list: list, isEmpty: cnt === 0,
+      showIdx: cnt > 0 && s.view === 'index', showGrd: cnt > 0 && s.view === 'grid', showMap: cnt > 0 && s.view === 'map',
+      pins: pins, cur: curRaw,
+      states: states, emps: emps
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Imonovo — 5 propostas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&amp;family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Figtree:wght@400;500;600&amp;family=Gloock&amp;family=Instrument+Serif:ital@0;1&amp;family=Italiana&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#E9E6DF}
+a{color:#141412}a:hover{color:#6B5530}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes mask{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.rise{animation:rise 1s cubic-bezier(.2,.7,.1,1) both}
+.mask{animation:mask 1.1s cubic-bezier(.7,0,.2,1) both}
+.zoom{animation:zoom 2.4s cubic-bezier(.2,.7,.1,1) both}
+.dir{transition:background .4s ease,color .4s ease,padding .4s ease}
+.dir:hover{background:#DDD8CE}
+.dir:focus-visible,.card:focus-visible,.pg:focus-visible{outline:2px solid #6B5530;outline-offset:3px}
+.card img{transition:transform 1.2s cubic-bezier(.2,.7,.1,1),filter .6s}
+.card:hover img{transform:scale(1.06)}
+.card .arr{transition:transform .5s}
+.card:hover .arr{transform:translate(4px,-4px)}
+.pg{transition:background .3s,color .3s}
+.pg:hover{background:rgba(255,255,255,.14)}
+@media (max-width:860px){.split{flex-direction:column}.big{font-size:56px !important}}
+</style>
+</helmet>
+<div style="font-family:'Figtree',system-ui,sans-serif;color:#141412;background:#E9E6DF;min-height:1700px">
+  <div style="max-width:1320px;margin:0 auto;padding:40px 40px 96px;display:flex;flex-direction:column;gap:56px">
+    <header style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;letter-spacing:.16em;text-transform:uppercase">
+      <span style="display:flex;align-items:center;gap:12px"><span style="width:10px;height:10px;border-radius:50%;background:#D6B083;display:inline-block"></span>Imonovo · Proposta de redesign</span>
+      <span style="color:#57534C">imonovo.pt · Caldas da Rainha · Outubro 2026</span>
+    </header>
+
+    <section style="display:flex;flex-direction:column;gap:20px">
+      <h1 class="big mask" style="margin:0;font-family:'Bodoni Moda',serif;font-weight:400;font-size:112px;line-height:.95;letter-spacing:-.02em">Cinco direções <span style="font-style:italic;color:#8A6A3B">para um novo</span> imonovo.pt</h1>
+      <p class="rise" style="margin:0;max-width:760px;font-size:18px;line-height:1.6;color:#45423C;animation-delay:.3s">Cada proposta redesenha o site completo — início, pesquisa de imóveis, ficha de imóvel, avaliação para vender, serviços e contactos — com conteúdos reais da agência e interações a funcionar. Escolha uma direção para a pré-visualizar, depois abra-a em modo Play.</p>
+    </section>
+
+    <section class="split" style="display:flex;gap:40px;align-items:stretch">
+      <nav aria-label="Direções" style="flex:0 0 380px;display:flex;flex-direction:column;border-top:1px solid #C9C3B6">
+        <sc-for list="{{ dirs }}" as="d" hint-placeholder-count="5">
+          <button type="button" class="dir" onClick="{{ d.pick }}" style="{{ d.rowStyle }}">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6B6558;padding-top:6px">0{{ d.n }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px;text-align:left">
+              <span style="{{ d.nameStyle }}">{{ d.name }}</span>
+              <span style="font-size:14px;line-height:1.45;color:#57534C">{{ d.tag }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </nav>
+
+      <article style="{{ cur.panelStyle }}">
+        <div style="position:relative;height:440px;overflow:hidden">
+          <img class="zoom" src="{{ cur.img }}" alt="{{ cur.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div style="{{ cur.veilStyle }}"></div>
+          <div style="position:absolute;left:40px;right:40px;bottom:32px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+            <h2 style="{{ cur.titleStyle }}">{{ cur.name }}</h2>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F4F1EA">Proposta 0{{ cur.n }} / 05</span>
+          </div>
+        </div>
+        <div style="padding:36px 40px 40px;display:flex;flex-direction:column;gap:28px">
+          <p style="margin:0;font-size:17px;line-height:1.6;max-width:640px">{{ cur.desc }}</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:24px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Paleta</span>
+              <div style="display:flex;gap:8px">
+                <sc-for list="{{ cur.swatches }}" as="s" hint-placeholder-count="4">
+                  <span style="{{ s.style }}" title="{{ s.hex }}"></span>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Tipografia</span>
+              <span style="font-size:15px">{{ cur.fonts }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Momento-assinatura</span>
+              <span style="font-size:15px;line-height:1.5">{{ cur.moment }}</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ cur.pages }}" as="p" hint-placeholder-count="6">
+              <a class="pg" href="{{ p.href }}" style="{{ cur.pillStyle }}">{{ p.label }}</a>
+            </sc-for>
+          </div>
+          <a href="{{ cur.home }}" style="{{ cur.ctaStyle }}">Abrir a proposta {{ cur.name }}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:24px">
+      <h2 style="margin:0;font-family:'Bodoni Moda',serif;font-weight:400;font-size:44px">As cinco, lado a lado</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:16px">
+        <sc-for list="{{ dirs }}" as="d" hint-placeholder-count="5">
+          <a class="card" href="{{ d.home }}" style="display:flex;flex-direction:column;gap:14px;text-decoration:none;color:#141412">
+            <span style="display:block;height:300px;overflow:hidden;position:relative;background:#CFC9BD">
+              <img src="{{ d.img }}" alt="{{ d.alt }}" style="width:100%;height:100%;object-fit:cover;display:block">
+              <span style="{{ d.chipStyle }}">0{{ d.n }}</span>
+            </span>
+            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="{{ d.nameStyle }}">{{ d.name }}</span>
+              <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+            </span>
+            <span style="font-size:14px;line-height:1.45;color:#57534C">{{ d.tag }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <footer style="border-top:1px solid #C9C3B6;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#57534C">
+      <span>Conceitos de redesign — não é o site oficial. Imonovo é uma marca de MAJBI Lda · AMI 10355.</span>
+      <span>Fotografias ilustrativas · conteúdos e imóveis retirados de imonovo.pt</span>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 0 }; }
+  renderVals() {
+    const P = (k) => [['Início', 'Home'], ['Imóveis', 'Imoveis'], ['Imóvel T5', 'Imovel'], ['Vender', 'Vender'], ['Serviços', 'Servicos'], ['Contactos', 'Contactos']].map(([label, f]) => ({ label, href: k + '-' + f + '.dc.html' }));
+    const D = [
+      { n: 1, k: 'Atlantico', name: 'Atlântico', font: "'Bodoni Moda',serif", italic: true, tag: 'Cinematográfico e noturno: o oceano da Costa de Prata em grande ecrã.', desc: 'Um site como um filme: falésias da Nazaré em movimento lento, a palavra IMONOVO gigante sobre a imagem, capítulos numerados e uma faixa de imóveis que se percorre como uma película. Para vender emoção e paisagem.', img: '/_blob/3bbaf656c2de244d990c6b5d952c5c6e', alt: 'Praia da Nazaré ao pôr do sol', bg: '#0A1518', fg: '#E8E4DA', accent: '#D6B083', sw: ['#0A1518', '#0F2126', '#E8E4DA', '#D6B083'], fonts: 'Bodoni Moda · Manrope', moment: 'Hero em Ken Burns com o logótipo gigante e revelação linha a linha.' },
+      { n: 2, k: 'Lagoa', name: 'Lagoa', font: "'Instrument Serif',serif", italic: true, tag: 'Luz, cal e arcos: a calma da Lagoa de Óbidos.', desc: 'Paredes caiadas, linho e a água da lagoa. Fotografias recortadas em arco, grelhas suaves e muito ar: um boutique-hotel do imobiliário, acolhedor para quem chega de fora.', img: '/_blob/06872540b36e2aff9a8cde1cbe60e41e', alt: 'Vista aérea da lagoa e do mar', bg: '#F5F1E8', fg: '#1E2A28', accent: '#2D6A64', sw: ['#F5F1E8', '#E7DCC8', '#2D6A64', '#D6B083'], fonts: 'Instrument Serif · Figtree', moment: 'Fotografia em arco a flutuar, ladeada por arcos menores.' },
+      { n: 3, k: 'Caldas', name: 'Caldas', font: "'Archivo',sans-serif", stretch: true, tag: 'Tipografia cinética e índice de arquiteto, em preto, osso e ouro.', desc: 'Uma linguagem de estúdio de arquitetura: grelha de 12 colunas, letras expandidas que entram em cascata, imóveis listados como um índice que revela a foto ao passar o rato. Ousado e memorável.', img: '/_blob/ff34c1294cc844b14c6b7026e0b4ff6f', alt: 'Moradia moderna branca com piscina', bg: '#ECEAE4', fg: '#0E0E0D', accent: '#D6B083', sw: ['#ECEAE4', '#0E0E0D', '#5A5852', '#D6B083'], fonts: 'Archivo Expanded · JetBrains Mono', moment: 'Logótipo IMONOVO letra a letra e índice com revelação de imagem.' },
+      { n: 4, k: 'Azulejo', name: 'Azulejo', font: "'Gloock',serif", tag: 'Revista de artesanato português: cobalto, cal e telha de Óbidos.', desc: 'O site como uma revista de viagem e estilo de vida: capa de edição, molduras de azulejo, colagens, citações e um selo rotativo de avaliação gratuita. Orgulhosamente local, quente e artístico.', img: '/_blob/98172db190b8f34b86e979f508b1f228', alt: 'Fachada branca e azul cobalto em Óbidos', bg: '#F7F3EA', fg: '#142A66', accent: '#B5552F', sw: ['#F7F3EA', '#1E3A8A', '#B5552F', '#D6B083'], fonts: 'Gloock · Work Sans', moment: 'Capa de revista com moldura de azulejo e selo rotativo.' },
+      { n: 5, k: 'Noir', name: 'Noir Concierge', font: "'Italiana',serif", tag: 'Escritório privado, preto e champanhe, por marcação.', desc: 'A Imonovo como concierge imobiliário privado para compradores internacionais: comprar, acompanhamento e conciergerie numa só jornada. Muito negro, linhas de ouro, um holofote que revela a villa.', img: '/_blob/3cf659bed43e5ca778d0f3df7c56486b', alt: 'Piscina infinita sobre o mar', bg: '#070707', fg: '#F2EDE4', accent: '#D6B083', sw: ['#070707', '#121212', '#F2EDE4', '#D6B083'], fonts: 'Italiana · Jost', moment: 'Holofote animado que revela a villa e linha de ouro que se desenha.' },
+    ];
+    const sel = this.state.sel;
+    const dark = (d) => d.bg === '#0A1518' || d.bg === '#070707';
+    const dirs = D.map((d, i) => ({
+      ...d, home: d.k + '-Home.dc.html',
+      pick: () => this.setState({ sel: i }),
+      rowStyle: 'display:flex;gap:18px;align-items:flex-start;width:100%;min-height:44px;padding:22px ' + (i === sel ? '20px' : '8px') + ';border:0;border-bottom:1px solid #C9C3B6;cursor:pointer;font:inherit;color:#141412;background:' + (i === sel ? '#DDD8CE' : 'transparent'),
+      nameStyle: 'font-family:' + d.font + ';font-size:' + (d.stretch ? '22px;font-stretch:125%;font-weight:700;text-transform:uppercase' : '30px') + ';line-height:1.1' + (d.italic ? ';font-style:italic' : ''),
+      chipStyle: 'position:absolute;top:12px;left:12px;font-family:JetBrains Mono,monospace;font-size:11px;padding:6px 9px;background:' + d.bg + ';color:' + d.fg,
+    }));
+    const c = D[sel];
+    const onDark = dark(c);
+    const cur = {
+      ...c, home: c.k + '-Home.dc.html', pages: P(c.k),
+      swatches: c.sw.map((h) => ({ hex: h, style: 'width:40px;height:40px;border-radius:50%;background:' + h + ';border:1px solid ' + (onDark ? 'rgba(255,255,255,.25)' : 'rgba(0,0,0,.15)') })),
+      panelStyle: 'flex:999 1 560px;min-width:0;display:flex;flex-direction:column;background:' + c.bg + ';color:' + c.fg + ';transition:background .6s,color .6s',
+      veilStyle: 'position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.62) 100%)',
+      titleStyle: 'margin:0;color:#F4F1EA;font-weight:400;font-family:' + c.font + ';font-size:' + (c.stretch ? '64px;font-stretch:125%;font-weight:800;text-transform:uppercase' : '88px') + ';line-height:.95' + (c.italic ? ';font-style:italic' : ''),
+      pillStyle: 'display:inline-flex;align-items:center;min-height:44px;padding:0 16px;font-size:14px;text-decoration:none;color:' + c.fg + ';border:1px solid ' + (onDark ? 'rgba(232,228,218,.3)' : 'rgba(20,20,18,.22)') + ';border-radius:999px',
+      ctaStyle: 'align-self:flex-start;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;font-size:15px;font-weight:600;text-decoration:none;border-radius:999px;background:' + (onDark ? '#D6B083' : c.accent) + ';color:' + (onDark || c.accent === '#D6B083' ? '#141412' : '#FFFFFF'),
+    };
+    return { dirs, cur };
+  }
+}
+</script>
+</body>
+</html>
